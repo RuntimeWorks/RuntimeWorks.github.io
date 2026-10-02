@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Food Safety Logbook for Atlantic Canada Food Businesses · Boldsand</title>
+<meta name="description" content="Swap the clipboard for a simple phone checklist. Temperatures, cleaning and deliveries logged on time, records ready when the inspector walks in. Set up for you by a local Charlottetown developer.">
+<link rel="canonical" href="https://boldsand.com/food-safety/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Inspection-ready, every shift · Boldsand Food Safety Logbook">
+<meta property="og:description" content="Food safety records for restaurants, bakeries, caterers, grocers and licensed processors in Atlantic Canada. Free 20-minute records check.">
+<meta property="og:url" content="https://boldsand.com/food-safety/">
+<meta property="og:locale" content="en_CA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='9' fill='%2317150F'/%3E%3Cpath d='M18 33l9 9 19-21' fill='none' stroke='%23F1E9D8' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Boldsand Food Safety Logbook",
+  "serviceType": "Food safety record-keeping software and setup",
+  "areaServed": ["Prince Edward Island", "Nova Scotia", "New Brunswick", "Newfoundland and Labrador", "Canada"],
+  "provider": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/",
+    "email": "deya@boldsand.com",
+    "telephone": "+1-902-316-2316",
+    "address": {"@type": "PostalAddress", "addressLocality": "Charlottetown", "addressRegion": "PE", "addressCountry": "CA"}
+  }
+}
+</script>
+<style>
+@font-face{font-family:"Archivo";src:url(fonts/archivo-vf.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(fonts/schibsted-vf.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Caveat";src:url(fonts/caveat-vf.woff2) format("woff2");font-weight:400 700;font-display:swap}
+
+:root{
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#6E6754;
+  --rule:#B4C8D5; --margin:#D2614A; --pass:#1D6A45; --pass-2:#E1EDE3; --danger:#B3361C;
+  --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --hand:"Caveat","Bradley Hand",cursive;
+  --wrap:1120px; --gut:clamp(16px,4.5vw,40px); --radius:6px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font:400 17px/1.6 var(--body);font-feature-settings:"ss01";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:3px}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.mono{font-family:var(--mono)}
+.label{font:500 12px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--sand);padding:10px 14px;z-index:99}
+.skip:focus{left:8px}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--sand) 88%,transparent);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(23,21,15,.12)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font:800 17px/1 var(--display);font-stretch:125%;letter-spacing:.04em}
+.brand span{font:500 10.5px/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid rgba(23,21,15,.25);padding-left:10px}
+.top .call{font:600 14px/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1.5px solid var(--ink);border-radius:999px;white-space:nowrap}
+.top .call:hover{background:var(--ink);color:var(--sand)}
+@media (max-width:520px){.brand span{display:none}.top .call .n{display:none}.ctas .btn{flex:1 1 100%}}
+@media (max-width:900px){.hero-copy{padding-top:18px}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:var(--radius);font:700 16px/1 var(--body);text-decoration:none;border:2px solid var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pass)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--paper)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(36px,7vw,88px) 0 clamp(48px,8vw,104px);position:relative}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"top top" "copy sheet";column-gap:clamp(32px,6vw,80px);row-gap:clamp(8px,2vw,24px);align-items:start}
+.hero-top{grid-area:top}.hero-copy{grid-area:copy;padding-top:clamp(4px,1.5vw,18px)}.sheet-wrap{grid-area:sheet}
+.kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 22px}
+.kicker i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2)}
+h1{font:800 clamp(44px,8.9vw,110px)/.9 var(--display);font-stretch:112%;letter-spacing:-.025em;margin:0}
+@media (max-width:600px){h1{font-size:clamp(40px,12.6vw,64px);font-stretch:100%;line-height:.94}}
+h1 .u{position:relative;white-space:nowrap}
+h1 .u::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.16em;background:var(--pass);opacity:.9;transform:skewX(-12deg) scaleX(0);transform-origin:left;animation:mark .7s .9s cubic-bezier(.2,.8,.2,1) forwards;z-index:-1}
+@keyframes mark{to{transform:skewX(-12deg) scaleX(1)}}
+.lede{font-size:clamp(18px,2.1vw,21px);line-height:1.5;color:var(--ink-2);max-width:34em;margin:0 0 30px}
+.lede strong{color:var(--ink);font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+.assure{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none;font:500 13px/1.3 var(--mono);color:var(--ink-2)}
+.assure li{display:flex;align-items:center;gap:8px}
+.assure svg{width:16px;height:16px;color:var(--pass)}
+
+/* ---------- the log sheet ---------- */
+.sheet-wrap{position:relative;perspective:1200px}
+.sheet{position:relative;background:var(--paper);border-radius:4px;padding:26px 22px 30px 64px;transform:rotate(1.6deg);
+  box-shadow:0 1px 0 rgba(23,21,15,.06),0 22px 40px -18px rgba(23,21,15,.45),0 50px 80px -40px rgba(23,21,15,.35);
+  background-image:linear-gradient(90deg,transparent 46px,var(--margin) 46px,var(--margin) 47.5px,transparent 47.5px)}
+.sheet::before{content:"";position:absolute;left:16px;top:30px;bottom:30px;width:14px;
+  background:radial-gradient(circle at 7px 7px,var(--sand-2) 0 6px,transparent 6.5px) 0 0/14px 33.33% repeat-y;opacity:.95}
+.sheet-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:6px}
+.sheet-head h2{font:800 15px/1.1 var(--display);font-stretch:125%;letter-spacing:.06em;margin:0;text-transform:uppercase}
+.sheet-head .label{font-size:10.5px}
+.log{width:100%;border-collapse:collapse;font:500 13.5px/1 var(--mono)}
+.log th{font:500 10px/1 var(--mono);letter-spacing:.12em;color:var(--ink-3);text-align:left;padding:10px 6px 8px;text-transform:uppercase}
+.log td{height:40px;padding:0 6px;white-space:nowrap;border-bottom:1px solid var(--rule)}
+.log thead th{border-bottom:0}
+.log td.t{color:var(--ink-3)}
+.log td.v{font-weight:600}
+.log td.ok{width:28px}
+.log td.in{font:600 22px/1 var(--hand);color:#1F3A8A;width:46px}
+.log tr.row{opacity:0;transform:translateY(6px);animation:row .45s cubic-bezier(.2,.8,.2,1) forwards}
+.log tr.row:nth-child(1){animation-delay:.25s}.log tr.row:nth-child(2){animation-delay:.55s}.log tr.row:nth-child(3){animation-delay:.85s}
+.log tr.row:nth-child(4){animation-delay:1.15s}.log tr.row:nth-child(5){animation-delay:1.45s}.log tr.row:nth-child(6){animation-delay:1.8s}.log tr.row:nth-child(7){animation-delay:2.1s}
+@keyframes row{to{opacity:1;transform:none}}
+.chk{width:20px;height:20px;color:var(--pass)}
+.chk path{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .35s ease forwards}
+.log tr.row:nth-child(1) .chk path{animation-delay:.55s}.log tr.row:nth-child(2) .chk path{animation-delay:.85s}.log tr.row:nth-child(3) .chk path{animation-delay:1.15s}
+.log tr.row:nth-child(4) .chk path{animation-delay:1.45s}.log tr.row:nth-child(7) .chk path{animation-delay:2.4s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fix{color:var(--danger)}
+.log tr.note td{height:40px;font:600 21px/1 var(--hand);color:var(--danger);white-space:normal;padding-left:2px}
+.warn{width:20px;height:20px;color:var(--danger)}
+.sheet-foot{display:flex;justify-content:flex-start;align-items:center;margin-top:16px;gap:16px;flex-wrap:wrap;padding-right:120px}
+.sheet-foot .label{font-size:10px}
+.pdf{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--mono);background:var(--ink);color:var(--paper);padding:9px 12px;border-radius:4px}
+.pdf svg{width:14px;height:14px}
+.stamp{position:absolute;right:-34px;bottom:-92px;width:168px;height:168px;border-radius:50%;color:var(--pass);display:grid;place-items:center;
+  transform:rotate(-14deg) scale(2.2);opacity:0;animation:stamp .38s 2.7s cubic-bezier(.3,1.6,.5,1) forwards;mix-blend-mode:multiply;pointer-events:none}
+.stamp svg{width:100%;height:100%}
+@keyframes stamp{60%{opacity:.92}to{opacity:.88;transform:rotate(-14deg) scale(1)}}
+.zone{margin-top:26px;max-width:calc(100% - 160px);display:flex;gap:10px;align-items:flex-start;font:500 12.5px/1.45 var(--mono);color:var(--ink-2);transform:rotate(1.6deg);padding-left:6px}
+.zone b{color:var(--danger);font-weight:600}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "copy" "sheet"}
+  .sheet-wrap{max-width:560px;width:100%;margin:6px auto 0}
+  .stamp{width:140px;height:140px;right:-10px;bottom:-50px}
+}
+@media (max-width:440px){
+  .sheet{padding:20px 12px 24px 50px;background-image:linear-gradient(90deg,transparent 36px,var(--margin) 36px,var(--margin) 37.5px,transparent 37.5px)}
+  .sheet::before{left:10px}
+  .log{font-size:12px}.log td{height:36px;padding:0 4px}.log th{padding:9px 4px 7px}
+  .log .unit-long{display:none}
+  .stamp{width:118px;height:118px;right:-6px;bottom:-46px}
+  .zone{max-width:calc(100% - 112px)}
+}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(18px,5vw,64px);align-items:end;margin-bottom:clamp(30px,5vw,56px)}
+h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;letter-spacing:-.015em;margin:12px 0 0}
+.sec-head p{margin:0;color:var(--ink-2);font-size:clamp(17px,1.8vw,19px);max-width:36em}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr}}
+
+/* clipboard vs logbook */
+.versus{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.versus > div{padding:clamp(22px,3vw,34px)}
+.versus .before{background:repeating-linear-gradient(180deg,transparent 0 33px,rgba(180,200,213,.55) 33px 34px),var(--paper)}
+.versus .after{background:var(--ink);color:var(--sand)}
+.versus h3{font:800 20px/1.1 var(--display);font-stretch:125%;letter-spacing:.03em;text-transform:uppercase;margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.versus h3 .label{color:inherit;opacity:.65}
+.versus ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.versus li{display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;font-size:16.5px;line-height:1.45}
+.versus li svg{width:22px;height:22px;margin-top:1px}
+.before li svg{color:var(--danger)}
+.after li svg{color:#7FD1A2}
+.after li{color:#EDE5D3}
+@media (max-width:760px){.versus{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+.step{padding:28px clamp(16px,2.4vw,30px) 8px 0;position:relative}
+.step + .step{padding-left:clamp(16px,2.4vw,30px);border-left:1px dashed rgba(23,21,15,.35)}
+.step .num{font:800 64px/1 var(--display);font-stretch:125%;color:transparent;-webkit-text-stroke:1.5px var(--ink);margin:6px 0 14px}
+.step h3{font:700 22px/1.2 var(--body);margin:0 0 10px;letter-spacing:-.005em}
+.step p{margin:0;color:var(--ink-2)}
+@media (max-width:820px){.steps{grid-template-columns:1fr}.step + .step{padding-left:0;border-left:0;border-top:1px dashed rgba(23,21,15,.35)}}
+
+/* chips */
+.track{background:var(--sand-2);border-block:2px solid var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:0;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:11px 18px 11px 14px;font:600 15.5px/1.2 var(--body)}
+.chips li .label{font-size:10.5px;color:var(--pass);letter-spacing:.1em}
+.chips li svg{width:18px;height:18px;color:var(--pass)}
+
+/* who */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,28px)}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:clamp(24px,3vw,36px);position:relative;box-shadow:6px 6px 0 var(--ink)}
+.card .tag{position:absolute;top:-13px;left:22px;background:var(--sand);padding:4px 10px;border:1.5px solid var(--ink);border-radius:999px}
+.card h3{font:800 26px/1.05 var(--display);font-stretch:112%;margin:8px 0 12px}
+.card p{margin:0 0 16px;color:var(--ink-2)}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font:500 14.5px/1.45 var(--mono)}
+.card li{display:flex;gap:10px}
+.card li::before{content:"—";color:var(--pass);font-weight:600}
+@media (max-width:760px){.who{grid-template-columns:1fr;gap:30px}}
+
+/* pilot */
+.pilot{background:var(--ink) var(--grain);color:var(--sand);overflow:hidden}
+.pilot .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,80px);align-items:center}
+.pilot .label{color:#9AD3B1}
+.pilot h2{font:800 clamp(34px,5vw,64px)/.95 var(--display);font-stretch:118%;margin:14px 0 22px;letter-spacing:-.015em}
+.pilot p{color:#D9D0BC;max-width:34em;margin:0 0 26px;font-size:18px}
+.pilot ul{list-style:none;margin:0 0 32px;padding:0;display:grid;gap:14px}
+.pilot li{display:grid;grid-template-columns:28px 1fr;gap:12px;font-size:17px;line-height:1.45;color:#EFE7D6}
+.pilot li svg{width:22px;height:22px;color:#7FD1A2;margin-top:2px}
+.pilot .btn-primary{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.seats{background:#211E16;border:1px solid #3A3528;border-radius:8px;padding:26px}
+.seats .label{display:block;margin-bottom:16px}
+.seat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.seat{aspect-ratio:1;border:1.5px dashed #6A6250;border-radius:6px;display:grid;place-items:center;font:600 14px/1 var(--mono);color:#8D846E}
+.seats p{font:500 13px/1.5 var(--mono);color:#B3AA94;margin:18px 0 0}
+@media (max-width:860px){.pilot .wrap{grid-template-columns:1fr}}
+
+/* check offer */
+.check{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);align-items:start;background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:clamp(24px,4vw,44px)}
+.check .clock{width:clamp(86px,12vw,128px);height:auto;color:var(--ink)}
+.check h3{font:800 clamp(26px,3.2vw,36px)/1.02 var(--display);font-stretch:112%;margin:6px 0 12px}
+.check p{margin:0 0 12px;color:var(--ink-2)}
+.check ol{margin:14px 0 0;padding:0;list-style:none;counter-reset:c;display:grid;gap:10px}
+.check ol li{counter-increment:c;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:baseline}
+.check ol li::before{content:counter(c,decimal-leading-zero);font:600 13px/1 var(--mono);color:var(--pass)}
+@media (max-width:620px){.check{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,44px);align-items:center;max-width:860px}
+.mono-badge{width:clamp(92px,12vw,124px);aspect-ratio:1;border-radius:50%;background:var(--ink);color:var(--sand);display:grid;place-items:center;font:800 clamp(30px,4vw,40px)/1 var(--display);font-stretch:125%;box-shadow:0 0 0 6px var(--sand),0 0 0 8px var(--ink)}
+.about p{margin:0 0 12px;font-size:clamp(18px,2vw,21px);line-height:1.5}
+.about .sig{font:600 34px/1 var(--hand);color:#1F3A8A;margin:4px 0 0}
+@media (max-width:560px){.about{grid-template-columns:1fr}}
+
+/* faq */
+.faq{border-top:2px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid rgba(23,21,15,.22)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 2px;font:700 19px/1.3 var(--body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+.faq details p{margin:0 0 22px;color:var(--ink-2);max-width:44em}
+
+/* contact */
+.contact{background:var(--sand-2);border-top:2px solid var(--ink)}
+.contact .wrap{text-align:center}
+.contact h2{font:800 clamp(36px,6vw,76px)/.95 var(--display);font-stretch:118%;letter-spacing:-.02em;margin:16px auto 18px;max-width:14ch}
+.contact p{color:var(--ink-2);max-width:34em;margin:0 auto 34px;font-size:19px}
+.phone{display:inline-block;font:800 clamp(30px,6.4vw,64px)/1 var(--display);font-stretch:112%;text-decoration:none;letter-spacing:-.01em;border-bottom:4px solid var(--pass);padding-bottom:6px;margin-bottom:30px}
+.contact .ctas{justify-content:center}
+
+/* footer */
+footer{background:var(--ink);color:#BDB39C;padding:44px 0 calc(44px + env(safe-area-inset-bottom));font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px}
+footer b{color:var(--sand);font:800 15px/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+footer p{margin:10px 0 0;line-height:1.55}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font:400 12.5px/1.6 var(--mono);color:#968D78}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* mobile action bar */
+.dock{display:none}
+@media (max-width:700px){
+  .dock{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(23,21,15,.18);transform:translateY(110%);transition:transform .3s ease}
+  .dock.show{transform:none}
+  .dock a{min-height:48px;font-size:15px}
+  footer{padding-bottom:calc(104px + env(safe-area-inset-bottom))}
+}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+@media print{.top,.dock,.ctas{display:none}body{background:#fff}}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h3l1.5 4.2-2 1.3a12 12 0 0 0 5.9 5.9l1.3-2 4.2 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v14H6z M14 2.5v5h5 M9 13h7 M9 17h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Boldsand food safety logbook, back to top">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span>Food safety<br>logbook</span>
+    </a>
+    <a class="call" href="tel:+19023162316"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg><span class="n">902-316-2316</span><span class="sr">Call Deya at</span></a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <p class="kicker label"><i></i>Food businesses · Atlantic Canada</p>
+      <h1>Inspection-ready, <span class="u">every shift.</span></h1>
+    </div>
+    <div class="hero-copy">
+      <p class="lede">Swap the clipboard for a quick checklist on your phone. Temperatures, cleaning and deliveries get logged <strong>on time, by the person who checked</strong>, and your records are ready the moment the inspector walks in. <strong>We set it all up for you.</strong></p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#check">Get a free records check</a>
+        <a class="btn btn-ghost" href="tel:+19023162316"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Deya</a>
+      </div>
+      <ul class="assure">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Set up for you</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Any phone or tablet</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Local, in Charlottetown</li>
+      </ul>
+    </div>
+
+    <div class="sheet-wrap" aria-hidden="true">
+      <div class="sheet">
+        <div class="sheet-head">
+          <h2>Daily log</h2>
+          <span class="label">Thu · Kitchen</span>
+        </div>
+        <table class="log">
+          <thead><tr><th>Time</th><th>Check</th><th>Reading</th><th></th><th>By</th></tr></thead>
+          <tbody>
+            <tr class="row"><td class="t">06:58</td><td>Walk-in <span class="unit-long">cooler</span></td><td class="v">3.1 °C</td><td class="ok"><svg class="chk" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="in">MB</td></tr>
+            <tr class="row"><td class="t">07:04</td><td>Freezer <span class="unit-long">no. 1</span></td><td class="v">−19.4 °C</td><td class="ok"><svg class="chk" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="in">MB</td></tr>
+            <tr class="row"><td class="t">09:40</td><td>Delivery <span class="unit-long">· dairy</span></td><td class="v">3.8 °C</td><td class="ok"><svg class="chk" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="in">JL</td></tr>
+            <tr class="row"><td class="t">11:30</td><td>Hot hold <span class="unit-long">· soup</span></td><td class="v">68 °C</td><td class="ok"><svg class="chk" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="in">JL</td></tr>
+            <tr class="row"><td class="t">14:10</td><td>Prep <span class="unit-long">fridge</span></td><td class="v fix">6.2 °C</td><td class="ok"><svg class="warn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.5" fill="currentColor"/></svg></td><td class="in">SA</td></tr>
+            <tr class="row note"><td></td><td colspan="4">→ moved stock to walk-in, recheck</td></tr>
+            <tr class="row"><td class="t">14:40</td><td>Prep <span class="unit-long">fridge</span></td><td class="v">3.6 °C</td><td class="ok"><svg class="chk" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="in">SA</td></tr>
+          </tbody>
+        </table>
+        <div class="sheet-foot">
+          <span class="label">6 checks · 1 fixed</span>
+          <span class="pdf"><svg aria-hidden="true"><use href="#i-doc"/></svg>Inspector report</span>
+        </div>
+        <div class="stamp">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="sc" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+            <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="5"/>
+            <circle cx="100" cy="100" r="84" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <text font-family="IBM Plex Mono, monospace" font-weight="600" font-size="15.5" letter-spacing="4.2" fill="currentColor"><textPath href="#sc" startOffset="2%">RECORDS COMPLETE · ON TIME · SIGNED ·</textPath></text>
+            <rect x="34" y="80" width="132" height="40" fill="currentColor"/>
+            <text x="100" y="108" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="25" letter-spacing="1.5" fill="#FCF8EF" style="font-stretch:125%">READY</text>
+          </svg>
+        </div>
+      </div>
+      <p class="zone"><span><b>Danger zone 4–60 °C.</b> Keep cold food at 4 °C or colder and hot food at 60 °C or hotter. Out of range? The log asks what you did about it.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Sound familiar?</span><h2 class="big">Paper logs fail in the same four places.</h2></div>
+      <p>None of this is about caring less. A clipboard on a busy shift is easy to skip, easy to backfill and hard to find later. That’s what inspectors notice.</p>
+    </div>
+    <div class="versus rv">
+      <div class="before">
+        <h3><span class="label">Before</span>The clipboard</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Readings filled in at the end of the shift, in the same pen, by one person.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Missing pages in the binder on inspection day.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>A bad reading is written down, but nothing says what was done about it.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>New staff don’t know which checks to do, or when.</span></li>
+        </ul>
+      </div>
+      <div class="after">
+        <h3><span class="label">After</span>Boldsand logbook</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Each check is timestamped and initialled by whoever did it, on their own phone.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Every record lives in one place, searchable, and prints as a clean report.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Out-of-range readings ask for the fix and a recheck before the check can close.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Reminders tell the shift what’s due, so nobody has to remember.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">How it works</span><h2 class="big">You run the kitchen. We build the system.</h2></div>
+      <p>No software project for you to manage. We start from the logs you already keep and turn them into checklists your team can finish in seconds.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="num" aria-hidden="true">01</div><h3>We look at your current logs</h3><p>On site or by video. Bring the binder, the clipboard, the whiteboard. We note every check you do now and every one you’re missing.</p></div>
+      <div class="step rv"><div class="num" aria-hidden="true">02</div><h3>We build your checklists</h3><p>Your fridges, your freezers, your cleaning routine, your suppliers. Named the way your staff already talk about them.</p></div>
+      <div class="step rv"><div class="num" aria-hidden="true">03</div><h3>Your team taps, you get proof</h3><p>Staff log checks on any phone or tablet. You see what’s done and what’s late, and print a report whenever you need it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec track" id="what">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">What you can log</span><h2 class="big">The checks you already do, done properly.</h2></div>
+      <p>Pick what fits your business. We add or change checks as you go, at no extra cost during the pilot.</p>
+    </div>
+    <ul class="chips rv">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cooler &amp; freezer temperatures</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Hot &amp; cold holding</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cooking &amp; cooling</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Cleaning &amp; sanitizing</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Deliveries &amp; supplier checks</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Allergen controls</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pest checks</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Staff training sign-offs</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Corrective actions</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Lot codes &amp; traceability <span class="label">Processors</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="who">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Who it’s for</span><h2 class="big">Two kinds of food business. One logbook.</h2></div>
+      <p>Whether a public health inspector visits once a year or you hold a federal food licence, the job is the same: do the checks, and be able to prove it.</p>
+    </div>
+    <div class="who">
+      <article class="card rv">
+        <span class="tag label">Food premises</span>
+        <h3>Restaurants, cafés, bakeries, caterers &amp; grocers</h3>
+        <p>Daily checks kept in order for your provincial food premises inspection.</p>
+        <ul><li>Fridge, freezer and holding temperatures</li><li>Cleaning schedules signed off by shift</li><li>Deliveries checked on arrival</li></ul>
+      </article>
+      <article class="card rv">
+        <span class="tag label">Federally licensed</span>
+        <h3>Processors, packers &amp; seafood businesses</h3>
+        <p>Monitoring records for your Preventive Control Plan and lot-code traceability under the Safe Food for Canadians Regulations.</p>
+        <ul><li>Critical checks with corrective actions</li><li>Lot codes, one step forward and back</li><li>Records you can pull up quickly when asked</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec pilot" id="pilot">
+  <div class="wrap">
+    <div class="rv">
+      <span class="label">Founding pilot · Atlantic Canada</span>
+      <h2>Ten founding businesses. Built with you, not for you.</h2>
+      <p>We’re working closely with a small group of food businesses to shape the logbook around real kitchens and plants. Founding businesses get the most attention we will ever be able to give.</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Full setup included, on site in PEI or by video anywhere in Atlantic Canada.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A founding price, agreed with you before you pay anything, and kept for as long as you stay.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Your records stay yours. Export everything, any time.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A direct line to the person building it. Call or text, no ticket queue.</span></li>
+      </ul>
+      <a class="btn btn-primary" href="#check">Start with a free records check</a>
+    </div>
+    <div class="seats rv" aria-label="Ten founding pilot places">
+      <span class="label">Founding places</span>
+      <div class="seat-grid" aria-hidden="true">
+        <div class="seat">01</div><div class="seat">02</div><div class="seat">03</div><div class="seat">04</div><div class="seat">05</div>
+        <div class="seat">06</div><div class="seat">07</div><div class="seat">08</div><div class="seat">09</div><div class="seat">10</div>
+      </div>
+      <p>Open to restaurants, cafés, bakeries, caterers, grocers and licensed food processors in PE, NS, NB and NL.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="check">
+  <div class="wrap">
+    <div class="check rv">
+      <svg class="clock" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M60 6 A54 54 0 0 1 106.8 87 L60 60 Z" fill="var(--pass)" opacity=".9"/>
+        <circle cx="60" cy="60" r="5" fill="currentColor"/>
+        <path d="M60 60V22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <text x="60" y="84" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="currentColor">20 MIN</text>
+      </svg>
+      <div>
+        <span class="label">Free · no obligation</span>
+        <h3>The 20-minute records check</h3>
+        <p>We sit down with your current logs, on site or by video, and go through them the way an inspector would. You keep the notes whether or not you ever use Boldsand.</p>
+        <ol>
+          <li>Which checks you’re doing, and which ones are missing</li>
+          <li>Where records have gaps, late entries or no corrective action</li>
+          <li>A one-page list of what to fix first</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="about rv">
+      <div class="mono-badge" aria-hidden="true">DK</div>
+      <div>
+        <span class="label">Who’s behind this</span>
+        <p style="margin-top:12px">Hi, I’m Deya Khalifa, a software developer in Charlottetown. I’m building this logbook together with local food businesses, one kitchen at a time. When you call, you get me.</p>
+        <p class="sig" aria-hidden="true">— Deya</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:24px">
+      <div><span class="label">Questions</span><h2 class="big">Straight answers.</h2></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Do my staff need to install anything?</summary><p>No. The logbook opens on any phone, tablet or computer. Staff tap a link, do the check and initial it. We show everyone how on day one.</p></details>
+      <details><summary>What does it cost?</summary><p>The records check is free. For founding businesses, we agree on a monthly price with you before you pay anything, and that price stays the same as long as you stay. No long contract during the pilot.</p></details>
+      <details><summary>Does this replace my food safety plan or my inspector?</summary><p>No. Your plan and your inspector decide what needs to be checked. The logbook is where your team records that the checks were done, what the readings were, and what was done when something was off.</p></details>
+      <details><summary>What happens to my records?</summary><p>They belong to you. You can export or print all of them at any time, and if you leave, you take them with you. We only use them to run your logbook.</p></details>
+      <details><summary>We already use paper and it works. Why change?</summary><p>If your binder is complete, on time and easy to find, keep it. Most aren’t, and the free check will show you either way in 20 minutes.</p></details>
+      <details><summary>Do you work outside PEI?</summary><p>Yes. On site in PEI, and by video anywhere in Atlantic Canada. Other provinces are welcome to get in touch.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <span class="label">Book your free records check</span>
+    <h2>Call, text or email. You’ll reach Deya.</h2>
+    <p>Tell me what kind of business you run and the best time to talk. I’ll reply the same day.</p>
+    <a class="phone" href="tel:+19023162316">902-316-2316</a>
+    <div class="ctas">
+      <a class="btn btn-primary" href="sms:+19023162316?&amp;body=Hi%20Deya%2C%20I%27d%20like%20a%20free%20records%20check.%20Business%3A%20"><svg aria-hidden="true"><use href="#i-msg"/></svg>Text me</a>
+      <a class="btn btn-ghost" href="mailto:deya@boldsand.com?subject=Free%20records%20check&amp;body=Business%20name%3A%0AType%20(restaurant%2C%20bakery%2C%20processor...)%3A%0ATown%3A%0ABest%20time%20to%20talk%3A%0A"><svg aria-hidden="true"><use href="#i-mail"/></svg>deya@boldsand.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a> · <a href="tel:+19023162316">902-316-2316</a></p>
+    </div>
+    <div>
+      <p style="margin-top:0">Food safety record-keeping software and setup for food businesses in Atlantic Canada.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">Boldsand provides record-keeping software and setup help. It does not replace guidance from your inspector, your regulator or a food safety professional, and using it does not guarantee an inspection result. We use your contact details only to reply to you. © 2026 Boldsand Software Inc. · PEI registration 174817.</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick contact">
+  <a class="btn btn-ghost" href="tel:+19023162316"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+  <a class="btn btn-primary" href="sms:+19023162316?&amp;body=Hi%20Deya%2C%20I%27d%20like%20a%20free%20records%20check.%20Business%3A%20"><svg aria-hidden="true"><use href="#i-msg"/></svg>Text</a>
+</nav>
+
+<script>
+(function(){
+  var b=document.body; b.classList.remove('no-js');
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('in')}); }
+  var dock=document.querySelector('.dock'), hero=document.querySelector('.hero'), contact=document.getElementById('contact');
+  if(dock && 'IntersectionObserver' in window){
+    var heroOut=false, contactIn=false;
+    function sync(){dock.classList.toggle('show',heroOut && !contactIn)}
+    new IntersectionObserver(function(es){heroOut=!es[0].isIntersecting;sync()}).observe(hero);
+    new IntersectionObserver(function(es){contactIn=es[0].isIntersecting;sync()},{threshold:.2}).observe(contact);
+  }
+})();
+</script>
+</body>
+</html>
