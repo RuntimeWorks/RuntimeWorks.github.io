@@ -14,7 +14,7 @@
 <meta property="og:description" content="Food safety records for restaurants, bakeries, caterers, grocers and licensed processors in Prince Edward Island. Free setup session.">
 <meta property="og:url" content="https://boldsand.com/food-safety/">
 <meta property="og:locale" content="en_CA">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='9' fill='%2317150F'/%3E%3Cpath d='M18 33l9 9 19-21' fill='none' stroke='%23F1E9D8' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
@@ -59,7 +59,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:3px}
 .wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
 .mono{font-family:var(--mono)}
-.label{font:500 12px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.label{font:500 14px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--sand);padding:10px 14px;z-index:99}
 .skip:focus{left:8px}
@@ -67,11 +67,11 @@ a{color:inherit}
 /* ---------- top bar ---------- */
 .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--sand) 88%,transparent);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(23,21,15,.12)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
 .brand svg{width:28px;height:28px;flex:none}
 .brand b{font:800 17px/1 var(--display);font-stretch:125%;letter-spacing:.04em}
-.brand span{font:500 10.5px/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid rgba(23,21,15,.25);padding-left:10px}
-.top .call{font:600 14px/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1.5px solid var(--ink);border-radius:999px;white-space:nowrap}
+.brand span{font:500 12px/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid rgba(23,21,15,.25);padding-left:10px}
+.top .call{font:600 14px/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:999px;white-space:nowrap}
 .top .call:hover{background:var(--ink);color:var(--sand)}
 @media (max-width:520px){.brand span{display:none}.top .call .n{display:none}.ctas .btn{flex:1 1 100%}}
 @media (max-width:900px){.hero-copy{padding-top:18px}}
@@ -98,7 +98,7 @@ h1 .u::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height
 .lede{font-size:clamp(18px,2.1vw,21px);line-height:1.5;color:var(--ink-2);max-width:34em;margin:0 0 30px}
 .lede strong{color:var(--ink);font-weight:600}
 .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
-.assure{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none;font:500 13px/1.3 var(--mono);color:var(--ink-2)}
+.assure{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;list-style:none;font:500 14px/1.3 var(--mono);color:var(--ink-2)}
 .assure li{display:flex;align-items:center;gap:8px}
 .assure svg{width:16px;height:16px;color:var(--pass)}
 
@@ -172,7 +172,7 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .shot.shot-phone img{border-radius:18px;max-width:320px}
 .shot figcaption{margin-top:14px;color:var(--ink-2);font-size:16px;line-height:1.5;max-width:34em}
 .shot figcaption b{color:var(--ink)}
-.note{font:500 13px/1.5 var(--mono);color:var(--ink-3);margin:22px 0 0}
+.note{font:500 14px/1.5 var(--mono);color:var(--ink-3);margin:22px 0 0}
 @media (max-width:760px){.shots{grid-template-columns:1fr}.shot.shot-phone img{max-width:280px}}
 /* inspector report */
 .report{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(22px,4vw,56px);align-items:center}
@@ -216,7 +216,7 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .track{background:var(--sand-2);border-block:2px solid var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin:0;padding:0;list-style:none}
 .chips li{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:11px 18px 11px 14px;font:600 15.5px/1.2 var(--body)}
-.chips li .label{font-size:10.5px;color:var(--pass);letter-spacing:.1em}
+.chips li .label{font-size:14px;color:var(--pass);letter-spacing:.06em}
 .chips li svg{width:18px;height:18px;color:var(--pass)}
 
 /* who */
@@ -244,7 +244,7 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .seats .label{display:block;margin-bottom:16px}
 .seat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .seat{aspect-ratio:1;border:1.5px dashed #6A6250;border-radius:6px;display:grid;place-items:center;font:600 14px/1 var(--mono);color:#A39A83}
-.seats p{font:500 13px/1.5 var(--mono);color:#B3AA94;margin:18px 0 0}
+.seats p{font:500 14px/1.5 var(--mono);color:#B3AA94;margin:18px 0 0}
 @media (max-width:860px){.pilot .wrap{grid-template-columns:1fr}}
 
 /* check offer */
@@ -278,7 +278,7 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .contact .wrap{text-align:center}
 .contact h2{font:800 clamp(36px,6vw,76px)/.95 var(--display);font-stretch:118%;letter-spacing:-.02em;margin:16px auto 18px;max-width:14ch}
 .contact p{color:var(--ink-2);max-width:34em;margin:0 auto 34px;font-size:19px}
-.phone{display:inline-block;font:800 clamp(30px,6.4vw,64px)/1 var(--display);font-stretch:112%;text-decoration:none;letter-spacing:-.01em;border-bottom:4px solid var(--pass);padding-bottom:6px;margin-bottom:30px}
+.phone{display:inline-block;min-height:44px;font:800 clamp(30px,6.4vw,64px)/1 var(--display);font-stretch:112%;text-decoration:none;letter-spacing:-.01em;border-bottom:4px solid var(--pass);padding-bottom:6px;margin-bottom:30px}
 .contact .ctas{justify-content:center}
 
 /* footer */
@@ -287,7 +287,7 @@ footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px}
 footer b{color:var(--sand);font:800 15px/1 var(--display);font-stretch:125%;letter-spacing:.05em}
 footer p{margin:10px 0 0;line-height:1.55}
 footer a{color:var(--sand)}
-footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font:400 12.5px/1.6 var(--mono);color:#968D78}
+footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font:400 14px/1.6 var(--mono);color:#968D78}
 @media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
 
 /* mobile action bar */
@@ -328,7 +328,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Boldsand food safety logbook, back to top">
       <svg aria-hidden="true"><use href="#i-mark"/></svg>
-      <b>BOLDSAND</b><span>Food safety<br>logbook</span>
+      <b>BOLDSAND</b><span aria-hidden="true">Food safety<br>logbook</span>
     </a>
     <a class="call" href="tel:+19023162316"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg><span class="n">902-316-2316</span><span class="sr">Call Deya at</span></a>
   </div>
@@ -400,11 +400,11 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
     </div>
     <div class="shots rv">
       <figure class="shot shot-phone">
-        <img data-src="img/app-out-of-range.webp" width="520" height="1067" decoding="async" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver."><noscript><img src="img/app-out-of-range.webp" width="520" height="1067" loading="lazy" decoding="async" fetchpriority="low" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver."></noscript>
+        <img src="img/app-out-of-range.webp" loading="lazy" width="520" height="1067" decoding="async" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver.">
         <figcaption><b>A reading out of range can’t be skipped.</b> The check won’t save until someone records what was done about it.</figcaption>
       </figure>
       <figure class="shot">
-        <img data-src="img/app-dashboard.webp" width="1120" height="747" decoding="async" alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due."><noscript><img src="img/app-dashboard.webp" width="1120" height="747" loading="lazy" decoding="async" fetchpriority="low" alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due."></noscript>
+        <img src="img/app-dashboard.webp" loading="lazy" width="1120" height="747" decoding="async" alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due.">
         <figcaption><b>The owner sees the whole day at once.</b> What’s done, what’s late, what was out of range, and 30 days of history, from any phone or computer.</figcaption>
       </figure>
     </div>
@@ -414,7 +414,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
 <section class="sec" id="report-sample" style="padding-top:0">
   <div class="wrap report">
     <a class="shot rv" href="sample-inspector-report.pdf" aria-label="Open the sample inspector report, a 10-page PDF">
-      <img data-src="img/report-page-1.webp" width="760" height="587" decoding="async" alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials."><noscript><img src="img/report-page-1.webp" width="760" height="587" loading="lazy" decoding="async" fetchpriority="low" alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials."></noscript>
+      <img src="img/report-page-1.webp" loading="lazy" width="760" height="587" decoding="async" alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials.">
     </a>
     <div class="rv">
       <span class="label">What the inspector sees</span>
@@ -549,7 +549,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
       </ul>
       <a class="btn btn-primary" href="#contact">Talk to us about a pilot</a>
     </div>
-    <div class="seats rv" aria-label="Ten founding pilot places">
+    <div class="seats rv" role="img" aria-label="Ten founding pilot places">
       <span class="label">Founding places</span>
       <div class="seat-grid" aria-hidden="true">
         <div class="seat">01</div><div class="seat">02</div><div class="seat">03</div><div class="seat">04</div><div class="seat">05</div>
