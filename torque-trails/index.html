@@ -31,12 +31,12 @@ html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}
 body{margin:0;background:var(--night);color:#EAF1F7;font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:3px}
-.wrap{width:min(1120px,100% - 2*var(--gut));margin-inline:auto}
+.wrap{width:calc(100% - 2*var(--gut));max-width:1120px;margin-inline:auto}
 .label{font:600 12px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase}
 
 .top{position:absolute;inset:0 0 auto 0;z-index:5}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
-.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 14px/1 var(--body);color:var(--night);background:rgba(255,255,255,.75);padding:9px 14px;border-radius:999px;backdrop-filter:blur(6px)}
+.back{display:inline-flex;align-items:center;min-height:44px;gap:8px;text-decoration:none;font:700 14px/1 var(--body);color:var(--night);background:rgba(255,255,255,.75);padding:9px 14px;border-radius:999px;backdrop-filter:blur(6px)}
 .top .label{color:var(--night);opacity:.75}
 
 /* hero: the game's own sky and hills */
@@ -51,7 +51,7 @@ h1{font:900 clamp(52px,8.8vw,112px)/.86 var(--display);font-stretch:118%;letter-
 .hero .lede{font-size:clamp(19px,2.2vw,23px);line-height:1.45;font-weight:600;max-width:24em;margin:0 0 24px}
 .status{display:inline-flex;align-items:center;gap:12px;background:var(--night);color:#fff;padding:12px 18px 12px 14px;border-radius:12px;font:700 15px/1.2 var(--body)}
 .status svg{width:26px;height:26px}
-.status small{display:block;font:600 11px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.status small{display:block;font:600 14px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.7}
 .frame{border-radius:14px;overflow:hidden;border:4px solid var(--night);box-shadow:0 30px 50px -24px rgba(15,23,32,.7);transform:rotate(1.5deg);background:var(--night)}
 .frame img{display:block;width:100%;height:auto}
 .hills{position:absolute;left:0;right:0;bottom:0;height:clamp(90px,12vw,150px);z-index:1}
@@ -71,7 +71,7 @@ h1{font:900 clamp(52px,8.8vw,112px)/.86 var(--display);font-stretch:118%;letter-
 .f h3{font:800 20px/1.15 var(--display);font-stretch:108%;margin:0 0 10px;color:#fff}
 .f p{margin:0;color:#B9C6D2;font-size:16px}
 .f .n{font:800 34px/1 var(--display);font-stretch:118%;color:var(--orange);display:block;margin-bottom:10px}
-.f .k{font:600 12px/34px var(--mono);letter-spacing:.14em;color:var(--orange);display:block;margin-bottom:10px}
+.f .k{font:600 14px/34px var(--mono);letter-spacing:.08em;color:var(--orange);display:block;margin-bottom:10px}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.grid{grid-template-columns:1fr}}
 
@@ -85,19 +85,19 @@ h1{font:900 clamp(52px,8.8vw,112px)/.86 var(--display);font-stretch:118%;letter-
 .card ul{margin:0;padding:0 0 0 18px;color:#B9C6D2;font-size:15.5px}
 .card li{margin:6px 0}
 .links{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:6px}
-.links a{color:#fff;font-weight:600}
+.links a{color:#fff;font-weight:600;display:inline-flex;align-items:center;min-height:44px}.app .label{font-size:14px}
 @media (max-width:820px){.support .wrap{grid-template-columns:1fr}}
 
 footer{background:#0A1017;color:#8FA0AF;padding:32px 0 calc(32px + env(safe-area-inset-bottom));font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
-footer a{color:#DDE6EE}
+footer a{color:#DDE6EE}footer .m0{margin:0}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
     <a class="back" href="/">← Boldsand</a>
-    <span class="label">Apps &amp; games</span>
+    <span class="label" data-overline>Apps &amp; games</span>
   </div>
 </header>
 
@@ -125,9 +125,9 @@ footer a{color:#DDE6EE}
 
   <section class="shots" aria-labelledby="h-shots">
     <div class="wrap">
-      <span class="label">Screenshots</span>
+      <span class="label" data-overline>Screenshots</span>
       <h2 id="h-shots">Hills, gaps, cities and the moon.</h2>
-      <div class="strip" tabindex="0" aria-label="Screenshots, scroll sideways">
+      <div class="strip" role="region" tabindex="0" aria-label="Screenshots, scroll sideways">
         <img src="/torque-trails/img/shot-2.jpg" alt="A wheelie on a city road at sunset" width="1280" height="720" loading="lazy">
         <img src="/torque-trails/img/shot-3.jpg" alt="A red supercar on a city road at dusk" width="1280" height="720" loading="lazy">
         <img src="/torque-trails/img/shot-4.jpg" alt="A nitro combo on a night level" width="1280" height="720" loading="lazy">
@@ -139,7 +139,7 @@ footer a{color:#DDE6EE}
 
   <section class="features" aria-labelledby="h-features">
     <div class="wrap">
-      <span class="label">What’s inside</span>
+      <span class="label" data-overline>What’s inside</span>
       <h2 id="h-features">Easy to start. Hard to master.</h2>
       <div class="grid">
         <div class="f"><span class="n">120</span><h3>Hand-built levels</h3><p>Grass, desert highway, snow, mud, sand, rock and the moon. Every crest, gap and landing placed on purpose.</p></div>
@@ -155,7 +155,7 @@ footer a{color:#DDE6EE}
   <section class="support" id="support" aria-labelledby="h-support">
     <div class="wrap">
       <div>
-        <span class="label">Support</span>
+        <span class="label" data-overline>Support</span>
         <h2 id="h-support">Need help with Torque Trails?</h2>
         <p>Email us and a real person will reply. Purchases are handled by Google Play, so refunds for in-app purchases go through Google Play’s refund process.</p>
         <div class="links">
@@ -177,8 +177,8 @@ footer a{color:#DDE6EE}
 
 <footer>
   <div class="wrap">
-    <span>Torque Trails is made by <a href="/">Boldsand Software Inc.</a>, Charlottetown, Prince Edward Island.</span>
-    <span><a href="/torque-trails/privacy/">Privacy policy</a> · <a href="mailto:deya@boldsand.com">deya@boldsand.com</a></span>
+    <p class="m0">Torque Trails is made by <a href="/">Boldsand Software Inc.</a>, Charlottetown, Prince Edward Island.</p>
+    <p class="m0"><a href="/torque-trails/privacy/">Privacy policy</a> · <a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
   </div>
 </footer>
 </body>
