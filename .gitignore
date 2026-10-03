@@ -1,0 +1,6 @@
+.github/quality/node_modules/
+.github/quality/playwright-report/
+.github/quality/test-results/
+.github/quality/lhci-report/
+.github/quality/.lighthouseci/
+.DS_Store
