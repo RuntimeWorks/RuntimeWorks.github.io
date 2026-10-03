@@ -1,0 +1,14 @@
+{
+  "plugins": ["stylelint-declaration-strict-value"],
+  "rules": {
+    "scale-unlimited/declaration-strict-value": [
+      ["/color$/", "fill", "stroke", "font-size", "/^margin/", "/^padding/", "gap", "row-gap", "column-gap", "border-radius"],
+      {
+        "ignoreValues": ["inherit", "initial", "unset", "currentColor", "currentcolor", "transparent", "none", "0", "auto", "100%", "50%", "1em", "0.5em"],
+        "ignoreFunctions": false,
+        "disableFix": true,
+        "message": "Raw design value: use a token (DESIGN-SYSTEM v3 sections 2-4)"
+      }
+    ]
+  }
+}

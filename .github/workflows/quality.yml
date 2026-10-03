@@ -1,0 +1,75 @@
+# Quality gates for boldsand.com (fleet DESIGN-SYSTEM v3 section 13; research R07, R08).
+# Merging this workflow needs the founder's yes (SAAS-PLAYBOOK section 8: gates and CI are founder-only).
+name: quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 9 * * 1" # weekly: catches external link rot (R08 rule 47)
+permissions:
+  contents: read
+jobs:
+  html:
+    name: HTML validity (vnu, 0 errors)
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: .github/quality } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: .github/quality/package-lock.json }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "21" }
+      - run: npm ci
+      - run: npm run html
+  links:
+    name: Links (lychee, 0 broken internal)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --include-fragments --root-dir ${{ github.workspace }} './**/*.html'
+          fail: true
+      - uses: lycheeverse/lychee-action@v2
+        continue-on-error: true # external links warn only
+        with:
+          args: --max-concurrency 2 --accept 200,206,429 --root-dir ${{ github.workspace }} './**/*.html'
+          fail: true
+  gates:
+    name: Accessibility and layout (axe 0 serious/critical, text, targets, reflow, 1.4.12)
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: .github/quality } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: .github/quality/package-lock.json }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run gates
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with: { name: playwright-report, path: .github/quality/playwright-report }
+  rawvalues:
+    name: Raw design values (ratchet down to 0)
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: .github/quality } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: .github/quality/package-lock.json }
+      - run: npm ci
+      - run: npm run rawvalues
+  lighthouse:
+    name: Lighthouse budgets (lab; LCP ≤ 2.5 s, CLS ≤ 0.1, accessibility 100)
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: .github/quality } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: .github/quality/package-lock.json }
+      - run: npm ci
+      - run: npx lhci autorun --config=lighthouserc.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: lighthouse, path: .github/quality/lhci-report }
