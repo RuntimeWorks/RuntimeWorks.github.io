@@ -4,7 +4,7 @@
   "description": "Quality gates for boldsand.com (DESIGN-SYSTEM v3 section 13). Not published: Jekyll skips dot-folders.",
   "scripts": {
     "gates": "playwright test",
-    "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --skip-non-html ../../index.html ../../food-safety ../../torque-trails",
+    "html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --skip-non-html --filterpattern '.*paint-order.*' ../../index.html ../../food-safety ../../torque-trails",
     "rawvalues": "node tests/raw-values.mjs"
   },
   "devDependencies": {

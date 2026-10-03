@@ -11,6 +11,8 @@ permissions:
   contents: read
 jobs:
   html:
+    # One documented filter: vnu's CSS checker does not know `paint-order` (CSS Fill and Stroke L3,
+    # supported by Chrome, Firefox and Safari). Every other message fails the job.
     name: HTML validity (vnu, 0 errors)
     runs-on: ubuntu-latest
     defaults: { run: { working-directory: .github/quality } }
