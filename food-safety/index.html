@@ -43,7 +43,7 @@
 @font-face{font-family:"Caveat";src:url(/assets/fonts/caveat-vf.woff2) format("woff2");font-weight:400 700;font-display:swap}
 
 :root{
-  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#6E6754;
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
   --rule:#B4C8D5; --margin:#D2614A; --pass:#1D6A45; --pass-2:#E1EDE3; --danger:#B3361C;
   --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --hand:"Caveat","Bradley Hand",cursive;
@@ -165,6 +165,29 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .sec-head p{margin:0;color:var(--ink-2);font-size:clamp(17px,1.8vw,19px);max-width:36em}
 @media (max-width:800px){.sec-head{grid-template-columns:1fr}}
 
+/* real app */
+.shots{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(18px,3vw,36px);align-items:start}
+.shot{margin:0}
+.shot img{width:100%;height:auto;border:2px solid var(--ink);border-radius:var(--radius);background:var(--paper);box-shadow:6px 6px 0 var(--ink)}
+.shot.shot-phone img{border-radius:18px;max-width:320px}
+.shot figcaption{margin-top:14px;color:var(--ink-2);font-size:16px;line-height:1.5;max-width:34em}
+.shot figcaption b{color:var(--ink)}
+.note{font:500 13px/1.5 var(--mono);color:var(--ink-3);margin:22px 0 0}
+@media (max-width:760px){.shots{grid-template-columns:1fr}.shot.shot-phone img{max-width:280px}}
+/* inspector report */
+.report{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(22px,4vw,56px);align-items:center}
+.report ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
+.report li{display:grid;grid-template-columns:26px 1fr;gap:10px;line-height:1.45}
+.report li svg{width:20px;height:20px;color:var(--pass);margin-top:2px}
+@media (max-width:820px){.report{grid-template-columns:1fr}}
+/* provinces */
+.prov{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.prov li{background:var(--paper);border:1.5px solid var(--ink);border-radius:var(--radius);padding:18px 20px}
+.prov b{display:block;font:800 19px/1.15 var(--display);font-stretch:112%;margin-bottom:6px}
+.prov span{display:block;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.fr{margin-top:26px;border-left:4px solid var(--pass);padding:6px 0 6px 18px;max-width:46em}
+.fr p{margin:0;color:var(--ink-2)}
+
 /* clipboard vs logbook */
 .versus{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
 .versus > div{padding:clamp(22px,3vw,34px)}
@@ -220,7 +243,7 @@ h2.big{font:800 clamp(32px,4.4vw,54px)/.98 var(--display);font-stretch:110%;lett
 .seats{background:#211E16;border:1px solid #3A3528;border-radius:8px;padding:26px}
 .seats .label{display:block;margin-bottom:16px}
 .seat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.seat{aspect-ratio:1;border:1.5px dashed #6A6250;border-radius:6px;display:grid;place-items:center;font:600 14px/1 var(--mono);color:#8D846E}
+.seat{aspect-ratio:1;border:1.5px dashed #6A6250;border-radius:6px;display:grid;place-items:center;font:600 14px/1 var(--mono);color:#A39A83}
 .seats p{font:500 13px/1.5 var(--mono);color:#B3AA94;margin:18px 0 0}
 @media (max-width:860px){.pilot .wrap{grid-template-columns:1fr}}
 
@@ -321,8 +344,8 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
     <div class="hero-copy">
       <p class="lede">Swap the clipboard for a quick checklist on your phone. Temperatures, cleaning and deliveries get logged <strong>on time, by the person who checked</strong>, and your records are ready the moment the inspector walks in. <strong>We set it all up for you.</strong></p>
       <div class="ctas">
-        <a class="btn btn-primary" href="#check">Get a free records check</a>
-        <a class="btn btn-ghost" href="tel:+19023162316"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Deya</a>
+        <a class="btn btn-primary" href="#contact">Talk to us about a pilot</a>
+        <a class="btn btn-ghost" href="#check">Get a free records check</a>
       </div>
       <ul class="assure">
         <li><svg aria-hidden="true"><use href="#i-check"/></svg>Set up for you</li>
@@ -358,13 +381,51 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
             <defs><path id="sc" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
             <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="5"/>
             <circle cx="100" cy="100" r="84" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <text font-family="IBM Plex Mono, monospace" font-weight="600" font-size="15.5" letter-spacing="4.2" fill="currentColor"><textPath href="#sc" startOffset="2%">RECORDS COMPLETE · ON TIME · SIGNED ·</textPath></text>
+            <text font-family="IBM Plex Mono, monospace" font-weight="600" font-size="15.5" letter-spacing="4.2" fill="currentColor"><textPath href="#sc" startOffset="2%">COMPLETE · ON TIME · INITIALLED ·</textPath></text>
             <rect x="34" y="80" width="132" height="40" fill="currentColor"/>
             <text x="100" y="108" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="800" font-size="25" letter-spacing="1.5" fill="#FCF8EF" style="font-stretch:125%">READY</text>
           </svg>
         </div>
       </div>
       <p class="zone"><span><b>Danger zone 4–60 °C.</b> Keep cold food at 4 °C or colder and hot food at 60 °C or hotter. Out of range? The log asks what you did about it.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="app" style="padding-top:clamp(24px,4vw,48px)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">The real app</span><h2 class="big">This is what your team taps.</h2></div>
+      <p>Screens from the working logbook, filled with demo data from a sample bakery. No mock-ups.</p>
+    </div>
+    <div class="shots rv">
+      <figure class="shot shot-phone">
+        <img src="img/app-out-of-range.webp" width="600" height="1231" loading="lazy" decoding="async" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver.">
+        <figcaption><b>A reading out of range can’t be skipped.</b> The check won’t save until someone records what was done about it.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/app-dashboard.webp" width="1400" height="933" loading="lazy" decoding="async" alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due.">
+        <figcaption><b>The owner sees the whole day at once.</b> What’s done, what’s late, what was out of range, and 30 days of history, from any phone or computer.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="report-sample" style="padding-top:0">
+  <div class="wrap report">
+    <a class="shot rv" href="sample-inspector-report.pdf" aria-label="Open the sample inspector report, a 10-page PDF">
+      <img src="img/report-page-1.webp" width="900" height="695" loading="lazy" decoding="async" alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials.">
+    </a>
+    <div class="rv">
+      <span class="label">What the inspector sees</span>
+      <h2 class="big">One report, ready when they walk in.</h2>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Every check with its time, reading, limit, result and the initials of whoever did it.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Out-of-range readings next to what was done about them, and the recheck.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Late and missed checks shown, not hidden. Saved entries can’t be edited; corrections are added as new entries.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Print it, or send it as a PDF. Every record can also be exported as a plain spreadsheet file.</span></li>
+      </ul>
+      <a class="btn btn-ghost" href="sample-inspector-report.pdf"><svg aria-hidden="true"><use href="#i-doc"/></svg>See a sample report (PDF, 10 pages)</a>
     </div>
   </div>
 </section>
@@ -456,6 +517,25 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
   </div>
 </section>
 
+<section class="sec" id="provinces" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Where it works</span><h2 class="big">Built around the rules where you are.</h2></div>
+      <p>Checklists start from the record-keeping rules that apply to you. Your inspector and your food safety plan still decide what you check.</p>
+    </div>
+    <ul class="prov rv">
+      <li><b>Prince Edward Island</b><span>Food Premises Regulations: temperatures, cleaning and sanitizer records, kept 12 months at the premises.</span></li>
+      <li><b>Nova Scotia</b><span>Food Safety Regulations and the Food Retail &amp; Food Services Code: temperatures, sanitizer and thermometer checks.</span></li>
+      <li><b>New Brunswick</b><span>Food Premises Regulation: cold holding recorded at least twice a day and hot holding at least every 4 hours.</span></li>
+      <li><b>Newfoundland and Labrador</b><span>Food Premises Regulations: cold, frozen and hot holding temperatures, sanitizing.</span></li>
+      <li><b>Federal licence holders</b><span>Safe Food for Canadians Regulations: Preventive Control Plan monitoring, lot traceability, records kept 2 years.</span></li>
+    </ul>
+    <div class="fr rv" lang="fr-CA">
+      <p><b>En français.</b> L’application sera offerte en français pour les entreprises du Nouveau-Brunswick et du Québec. Écrivez-nous pour en parler ou pour être avisé.</p>
+    </div>
+  </div>
+</section>
+
 <section class="sec pilot" id="pilot">
   <div class="wrap">
     <div class="rv">
@@ -511,7 +591,7 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
       <div class="mono-badge" aria-hidden="true">DK</div>
       <div>
         <span class="label">Who’s behind this</span>
-        <p style="margin-top:12px">Hi, I’m Deya Khalifa, a software developer in Charlottetown. I’m building this logbook together with local food businesses, one kitchen at a time. When you call, you get me.</p>
+        <p style="margin-top:12px">Hi, I’m Deya Ismail Khalifa, a software developer in Charlottetown. I’m building this logbook together with local food businesses, one kitchen at a time. When you call, you get me.</p>
         <p class="sig" aria-hidden="true">— Deya</p>
       </div>
     </div>
@@ -529,6 +609,9 @@ footer .fine{grid-column:1/-1;border-top:1px solid #3A3528;padding-top:20px;font
       <details><summary>Does this replace my food safety plan or my inspector?</summary><p>No. Your plan and your inspector decide what needs to be checked. The logbook is where your team records that the checks were done, what the readings were, and what was done when something was off.</p></details>
       <details><summary>What happens to my records?</summary><p>They belong to you. You can export or print all of them at any time, and if you leave, you take them with you. We only use them to run your logbook.</p></details>
       <details><summary>We already use paper and it works. Why change?</summary><p>If your binder is complete, on time and easy to find, keep it. Most aren’t, and the free check will show you either way in 20 minutes.</p></details>
+      <details><summary>What if the Wi-Fi drops?</summary><p>Checks still save on the phone or tablet, and they are sent as soon as the connection comes back. The screen shows when something is waiting to send.</p></details>
+      <details><summary>Where are my records stored?</summary><p>We are setting up the logbook to store pilot records in Canada, before the first pilot starts. They belong to you, and you can export all of them at any time.</p></details>
+      <details><summary>Is it available in French?</summary><p>Not yet. French is planned for businesses in New Brunswick and Quebec. If your team needs it, tell us and we’ll let you know when it’s ready.</p></details>
       <details><summary>Do you work outside PEI?</summary><p>Yes. On site in PEI, and by video anywhere in Atlantic Canada. Other provinces are welcome to get in touch.</p></details>
     </div>
   </div>
