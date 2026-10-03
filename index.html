@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Boldsand Software Inc. · Focused software, made in Prince Edward Island</title>
-<meta name="description" content="Boldsand Software Inc. designs, builds and supports its own software: record-keeping software for food businesses in Atlantic Canada, and apps and games for everyone. Charlottetown, Prince Edward Island.">
+<title>Boldsand Software Inc. · Focused software for businesses and everyday life</title>
+<meta name="description" content="Boldsand Software Inc. builds and runs focused software products: subscription software for small businesses, and apps for everyone. Each product has its own site. Charlottetown, Prince Edward Island.">
 <link rel="canonical" href="https://boldsand.com/">
 <meta name="theme-color" content="#17150F">
 <meta name="color-scheme" content="light">
@@ -12,160 +12,149 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Boldsand Software Inc.">
 <meta property="og:title" content="Boldsand Software Inc.">
-<meta property="og:description" content="Focused software, made in Prince Edward Island.">
+<meta property="og:description" content="Focused software for businesses and everyday life.">
 <meta property="og:url" content="https://boldsand.com/">
-<meta property="og:image" content="https://boldsand.com/torque-trails/img/feature.jpg">
+<meta property="og:image" content="https://boldsand.com/assets/og-boldsand.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Boldsand Software Inc.","legalName":"Boldsand Software Inc.","url":"https://boldsand.com/","email":"deya@boldsand.com","telephone":"+1-902-316-2316","foundingDate":"2026-08-19",
  "address":{"@type":"PostalAddress","addressLocality":"Charlottetown","addressRegion":"PE","addressCountry":"CA"},
- "makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Food Safety Logbook","url":"https://boldsand.com/food-safety/"}},
-               {"@type":"Offer","itemOffered":{"@type":"VideoGame","name":"Torque Trails","url":"https://boldsand.com/torque-trails/"}}]}
+ "makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Food Safety Logbook","url":"https://boldsand.com/food-safety/"}}]}
 </script>
 <style>
 @font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
 @font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+/* Design tokens (DESIGN-SYSTEM v3 sections 2-4). Rules below use only these, never raw values. */
 :root{
-  --bg:#FBF9F4;--sand:#F1E9D8;--sand-2:#E6DAC1;--paper:#FFFFFF;--ink:#17150F;--ink-2:#45412F;--ink-3:#6E6754;--line:rgba(23,21,15,.12);
-  --pass:#1D6A45;--pass-l:#7FD1A2;--orange:#F08A2E;
+  --bg:#FBF9F4;--sand:#F1E9D8;--paper:#FFFFFF;--ink:#17150F;--ink-2:#45412F;--ink-3:#6E6754;--line:rgba(23,21,15,.12);
+  --pass:#1D6A45;--pass-l:#7FD1A2;--pass-bg:#E3F0E7;--pass-line:#BBD9C5;
+  --on-ink:#D8CFBB;--on-ink-2:#B9AF98;--on-ink-line:rgba(241,233,216,.14);--on-ink-ghost:rgba(241,233,216,.45);--frame:#2A2720;
+  --foot-bg:#0E0D09;--foot-ink:#A39A84;--foot-link:#E4DCC9;--foot-line:#26231C;
   --display:"Archivo","Arial Black",sans-serif;--body:"Schibsted Grotesk","Helvetica Neue",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --gut:clamp(16px,4.5vw,40px);--r:14px;
+  --fs-eyebrow:12px;--fs-xs:14px;--fs-s:15.5px;--fs-m:17px;--fs-lede:clamp(18px,1.9vw,20.5px);--fs-h3:20px;--fs-h3l:22px;
+  --fs-h4:clamp(26px,2.8vw,34px);--fs-h2s:clamp(30px,3.6vw,44px);--fs-h2:clamp(32px,4.4vw,54px);--fs-h1:clamp(38px,4.9vw,62px);
+  --sp-1:6px;--sp-2:10px;--sp-3:14px;--sp-4:22px;--sp-5:32px;--sp-6:44px;
+  --gut:clamp(16px,4.5vw,40px);--sec:clamp(64px,9vw,120px);--hero-t:clamp(56px,8vw,104px);--hero-b:clamp(64px,9vw,112px);
+  --gap-l:clamp(32px,5vw,72px);--gap-m:clamp(16px,3vw,40px);--gap-s:clamp(14px,2vw,24px);--pad-card:clamp(24px,3vw,40px);--pad-box:clamp(22px,2.6vw,32px);
+  --r:14px;--r-s:10px;--r-pill:999px;--foot-pad-b:calc(36px + env(safe-area-inset-bottom));
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--fs-m)/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit}
-img{display:block;max-width:100%}
-:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:4px}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:var(--sp-1)}
 .wrap{width:calc(100% - 2*var(--gut));max-width:1180px;margin-inline:auto}
-.eyebrow{font:600 12px/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--sand);padding:10px 14px;z-index:99}.skip:focus{left:8px}
+.eyebrow{font:600 var(--fs-eyebrow)/1.2 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--sand);padding:var(--sp-2) var(--sp-3);z-index:99}.skip:focus{left:8px}
 
 /* header */
 .top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:28px;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-height:44px}
+.top .wrap{display:flex;align-items:center;gap:var(--sp-5);height:68px}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;margin-right:auto;min-height:44px}
 .brand svg{width:30px;height:30px;color:var(--ink)}
-.brand b{font:800 17px/1 var(--display);font-stretch:125%;letter-spacing:.05em}
-.nav{display:flex;gap:26px;font:600 15px/1 var(--body)}
+.brand b{font:800 var(--fs-m)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+.nav{display:flex;gap:var(--sp-5);font:600 var(--fs-s)/1 var(--body)}
 .nav a{text-decoration:none;color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px}
 .nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:10px;font:700 15.5px/1 var(--body);text-decoration:none;border:1.5px solid var(--ink);transition:background .15s,color .15s,border-color .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:46px;padding:0 var(--sp-4);border-radius:var(--r-s);font:700 var(--fs-s)/1 var(--body);text-decoration:none;border:1.5px solid var(--ink);transition:background .15s,color .15s,border-color .15s}
 .btn-dark{background:var(--ink);color:var(--bg)}
-.btn-dark:hover{background:#2C2920}
 .btn-light{background:var(--sand);color:var(--ink);border-color:var(--sand)}
-.btn-light:hover{background:#fff;border-color:#fff}
-.btn-ghost-l{color:var(--sand);border-color:rgba(241,233,216,.45)}
-.btn-ghost-l:hover{border-color:var(--sand);background:rgba(241,233,216,.08)}
-@media (max-width:820px){.nav{display:none}.top .btn{min-height:44px;padding:0 14px;font-size:14px}}
+.btn-light:hover{background:var(--paper);border-color:var(--paper)}
+.btn-ghost-l{color:var(--sand);border-color:var(--on-ink-ghost)}
+.btn-ghost-l:hover{border-color:var(--sand)}
+@media (max-width:820px){.nav{display:none}.top .btn{min-height:44px;padding:0 var(--sp-3);font-size:var(--fs-xs)}}
 
 /* hero */
 .hero{background:var(--ink) var(--grain);color:var(--sand);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:auto -10% -40% 40%;height:120%;background:radial-gradient(closest-side,rgba(127,209,162,.16),transparent 70%);pointer-events:none}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(56px,8vw,112px) 0 clamp(64px,9vw,120px);position:relative}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap-l);align-items:center;padding:var(--hero-t) 0 var(--hero-b)}
 .hero .eyebrow{color:var(--pass-l)}
-.hero h1{font:800 clamp(38px,4.9vw,64px)/1 var(--display);font-stretch:106%;letter-spacing:-.025em;margin:18px 0 22px}
+.hero h1{font:800 var(--fs-h1)/1.02 var(--display);font-stretch:106%;letter-spacing:-.025em;margin:var(--sp-4) 0}
 .hero h1 em{font-style:normal;color:var(--pass-l)}
-.hero p{font-size:clamp(18px,1.9vw,20.5px);line-height:1.55;color:#D8CFBB;max-width:31em;margin:0 0 32px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.facts{display:flex;flex-wrap:wrap;gap:12px 32px;margin:36px 0 0;padding:22px 0 0;border-top:1px solid rgba(241,233,216,.14);list-style:none;font:500 14px/1.3 var(--mono);color:#B9AF98}
-.facts b{display:block;color:var(--sand);font:700 15px/1.3 var(--body);margin-bottom:2px}
+.hero p{font-size:var(--fs-lede);line-height:1.55;color:var(--on-ink);max-width:31em;margin:0 0 var(--sp-5)}
+.ctas{display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+.facts{display:flex;flex-wrap:wrap;gap:var(--sp-3) var(--sp-5);margin:var(--sp-6) 0 0;padding:var(--sp-4) 0 0;border-top:1px solid var(--on-ink-line);list-style:none;font:500 var(--fs-xs)/1.3 var(--mono);color:var(--on-ink-2)}
+.facts b{display:block;color:var(--sand);font:700 var(--fs-s)/1.3 var(--body);margin-bottom:var(--sp-1)}
+.screen{margin:0}
+.screen .frame{border:var(--sp-2) solid var(--frame);background:var(--frame);border-radius:var(--r);box-shadow:0 40px 70px -30px rgba(0,0,0,.7);overflow:hidden}
+.screen figcaption{margin-top:var(--sp-3);font:500 var(--fs-xs)/1.4 var(--mono);color:var(--on-ink-2)}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}}
 
-/* hero visual: the two real products */
-.stage{position:relative;min-height:430px}
-.tablet{position:absolute;right:0;top:4%;width:min(100%,520px);border-radius:18px;border:10px solid #2A2720;background:#2A2720;box-shadow:0 40px 70px -30px rgba(0,0,0,.7);transform:rotate(2deg)}
-.tablet img{border-radius:8px;width:100%;height:auto}
-.tablet .tag{position:absolute;left:4px;top:-36px;font:600 11px/1 var(--mono);letter-spacing:.14em;color:#B9AF98}
-.phone{position:absolute;left:0;bottom:0;width:230px;border-radius:30px;border:9px solid #0B0A07;background:#FCF8EF;box-shadow:0 40px 70px -24px rgba(0,0,0,.75);transform:rotate(-4deg);overflow:hidden}
-.phone .bar{height:22px;display:flex;justify-content:center;align-items:center}
-.phone .bar i{width:60px;height:6px;border-radius:9px;background:#D9D0BC}
-.phone .app{padding:10px 14px 16px;color:var(--ink)}
-.phone .app .h{display:block;margin:0 0 2px;font:800 14px/1.1 var(--display);font-stretch:118%;letter-spacing:.03em}
-.phone .app small{display:block;font:500 9.5px/1.3 var(--mono);color:var(--ink-3);margin-bottom:10px;letter-spacing:.08em}
-.phone .row{display:grid;grid-template-columns:1fr auto 18px;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid #DCE5EA;font:500 12px/1.2 var(--mono)}
-.phone .row span{font-family:var(--body);font-weight:600;font-size:12.5px}
-.phone .row svg{width:16px;height:16px;color:var(--pass)}
-.phone .row.bad b,.phone .row.bad svg{color:#B3361C}
-.phone .done{margin-top:12px;background:var(--pass);color:#fff;border-radius:9px;padding:10px;text-align:center;font:700 12.5px/1.2 var(--body)}
-@media (max-width:900px){.stage{min-height:0;padding-top:34px}.tablet{position:relative;transform:none;inset:auto;width:100%}.phone{position:relative;inset:auto;width:min(240px,72%);margin:-70px 0 0 4%;transform:rotate(-3deg)}}
-
 /* sections */
-.sec{padding:clamp(64px,9vw,120px) 0}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,5vw,64px);align-items:end;margin-bottom:clamp(30px,4.5vw,52px)}
-.sec-head h2{font:800 clamp(32px,4.4vw,54px)/1 var(--display);font-stretch:106%;letter-spacing:-.02em;margin:14px 0 0}
-.sec-head p{margin:0;color:var(--ink-2);font-size:clamp(17px,1.7vw,19px);max-width:34em}
+.sec{padding:var(--sec) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap-m);align-items:end;margin-bottom:var(--gap-m)}
+.sec-head h2{font:800 var(--fs-h2)/1 var(--display);font-stretch:106%;letter-spacing:-.02em;margin:var(--sp-3) 0 0}
+.sec-head p{margin:0;color:var(--ink-2);font-size:var(--fs-lede);max-width:34em}
 @media (max-width:820px){.sec-head{grid-template-columns:1fr}}
 
-/* products */
-.lane{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(16px,3vw,40px);padding:28px 0;border-top:1px solid var(--line)}
+/* product categories */
+.lane{display:grid;grid-template-columns:220px minmax(0,1fr);gap:var(--gap-m);padding:var(--sp-5) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
 .lane:last-child{border-bottom:1px solid var(--line)}
-.lane-label h3{font:800 20px/1.15 var(--display);font-stretch:108%;margin:8px 0 0}
-.card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;box-shadow:0 1px 0 rgba(23,21,15,.04),0 18px 40px -28px rgba(23,21,15,.35);transition:transform .2s ease,box-shadow .2s ease}
-.card:hover{transform:translateY(-3px);box-shadow:0 1px 0 rgba(23,21,15,.04),0 28px 50px -28px rgba(23,21,15,.45)}
-.card .txt{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:14px}
-.card h4{font:800 clamp(26px,2.8vw,34px)/1.02 var(--display);font-stretch:108%;letter-spacing:-.01em;margin:0}
-.card p{margin:0;color:var(--ink-2);font-size:17px;max-width:30em}
-.meta{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.meta li{font:600 14px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2)}
-.meta li.live{background:#E3F0E7;border-color:#BBD9C5;color:var(--pass)}
-.meta li.soon{background:#FDEBD8;border-color:#F6CFA4;color:#9A4F0E}
-.go{margin-top:auto;padding-top:6px;font:700 15.5px/1 var(--body);display:inline-flex;align-items:center;gap:10px}
+.lane-label h3{font:800 var(--fs-h3)/1.15 var(--display);font-stretch:108%;margin:var(--sp-2) 0 var(--sp-1)}
+.lane-label p{margin:0;color:var(--ink-2);font-size:var(--fs-s)}
+.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;box-shadow:0 18px 40px -28px rgba(23,21,15,.35);transition:box-shadow .2s ease}
+.card:hover{box-shadow:0 28px 50px -28px rgba(23,21,15,.45)}
+.card .txt{padding:var(--pad-card);display:flex;flex-direction:column;gap:var(--sp-3)}
+.card h4{font:800 var(--fs-h4)/1.02 var(--display);font-stretch:108%;letter-spacing:-.01em;margin:0}
+.card p{margin:0;color:var(--ink-2);max-width:30em}
+.meta{display:flex;flex-wrap:wrap;gap:var(--sp-2);list-style:none;margin:0;padding:0}
+.meta li{font:600 var(--fs-xs)/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:var(--sp-1) var(--sp-2);border-radius:var(--r-pill);background:var(--bg);border:1px solid var(--line);color:var(--ink-2)}
+.meta li.live{background:var(--pass-bg);border-color:var(--pass-line);color:var(--pass)}
+.go{margin-top:auto;padding-top:var(--sp-1);font:700 var(--fs-s)/1 var(--body);display:inline-flex;align-items:center;gap:var(--sp-2)}
 .go i{font-style:normal;transition:transform .2s}
 .card:hover .go i{transform:translateX(4px)}
-.card .vis{min-height:260px;position:relative}
-.vis.fs{background:var(--sand) linear-gradient(90deg,transparent 30px,#D2614A 30px,#D2614A 31.5px,transparent 31.5px);display:grid;place-items:center;padding:28px 28px 28px 48px}
-.vis.fs .sheet{width:min(320px,100%);background:#FCF8EF;border-radius:6px;padding:14px 16px 16px;box-shadow:0 18px 30px -18px rgba(23,21,15,.5);transform:rotate(1.5deg);font:500 12.5px/1 var(--mono)}
-.vis.fs .sheet b.h{display:block;font:800 12px/1 var(--display);font-stretch:125%;letter-spacing:.06em;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:2px}
-.vis.fs .r{display:grid;grid-template-columns:42px 1fr auto 16px;gap:8px;align-items:center;height:32px;border-bottom:1px solid #C9D6DE}
-.vis.fs .r i{font-style:normal;color:var(--ink-3)}
-.vis.fs svg{width:15px;height:15px;color:var(--pass)}
-.vis.tt{background:url(/torque-trails/img/feature.jpg) center/contain no-repeat,linear-gradient(#5AAFE6 50%,#6BB25C 50%)}
-@media (max-width:900px){.lane{grid-template-columns:1fr;gap:14px}.card{grid-template-columns:1fr}.card .vis{order:-1;min-height:210px}}
+.card .vis{background:var(--sand);display:grid;place-items:center;padding:var(--pad-box)}
+.card .vis img{border-radius:var(--sp-1);box-shadow:0 18px 30px -18px rgba(23,21,15,.5)}
+.empty{border:1.5px dashed var(--ink-3);border-radius:var(--r);padding:var(--pad-card);display:flex;flex-direction:column;gap:var(--sp-3)}
+.empty h4{font:800 var(--fs-h3l)/1.15 var(--display);font-stretch:106%;margin:0}
+.empty p{margin:0;color:var(--ink-2);max-width:36em}
+@media (max-width:900px){.lane{grid-template-columns:1fr;gap:var(--sp-3)}.card{grid-template-columns:1fr}.card .vis{order:-1}}
 
 /* approach */
 .approach{background:var(--sand)}
-.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
-.pillar{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,2.6vw,32px)}
-.pillar .n{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--pass)}
-.pillar h3{font:800 22px/1.15 var(--display);font-stretch:106%;margin:14px 0 10px}
-.pillar p{margin:0;color:var(--ink-2);font-size:16.5px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-s)}
+.pillar{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad-box)}
+.pillar .n{font:600 var(--fs-eyebrow)/1 var(--mono);letter-spacing:.14em;color:var(--pass)}
+.pillar h3{font:800 var(--fs-h3l)/1.15 var(--display);font-stretch:106%;margin:var(--sp-3) 0 var(--sp-2)}
+.pillar p{margin:0;color:var(--ink-2)}
 @media (max-width:860px){.pillars{grid-template-columns:1fr}}
 
 /* company + contact */
-.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:start}
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gap-l);align-items:start}
 @media (max-width:860px){.duo{grid-template-columns:1fr}}
-.h2s{font:800 clamp(30px,3.6vw,44px)/1.02 var(--display);font-stretch:106%;letter-spacing:-.015em;margin:14px 0 12px}
-dl{margin:22px 0 0;display:grid;grid-template-columns:minmax(120px,auto) 1fr;border-top:1px solid var(--ink)}
-dt,dd{margin:0;padding:14px 0;border-bottom:1px solid var(--line)}
-dt{font:600 14px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-right:24px}
+.h2s{font:800 var(--fs-h2s)/1.02 var(--display);font-stretch:106%;letter-spacing:-.015em;margin:var(--sp-3) 0 var(--sp-3)}
+.about{color:var(--ink-2);margin:0;max-width:32em}
+dl{margin:var(--sp-4) 0 0;display:grid;grid-template-columns:minmax(120px,auto) 1fr;border-top:1px solid var(--ink)}
+dt,dd{margin:0;padding:var(--sp-3) 0;border-bottom:1px solid var(--line)}
+dt{font:600 var(--fs-xs)/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-right:var(--sp-4)}
 dd{font-weight:600}
-.contact-card{background:var(--ink) var(--grain);color:var(--sand);border-radius:var(--r);padding:clamp(26px,3.4vw,44px);scroll-margin-top:90px}
+.contact-card{background:var(--ink) var(--grain);color:var(--sand);border-radius:var(--r);padding:var(--pad-card);scroll-margin-top:90px}
 .contact-card .eyebrow{color:var(--pass-l)}
-.contact-card p{color:#D8CFBB;margin:0 0 24px}
-.contact-card ul{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:14px}
-.contact-card li{display:grid;grid-template-columns:100px 1fr;gap:10px;align-items:baseline;border-bottom:1px solid rgba(241,233,216,.14);padding-bottom:12px}
-.contact-card li span{font:600 14px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#B9AF98}
+.contact-card p{color:var(--on-ink);margin:0 0 var(--sp-4)}
+.contact-card ul{list-style:none;margin:0 0 var(--sp-5);padding:0;display:grid;gap:var(--sp-3)}
+.contact-card li{display:grid;grid-template-columns:100px 1fr;gap:var(--sp-2);align-items:baseline;border-bottom:1px solid var(--on-ink-line);padding-bottom:var(--sp-3)}
+.contact-card li span{font:600 var(--fs-xs)/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--on-ink-2)}
 .contact-card li a,.contact-card li b{color:var(--sand);font-weight:600;text-decoration:none}
 .contact-card li a:hover{text-decoration:underline}
 section[id]{scroll-margin-top:72px}
 
 /* footer */
-footer{background:#0E0D09;color:#A39A84;padding:56px 0 calc(36px + env(safe-area-inset-bottom));font-size:14.5px}
-.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:28px 40px}
-footer .logo{display:flex;align-items:center;gap:10px;color:var(--sand);font:800 16px/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+footer{background:var(--foot-bg);color:var(--foot-ink);padding:var(--sp-6) 0 var(--foot-pad-b);font-size:var(--fs-xs)}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(2,minmax(0,1fr));gap:var(--sp-5) var(--sp-6)}
+footer .logo{display:flex;align-items:center;gap:var(--sp-2);color:var(--sand);font:800 var(--fs-m)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
 footer .logo svg{width:26px;height:26px;color:var(--sand)}
-footer h2{margin:0 0 14px;font:600 14px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#A39A84}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-footer a{color:#E4DCC9;text-decoration:none}
+footer .tag{margin:var(--sp-3) 0 0;max-width:24em}
+footer h2{margin:0 0 var(--sp-3);font:600 var(--fs-xs)/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--foot-ink)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-2)}
+footer a{color:var(--foot-link);text-decoration:none}
 footer a:hover{text-decoration:underline}
-footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;font:500 14px/1.6 var(--mono);color:#A39A84}
+footer .base{margin-top:var(--sp-6);padding-top:var(--sp-4);border-top:1px solid var(--foot-line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-2) var(--sp-5);font:500 var(--fs-xs)/1.6 var(--mono);color:var(--foot-ink)}
 @media (max-width:820px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}}
 
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
@@ -178,8 +167,6 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;displ
 <a class="skip" href="#main">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-warn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.5" fill="currentColor"/></symbol>
 </svg>
 
 <header class="top">
@@ -198,76 +185,52 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;displ
   <section class="hero">
     <div class="wrap">
       <div>
-        <span class="eyebrow" data-overline>Independent software company · Charlottetown, PEI</span>
-        <h1>Focused software, <em>made in Prince Edward Island.</em></h1>
-        <p>Boldsand Software Inc. designs, builds and supports its own products: record-keeping software for food businesses in Atlantic Canada, and apps and games for everyone.</p>
+        <span class="eyebrow" data-overline>Software company · Charlottetown, PEI</span>
+        <h1>Focused software for <em>businesses and everyday life.</em></h1>
+        <p>Our own products: subscription software for small businesses, and apps for everyone. Each one has its own site.</p>
         <div class="ctas">
-          <a class="btn btn-light" href="#products">Explore our products</a>
-          <a class="btn btn-ghost-l" href="#contact">Get in touch</a>
+          <a class="btn btn-light" data-variant="primary" href="#products">Browse products</a>
+          <a class="btn btn-ghost-l" href="#contact">Contact us</a>
         </div>
         <ul class="facts">
-          <li><b>Two product lines</b>for businesses, for everyone</li>
-          <li><b>Built locally</b>design, code and support</li>
-          <li><b>Incorporated 2026</b>Prince Edward Island</li>
+          <li><b>Built locally</b>design, code, support</li>
+          <li><b>Incorporated 2026</b>in PEI</li>
         </ul>
       </div>
-      <div class="stage" aria-hidden="true">
-        <div class="tablet"><span class="tag">TORQUE TRAILS · ANDROID</span><img src="/torque-trails/img/shot-1.jpg" alt="" width="1280" height="643"></div>
-        <div class="phone">
-          <div class="bar"><i></i></div>
-          <div class="app">
-            <b class="h">DAILY LOG</b>
-            <small>FOOD SAFETY LOGBOOK · KITCHEN</small>
-            <div class="row"><span>Walk-in cooler</span><b>3.1 °C</b><svg><use href="#i-check"/></svg></div>
-            <div class="row"><span>Freezer</span><b>−19.4 °C</b><svg><use href="#i-check"/></svg></div>
-            <div class="row"><span>Hot hold</span><b>68 °C</b><svg><use href="#i-check"/></svg></div>
-            <div class="row bad"><span>Prep fridge</span><b>6.2 °C</b><svg><use href="#i-warn"/></svg></div>
-            <div class="row"><span>Recheck</span><b>3.6 °C</b><svg><use href="#i-check"/></svg></div>
-            <div class="done">Report ready for inspector</div>
-          </div>
-        </div>
-      </div>
+      <figure class="screen">
+        <div class="frame"><img src="/food-safety/img/app-dashboard.webp" width="1120" height="747" fetchpriority="high" alt="The Food Safety Logbook dashboard for a sample bakery: today's checks on time, late, out of range and still to do, and a 30-day calendar of completed checks."></div>
+        <figcaption>The Food Safety Logbook, sample data</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="sec" id="products" aria-labelledby="h-products">
     <div class="wrap">
       <div class="sec-head rv">
-        <div><span class="eyebrow" data-overline>Products</span><h2 id="h-products">Each product does one job well.</h2></div>
-        <p>Our products serve very different people, so each one has its own page, its own support and its own policies.</p>
+        <div><span class="eyebrow" data-overline>Products</span><h2 id="h-products">Choose a product.</h2></div>
+        <p>Each product has its own site, its own support and its own policies.</p>
       </div>
 
-      <div class="lane rv">
-        <div class="lane-label"><span class="eyebrow" data-overline>For businesses</span><h3>Software &amp; setup</h3></div>
+      <div class="lane rv" id="business">
+        <div class="lane-label"><span class="eyebrow" data-overline>Business software · B2B</span><h3>For small businesses</h3><p>Subscription software, set up for you.</p></div>
         <a class="card" href="/food-safety/">
           <div class="txt">
-            <ul class="meta"><li class="live">Founding pilot open</li><li>Atlantic Canada</li></ul>
+            <ul class="meta"><li class="live">Pilot open</li><li>Atlantic Canada</li></ul>
             <h4>Food Safety Logbook</h4>
-            <p>Temperatures, cleaning and deliveries logged on time on any phone, with records ready the moment the inspector walks in. For restaurants, bakeries, caterers, grocers and licensed food processors. Set up for you.</p>
-            <span class="go">Visit Food Safety Logbook <i aria-hidden="true">→</i></span>
+            <p>Temperatures, cleaning and deliveries logged on time on any phone, with records ready the moment the inspector walks in. For restaurants, bakeries, caterers, grocers and licensed food processors.</p>
+            <span class="go">Visit the Food Safety Logbook site <i aria-hidden="true">→</i></span>
           </div>
-          <div class="vis fs" aria-hidden="true">
-            <div class="sheet">
-              <b class="h">DAILY LOG</b>
-              <div class="r"><i>06:58</i>Walk-in cooler<b>3.1 °C</b><svg><use href="#i-check"/></svg></div>
-              <div class="r"><i>07:04</i>Freezer<b>−19.4 °C</b><svg><use href="#i-check"/></svg></div>
-              <div class="r"><i>11:30</i>Hot hold<b>68 °C</b><svg><use href="#i-check"/></svg></div>
-            </div>
-          </div>
+          <div class="vis"><img src="/food-safety/img/report-page-1.webp" width="760" height="587" loading="lazy" decoding="async" alt="Page one of the logbook's inspector report: totals, then every check with its time, reading, limit, result and initials."></div>
         </a>
       </div>
 
-      <div class="lane rv">
-        <div class="lane-label"><span class="eyebrow" data-overline>Apps &amp; games</span><h3>For everyone</h3></div>
-        <a class="card" href="/torque-trails/">
-          <div class="txt">
-            <ul class="meta"><li class="soon">Coming soon</li><li>Android</li><li>Game</li></ul>
-            <h4>Torque Trails</h4>
-            <p>Climb, jump and land. A physics driving game with 120 hand-built levels, played offline with no account and no sign-in.</p>
-            <span class="go">See Torque Trails <i aria-hidden="true">→</i></span>
-          </div>
-          <div class="vis tt" role="img" aria-label="Torque Trails artwork: a purple van on green hills under a blue sky"></div>
-        </a>
+      <div class="lane rv" id="apps">
+        <div class="lane-label"><span class="eyebrow" data-overline>Apps · B2C</span><h3>For everyone</h3><p>Apps for phones and the web.</p></div>
+        <div class="empty">
+          <ul class="meta"><li>In development</li></ul>
+          <h4>Our first apps are being built.</h4>
+          <p>Each one will be listed here, with its own site, once it can be downloaded.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -276,12 +239,12 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;displ
     <div class="wrap">
       <div class="sec-head rv">
         <div><span class="eyebrow" data-overline>How we work</span><h2 id="h-approach">Small company. Clear commitments.</h2></div>
-        <p>Three rules apply to everything we make, whether it is used in a commercial kitchen or on a phone at home.</p>
+        <p>Three rules apply to every product we make, for a business or for a person.</p>
       </div>
       <div class="pillars">
         <div class="pillar rv"><span class="n" data-overline>01</span><h3>One product, one job</h3><p>Each product solves one problem for one kind of user, and stays focused on it instead of growing features nobody asked for.</p></div>
         <div class="pillar rv"><span class="n" data-overline>02</span><h3>Built and supported locally</h3><p>Designed, built and supported from Charlottetown. When you contact us, you reach the people who make the product.</p></div>
-        <div class="pillar rv"><span class="n" data-overline>03</span><h3>Your data stays yours</h3><p>We collect only what a product needs to work. Business records can be exported at any time, and every app has its own privacy policy.</p></div>
+        <div class="pillar rv"><span class="n" data-overline>03</span><h3>Your data stays yours</h3><p>We collect only what a product needs to work. Business records can be exported at any time, and every product has its own privacy policy.</p></div>
       </div>
     </div>
   </section>
@@ -291,11 +254,10 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;displ
       <div class="rv">
         <span class="eyebrow" data-overline>Company</span>
         <h2 id="h-company" class="h2s">About Boldsand</h2>
-        <p style="color:var(--ink-2);margin:0;max-width:32em">Boldsand Software Inc. is an independent software company incorporated in Prince Edward Island. We build and publish our own products and support every customer directly.</p>
+        <p class="about">Boldsand Software Inc. is an independent software company incorporated in Prince Edward Island. We build and run our own products and support every customer directly.</p>
         <dl>
           <dt>Legal name</dt><dd>Boldsand Software Inc.</dd>
           <dt>Jurisdiction</dt><dd>Prince Edward Island, Canada</dd>
-          <dt>Registration no.</dt><dd>174817</dd>
           <dt>Incorporated</dt><dd>19 August 2026</dd>
           <dt>Location</dt><dd>Charlottetown, PE</dd>
         </dl>
@@ -323,13 +285,12 @@ footer .base{margin-top:44px;padding-top:22px;border-top:1px solid #26231C;displ
     <div class="fgrid">
       <div>
         <span class="logo"><svg aria-hidden="true"><use href="#i-mark"/></svg>BOLDSAND</span>
-        <p style="margin:14px 0 0;max-width:24em">Focused software, made in Prince Edward Island.</p>
+        <p class="tag">Focused software for businesses and everyday life.</p>
       </div>
-      <div><h2>Products</h2><ul><li><a href="/food-safety/">Food Safety Logbook</a></li><li><a href="/torque-trails/">Torque Trails</a></li></ul></div>
+      <div><h2>Products</h2><ul><li><a href="/food-safety/">Food Safety Logbook</a></li></ul></div>
       <div><h2>Company</h2><ul><li><a href="#approach">How we work</a></li><li><a href="#company">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
-      <div><h2>Legal</h2><ul><li><a href="/torque-trails/privacy/">Torque Trails privacy policy</a></li><li><a href="/torque-trails/#support">Torque Trails support</a></li></ul></div>
     </div>
-    <div class="base"><span>© 2026 Boldsand Software Inc. All rights reserved.</span><span>PEI registration 174817 · Business Corporations Act (Prince Edward Island)</span></div>
+    <div class="base"><span>© 2026 Boldsand Software Inc. All rights reserved.</span><span>Charlottetown, Prince Edward Island</span></div>
   </div>
 </footer>
 
