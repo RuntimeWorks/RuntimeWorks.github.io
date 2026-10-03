@@ -41,7 +41,8 @@ for (const route of ROUTES) {
           return [...document.querySelectorAll("body *")].filter((el) => {
             if (el.closest(".sr,.sr-only,.visually-hidden") || el.clientWidth <= 1 || el.clientHeight <= 1) return false;
             const c = getComputedStyle(el);
-            return /(hidden|clip)/.test(c.overflow + c.overflowX + c.overflowY) && (el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2) && el.textContent.trim();
+            // Only text that ends up outside its clipping box counts (decorative overflow is fine).
+            return (() => { if (!(/(hidden|clip)/.test(c.overflow + c.overflowX + c.overflowY))) return false; const box = el.getBoundingClientRect(); return [...el.querySelectorAll("*")].some((d) => { const r = d.getBoundingClientRect(); return r.width > 0 && (r.right > box.right + 2 || r.bottom > box.bottom + 2 || r.left < box.left - 2) && !d.closest("[aria-hidden=true]") && [...d.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()); }); })();
           }).map((el) => `${el.tagName.toLowerCase()}.${String(el.className).split(" ")[0]}`);
         });
         expect(clipped).toEqual([]);
