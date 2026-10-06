@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free Dental Sterilizer Load Log (Every Cycle) · Boldsand</title>
+<meta name="description" content="A free printable sterilizer load log for dental offices in the United States: one line for every cycle, with room for the load number, contents, indicators, readings, operator and outcome. Prints on US Letter, landscape.">
+<link rel="canonical" href="https://boldsand.com/tools/sterilizer-load-log/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Free dental sterilizer load log (every cycle)">
+<meta property="og:description" content="One printable line for every sterilizer cycle: date, start time, load number, cycle type, contents, indicators, readings, operator and outcome. Free for dental offices in the United States.">
+<meta property="og:url" content="https://boldsand.com/tools/sterilizer-load-log/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  /* colour */
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF;
+  --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
+  --rule:#B4C8D5; --accent:#D2614A; --pass:#1D6A45; --pass-2:#E1EDE3; --danger:#B3361C;
+  --hair:rgba(23,21,15,.16); --hair-2:rgba(23,21,15,.32);
+  --on-dark:#E4DBC6; --on-dark-2:#BDB39C; --on-dark-label:#9AD3B1; --on-dark-line:#3A3528;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* type */
+  --display:"Archivo","Arial Black",sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-14:14px; --fs-16:16px; --fs-17:17px; --fs-19:19px; --fs-21:21px; --fs-26:26px;
+  --fs-h1:clamp(38px,7.4vw,68px); --fs-h2:clamp(30px,4vw,44px);
+  /* space */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:44px; --sp-8:64px; --sp-9:96px;
+  /* layout */
+  --wrap:1120px; --gut:clamp(16px,4.5vw,40px); --radius:6px; --radius-pill:999px;
+  --row-h:46px; --page-margin:12mm;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font-family:var(--body);font-size:var(--fs-17);line-height:1.6;
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.label{margin:0;font-family:var(--mono);font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:var(--sp-2);background:var(--ink);color:var(--sand);padding:var(--sp-2) var(--sp-3);text-decoration:none;z-index:99}
+.skip:focus{left:var(--sp-2)}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--sand);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:60px;padding-block:var(--sp-2)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none;color:var(--ink)}
+.brand b{font-family:var(--display);font-size:var(--fs-17);font-weight:800;letter-spacing:.04em;line-height:1}
+.brand span{font-family:var(--mono);font-size:var(--fs-14);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--hair-2);padding-left:var(--sp-2)}
+.pill{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-4);border:1.5px solid var(--ink);border-radius:var(--radius-pill);
+  font-family:var(--mono);font-size:var(--fs-14);font-weight:600;text-decoration:none;white-space:nowrap}
+.pill:hover{background:var(--ink);color:var(--sand)}
+.pill svg{width:16px;height:16px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:52px;padding:0 var(--sp-5);
+  border:2px solid var(--ink);border-radius:var(--radius);font-family:var(--body);font-size:var(--fs-16);font-weight:700;line-height:1;
+  text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pass)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--paper)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- hero ---------- */
+.hero{padding-block:var(--sp-8)}
+.kicker{display:flex;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-5)}
+.kicker i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2)}
+h1{font-family:var(--display);font-size:var(--fs-h1);font-weight:800;font-stretch:112%;line-height:.95;letter-spacing:-.025em;margin:0;max-width:17ch}
+.lede{font-size:var(--fs-21);line-height:1.5;color:var(--ink-2);max-width:36em;margin:var(--sp-5) 0 0}
+
+/* ---------- sections ---------- */
+.sec{padding-block:var(--sp-9)}
+h2{font-family:var(--display);font-size:var(--fs-h2);font-weight:800;font-stretch:110%;line-height:1.02;letter-spacing:-.015em;margin:var(--sp-3) 0 0;max-width:22ch}
+
+/* what the rules say */
+.rules{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;gap:var(--sp-4);max-width:64ch}
+.rules li{display:grid;grid-template-columns:20px 1fr;gap:var(--sp-3);align-items:start;line-height:1.55}
+.rules li svg{width:20px;height:20px;color:var(--pass);margin-top:var(--sp-1)}
+.rules p{margin:0}
+.src{font-family:var(--mono);font-size:var(--fs-14);color:var(--ink-3)}
+
+/* ---------- the log sheet ---------- */
+.sheet{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:var(--sp-5);box-shadow:6px 6px 0 var(--ink)}
+.sheet-head{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4);padding-bottom:var(--sp-4);border-bottom:2px solid var(--ink)}
+.field{display:grid;gap:var(--sp-2)}
+.field label{font-family:var(--mono);font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.field input{width:100%;min-height:44px;padding:var(--sp-2) var(--sp-1);border:0;border-bottom:1.5px solid var(--ink);border-radius:0;
+  background:transparent;color:var(--ink);font-family:var(--body);font-size:var(--fs-16)}
+.sheet-tools{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4);margin:var(--sp-5) 0}
+.sheet-note{margin:0;font-family:var(--mono);font-size:var(--fs-14);line-height:1.5;color:var(--ink-3);max-width:52ch}
+.tbl-wrap{overflow-x:auto;border-top:2px solid var(--ink)}
+table.log{width:100%;min-width:1080px;table-layout:fixed;border-collapse:collapse;font-family:var(--mono);font-size:var(--fs-14)}
+.log col:nth-child(1){width:6%}.log col:nth-child(2){width:6%}.log col:nth-child(3){width:5%}.log col:nth-child(4){width:8%}
+.log col:nth-child(5){width:12%}.log col:nth-child(6){width:5%}.log col:nth-child(7){width:5%}.log col:nth-child(8){width:5%}
+.log col:nth-child(9){width:5%}.log col:nth-child(10){width:6%}.log col:nth-child(11){width:5%}.log col:nth-child(12){width:7%}
+.log col:nth-child(13){width:7%}.log col:nth-child(14){width:6%}.log col:nth-child(15){width:7%}
+.log th{padding:var(--sp-3) var(--sp-2);text-align:left;vertical-align:bottom;font-weight:600;line-height:1.25;color:var(--ink-2);
+  border-bottom:2px solid var(--ink);border-right:1px solid var(--rule)}
+.log th:last-child,.log td:last-child{border-right:0}
+.log td{height:var(--row-h);padding:var(--sp-2);border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
+.tbl-hint{display:none;margin:var(--sp-3) 0 0;font-family:var(--mono);font-size:var(--fs-14);color:var(--ink-3)}
+.print-title{display:none;margin:0;font-family:var(--display);font-size:var(--fs-26);font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+
+/* how to use it */
+.steps{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;gap:var(--sp-4);max-width:66ch}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:var(--sp-3);align-items:start}
+.steps .n{font-family:var(--mono);font-size:var(--fs-19);font-weight:600;color:var(--pass)}
+.steps p{margin:0;line-height:1.55}
+
+/* note */
+#note{padding-block:var(--sp-6) var(--sp-9)}
+.note{border-left:4px solid var(--accent);padding:var(--sp-2) 0 var(--sp-2) var(--sp-4);max-width:58ch}
+.note p{margin:0;font-size:var(--fs-16);line-height:1.55;color:var(--ink-2)}
+
+/* call to action */
+.pilot{background:var(--ink) var(--grain);color:var(--sand)}
+.pilot .label{color:var(--on-dark-label)}
+.pilot h2{color:var(--sand);margin:var(--sp-3) 0 var(--sp-4)}
+.pilot p{margin:0 0 var(--sp-6);font-size:var(--fs-19);line-height:1.5;color:var(--on-dark);max-width:34em}
+
+/* footer */
+footer{background:var(--ink);color:var(--on-dark-2);padding:var(--sp-7) 0;font-size:var(--fs-14)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5) var(--sp-7)}
+footer b{color:var(--sand);font-family:var(--display);font-size:var(--fs-14);font-weight:800;letter-spacing:.05em}
+footer p{margin:var(--sp-3) 0 0;line-height:1.6}
+footer p:first-child{margin:0}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--on-dark-line);padding-top:var(--sp-5);line-height:1.6}
+
+/* ---------- narrow screens ---------- */
+@media (max-width:900px){
+  .sheet-head{grid-template-columns:1fr}
+  .tbl-hint{display:block}
+}
+@media (max-width:700px){
+  :root{--sp-9:var(--sp-8)}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  .pill .wide{display:none}
+}
+
+/* ---------- print: US Letter, landscape ---------- */
+@media print{
+  @page{size:letter landscape;margin:var(--page-margin)}
+  :root{--row-h:20mm}
+  .top,.skip,footer,.hero,#rules,#how,#pilot,.label,h2,.sheet-tools,.tbl-hint{display:none}
+  .print-title{display:block;margin:0 0 var(--sp-3)}
+  body{background:var(--paper);color:var(--ink)}
+  .sec{padding-block:0}
+  .sheet{border:0;box-shadow:none;padding:0;background:transparent}
+  .tbl-wrap{overflow:visible}
+  table.log{min-width:0;width:100%}
+  .note{border-left:0;padding:0;margin:var(--sp-4) 0 0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand home">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Sterilizer<br>load log</span>
+    </a>
+    <button type="button" class="pill" data-print><svg aria-hidden="true"><use href="#i-print"/></svg>Print<span class="wide">&nbsp;the sheet</span></button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker label"><i aria-hidden="true"></i>Free tool · Dental offices in the United States</p>
+    <h1>Free dental sterilizer load log (every cycle)</h1>
+    <p class="lede">For dental offices in the United States: one printable sheet that takes a line for every sterilizer cycle, free to print and free to use.</p>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="wrap">
+    <p class="label">Sources in plain words</p>
+    <h2>What the rules say</h2>
+    <ul class="rules">
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>Record the mechanical readings for every load — time, temperature and pressure — and note them with the chemical indicator results. <span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>A chemical indicator goes inside every package, and an external indicator goes on the package when the internal one cannot be seen from the outside. <span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>Packs from a load whose mechanical or chemical indicators showed inadequate processing are not used. <span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>For each cycle, record the type of sterilizer and cycle used, the load identification number, the load contents, the exposure parameters such as time and temperature, the operator’s name or initials, and the mechanical, chemical and biological results. <span class="src">(CDC and HICPAC, 2008 guideline for disinfection and sterilization in healthcare facilities)</span></p>
+      </li>
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>A load that contains an implantable device gets a biological indicator and, whenever possible, is held until the result is known, and an unwrapped load cannot be marked as containing an implant. <span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <svg aria-hidden="true"><use href="#i-check"/></svg>
+        <p>In Florida, steam and chemical-vapor sterilizers need a spore test at least every 40 hours of use or every 30 days, whichever comes first. Use time is the number of cycles multiplied by the cycle time, so the log keeps each cycle&rsquo;s length. <span class="src">(Florida Administrative Code 64B5-25.003)</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="log">
+  <div class="wrap">
+    <p class="label">Free · prints on US Letter, landscape</p>
+    <h2>The printable log</h2>
+    <div class="sheet">
+      <p class="print-title">Sterilizer load log</p>
+      <div class="sheet-head">
+        <div class="field">
+          <label for="office">Office name</label>
+          <input id="office" name="office" type="text" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="unit">Sterilizer (label)</label>
+          <input id="unit" name="unit" type="text" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="month">Month / year</label>
+          <input id="month" name="month" type="text" autocomplete="off">
+        </div>
+      </div>
+      <div class="sheet-tools">
+        <button type="button" class="btn btn-primary" data-print><svg aria-hidden="true"><use href="#i-print"/></svg>Print this sheet</button>
+        <p class="sheet-note">Prints on US Letter, landscape. This page keeps nothing: no account, no cookies, and nothing you type is saved or sent anywhere.</p>
+      </div>
+      <div class="tbl-wrap" role="region" tabindex="0" aria-label="Sterilizer load log, one row per cycle">
+        <table class="log">
+          <colgroup>
+            <col><col><col><col><col><col><col><col><col><col><col><col><col><col><col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Start time</th>
+              <th scope="col">Load no.</th>
+              <th scope="col">Cycle type</th>
+              <th scope="col">Contents (packs/cassettes)</th>
+              <th scope="col">Wrapped Y/N</th>
+              <th scope="col">Implant Y/N</th>
+              <th scope="col">Temp</th>
+              <th scope="col">Pressure</th>
+              <th scope="col">Exposure time</th>
+              <th scope="col">Cycle minutes</th>
+              <th scope="col">Within mfr. parameters Y/N</th>
+              <th scope="col">Chemical indicators passed Y/N</th>
+              <th scope="col">Operator</th>
+              <th scope="col">Outcome (released / held for BI / failed)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tbl-hint">Scroll the table sideways to see every column.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <p class="label">One sheet, four steps</p>
+    <h2>How to use it</h2>
+    <ol class="steps">
+      <li>
+        <span class="n">01</span>
+        <p>Fill in the office name, the sterilizer label exactly as it appears on your packs, and the month at the top of the sheet.</p>
+      </li>
+      <li>
+        <span class="n">02</span>
+        <p>Write one line per cycle, at the end of the cycle, by the operator who ran it: start time, cycle type, contents, and the readings from the gauges or the display.</p>
+      </li>
+      <li>
+        <span class="n">03</span>
+        <p>Mark wrapped or unwrapped, and mark Implant Y when the load contains an implantable device — that load is held for its biological indicator.</p>
+      </li>
+      <li>
+        <span class="n">04</span>
+        <p>Close the line with the outcome: released, held for BI, or failed. Then label each pack with the sterilizer, the load number and the date, so a pack can be traced back to its line.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="note">
+  <div class="wrap">
+    <div class="note">
+      <p>This template helps you keep records. It is not legal advice; check your state board’s current rules.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec pilot" id="pilot">
+  <div class="wrap">
+    <p class="label">Dental Logbook · in development</p>
+    <h2>Want this done for you?</h2>
+    <p>Dental Logbook is in development.</p>
+    <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the free pilot</a>
+    <p><a href="/tools/">All free tools</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p><b>BOLDSAND</b></p>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p>Free tools for dental offices, from the developer building Dental Logbook.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">This page is a free template for sterilizer load records. It does not replace guidance from your state board or your infection-control coordinator, and using it does not guarantee any inspection result. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll("[data-print]");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () { window.print(); });
+  }
+})();
+</script>
+</body>
+</html>

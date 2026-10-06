@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dental Logbook for Dental Offices · Boldsand</title>
+<meta name="description" content="Sterilization and safety records for dental offices: per-load records, spore tests and safety checks, with any record found in seconds when an inspector or auditor asks. In development. Dental offices are invited to a free pilot.">
+<link rel="canonical" href="https://boldsand.com/dental-logbook/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Sterilization records done properly, found in seconds · Boldsand Dental Logbook">
+<meta property="og:description" content="In development. Boldsand is inviting dental offices in the United States and Canada (Ontario) to a free pilot.">
+<meta property="og:url" content="https://boldsand.com/dental-logbook/">
+<meta property="og:locale" content="en_CA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Boldsand Dental Logbook",
+  "serviceType": "Dental sterilization and safety record-keeping software (in development)",
+  "description": "Sterilization and safety records for dental offices. In development; dental offices are invited to a free pilot.",
+  "areaServed": ["United States", "Ontario, Canada"],
+  "provider": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/",
+    "email": "deya@boldsand.com",
+    "address": {"@type": "PostalAddress", "addressLocality": "Charlottetown", "addressRegion": "PE", "addressCountry": "CA"}
+  }
+}
+</script>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Design tokens (DESIGN-SYSTEM v3 sections 2-4). Rules below use only these, never raw values. */
+:root{
+  /* color */
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
+  --pass:#1D6A45; --pass-2:#E1EDE3; --pass-l:#7FD1A2; --pass-lab:#9AD3B1; --danger:#B3361C;
+  --line-12:rgba(23,21,15,.12); --line-14:rgba(23,21,15,.14); --line-18:rgba(23,21,15,.18);
+  --line-22:rgba(23,21,15,.22); --line-25:rgba(23,21,15,.25); --rule:rgba(180,200,213,.55);
+  --on-ink:#EFE7D6; --on-ink-2:#EDE5D3; --on-ink-3:#D9D0BC;
+  --ask-bg:#211E16; --ask-line:#3A3528;
+  --foot-ink:#BDB39C; --foot-fine:#968D78; --print-bg:#fff;
+  /* type scale: --fs-NN is NN px, h is a half step; fluid sizes below */
+  --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-12:12px; --fs-14:14px; --fs-14h:14.5px; --fs-15:15px; --fs-15h:15.5px; --fs-16:16px;
+  --fs-16h:16.5px; --fs-17:17px; --fs-18:18px; --fs-19:19px; --fs-20:20px; --fs-22:22px; --fs-26:26px;
+  --fs-lede:clamp(18px,2.1vw,21px); --fs-p:clamp(17px,1.8vw,19px);
+  --fs-h1:clamp(44px,8.9vw,110px); --fs-h1-s:clamp(40px,12.6vw,64px);
+  --fs-h2:clamp(32px,4.4vw,54px); --fs-h2-pilot:clamp(34px,5vw,64px); --fs-h2-contact:clamp(36px,6vw,76px);
+  /* space scale: --sp-NN is NN px */
+  --sp-1:1px; --sp-2:2px; --sp-4:4px; --sp-6:6px; --sp-8:8px; --sp-10:10px; --sp-11:11px; --sp-12:12px;
+  --sp-13:13px; --sp-14:14px; --sp-16:16px; --sp-18:18px; --sp-20:20px; --sp-22:22px; --sp-24:24px;
+  --sp-26:26px; --sp-30:30px; --sp-32:32px; --sp-34:34px; --sp-44:44px; --sp-48:48px; --sp-neg-1:-1px;
+  --wrap:1120px; --gut:clamp(16px,4.5vw,40px);
+  --hero-t:clamp(36px,7vw,88px); --hero-b:clamp(48px,8vw,104px);
+  --hero-gap-x:clamp(32px,6vw,80px); --hero-gap-y:clamp(20px,3vw,32px); --hero-pad-t:clamp(4px,1.5vw,18px);
+  --pad-stand:clamp(24px,3vw,34px); --pad-versus:clamp(22px,3vw,34px); --pad-card:clamp(24px,3vw,36px);
+  --sec:clamp(64px,9vw,120px); --sec-gap:clamp(18px,5vw,64px); --sec-head-b:clamp(30px,5vw,56px);
+  --group-gap:clamp(24px,3vw,32px); --gap-who:clamp(16px,2.5vw,28px); --gap-pilot:clamp(30px,6vw,80px);
+  --pad-foot:calc(44px + env(safe-area-inset-bottom));
+  --pad-dock:calc(10px + env(safe-area-inset-bottom));
+  --pad-foot-dock:calc(104px + env(safe-area-inset-bottom));
+  /* radius scale */
+  --radius-sm:3px; --radius:6px; --radius-md:8px; --radius-pill:999px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font:400 var(--fs-17)/1.6 var(--body);font-feature-settings:"ss01";text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:var(--radius-sm)}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.mono{font-family:var(--mono)}
+.label{font:500 var(--fs-14)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:var(--sp-neg-1);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--sand);padding:var(--sp-10) var(--sp-14);z-index:99}
+.skip:focus{left:8px}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--sand) 88%,transparent);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line-12)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:var(--sp-12)}
+.brand{display:flex;align-items:center;gap:var(--sp-10);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font:800 var(--fs-17)/1 var(--display);font-stretch:125%;letter-spacing:.04em}
+.brand span{font:500 var(--fs-12)/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--line-25);padding-left:var(--sp-10)}
+.top .call{font:600 var(--fs-14)/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:var(--sp-8);min-height:44px;padding:0 var(--sp-14);border:1.5px solid var(--ink);border-radius:var(--radius-pill);white-space:nowrap}
+.top .call:hover{background:var(--ink);color:var(--sand)}
+.top .call svg{width:16px;height:16px}
+@media (max-width:520px){.brand span{display:none}.top .call .n{display:none}.ctas .btn{flex:1 1 100%}}
+@media (max-width:900px){.hero-copy{padding-top:var(--sp-18)}}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-10);min-height:52px;padding:0 var(--sp-22);border-radius:var(--radius);font:700 var(--fs-16)/1 var(--body);text-decoration:none;border:2px solid var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pass)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--paper)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- hero ---------- */
+.hero{padding:var(--hero-t) 0 var(--hero-b);position:relative}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"top top" "copy stand";column-gap:var(--hero-gap-x);row-gap:var(--hero-gap-y);align-items:start}
+.hero-top{grid-area:top}.hero-copy{grid-area:copy;padding-top:var(--hero-pad-t)}.stand-wrap{grid-area:stand}
+.kicker{display:inline-flex;align-items:center;gap:var(--sp-10);margin:0 0 var(--sp-22)}
+.kicker i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2)}
+h1{font:800 var(--fs-h1)/.9 var(--display);font-stretch:112%;letter-spacing:-.025em;margin:0}
+@media (max-width:600px){h1{font-size:var(--fs-h1-s);font-stretch:100%;line-height:.94}}
+h1 .u{position:relative;white-space:nowrap}
+h1 .u::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.16em;background:var(--pass);opacity:.9;transform:skewX(-12deg) scaleX(0);transform-origin:left;animation:mark .7s .9s cubic-bezier(.2,.8,.2,1) forwards;z-index:-1}
+@keyframes mark{to{transform:skewX(-12deg) scaleX(1)}}
+.lede{font-size:var(--fs-lede);line-height:1.5;color:var(--ink-2);max-width:34em;margin:0 0 var(--sp-22)}
+.lede strong{color:var(--ink);font-weight:600}
+.status{display:inline-flex;align-items:center;gap:var(--sp-10);margin:0 0 var(--sp-26);font:600 var(--fs-14)/1.35 var(--mono);color:var(--ink)}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2);flex:none}
+.ctas{display:flex;flex-wrap:wrap;gap:var(--sp-14);margin-bottom:var(--sp-26)}
+.assure{display:flex;flex-wrap:wrap;gap:var(--sp-8) var(--sp-22);margin:0;padding:0;list-style:none;font:500 var(--fs-14)/1.3 var(--mono);color:var(--ink-2)}
+.assure li{display:flex;align-items:center;gap:var(--sp-8)}
+.assure svg{width:16px;height:16px;color:var(--pass)}
+
+/* ---------- where this stands ---------- */
+.stand{position:relative;background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:6px 6px 0 var(--ink);padding:var(--pad-stand)}
+.stand .tag{position:absolute;top:-13px;left:22px;background:var(--sand);padding:var(--sp-4) var(--sp-10);border:1.5px solid var(--ink);border-radius:var(--radius-pill)}
+.stand dl{margin:0;display:grid;grid-template-columns:minmax(110px,auto) 1fr;border-top:1px solid var(--ink)}
+.stand dt,.stand dd{margin:0;padding:var(--sp-13) 0;border-bottom:1px solid var(--line-14)}
+.stand dt{font:600 var(--fs-14)/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-right:var(--sp-18)}
+.stand dd{font:600 var(--fs-16)/1.45 var(--body)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr);grid-template-areas:"top" "copy" "stand"}.stand-wrap{max-width:560px;width:100%;margin:var(--sp-6) auto 0}}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.sec{padding:var(--sec) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--sec-gap);align-items:end;margin-bottom:var(--sec-head-b)}
+h2.big{font:800 var(--fs-h2)/.98 var(--display);font-stretch:110%;letter-spacing:-.015em;margin:var(--sp-12) 0 0}
+.sec-head p{margin:0;color:var(--ink-2);font-size:var(--fs-p);max-width:36em}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr}}
+
+/* clipboard vs logbook */
+.versus{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.versus > div{padding:var(--pad-versus)}
+.versus .before{background:repeating-linear-gradient(180deg,transparent 0 33px,var(--rule) 33px 34px),var(--paper)}
+.versus .after{background:var(--ink);color:var(--sand)}
+.versus h3{font:800 var(--fs-20)/1.1 var(--display);font-stretch:125%;letter-spacing:.03em;text-transform:uppercase;margin:0 0 var(--sp-18);display:flex;align-items:center;gap:var(--sp-12)}
+.versus h3 .label{color:inherit;opacity:.65}
+.versus ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-14)}
+.versus li{display:grid;grid-template-columns:26px 1fr;gap:var(--sp-12);align-items:start;font-size:var(--fs-16h);line-height:1.45}
+.versus li svg{width:22px;height:22px;margin-top:var(--sp-1)}
+.before li svg{color:var(--danger)}
+.after li svg{color:var(--pass-l)}
+.after li{color:var(--on-ink-2)}
+@media (max-width:760px){.versus{grid-template-columns:1fr}}
+
+/* chips */
+.track{background:var(--sand-2);border-block:2px solid var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--sp-12);margin:0;padding:0;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:var(--sp-10);background:var(--paper);border:1.5px solid var(--ink);border-radius:var(--radius-pill);padding:var(--sp-11) var(--sp-18) var(--sp-11) var(--sp-14);font:600 var(--fs-15h)/1.2 var(--body)}
+.chips li .label{font-size:var(--fs-14);color:var(--pass);letter-spacing:.06em}
+.chips li svg{width:18px;height:18px;color:var(--pass)}
+
+/* what we're building */
+.group-h{font:800 var(--fs-22)/1.15 var(--display);font-stretch:112%;margin:var(--group-gap) 0 var(--sp-16)}
+.prov{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--sp-14)}
+.prov li{background:var(--paper);border:1.5px solid var(--ink);border-radius:var(--radius);padding:var(--sp-18) var(--sp-20)}
+.prov b{display:block;font:800 var(--fs-19)/1.15 var(--display);font-stretch:112%;margin-bottom:var(--sp-6)}
+.prov span{display:block;font-size:var(--fs-15);line-height:1.5;color:var(--ink-2)}
+.planned-note{margin:var(--sp-26) 0 0;border-left:4px solid var(--pass);padding:var(--sp-6) 0 var(--sp-6) var(--sp-18);max-width:46em}
+.planned-note p{margin:0;color:var(--ink-2)}
+
+/* regions */
+.who{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-who)}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:var(--pad-card);position:relative;box-shadow:6px 6px 0 var(--ink)}
+.card .tag{position:absolute;top:-13px;left:22px;background:var(--sand);padding:var(--sp-4) var(--sp-10);border:1.5px solid var(--ink);border-radius:var(--radius-pill)}
+.card h3{font:800 var(--fs-26)/1.05 var(--display);font-stretch:112%;margin:var(--sp-8) 0 var(--sp-12)}
+.card p{margin:0 0 var(--sp-16);color:var(--ink-2)}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:var(--sp-8);font:500 var(--fs-14h)/1.45 var(--mono)}
+.card li{display:flex;gap:var(--sp-10)}
+.card li::before{content:"—";color:var(--pass);font-weight:600}
+@media (max-width:760px){.who{grid-template-columns:1fr;gap:var(--sp-30)}}
+
+/* pilot */
+.pilot{background:var(--ink) var(--grain);color:var(--sand);overflow:hidden}
+.pilot .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--gap-pilot);align-items:center}
+.pilot .label{color:var(--pass-lab)}
+.pilot h2{font:800 var(--fs-h2-pilot)/.95 var(--display);font-stretch:118%;margin:var(--sp-14) 0 var(--sp-22);letter-spacing:-.015em}
+.pilot p{color:var(--on-ink-3);max-width:34em;margin:0 0 var(--sp-26);font-size:var(--fs-18)}
+.pilot ul{list-style:none;margin:0 0 var(--sp-32);padding:0;display:grid;gap:var(--sp-14)}
+.pilot li{display:grid;grid-template-columns:28px 1fr;gap:var(--sp-12);font-size:var(--fs-17);line-height:1.45;color:var(--on-ink)}
+.pilot li svg{width:22px;height:22px;color:var(--pass-l);margin-top:var(--sp-2)}
+.pilot .btn-primary{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.ask{background:var(--ask-bg);border:1px solid var(--ask-line);border-radius:var(--radius-md);padding:var(--sp-26)}
+.ask .label{display:block;margin-bottom:var(--sp-16)}
+.ask ul{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-14)}
+.ask li{display:grid;grid-template-columns:24px 1fr;gap:var(--sp-12);font-size:var(--fs-17);line-height:1.45;color:var(--on-ink)}
+.ask li svg{width:22px;height:22px;color:var(--pass-l);margin-top:var(--sp-2)}
+@media (max-width:860px){.pilot .wrap{grid-template-columns:1fr}}
+
+/* faq */
+.faq{border-top:2px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid var(--line-22)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--sp-20);align-items:center;padding:var(--sp-22) var(--sp-2);font:700 var(--fs-19)/1.3 var(--body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:14px;height:14px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px)}
+.faq details p{margin:0 0 var(--sp-22);color:var(--ink-2);max-width:44em}
+
+/* contact */
+.contact{background:var(--sand-2);border-top:2px solid var(--ink)}
+.contact .wrap{text-align:center}
+.contact h2{font:800 var(--fs-h2-contact)/.95 var(--display);font-stretch:118%;letter-spacing:-.02em;margin:var(--sp-16) auto var(--sp-18);max-width:16ch}
+.contact p{color:var(--ink-2);max-width:34em;margin:0 auto var(--sp-34);font-size:var(--fs-19)}
+.contact .ctas{justify-content:center}
+.contact .addr{margin:var(--sp-22) 0 0;font:500 var(--fs-15)/1.5 var(--mono);color:var(--ink-2)}
+.contact .addr a{font-weight:600;color:var(--ink)}
+
+/* footer */
+footer{background:var(--ink);color:var(--foot-ink);padding:var(--sp-44) 0 var(--pad-foot);font-size:var(--fs-14)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-24) var(--sp-48)}
+footer b{color:var(--sand);font:800 var(--fs-15)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+footer p{margin:var(--sp-10) 0 0;line-height:1.55}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--ask-line);padding-top:var(--sp-20);font:400 var(--fs-14)/1.6 var(--mono);color:var(--foot-fine)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* mobile action bar */
+.dock{display:none}
+@media (max-width:700px){
+  .dock{display:grid;grid-template-columns:1fr;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:var(--sp-10) var(--sp-12) var(--pad-dock);background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line-18);transform:translateY(110%);transition:transform .3s ease}
+  .dock.show{transform:none}
+  .dock a{min-height:48px;font-size:var(--fs-15)}
+  footer{padding-bottom:var(--pad-foot-dock)}
+}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+@media print{.top,.dock,.ctas{display:none}body{background:var(--print-bg)}}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Boldsand dental logbook, back to top">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Dental<br>logbook</span>
+    </a>
+    <a class="call" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg aria-hidden="true"><use href="#i-mail"/></svg><span class="n">Join the free pilot</span><span class="sr">Email Boldsand to join the free pilot</span></a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-top">
+      <p class="kicker label"><i></i>Dental offices · United States and Ontario</p>
+      <h1>Sterilization records done properly, found <span class="u">in seconds.</span></h1>
+    </div>
+    <div class="hero-copy">
+      <p class="lede">Per-load records, spore tests, waterline tests and safety checks for <strong>dental office managers and the staff who run the sterilizers</strong>. One place for every record, ready when an inspector or auditor asks.</p>
+      <p class="status"><i aria-hidden="true"></i>In development. We’re inviting dental offices to a free pilot.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Join the free pilot</a>
+        <a class="btn btn-ghost" href="#planned">See what’s planned</a>
+      </div>
+      <p class="status"><a href="/tools/">Free printable logs for dental offices</a></p>
+      <ul class="assure">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>United States first, then Ontario</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Designed to store no patient information</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Built in Charlottetown, Canada</li>
+      </ul>
+    </div>
+
+    <div class="stand-wrap">
+      <div class="stand">
+        <span class="tag label">Where this stands</span>
+        <dl>
+          <dt>Product</dt><dd>Dental Logbook</dd>
+          <dt>Stage</dt><dd>In development</dd>
+          <dt>Pilot</dt><dd>Free, for dental offices</dd>
+          <dt>Regions</dt><dd>United States first, then Canada (Ontario)</dd>
+          <dt>Patient data</dt><dd>Designed to store none</dd>
+          <dt>Company</dt><dd>Boldsand Software Inc.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Sound familiar?</span><h2 class="big">Paper records fail in the same places.</h2></div>
+      <p>None of this is about caring less. Binders in a busy dental office are easy to skip, easy to backfill and slow to search when someone asks for one record.</p>
+    </div>
+    <div class="versus rv">
+      <div class="before">
+        <h3><span class="label">Today</span>The binder</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Load records filled in at the end of the day, in the same pen.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>A failed spore test is written down, but nothing shows the retest or what was pulled.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>Sterilizer logs, waterline results and OSHA training records in three different places.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-x"/></svg><span>When an auditor asks for one record, someone digs through a shelf.</span></li>
+        </ul>
+      </div>
+      <div class="after">
+        <h3><span class="label">Planned</span>Dental Logbook</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Each load recorded when it happens, with its mechanical and chemical indicators.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A failed biological indicator starts a guided retest, quarantine and recall checklist.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Sterilization, waterline and OSHA records in one place.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Any record found in seconds, then printed or exported for the person asking.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec track" id="records">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">The records, at a glance</span><h2 class="big">What the logbook will keep.</h2></div>
+      <p>Everything below is planned, not built yet. The pilot decides what we finish first.</p>
+    </div>
+    <ul class="chips rv">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sterilizer loads</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Spore tests</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bowie-Dick tests</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Implant loads</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Waterline tests</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Ultrasonic &amp; washer checks</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Amalgam separator inspections</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>OSHA records</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>Today list</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="planned">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">What we’re building</span><h2 class="big">The checks you already do, in one record.</h2></div>
+      <p>Written as plans, because they are plans. Nothing here is available yet, and every requirement will link to the guidance it comes from.</p>
+    </div>
+
+    <div class="group rv">
+      <h3 class="group-h">Sterilization</h3>
+      <ul class="prov">
+        <li><b>A register of every sterilizer</b><span>Its type and the cycle types it runs, so every record points to the right machine.</span></li>
+        <li><b>Per-load records</b><span>Each load with its mechanical and chemical indicators, recorded as the load is done.</span></li>
+        <li><b>Spore tests on schedule</b><span>Weekly in the United States. In Ontario, each day the sterilizer is used and each cycle type.</span></li>
+        <li><b>A guided response to a failed test</b><span>A failed biological indicator starts a retest, quarantine and recall checklist, step by step.</span></li>
+        <li><b>Daily Bowie-Dick tests</b><span>For pre-vacuum sterilizers, as Ontario requires.</span></li>
+        <li><b>Implant loads held</b><span>An implant load is held until its biological indicator passes.</span></li>
+      </ul>
+    </div>
+
+    <div class="group rv">
+      <h3 class="group-h">Safety, water and equipment</h3>
+      <ul class="prov">
+        <li><b>Waterline test results</b><span>Recorded against 500 CFU/mL for each dental unit.</span></li>
+        <li><b>Ultrasonic cleaner and washer checks</b><span>On a schedule you set, with the result and who checked.</span></li>
+        <li><b>Amalgam separator inspections</b><span>Inspections on a schedule, kept with the rest of your records.</span></li>
+        <li><b>OSHA records</b><span>Bloodborne pathogens and hazard communication: training, exposure control plan review and a safety data sheet index.</span></li>
+      </ul>
+    </div>
+
+    <div class="group rv">
+      <h3 class="group-h">How the records behave</h3>
+      <ul class="prov">
+        <li><b>A Today list</b><span>What is due today, with overdue items clearly marked.</span></li>
+        <li><b>Kept at least 10 years</b><span>Corrections are added as new entries. Nothing is overwritten.</span></li>
+        <li><b>No patient information</b><span>Designed to store no patient information at all.</span></li>
+        <li><b>Every requirement cites its source</b><span>Built around CDC, OSHA and EPA guidance and Ontario’s RCDSO standards, with each requirement linking to where it comes from.</span></li>
+      </ul>
+    </div>
+
+    <div class="planned-note rv">
+      <p><b>Why “planned”.</b> The product is in development. We describe what it will do, not what it does today, so nobody sets up a compliance program around software that is not finished.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="regions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Where we’re starting</span><h2 class="big">United States first, then Canada.</h2></div>
+      <p>The rules differ between the two, so the schedules and the records differ too. Your regulator and your infection-control program decide what your office must do.</p>
+    </div>
+    <div class="who">
+      <article class="card rv">
+        <span class="tag label">United States · first</span>
+        <h3>Dental offices in the United States</h3>
+        <p>The first offices we are building for, with the checks and records that come up in US audits.</p>
+        <ul><li>Spore (biological indicator) tests every week</li><li>OSHA bloodborne pathogens and hazard communication records</li><li>Any record found in seconds when it is asked for</li></ul>
+      </article>
+      <article class="card rv">
+        <span class="tag label">Canada · Ontario next</span>
+        <h3>Dental offices in Ontario</h3>
+        <p>Ontario’s RCDSO standards shape these checks, on top of the same record-keeping.</p>
+        <ul><li>Spore tests each day used and each cycle type</li><li>Daily Bowie-Dick test for pre-vacuum sterilizers</li><li>Implant loads held until the biological indicator passes</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec pilot" id="pilot">
+  <div class="wrap">
+    <div class="rv">
+      <span class="label">Free pilot · In development</span>
+      <h2>We’re inviting dental offices to a free pilot.</h2>
+      <p>The Dental Logbook is being built now. We want dental offices to try it with their own sterilizers and tell us what is missing, so the product is shaped around a real sterilization room before it goes on sale.</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Your sterilizers, cycle types and test schedules set up with you.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>The record formats reviewed with you before we finalize them.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Your records stay yours. Export everything, any time.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>A direct line to the person building it. No ticket queue.</span></li>
+      </ul>
+      <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Join the free pilot</a>
+    </div>
+    <div class="ask rv">
+      <span class="label">What we ask of a pilot office</span>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Run it beside your real loads and tests for a few weeks.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Tell us where it slows the team down.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Tell us which records an auditor asks for that we do not cover yet.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:var(--sp-24)">
+      <div><span class="label">Questions</span><h2 class="big">Straight answers.</h2></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Is the Dental Logbook available now?</summary><p>No. It is in development. We are inviting dental offices to a free pilot, and pilot offices will be the first to use it.</p></details>
+      <details><summary>Does it store patient information?</summary><p>It is designed to store no patient information. It records sterilization and safety checks: machines, loads, tests and equipment. Nothing about patients.</p></details>
+      <details><summary>Will it guarantee we pass an inspection?</summary><p>No. No software can guarantee an inspection result. The Dental Logbook is being built around CDC, OSHA and EPA guidance and Ontario’s RCDSO standards, and every requirement will cite its source. Your regulator, your auditor and your infection-control program decide what your office must do.</p></details>
+      <details><summary>What happens when a spore test fails?</summary><p>Planned: the logbook starts a guided retest, quarantine and recall checklist. Each step is recorded as it happens, so the record is complete when someone asks for it.</p></details>
+      <details><summary>How long are records kept?</summary><p>Planned: records are kept at least 10 years. Corrections are added as new entries, so nothing is overwritten and the history stays honest.</p></details>
+      <details><summary>Will this change how we work?</summary><p>It starts from the records your office keeps now and the requirements you already follow. The point is to record them properly and find them quickly, not to add new work.</p></details>
+      <details><summary>Which offices is it for?</summary><p>Dental office managers and the staff who run the sterilizers, in the United States first, then Canada starting with Ontario. Elsewhere? Write to us and we will tell you when we are there.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <span class="label">Join the free pilot</span>
+    <h2>Tell us about your office.</h2>
+    <p>How many sterilizers you run, which tests you do today, and whether you are in the United States or Canada. We usually reply the same business day.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the free pilot</a>
+    </div>
+    <p class="addr"><a href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">deya@boldsand.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p style="margin-top:0">Dental sterilization and safety record-keeping software for dental offices. In development.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">Boldsand provides record-keeping software. It does not replace guidance from your regulator, your auditor or an infection-control professional, and using it does not guarantee an inspection result. The Dental Logbook is in development. We use your contact details only to reply to you. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick contact">
+  <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the free pilot</a>
+</nav>
+
+<script>
+(function(){
+  var b=document.body; b.classList.remove('no-js');
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(el){io.observe(el)});
+  } else { els.forEach(function(el){el.classList.add('in')}); }
+  var dock=document.querySelector('.dock'), hero=document.querySelector('.hero'), contact=document.getElementById('contact');
+  if(dock && 'IntersectionObserver' in window){
+    var heroOut=false, contactIn=false;
+    function sync(){dock.classList.toggle('show',heroOut && !contactIn)}
+    new IntersectionObserver(function(es){heroOut=!es[0].isIntersecting;sync()}).observe(hero);
+    new IntersectionObserver(function(es){contactIn=es[0].isIntersecting;sync()},{threshold:.2}).observe(contact);
+  }
+})();
+</script>
+</body>
+</html>

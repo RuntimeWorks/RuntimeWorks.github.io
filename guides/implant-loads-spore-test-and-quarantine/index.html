@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Implant loads: spore test, quarantine and emergencies · Boldsand</title>
+<meta name="description" content="A plain-language guide for US dental office managers: what a spore test does in an implant load, why the implant is held until the result, what an emergency changes, and what a good record shows.">
+<link rel="canonical" href="https://boldsand.com/guides/implant-loads-spore-test-and-quarantine/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Implant loads: spore test, quarantine and emergencies · Boldsand">
+<meta property="og:description" content="What a spore test does in an implant load, why the implant is held until the result, what an emergency changes, and what a good record shows.">
+<meta property="og:url" content="https://boldsand.com/guides/implant-loads-spore-test-and-quarantine/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Implant loads: the spore test, quarantine and what to do in an emergency",
+  "description": "A plain-language guide for US dental office managers on spore testing implant loads, holding implants until the result, and what to do in an emergency.",
+  "inLanguage": "en-US",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://boldsand.com/guides/implant-loads-spore-test-and-quarantine/"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/"
+  }
+}
+</script>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+
+/* ---- tokens: every colour, size, space and radius on this page comes from here ---- */
+:root{
+  /* colour (same palette as food-safety/index.html) */
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --sand-veil:rgba(241,233,216,.92); --paper:#FCF8EF;
+  --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
+  --pass:#1D6A45; --pass-2:#E1EDE3; --danger:#B3361C;
+  --hair:rgba(23,21,15,.14); --hair-2:rgba(23,21,15,.22); --hair-3:rgba(23,21,15,.32);
+  --on-ink:#F1E9D8; --on-ink-2:#D9D0BC; --on-ink-3:#BDB39C; --on-ink-line:#3A3528;
+
+  /* type families */
+  --display:"Archivo","Arial Black",sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+
+  /* type scale */
+  --fs-label:14px; --fs-foot:14px; --fs-mono:15px; --fs-small:16px; --fs-base:18px;
+  --fs-lede:21px; --fs-h3:21px; --fs-btn:17px;
+  --fs-h2:clamp(28px,4vw,42px); --fs-h1:clamp(33px,6.2vw,60px); --fs-cta:clamp(26px,3.4vw,38px);
+  --lh-h1:1; --lh-h2:1.06; --lh-head:1.3; --lh-body:1.65; --lh-mono:1.55; --lh-lede:1.5;
+
+  /* spacing scale */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
+  --sp-8:32px; --sp-10:40px; --sp-12:48px; --sp-16:64px; --sp-20:80px;
+  --pad-x:clamp(18px,4.5vw,40px); --sec-y:clamp(44px,6vw,80px); --stack:var(--sp-5);
+  --pad-head-top:clamp(32px,5vw,64px);
+  --pad-card:clamp(20px,4vw,32px); --pad-card-wide:clamp(20px,4vw,36px); --pad-legal:clamp(18px,3vw,28px);
+  --pad-foot-end:calc(var(--sp-10) + env(safe-area-inset-bottom));
+  --sr-nudge:-1px;
+
+  /* shape */
+  --wrap:1120px; --col:740px; --radius:6px; --radius-lg:8px; --radius-pill:999px;
+  --hair-w:1px; --edge-w:2px; --rule-w:3px;
+  --focus-w:3px; --focus-off:3px;
+  --shadow:6px 6px 0 var(--ink);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .07 0 0 0 0 .07 0 0 0 0 .06 0 0 0 0 .07'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background-color:var(--sand);
+  background-image:var(--grain);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:var(--fs-base);
+  line-height:var(--lh-body);
+  font-feature-settings:"ss01";
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  overflow-wrap:break-word;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:var(--focus-w) solid var(--pass);outline-offset:var(--focus-off);border-radius:var(--radius)}
+
+.wrap{width:min(var(--wrap),100% - 2*var(--pad-x));margin-inline:auto}
+.col{max-width:var(--col)}
+.label{
+  font-family:var(--mono);font-size:var(--fs-label);font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);line-height:var(--lh-head);
+}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:var(--sr-nudge);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{
+  position:absolute;left:-999px;top:var(--sp-2);
+  background-color:var(--ink);color:var(--sand);
+  padding-block:var(--sp-3);padding-inline:var(--sp-4);
+  font-family:var(--body);font-size:var(--fs-small);font-weight:700;
+  text-decoration:none;z-index:99;border-radius:var(--radius);
+}
+.skip:focus{left:var(--sp-2)}
+
+/* ---- top bar ---- */
+.top{
+  position:sticky;top:0;z-index:20;
+  background-color:var(--sand-veil);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-block-end:var(--hair-w) solid var(--hair);
+}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:var(--sp-16)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font-family:var(--display);font-size:var(--fs-label);font-weight:800;font-stretch:125%;letter-spacing:.06em;line-height:1}
+.brand span{
+  font-family:var(--mono);font-size:var(--fs-label);font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);line-height:var(--lh-head);
+  border-inline-start:var(--hair-w) solid var(--hair-3);padding-inline-start:var(--sp-2);
+}
+.top .where{font-family:var(--mono);font-size:var(--fs-label);color:var(--ink-3);letter-spacing:.06em}
+@media (max-width:560px){.brand span{display:none}.top .where{display:none}}
+
+/* ---- article head ---- */
+.head{padding-block-start:var(--pad-head-top);padding-block-end:var(--sp-10)}
+.kicker{margin:0 0 var(--sp-5);display:flex;align-items:center;gap:var(--sp-2)}
+.kicker i{width:9px;height:9px;border-radius:var(--radius-pill);background-color:var(--pass);flex:none}
+h1{
+  font-family:var(--display);font-size:var(--fs-h1);font-weight:800;font-stretch:112%;
+  line-height:var(--lh-h1);letter-spacing:-.025em;margin:0;max-width:20ch;text-wrap:balance;
+}
+.head .lede{
+  font-size:var(--fs-lede);line-height:var(--lh-lede);color:var(--ink-2);
+  max-width:38em;margin-block:var(--sp-6) 0;
+}
+
+/* the two-sentence answer */
+.answer{
+  background-color:var(--paper);
+  border:var(--edge-w) solid var(--ink);
+  border-block-start:var(--rule-w) solid var(--pass);
+  border-radius:var(--radius-lg);
+  padding-block:var(--sp-6);padding-inline:var(--pad-card);
+  margin-block-start:var(--sp-8);max-width:44em;box-shadow:var(--shadow);
+}
+.answer p{margin:0;font-size:var(--fs-lede);line-height:var(--lh-body)}
+.answer p + p{margin-block-start:var(--sp-4)}
+.answer .label{display:block;margin-block-end:var(--sp-3)}
+
+/* ---- body ---- */
+main section{padding-block:var(--sec-y)}
+main section + section{padding-block-start:0}
+h2{
+  font-family:var(--display);font-size:var(--fs-h2);font-weight:800;font-stretch:110%;
+  line-height:var(--lh-h2);letter-spacing:-.015em;margin:0 0 var(--sp-5);max-width:22ch;text-wrap:balance;
+}
+h3{font-family:var(--body);font-size:var(--fs-h3);font-weight:700;line-height:var(--lh-head);margin:0 0 var(--sp-3)}
+p{margin:0}
+.prose > * + *{margin-block-start:var(--stack)}
+.prose{max-width:38em}
+strong{font-weight:700}
+
+/* how the page cites its rules */
+.src{color:var(--ink-3);font-size:var(--fs-small)}
+
+/* the record list */
+.record{
+  background-color:var(--paper);border:var(--edge-w) solid var(--ink);
+  border-radius:var(--radius-lg);margin-block-start:var(--sp-8);
+  padding-block:var(--sp-8);padding-inline:var(--pad-card-wide);
+}
+.record > * + *{margin-block-start:var(--sp-5)}
+.record ol{margin:0;padding:0;list-style:none;counter-reset:r;display:grid;gap:var(--sp-5)}
+.record ol li{
+  counter-increment:r;display:grid;grid-template-columns:var(--sp-10) 1fr;
+  gap:var(--sp-3);align-items:baseline;line-height:var(--lh-body);
+}
+.record ol li::before{
+  content:counter(r,decimal-leading-zero);
+  font-family:var(--mono);font-size:var(--fs-mono);font-weight:500;color:var(--pass);
+}
+.record ol li b{font-weight:700}
+.record .note{font-family:var(--mono);font-size:var(--fs-mono);line-height:var(--lh-mono);color:var(--ink-2);margin:0}
+
+/* scope + legal */
+.scope{
+  border-block-start:var(--edge-w) solid var(--ink);
+  padding-block-start:var(--sp-8);
+}
+.scope p + p{margin-block-start:var(--stack)}
+.legal{
+  background-color:var(--sand-2);border-radius:var(--radius-lg);
+  padding-block:var(--sp-5);padding-inline:var(--pad-legal);
+  margin-block-start:var(--sp-6);
+}
+.legal p{margin:0;font-family:var(--mono);font-size:var(--fs-mono);line-height:var(--lh-mono);color:var(--ink-2)}
+.legal b{color:var(--ink);font-weight:500}
+
+/* ---- call to action ---- */
+.cta{background-color:var(--ink) var(--grain);color:var(--on-ink);margin-block-start:var(--sec-y)}
+.cta .wrap{padding-block:var(--sec-y)}
+.cta .label{color:var(--on-ink-3)}
+.cta h2{color:var(--on-ink);margin-block:var(--sp-4) var(--sp-5);max-width:16ch;font-size:var(--fs-cta)}
+.cta p{color:var(--on-ink-2);max-width:36em;margin-block-end:var(--sp-8)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:var(--sp-3);min-height:52px;padding-inline:var(--sp-6);
+  border-radius:var(--radius);font-family:var(--body);font-size:var(--fs-btn);
+  font-weight:700;line-height:1.2;text-decoration:none;border:var(--edge-w) solid var(--on-ink);
+  background-color:var(--sand);color:var(--ink);box-shadow:4px 4px 0 var(--pass);
+}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pass)}
+
+/* ---- footer ---- */
+footer{background-color:var(--ink);color:var(--on-ink-3);padding-block-start:var(--sp-10);padding-block-end:var(--pad-foot-end)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6) var(--sp-12)}
+footer b{
+  color:var(--on-ink);font-family:var(--display);font-size:var(--fs-label);font-weight:800;
+  font-stretch:125%;letter-spacing:.06em;line-height:1;
+}
+footer p{margin-block-start:var(--sp-3);font-size:var(--fs-foot);line-height:var(--lh-body)}
+footer a{color:var(--on-ink)}
+footer .fine{
+  grid-column:1/-1;border-block-start:var(--hair-w) solid var(--on-ink-line);
+  padding-block-start:var(--sp-5);font-family:var(--mono);font-size:var(--fs-foot);
+  line-height:var(--lh-mono);color:var(--on-ink-3);margin:0;
+}
+@media (max-width:640px){footer .wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.answer{box-shadow:none}}
+
+/* ---- print: this guide gets printed and put on a wall ---- */
+@media print{
+  .top,.cta,.skip{display:none}
+  body{background-color:var(--paper);background-image:none;color:var(--ink);font-size:var(--fs-small)}
+  .wrap{width:auto;max-width:none}
+  .head{padding-block-start:0}
+  .answer{box-shadow:none;break-inside:avoid}
+  .record{box-shadow:none;break-inside:avoid}
+  .prose{max-width:none}
+  .src{color:var(--ink-2)}
+  .legal{background-color:var(--paper);border:var(--hair-w) solid var(--ink-3)}
+  footer{background-color:var(--paper);color:var(--ink-3);padding-block:var(--sp-6) 0}
+  footer b,footer a{color:var(--ink)}
+  footer .fine{border-block-start:var(--hair-w) solid var(--hair-3);color:var(--ink-3)}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand Software Inc., home">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Guides</span>
+    </a>
+    <p class="where">For dental office managers</p>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <div class="wrap head">
+    <p class="kicker label"><i aria-hidden="true"></i>Guides · Sterilizer records</p>
+    <h1>Implant loads: the spore test, quarantine and what to do in an emergency</h1>
+
+    <div class="answer">
+      <span class="label">The short answer</span>
+      <p>Every sterilizer load that carries an implantable device gets a spore test, and the result is checked before the implant is used, whenever possible <span class="src">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+      <p>In an emergency, keeping implantable items in quarantine until the spore tests are known to be negative might be impossible <span class="src">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>Why implant loads are treated differently</h2>
+      <p>Two schedules sit in one sentence: the weekly one, and the one that covers every implant load. CDC&rsquo;s checklist puts them side by side &mdash; a biologic indicator, which is the spore test, is used at least weekly and with every load containing implantable items <span class="src">(CDC, Infection Prevention Checklist for Dental Settings)</span>. The 2003 dental guideline states the implant part on its own: use a biological indicator for every sterilizer load that contains an implantable device <span class="src">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+      <p>An implant goes into the patient and stays there. That is why these loads get more monitoring than a tray of instruments that will be reprocessed again tomorrow.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>Quarantine: the implant waits for the result</h2>
+      <p>The test only helps if somebody reads it before the implant is used. The 2003 guideline says the items are quarantined until the spore test results are known <span class="src">(CDC, 2003 dental infection-control guidelines)</span>. The 2008 guideline says to use biologic indicators for every load containing implantable items and quarantine items, whenever possible, until the biologic indicator is negative <span class="src">(CDC/HICPAC, 2008 disinfection and sterilization guideline)</span>. CDC&rsquo;s current dental page says that ideally, implantable items should not be used until they test negative <span class="src">(CDC, Best Practices for Sterilization Monitoring in Dental Settings)</span>.</p>
+      <p>Keep the hedges. The words in the sources are &ldquo;whenever possible&rdquo; and &ldquo;Ideally&rdquo;, not &ldquo;never&rdquo;, and this page does not round them up. Where the wording hedges, the hedge is part of the statement.</p>
+      <p>Quarantine here means what the word says: the implant is set aside, in its pack, while the test runs. It is a waiting state, not a judgement about the load.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>In an emergency</h2>
+      <p>Those hedges are there for a case, and the 2003 guideline names it: in an emergency, placing implantable items in quarantine until spore tests are known to be negative might be impossible <span class="src">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+      <p>So an implant can go out before its result. That is the exception and not the routine, and it does not end the process. If the test later turns positive, recall and quarantine any implantable items and do not use them until they are shown to be sterile <span class="src">(CDC, Best Practices for Sterilization Monitoring in Dental Settings)</span>.</p>
+      <p>The decision to let one go is made in the moment, by the people in the building. What lasts is the record of it, and that is the part worth getting right.</p>
+      <p>Dental Logbook takes the strict path by default. An implant load is held until its spore test reads negative. If an office lets one go early, the log asks why and keeps the reason with the load. If that test later turns positive, the log raises an alert with the load ID, so the office can go and find the patients &mdash; in its own patient charts. No patient names enter the logbook.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="prose">
+      <h2>Never unwrapped</h2>
+      <p>One sentence in the 2003 guideline carries no hedge at all: do not sterilize implantable devices unwrapped <span class="src">(CDC, 2003 dental infection-control guidelines)</span>. There is no &ldquo;whenever possible&rdquo; in it.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <div class="prose">
+        <h2>What to record</h2>
+        <p>A good log for an implant load answers four questions: what went through the cycle, which spore test rode with it, what the result was, and what happened to the implant.</p>
+      </div>
+      <div class="record">
+        <ol>
+          <li><span><b>The load.</b> The date, the sterilizer and the cycle type, the load number, and what was in the load.</span></li>
+          <li><span><b>The implant flag.</b> That the load was marked as containing an implantable device, and that a spore test went in with it.</span></li>
+          <li><span><b>The spore test.</b> Its product, lot and expiry; whether a control from the same lot went in with it, and what the control showed; whether it was read in the office or sent to a lab; and the result, with the date it was read.</span></li>
+          <li><span><b>The implant&rsquo;s status.</b> Released after a negative result, or released before the result &mdash; and if so, the reason.</span></li>
+          <li><span><b>The people.</b> Who ran the cycle, and who entered the result.</span></li>
+        </ol>
+        <p class="note">No patient names go in this record. If an office has to find the patients who received an implant, the load number is the thread to pull, and the tracing happens in the office&rsquo;s own patient charts.</p>
+      </div>
+      <div class="prose" style="margin-block-start:var(--sp-8)">
+        <p>Dental Logbook keeps these fields in one place, so an implant load can be read end to end without opening a second binder. Written down like this, the record answers the question an office actually gets asked months later: which implant, which load, which test, and what happened.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="prose scope">
+      <h2>What this page covers</h2>
+      <p>This page restates CDC&rsquo;s recommendations for implant loads, and nothing else. It does not set out any state&rsquo;s rules, and it cannot tell you whether your state adds anything to them.</p>
+      <div class="legal">
+        <p><b>This page is not legal advice; check your state board&rsquo;s current rules.</b></p>
+      </div>
+    </section>
+  </div>
+
+  <section class="cta">
+    <div class="wrap col">
+      <span class="label">Dental Logbook</span>
+      <h2>The records part is what we are building.</h2>
+      <p>Load numbers, spore tests, held or released, and the reason when an implant goes out early &mdash; kept together, in one place, for US dental offices.</p>
+      <a class="btn" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>Dental Logbook is in development: join the free pilot</a>
+      <p><a href="/guides/">All guides</a></p>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br><a href="/">boldsand.com</a> · <a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p style="margin-block-start:0">Guides on sterilizer records for US dental offices.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">Boldsand provides record-keeping software and setup help. It does not replace guidance from your regulator, your state board or an infection-control professional, and using it does not guarantee an inspection result. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
