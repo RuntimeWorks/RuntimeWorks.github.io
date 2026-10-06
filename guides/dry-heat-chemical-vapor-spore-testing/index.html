@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spore testing dry heat and chemical vapor sterilizers | Boldsand</title>
+<meta name="description" content="Every dry heat and chemical vapor sterilizer needs a spore test at least weekly; Florida counts hours of use instead: 40 for chemical vapor, 120 for dry heat and ethylene oxide, or 30 days. What one positive test means in a non-steam unit, and what to write down.">
+<link rel="canonical" href="https://boldsand.com/guides/dry-heat-chemical-vapor-spore-testing/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Spore testing dry heat and chemical vapor sterilizers | Boldsand">
+<meta property="og:description" content="The CDC weekly baseline, Florida's 40-hour and 120-hour rules, what a positive test means in a non-steam unit, and what to record.">
+<meta property="og:url" content="https://boldsand.com/guides/dry-heat-chemical-vapor-spore-testing/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Spore tests for dry heat and chemical vapor sterilizers",
+  "description": "Every dry heat and chemical vapor sterilizer needs a spore test at least weekly; Florida counts hours of use instead: 40 for chemical vapor, 120 for dry heat and ethylene oxide, or 30 days. What one positive test means in a non-steam unit, and what to write down.",
+  "inLanguage": "en-US",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://boldsand.com/guides/dry-heat-chemical-vapor-spore-testing/"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Boldsand Software Inc.",
+    "url": "https://boldsand.com/"
+  }
+}
+</script>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  /* colour tokens, same names as food-safety */
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF; --paper-white:#FFFFFF;
+  --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
+  --rule:#B4C8D5; --margin:#D2614A; --pass:#1D6A45; --pass-2:#E1EDE3;
+  --ink-dark:#211E16; --line:#3A3528; --on-dark:#D9D0BC; --on-dark-2:#BDB39C; --on-dark-3:#968D78; --pass-light:#7FD1A2;
+  --hairline:rgba(23,21,15,.12);
+  --bar:color-mix(in srgb,var(--sand) 92%,transparent);
+  /* type scale */
+  --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-h1:clamp(34px,5.2vw,58px); --fs-h2:clamp(26px,3.4vw,40px); --fs-h3:21px; --fs-lede:clamp(18px,2vw,21px);
+  --fs-body:17px; --fs-sm:15px; --fs-label:14px; --fs-btn:17px; --fs-brand:17px;
+  --lh-h1:1.04; --lh-h2:1.08; --lh-tight:1.25; --lh-body:1.6; --lh-btn:1; --lh-quote:1.65;
+  --ls-tight:-.02em; --ls-wide:.04em; --ls-label:.08em;
+  /* spacing scale */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px;
+  --sp-7:44px; --sp-8:56px; --sp-9:72px; --sp-10:96px;
+  --pad-sec:clamp(var(--sp-7),8vw,var(--sp-10)); --pad-hero:clamp(var(--sp-7),6vw,var(--sp-9));
+  --pad-cta:clamp(var(--sp-6),5vw,var(--sp-9));
+  --pad-card:clamp(var(--sp-5),3vw,var(--sp-6)); --gap-sec:clamp(var(--sp-5),4vw,var(--sp-8)); --gap-col:clamp(var(--sp-5),4vw,var(--sp-8));
+  /* shape */
+  --wrap:880px; --wrap-text:66ch; --gut:clamp(16px,4.5vw,40px);
+  --r-s:6px; --r-pill:999px; --bw-1:1px; --bw-2:2px; --bw-3:3px; --bw-hair:1.5px;
+  --sh-card:6px 6px 0 var(--ink); --sh-btn:4px 4px 0 var(--pass); --sh-btn-h:6px 6px 0 var(--pass); --sh-lift:-2px;
+  --tap:44px; --btn-h:52px; --sr-off:-1px;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font:400 var(--fs-body)/var(--lh-body) var(--body);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:var(--bw-3) solid var(--pass);outline-offset:var(--sp-1);border-radius:var(--r-s)}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.label{font:500 var(--fs-label)/1.3 var(--mono);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:var(--sr-off);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:var(--sp-2);background:var(--ink);color:var(--sand);padding:var(--sp-3) var(--sp-4);z-index:99;text-decoration:none;font:600 var(--fs-sm)/var(--lh-btn) var(--body)}
+.skip:focus{left:var(--sp-2)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:var(--bar);border-bottom:var(--bw-1) solid var(--hairline)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:var(--sp-7)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:var(--tap)}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font:800 var(--fs-brand)/var(--lh-btn) var(--display);font-stretch:125%;letter-spacing:var(--ls-wide)}
+.brand span{font:500 var(--fs-label)/1.15 var(--mono);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--ink-3);border-left:var(--bw-1) solid var(--hairline);padding-left:var(--sp-2)}
+@media (max-width:560px){.brand span{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:var(--btn-h);padding:0 var(--sp-5);border-radius:var(--r-s);font:700 var(--fs-btn)/var(--lh-btn) var(--body);text-decoration:none;border:var(--bw-2) solid var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:var(--sh-btn)}
+.btn-primary:hover{transform:translate(var(--sh-lift),var(--sh-lift));box-shadow:var(--sh-btn-h)}
+.btn-light{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:var(--sh-btn)}
+.btn-light:hover{transform:translate(var(--sh-lift),var(--sh-lift));box-shadow:var(--sh-btn-h)}
+
+/* article head */
+.hero{padding:var(--pad-hero) 0 var(--sp-9)}
+.kicker{display:flex;align-items:center;gap:var(--sp-2);margin:0 0 var(--sp-5)}
+.kicker i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2)}
+h1{font:800 var(--fs-h1)/var(--lh-h1) var(--display);font-stretch:112%;letter-spacing:var(--ls-tight);margin:0;max-width:20ch}
+.answer{background:var(--paper);border:var(--bw-2) solid var(--ink);border-radius:var(--r-s);box-shadow:var(--sh-card);padding:var(--pad-card);max-width:44em;margin:var(--sp-6) 0 0}
+.answer .label{display:block;margin:0 0 var(--sp-3)}
+.answer p{margin:0;font-size:var(--fs-lede);line-height:1.5}
+.answer p + p{margin-top:var(--sp-4)}
+.answer b{font-weight:600}
+.byline{margin:var(--sp-5) 0 0}
+
+/* sections */
+.sec{padding:var(--pad-sec) 0}
+.sec-head{margin:0 0 var(--sp-5);max-width:44em}
+.sec-head .label{display:block;margin:0 0 var(--sp-3)}
+h2{font:800 var(--fs-h2)/var(--lh-h2) var(--display);letter-spacing:var(--ls-tight);margin:0}
+h3{font:700 var(--fs-h3)/var(--lh-tight) var(--body);margin:0 0 var(--sp-3)}
+.prose{max-width:var(--wrap-text)}
+.prose p{margin:var(--sp-4) 0 0}
+.prose p:first-child{margin-top:0}
+.cite{color:var(--ink-3)}
+ul.dash{margin:var(--sp-4) 0 0;padding:0;list-style:none;display:grid;gap:var(--sp-3);max-width:var(--wrap-text)}
+ul.dash li{display:grid;grid-template-columns:auto 1fr;gap:var(--sp-3)}
+ul.dash li::before{content:"—";color:var(--pass);font-weight:600}
+
+/* the two schedules side by side */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-sec);margin:var(--sp-6) 0 0;max-width:60em}
+.card{background:var(--paper);border:var(--bw-2) solid var(--ink);border-radius:var(--r-s);box-shadow:var(--sh-card);padding:var(--pad-card)}
+.card .tag{display:inline-block;background:var(--sand);border:var(--bw-hair) solid var(--ink);border-radius:var(--r-pill);padding:var(--sp-1) var(--sp-3);margin:0 0 var(--sp-4)}
+.card p{margin:var(--sp-3) 0 0}
+.card p:first-of-type{margin-top:0}
+@media (max-width:760px){.compare{grid-template-columns:1fr}}
+
+/* interval table */
+.table-wrap{border:var(--bw-2) solid var(--ink);border-radius:var(--r-s);background:var(--paper);overflow:hidden;margin:var(--sp-6) 0 0}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+caption{text-align:left;padding:var(--sp-4) var(--sp-4) 0;font:500 var(--fs-label)/1.3 var(--mono);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--ink-3)}
+th,td{padding:var(--sp-3) var(--sp-4);text-align:left;vertical-align:top;font-size:var(--fs-sm);line-height:1.55;overflow-wrap:anywhere;border-bottom:var(--bw-1) solid var(--rule)}
+thead th{font:500 var(--fs-label)/1.3 var(--mono);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--ink-3);border-bottom:var(--bw-2) solid var(--ink)}
+tbody th{font-weight:700;width:36%}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+.src{display:block;margin-top:var(--sp-2);font-family:var(--mono);font-size:var(--fs-label);line-height:1.45;color:var(--ink-3)}
+@media (max-width:560px){thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}tbody th{width:40%}th,td{padding:var(--sp-3)}}
+
+/* where the sources disagree or are silent */
+.callout{border-left:var(--bw-3) solid var(--margin);padding-left:var(--sp-5);margin:var(--sp-6) 0 0;max-width:var(--wrap-text)}
+.callout p{margin:var(--sp-4) 0 0}
+.callout p:first-child{margin-top:0}
+
+/* the sources, word for word */
+.quotes{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;gap:var(--sp-6)}
+.quotes li{border-left:var(--bw-3) solid var(--pass);padding-left:var(--sp-5)}
+.quotes .words{margin:0;font-family:var(--mono);font-size:var(--fs-sm);line-height:var(--lh-quote);overflow-wrap:anywhere}
+.quotes .src{margin-top:var(--sp-3)}
+
+/* note */
+.note{border-left:var(--bw-3) solid var(--margin);padding-left:var(--sp-5);margin:var(--pad-sec) 0 0;max-width:var(--wrap-text);font:500 var(--fs-sm)/1.5 var(--mono);color:var(--ink-2)}
+
+/* call to action */
+.cta{background:var(--ink) var(--grain);color:var(--sand);border-radius:var(--r-s);padding:var(--pad-cta);margin:var(--pad-sec) 0 0}
+.cta .label{color:var(--pass-light)}
+.cta h2{margin:var(--sp-3) 0 0;max-width:22ch}
+.cta p{color:var(--on-dark);max-width:38em;margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-lede);line-height:1.5}
+
+/* footer */
+footer{background:var(--ink);color:var(--on-dark-2);padding:var(--sp-8) 0;font-size:var(--fs-sm)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5) var(--gap-col)}
+footer b{color:var(--sand);font:800 var(--fs-brand)/var(--lh-btn) var(--display);font-stretch:125%;letter-spacing:var(--ls-wide)}
+footer p{margin:var(--sp-3) 0 0;line-height:1.55}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line);padding-top:var(--sp-5);font:400 var(--fs-label)/1.6 var(--mono);color:var(--on-dark-3)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+@media print{.top,.cta{display:none}body{background:var(--paper-white)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="#17150F"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand Software Inc., company information">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Guides</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker label"><i aria-hidden="true"></i>Dental sterilizer monitoring · United States</p>
+        <h1>Spore tests for dry heat and chemical vapor sterilizers</h1>
+        <div class="answer">
+          <span class="label">The short answer</span>
+          <p>Every sterilizer, dry heat and chemical vapor included, gets a spore test at least weekly with a biological indicator and a control from the same lot number <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          <p>Florida counts use instead of days: chemical vapor every 40 hours of use, dry heat and ethylene oxide every 120 hours, and all of them at least every 30 days <span class="cite">(Florida rule 64B5-25.003)</span>.</p>
+        </div>
+        <p class="byline label">Boldsand Software Inc. · October 6, 2026</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">The baseline</span>
+          <h2>The weekly test covers every sterilizer</h2>
+        </div>
+        <div class="prose">
+          <p>Spore testing is not an autoclave-only job. The CDC guidelines for dental offices say to monitor sterilizers at least weekly by using a biological indicator with a matching control, meaning a biological indicator and a control from the same lot number <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>. That covers your dry heat cabinet and your chemical vapor unit the same way it covers a steam sterilizer <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          <p>The indicator must fit the machine. The 2008 disinfection and sterilization guideline asks for an FDA-cleared commercial preparation of spores intended specifically for the type and cycle parameters of the sterilizer, and its one named example is for steam (e.g., Geobacillus stearothermophilus for steam) <span class="cite">(CDC, 2008 disinfection and sterilization guideline)</span>. These rows name no spore species for dry heat or chemical vapor units, so this page does not invent one.</p>
+          <p>How the test is run, and what each way asks of your staff, is its own topic: <a href="/guides/in-office-vs-mail-in-spore-testing/">In-office or mail-in spore testing</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">Two schedules</span>
+          <h2>Florida counts hours of use</h2>
+        </div>
+        <div class="prose">
+          <p>Florida's dental rules set their own clock on top of the weekly baseline. The two are not the same measurement: one counts days, the other counts hours of use. This page shows both and does not pick one for you <span class="cite">(Florida rule 64B5-25.003; CDC, 2003 dental infection-control guidelines)</span>.</p>
+        </div>
+        <div class="compare">
+          <div class="card">
+            <span class="tag label">CDC baseline</span>
+            <h3>At least weekly, every sterilizer</h3>
+            <p>Monitor sterilizers at least weekly with a biological indicator and a control from the same lot number <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          </div>
+          <div class="card">
+            <span class="tag label">Florida rule 64B5-25.003</span>
+            <h3>Hours of use, with a 30-day cap</h3>
+            <p>Chemical vapor, like steam under pressure: verified at least every 40 hours (2,400 minutes) of use or at least every 30 days, whichever comes first <span class="cite">(Florida rule 64B5-25.003)</span>.</p>
+            <p>Dry heat and ethylene oxide: verified every 120 hours of operation at sterilization parameters or every 30 days, whichever comes first <span class="cite">(Florida rule 64B5-25.003)</span>.</p>
+            <p>Use time is the number of cycles multiplied by the individual cycle time <span class="cite">(Florida rule 64B5-25.003)</span>.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>Florida's biological monitoring interval by sterilizer type</caption>
+            <thead>
+              <tr><th scope="col">Sterilizer</th><th scope="col">Florida rule 64B5-25.003</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Chemical vapor</th>
+                <td>At least every 40 hours (2,400 minutes) of use or at least every 30 days, whichever comes first <span class="src">(Florida rule 64B5-25.003)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Dry heat</th>
+                <td>Every 120 hours of operation at sterilization parameters or every 30 days, whichever comes first <span class="src">(Florida rule 64B5-25.003)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Steam under pressure (e.g., autoclave)</th>
+                <td>At least every 40 hours (2,400 minutes) of use or at least every 30 days, whichever comes first <span class="src">(Florida rule 64B5-25.003)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Ethylene oxide</th>
+                <td>Every 120 hours of operation at sterilization parameters or every 30 days, whichever comes first <span class="src">(Florida rule 64B5-25.003)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="prose">
+          <p>Every row above also sits under CDC's baseline: at least weekly for every sterilizer <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          <p>Florida's rule names the four methods in the table: steam under pressure (e.g., autoclave), dry-heat, chemical vapor and ethylene oxide. Devices used to achieve sterilization must be approved by the U.S. Food and Drug Administration (FDA) for sterilization <span class="cite">(Florida rule 64B5-25.003)</span>.</p>
+          <p>Dental Logbook will count use-minutes as the total of the full logged cycles since the last test, and will tell you which clock comes due first.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">When the test is positive</span>
+          <h2>One positive test in a non-steam unit</h2>
+        </div>
+        <div class="prose">
+          <p>For sterilization methods other than steam, the more conservative approach should always be used <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          <p>After a single positive biological indicator in a dry heat, chemical vapor or ethylene oxide unit, treat as nonsterile everything the sterilizer processed, from the cycle that had the last negative spore test up to the next cycle that shows satisfactory spore test results <span class="cite">(CDC, 2008 disinfection and sterilization guideline)</span>.</p>
+          <p>One positive is the whole trigger. These rows give no single-retest shortcut for a non-steam unit. What they give instead is a window: from the last negative test to the next cycle with satisfactory results, everything is treated as nonsterile <span class="cite">(CDC, 2008 disinfection and sterilization guideline)</span>.</p>
+          <p>The full routine, out of service to return to service, is laid out in <a href="/guides/what-to-do-when-a-spore-test-fails/">What to do when a dental sterilizer fails a spore test</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">A different kind of process</span>
+          <h2>Liquid chemical sterilants have no spore test</h2>
+        </div>
+        <div class="prose">
+          <p>A liquid chemical sterilant is not one of the machines above, and no spore test schedule applies to it: not weekly and not on any use-hour clock. The reason is in the source wording: the sterilization process with liquid chemical sterilants cannot be verified with biological indicators <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</p>
+          <p>Dental Logbook treats dry heat and chemical vapor as their own sterilizer types, and keeps liquid chemical sterilants out of the spore test schedule entirely.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">The paperwork</span>
+          <h2>What to record</h2>
+        </div>
+        <div class="prose">
+          <p>A good log answers what the rows above ask for:</p>
+        </div>
+        <ul class="dash">
+          <li><span>Which sterilizer and which cycle the indicator rode in, because the indicator must be intended for the type and cycle parameters of that sterilizer <span class="cite">(CDC, 2008 disinfection and sterilization guideline)</span>.</span></li>
+          <li><span>The biological indicator and the control, from the same lot number <span class="cite">(CDC, 2003 dental infection-control guidelines)</span>.</span></li>
+          <li><span>The date of the test and the use time it covers, since use time is the number of cycles multiplied by the individual cycle time <span class="cite">(Florida rule 64B5-25.003)</span>.</span></li>
+          <li><span>The result and who entered it. Dental Logbook will store both, next to the load it belongs to.</span></li>
+        </ul>
+        <div class="prose">
+          <p>How long to keep these records, who signs them and what else a record must contain are not set by the rows on this page. <a href="/guides/how-long-to-keep-sterilization-records/">How long to keep sterilization records</a> covers the retention side.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">Limits of this page</span>
+          <h2>What these sources do not say</h2>
+        </div>
+        <div class="prose">
+          <p>Where the source pack is silent, this page says so:</p>
+        </div>
+        <ul class="dash">
+          <li><span>Which spore species a dry heat or chemical vapor unit needs. The only named example in these rows is for steam (e.g., Geobacillus stearothermophilus for steam) <span class="cite">(CDC, 2008 disinfection and sterilization guideline)</span>.</span></li>
+          <li><span>Any air-removal test for these two kinds of unit. The rows quoted on this page set none.</span></li>
+          <li><span>Record contents, signatures and retention periods for spore tests.</span></li>
+          <li><span>Schedules for states other than Florida. This page quotes Florida's rule; other states write their own.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="label">Check the wording yourself</span>
+          <h2>The sources, word for word</h2>
+        </div>
+        <div class="prose">
+          <p>Every rule on this page comes from the lines below, with their source IDs, so you can check the wording yourself.</p>
+        </div>
+        <ul class="quotes">
+          <li>
+            <p class="words">&ldquo;Monitor sterilizers at least weekly by using a biological indicator with a matching control (i.e., biological indicator and control from same lot number)&rdquo;</p>
+            <p class="src">C03-1 · CDC, Guidelines for Infection Control in Dental Health-Care Settings &mdash; 2003 (MMWR 52/RR-17), recommendation VI.F.6 (strongly recommended), page 43</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;Use biologic indicators to monitor the effectiveness of sterilizers at least weekly with an FDA-cleared commercial preparation of spores (e.g., Geobacillus stearothermophilus for steam) intended specifically for the type and cycle parameters of the sterilizer.&rdquo;</p>
+            <p class="src">D08-1 · CDC/HICPAC, Guideline for Disinfection and Sterilization in Healthcare Facilities, 2008, recommendation 16.d (strongly recommended)</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;Adequacy of steam under pressure (e.g. autoclave) or chemical vapor sterilization must have their efficacy verified by appropriate biological monitoring at least once every 40 hours (2400 minutes) of use or at least once every thirty days, whichever comes first.&rdquo;</p>
+            <p class="src">FL-1 · Florida rule 64B5-25.003(9)</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;Dry heat and ethylene oxide sterilizers must have their efficacy verified with appropriate biological monitoring every 120 hours of operation at sterilization parameters or every thirty days, whichever comes first. (Use time is determined by multiplying the number of cycles by the individual cycle time.)&rdquo;</p>
+            <p class="src">FL-2 · Florida rule 64B5-25.003(9)</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;After a single positive biologic indicator used with a method other than steam sterilization, treat as nonsterile all items that have been processed in that sterilizer, dating from the sterilization cycle having the last negative biologic indicator to the next cycle showing satisfactory biologic indicator results.&rdquo;</p>
+            <p class="src">D08-9 · CDC/HICPAC, Guideline for Disinfection and Sterilization in Healthcare Facilities, 2008, recommendation 16.e (suggested)</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;This more conservative approach should always be used for sterilization methods other than steam&rdquo; &hellip; &ldquo;the sterilization process with liquid chemical sterilants cannot be verified with biological indicators&rdquo;</p>
+            <p class="src">C03-20 · CDC, Guidelines for Infection Control in Dental Health-Care Settings &mdash; 2003, pages 25 and 23</p>
+          </li>
+          <li>
+            <p class="words">&ldquo;Steam under pressure (e.g., autoclave);&rdquo; &ldquo;Dry-heat;&rdquo; &ldquo;Chemical vapor;&rdquo; &ldquo;Ethylene oxide;&rdquo; &ldquo;Devices used to achieve sterilization must be approved by the U.S. Food and Drug Administration (FDA) for sterilization.&rdquo;</p>
+            <p class="src">FL-4 · Florida rule 64B5-25.003(1)</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <p class="note">This page is not legal advice; check your state board's current rules.</p>
+
+        <section class="cta">
+          <span class="label">Dental Logbook · in development</span>
+          <h2>Records for these tests, without the binder</h2>
+          <p>Dental Logbook is being built to keep these records in one place for US dental offices. Pilot offices shape what it records.</p>
+          <a class="btn btn-light" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>Dental Logbook is in development: join the free pilot</a>
+        </section>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p>Plain-language guides for small businesses and the people who run them.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">Boldsand provides record-keeping software. It does not give legal or regulatory advice, and it does not replace guidance from your state board or health department. We use your contact details only to reply to you. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
