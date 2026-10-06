@@ -4,3 +4,7 @@
 .github/quality/lhci-report/
 .github/quality/.lighthouseci/
 .DS_Store
+
+# Never commit secrets (2026-10-06)
+.env
+.env.*
