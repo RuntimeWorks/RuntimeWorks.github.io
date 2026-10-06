@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Free dental sterilizer spore test (BI) log · Boldsand</title>
+<meta name="description" content="A free printable spore test (BI) log for US dental offices: one row per test, with the control from the same lot, the result and the action if it failed.">
+<link rel="canonical" href="https://boldsand.com/tools/spore-test-log/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Free dental sterilizer spore test (BI) log · Boldsand">
+<meta property="og:description" content="A printable spore test log sheet for dental offices in the United States: one row per test, with its control and its result. Free to use and print.">
+<meta property="og:url" content="https://boldsand.com/tools/spore-test-log/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Design tokens (DESIGN-SYSTEM v3 sections 2-4). Rules below use only these, never raw values. */
+:root{
+  --sand:#F1E9D8;--paper:#FCF8EF;--ink:#17150F;--ink-2:#4A4537;--ink-3:#5C564A;
+  --rule:#B4C8D5;--pass:#1D6A45;--pass-l:#7FD1A2;
+  --on-ink:#D8CFBB;--on-ink-2:#B9AF98;--on-ink-line:rgba(241,233,216,.14);
+  --foot-bg:#0E0D09;--foot-ink:#A39A84;--foot-link:#E4DCC9;--foot-line:#26231C;
+  --display:"Archivo","Arial Black",sans-serif;--body:"Schibsted Grotesk","Helvetica Neue",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-xs:14px;--fs-s:15.5px;--fs-m:17px;--fs-field:16px;--fs-lede:clamp(18px,1.9vw,20.5px);
+  --fs-h3:20px;--fs-h3l:22px;--fs-h2:clamp(30px,3.8vw,46px);--fs-h1:clamp(38px,4.9vw,62px);
+  --fs-print:11pt;--fs-print-th:8.5pt;--fs-print-label:8pt;
+  --sp-1:6px;--sp-2:10px;--sp-3:14px;--sp-4:22px;--sp-5:32px;--sp-6:44px;
+  --gut:clamp(16px,4.5vw,40px);--sec:clamp(64px,9vw,120px);--hero-t:clamp(56px,8vw,104px);--hero-b:clamp(64px,9vw,112px);
+  --gap-l:clamp(32px,5vw,72px);--gap-m:clamp(16px,3vw,40px);--gap-s:clamp(14px,2vw,24px);--pad-card:clamp(24px,3vw,40px);--pad-box:clamp(22px,2.6vw,32px);
+  --r:14px;--r-s:10px;--r-pill:999px;
+  --dot:9px;--ring:4px;--tbl-min:1060px;--row-h:44px;--field-h:40px;--row-print:0.35in;--page-margin:0.45in;--fs-num:64px;
+  --wrap:1120px;--foot-pad-b:calc(var(--sp-6) + env(safe-area-inset-bottom));
+  --shadow-card:6px 6px 0 var(--ink);--shadow-soft:0 18px 40px -26px rgba(23,21,15,.4);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .07 0 0 0 0 .05 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font:400 var(--fs-m)/1.6 var(--body);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px;border-radius:var(--sp-1)}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.label{font:500 var(--fs-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.skip{position:absolute;left:-999px;top:var(--sp-2);background:var(--ink);color:var(--sand);padding:var(--sp-2) var(--sp-3);z-index:99;font-size:var(--fs-s)}
+.skip:focus{left:var(--sp-2)}
+.sr-only{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:var(--sand);border-bottom:1px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);height:60px}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font:800 var(--fs-m)/1 var(--display);font-stretch:125%;letter-spacing:.04em}
+.brand span{font:500 var(--fs-xs)/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--ink-3);padding-left:var(--sp-2)}
+.top .pill{font:600 var(--fs-xs)/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-3);border:1.5px solid var(--ink);border-radius:var(--r-pill);white-space:nowrap;background:transparent;color:inherit;cursor:pointer}
+.top .pill:hover{background:var(--ink);color:var(--sand)}
+.top .pill svg{width:16px;height:16px;flex:none}
+@media (max-width:560px){.brand span{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:52px;padding:0 var(--sp-4);border-radius:var(--r-s);font:700 var(--fs-s)/1 var(--body);text-decoration:none;border:2px solid var(--ink);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:var(--shadow-card)}
+.btn-primary:hover{transform:translate(-2px,-2px)}
+.btn-light{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:var(--shadow-card)}
+.btn-light:hover{transform:translate(-2px,-2px)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* hero */
+.hero{background:var(--ink) var(--grain);color:var(--sand);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--gap-l);align-items:end;padding:var(--hero-t) 0 var(--hero-b)}
+.hero .kicker{color:var(--pass-l)}
+.kicker{display:inline-flex;align-items:center;gap:var(--sp-2);margin:0 0 var(--sp-4)}
+.kicker i{width:var(--dot);height:var(--dot);border-radius:var(--r-pill);background:var(--pass-l);box-shadow:0 0 0 var(--ring) rgba(127,209,162,.25)}
+.hero h1{font:800 var(--fs-h1)/1.02 var(--display);font-stretch:108%;letter-spacing:-.025em;margin:0}
+.hero h1 em{font-style:normal;color:var(--pass-l)}
+.hero .lede{margin:0;color:var(--on-ink);font-size:var(--fs-lede);line-height:1.55;max-width:32em}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:var(--sp-5)}}
+
+/* sections */
+.sec{padding:var(--sec) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--gap-m);align-items:end;margin-bottom:var(--gap-m)}
+h2.big{font:800 var(--fs-h2)/1 var(--display);font-stretch:110%;letter-spacing:-.015em;margin:var(--sp-3) 0 0}
+.sec-head p{margin:0;color:var(--ink-2);font-size:var(--fs-lede);max-width:36em}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr}}
+
+/* what the rules say */
+.rules{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink);max-width:62em}
+.rules li{display:grid;grid-template-columns:var(--sp-3) minmax(0,1fr);gap:var(--sp-4);padding:var(--sp-4) 0;border-bottom:1px solid var(--rule)}
+.rules li::before{content:"";width:var(--sp-2);height:var(--sp-2);border-radius:var(--r-pill);background:var(--pass);margin-top:var(--sp-3)}
+.rules p{margin:0;font-size:var(--fs-m);line-height:1.55;max-width:52em}
+.rules .src{display:block;margin-top:var(--sp-2);font:500 var(--fs-xs)/1.4 var(--mono);color:var(--ink-3)}
+
+/* the printable log */
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3) var(--sp-5);margin-bottom:var(--sp-5)}
+.actions p{margin:0;color:var(--ink-2);font-size:var(--fs-s);max-width:38em}
+.sheet{background:var(--paper);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow-card);padding:var(--pad-card)}
+.sheet-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--sp-3);border-bottom:2px solid var(--ink);padding-bottom:var(--sp-3)}
+.sheet-head h3{font:800 var(--fs-h3l)/1.05 var(--display);font-stretch:112%;margin:0}
+.sheet-head .label{margin:0}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3) var(--gap-s);margin:var(--sp-4) 0 var(--sp-5)}
+.field{display:grid;gap:var(--sp-1)}
+.field label{font:500 var(--fs-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.field input,.log input{width:100%;font:400 var(--fs-field)/1.25 var(--mono);color:var(--ink);background:transparent;border:1px solid var(--ink-3);border-radius:var(--sp-1);padding:var(--sp-2);min-height:var(--field-h)}
+.table-wrap{overflow-x:auto;border-radius:var(--r-s)}
+table.log{width:100%;min-width:var(--tbl-min);border-collapse:collapse;table-layout:fixed}
+.log th,.log td{text-align:left;vertical-align:middle;padding:var(--sp-2);overflow-wrap:break-word}
+.log th{font:600 var(--fs-xs)/1.3 var(--body);color:var(--ink-2);border-bottom:2px solid var(--ink);padding-bottom:var(--sp-2)}
+.log td{height:var(--row-h);border-bottom:1px solid var(--rule);padding:var(--sp-1) var(--sp-2)}
+.log td input{min-height:var(--sp-5)}
+.c-date{width:10.5%}.c-ster{width:8%}.c-cycle{width:8%}.c-load{width:10%}.c-bi{width:12.5%}
+.c-ctl{width:11%}.c-read{width:10%}.c-res{width:9%}.c-by{width:7%}.c-act{width:14%}
+.scroll-hint{margin:var(--sp-2) 0 0;font:500 var(--fs-xs)/1.4 var(--mono);color:var(--ink-3)}
+@media (min-width:1180px){.scroll-hint{display:none}}
+@media (max-width:700px){.fields{grid-template-columns:1fr}}
+
+/* how to use it */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);margin:0;padding:0;list-style:none;counter-reset:step}
+.step{padding:var(--sp-5) var(--gap-s) var(--sp-2) 0;position:relative}
+.step + .step{padding-left:var(--gap-s);border-left:1px dashed var(--ink-3)}
+.step .num{font-family:var(--display);font-weight:800;font-size:var(--fs-num);line-height:1;font-stretch:125%;color:transparent;-webkit-text-stroke:1.5px var(--ink);margin:var(--sp-1) 0 var(--sp-3)}
+.step h3{font:700 var(--fs-h3)/1.2 var(--body);margin:0 0 var(--sp-2);letter-spacing:-.005em}
+.step p{margin:0;color:var(--ink-2);font-size:var(--fs-s)}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr}.step{padding-left:0;border-left:0;border-top:1px dashed var(--ink-3)}.step:nth-child(odd){padding-right:var(--gap-s)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{padding-right:0}}
+
+/* note */
+.note{padding:0 0 var(--sec)}
+.note .wrap{border-left:4px solid var(--pass);padding:var(--sp-1) 0 var(--sp-1) var(--sp-4)}
+.note p{margin:0;color:var(--ink-2);font-size:var(--fs-s);max-width:44em}
+
+/* call to action */
+.cta{background:var(--ink) var(--grain);color:var(--sand)}
+.cta .label{color:var(--pass-l)}
+.cta h2{font:800 var(--fs-h2)/1 var(--display);font-stretch:112%;letter-spacing:-.015em;margin:var(--sp-3) 0 var(--sp-3)}
+.cta p{margin:0 0 var(--sp-5);color:var(--on-ink);font-size:var(--fs-lede);max-width:34em}
+
+/* footer */
+footer{background:var(--foot-bg);color:var(--foot-ink);padding:var(--sp-6) 0 var(--foot-pad-b);font-size:var(--fs-xs)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4) var(--sp-6)}
+footer b{color:var(--sand);font:800 var(--fs-m)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+footer p{margin:var(--sp-2) 0 0;line-height:1.55;max-width:38em}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--foot-line);padding-top:var(--sp-4);font:400 var(--fs-xs)/1.6 var(--mono);color:var(--foot-ink);margin:0}
+footer a{color:var(--foot-link)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* print: one US Letter landscape sheet, no site chrome */
+@page{size:letter landscape;margin:var(--page-margin)}
+@media print{
+  .top,.hero,#rules,#how,#pilot,footer,#log .sec-head,#log .actions,.no-print,.skip,.scroll-hint{display:none}
+  body{background:var(--paper);font-size:var(--fs-print)}
+  #log{padding:0}
+  .sheet{border:0;box-shadow:none;padding:0;border-radius:0}
+  .sheet-head h3{font-size:var(--fs-h3)}
+  .fields{margin:var(--sp-1) 0 var(--sp-2);gap:var(--sp-2)}
+  .field label{font-size:var(--fs-print-label);color:var(--ink)}
+  .field input,.log input{border:0;border-radius:0;padding:0;min-height:0;color:var(--ink);font-size:var(--fs-print)}
+  .log td input{min-height:0}
+  .table-wrap{overflow:visible}
+  table.log{min-width:0;width:100%}
+  thead{display:table-header-group}
+  tr{break-inside:avoid}
+  .log th{font-size:var(--fs-print-th);color:var(--ink);border-bottom:1px solid var(--ink);padding:var(--sp-1)}
+  .log td{height:var(--row-print);border-bottom:1px solid var(--ink-3);padding:var(--sp-1)}
+  .note{padding:var(--sp-2) 0 0}
+  .note .wrap{border-left-width:2px;padding-left:var(--sp-2)}
+  .note p{font-size:var(--fs-print-label);color:var(--ink)}
+}
+</style>
+</head>
+<body class="no-js">
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3.5h10V8M7 17H5a2 2 0 0 1-2-2v-4.5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2V15a2 2 0 0 1-2 2h-2M7 13.5h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand Software, home">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Free tool<br>Spore test log</span>
+    </a>
+    <button class="pill" type="button" data-print><svg aria-hidden="true"><use href="#i-print"/></svg>Print</button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker label"><i aria-hidden="true"></i>Free tool · Dental offices · United States</p>
+      <h1>Free dental sterilizer <em>spore test (BI)</em> log</h1>
+    </div>
+    <p class="lede">This printable record sheet is for dental offices in the United States to keep their spore test results, and it is free to use and print.</p>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">The rules, in brief</span><h2 class="big">What the rules say</h2></div>
+      <p>Points from CDC's dental infection-control guidelines and Florida's sterilizer rule. Each line names its source.</p>
+    </div>
+    <ul class="rules rv">
+      <li>
+        <p>Test each sterilizer at least weekly with a biological indicator, and incubate a control from the same lot with it.<span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <p>Put a biological indicator in every load that contains an implantable device, and hold the items until the result is known, whenever possible.<span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <p>In Florida, steam and chemical vapor sterilizers need a spore test every 40 hours of use or every 30 days, whichever comes first. Dry heat and ethylene oxide sterilizers: every 120 hours of operation or every 30 days, whichever comes first.<span class="src">(Florida Administrative Code 64B5-25.003)</span></p>
+      </li>
+      <li>
+        <p>After a positive test, take the sterilizer out of service, repeat the spore test right away after loading it correctly and using the same cycle that produced the failure, and review the chemical and mechanical monitoring records since the last negative test.<span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+      <li>
+        <p>If the repeat test is negative and the mechanical and chemical indicators are within normal limits, the sterilizer goes back in service. If it is positive, don&rsquo;t use the sterilizer until it has been inspected or repaired or the exact reason has been found. Recall, to the extent possible, and reprocess the items processed since the last negative test. After the cause is found and corrected, run biological indicator tests in three consecutive empty-chamber cycles.<span class="src">(CDC, 2003 dental infection-control guidelines)</span></p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="log">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Template</span><h2 class="big">The printable log</h2></div>
+      <p>Fill it in on screen and press Print, or print it blank and write it in by hand. Nothing you type on this page is stored or sent anywhere.</p>
+    </div>
+    <div class="actions rv">
+      <button class="btn btn-primary no-print" type="button" data-print><svg aria-hidden="true"><use href="#i-print"/></svg>Print this sheet</button>
+      <p>Prints on one US Letter page, landscape.</p>
+    </div>
+
+    <div class="sheet rv">
+      <div class="sheet-head">
+        <h3 id="log-h">Spore test (BI) log</h3>
+        <p class="label">One sheet per sterilizer</p>
+      </div>
+      <div class="fields">
+        <div class="field"><label for="office">Office name</label><input id="office" type="text" autocomplete="off"></div>
+        <div class="field"><label for="sterilizer">Sterilizer (label)</label><input id="sterilizer" type="text" autocomplete="off"></div>
+        <div class="field"><label for="month">Month / year</label><input id="month" type="text" autocomplete="off"></div>
+      </div>
+
+      <div class="table-wrap" role="region" aria-labelledby="log-h" tabindex="0">
+        <table class="log">
+          <caption class="sr-only">Spore test (BI) log: one row per biological indicator test, one sheet per sterilizer.</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="c-date">Date placed</th>
+              <th scope="col" class="c-ster">Sterilizer</th>
+              <th scope="col" class="c-cycle">Cycle type</th>
+              <th scope="col" class="c-load">Load number (or 'routine')</th>
+              <th scope="col" class="c-bi">BI product and lot</th>
+              <th scope="col" class="c-ctl">Control BI (same lot) result</th>
+              <th scope="col" class="c-read">Date read</th>
+              <th scope="col" class="c-res">Result (pass/fail)</th>
+              <th scope="col" class="c-by">Read by (initials)</th>
+              <th scope="col" class="c-act">Action if failed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 1: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 1: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 1: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 1: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 1: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 1: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 1: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 1: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 1: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 1: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 2: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 2: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 2: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 2: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 2: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 2: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 2: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 2: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 2: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 2: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 3: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 3: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 3: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 3: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 3: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 3: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 3: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 3: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 3: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 3: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 4: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 4: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 4: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 4: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 4: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 4: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 4: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 4: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 4: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 4: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 5: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 5: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 5: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 5: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 5: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 5: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 5: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 5: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 5: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 5: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 6: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 6: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 6: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 6: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 6: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 6: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 6: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 6: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 6: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 6: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 7: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 7: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 7: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 7: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 7: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 7: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 7: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 7: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 7: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 7: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 8: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 8: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 8: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 8: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 8: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 8: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 8: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 8: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 8: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 8: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 9: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 9: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 9: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 9: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 9: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 9: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 9: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 9: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 9: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 9: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 10: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 10: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 10: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 10: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 10: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 10: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 10: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 10: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 10: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 10: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 11: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 11: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 11: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 11: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 11: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 11: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 11: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 11: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 11: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 11: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 12: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 12: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 12: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 12: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 12: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 12: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 12: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 12: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 12: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 12: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 13: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 13: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 13: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 13: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 13: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 13: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 13: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 13: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 13: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 13: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 14: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 14: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 14: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 14: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 14: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 14: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 14: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 14: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 14: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 14: action if failed" autocomplete="off"></td>
+            </tr>
+            <tr>
+              <td class="c-date"><input type="text" aria-label="Row 15: date placed" autocomplete="off"></td>
+              <td class="c-ster"><input type="text" aria-label="Row 15: sterilizer" autocomplete="off"></td>
+              <td class="c-cycle"><input type="text" aria-label="Row 15: cycle type" autocomplete="off"></td>
+              <td class="c-load"><input type="text" aria-label="Row 15: load number, or routine" autocomplete="off"></td>
+              <td class="c-bi"><input type="text" aria-label="Row 15: BI product and lot" autocomplete="off"></td>
+              <td class="c-ctl"><input type="text" aria-label="Row 15: control BI, same lot, result" autocomplete="off"></td>
+              <td class="c-read"><input type="text" aria-label="Row 15: date read" autocomplete="off"></td>
+              <td class="c-res"><input type="text" aria-label="Row 15: result, pass or fail" autocomplete="off"></td>
+              <td class="c-by"><input type="text" aria-label="Row 15: read by, initials" autocomplete="off"></td>
+              <td class="c-act"><input type="text" aria-label="Row 15: action if failed" autocomplete="off"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scroll-hint">Scroll the table sideways to reach every column.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="label">Using the sheet</span><h2 class="big">How to use it</h2></div>
+      <p>Four steps, from a blank page to a signed record of each test.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><div class="num" aria-hidden="true">01</div><h3>Fill in the header</h3><p>Office name, the sterilizer's label and the month at the top of the sheet. One sheet per sterilizer.</p></li>
+      <li class="step rv"><div class="num" aria-hidden="true">02</div><h3>One row per spore test</h3><p>Record the date placed, the sterilizer, the cycle type, and the load number — or 'routine' for a routine test.</p></li>
+      <li class="step rv"><div class="num" aria-hidden="true">03</div><h3>Product, lot and control</h3><p>Write the BI product and its lot, and the control from the same lot with its result.</p></li>
+      <li class="step rv"><div class="num" aria-hidden="true">04</div><h3>Read it and sign it</h3><p>Fill in the date read, the result (pass or fail) and your initials. If a test fails, write what was done in the last column.</p></li>
+    </ol>
+  </div>
+</section>
+
+<aside class="note">
+  <div class="wrap"><p>This template helps you keep records. It is not legal advice; check your state board's current rules.</p></div>
+</aside>
+
+<section class="sec cta" id="pilot">
+  <div class="wrap">
+    <div class="rv">
+      <span class="label">Dental Logbook</span>
+      <h2>Want this done for you?</h2>
+      <p>Dental Logbook is in development. Join the free pilot.</p>
+      <a class="btn btn-light" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Join the free pilot</a>
+      <p><a href="/tools/">All free tools</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p>Free record-keeping tools from Boldsand Software Inc.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">This page is a record-keeping template. It does not replace the rules of your state board, your own infection-control procedures, or the instructions that come with your sterilizer and spore test products. We use your contact details only to reply to you. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.body; b.classList.remove('no-js');
+  document.querySelectorAll('[data-print]').forEach(function(btn){btn.addEventListener('click',function(){window.print()})});
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>

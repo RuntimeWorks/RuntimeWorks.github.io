@@ -3,7 +3,7 @@
 import fs from "node:fs"; import path from "node:path"; import stylelint from "stylelint";
 const BASELINE = 331;
 const root = path.resolve("../..");
-const pages = ["index.html", "food-safety/index.html", "torque-trails/index.html", "torque-trails/privacy/index.html"];
+import { FILES as pages } from "./pages.mjs";
 const code = pages.map((p) => [...fs.readFileSync(path.join(root, p), "utf8").matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join("\n"));
 const config = JSON.parse(fs.readFileSync(new URL("../stylelint.design.json", import.meta.url)));
 let total = 0;

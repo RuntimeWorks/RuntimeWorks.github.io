@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OSHA Bloodborne Pathogens Training Record for Dental Offices · Boldsand</title>
+<meta name="description" content="A free, printable OSHA bloodborne pathogens training record for dental offices in the United States. What the standard requires in each record, and a blank log to type or write in and print.">
+<link rel="canonical" href="https://boldsand.com/tools/osha-training-record/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Free OSHA bloodborne pathogens training record for dental offices">
+<meta property="og:description" content="A printable training log for US dental offices: training dates, topics, trainer and attendees, with the record contents the OSHA bloodborne pathogens standard asks for.">
+<meta property="og:url" content="https://boldsand.com/tools/osha-training-record/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Design tokens (DESIGN-SYSTEM v3 sections 2-4). Rules below use only these, never raw values. */
+:root{
+  --sand:#F1E9D8; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A; --line:rgba(23,21,15,.14);
+  --rule:#B4C8D5; --pass:#1D6A45; --foot-ink:#BDB39C; --foot-line:#3A3528;
+  --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-h1:clamp(38px,6.2vw,68px); --fs-h2:clamp(28px,3.4vw,42px); --fs-h3:21px;
+  --fs-lede:clamp(18px,2.1vw,21px); --fs-m:17px; --fs-s:15px; --fs-xs:14px;
+  --wrap:1120px; --gut:clamp(16px,4.5vw,40px); --radius:6px; --radius-pill:999px;
+  --sp-1:6px; --sp-2:10px; --sp-3:14px; --sp-4:22px; --sp-5:32px; --sp-6:44px;
+  --sec:clamp(56px,8vw,104px); --hero-t:clamp(40px,6vw,72px); --hero-b:clamp(48px,7vw,88px);
+  --gap-s:clamp(14px,2vw,24px); --gap-m:clamp(20px,3vw,36px); --pad-card:clamp(22px,3vw,36px);
+  --field-h:44px; --row-h:52px; --row-h-print:48px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--sand);color:var(--ink);font:400 var(--fs-m)/1.6 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.label{font:500 var(--fs-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:8px;z-index:99;background:var(--ink);color:var(--sand);padding:var(--sp-2) var(--sp-3);border-radius:var(--radius)}
+.skip:focus{left:8px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:var(--sand);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:var(--sp-3)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none}
+.brand b{font:800 var(--fs-m)/1 var(--display);font-stretch:125%;letter-spacing:.04em}
+.brand span{font:500 var(--fs-xs)/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--line);padding-left:var(--sp-2)}
+.call{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-3);border:1.5px solid var(--ink);border-radius:var(--radius-pill);font:600 var(--fs-xs)/1 var(--mono);text-decoration:none}
+.call:hover{background:var(--ink);color:var(--sand)}
+.call svg{width:16px;height:16px;flex:none}
+@media (max-width:560px){.brand span{display:none}.call .n{display:none}}
+
+/* hero */
+.hero{padding:var(--hero-t) 0 var(--hero-b)}
+h1{font:800 var(--fs-h1)/.95 var(--display);font-stretch:112%;letter-spacing:-.025em;margin:0 0 var(--sp-4);text-wrap:balance;max-width:18ch}
+.lede{font-size:var(--fs-lede);line-height:1.5;color:var(--ink-2);max-width:34em;margin:0}
+
+/* sections */
+.sec{padding:var(--sec) 0 0}
+h2{font:800 var(--fs-h2)/1.02 var(--display);font-stretch:110%;letter-spacing:-.015em;margin:0 0 var(--sp-5);max-width:24ch}
+
+/* what the rules say */
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-3);max-width:54em}
+.rules li{display:grid;grid-template-columns:22px 1fr;gap:var(--sp-3);align-items:start;line-height:1.5}
+.rules li svg{width:20px;height:20px;color:var(--pass);margin-top:var(--sp-1)}
+.src{color:var(--ink-3)}
+
+/* the printable log */
+.log-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:var(--pad-card);box-shadow:6px 6px 0 var(--ink)}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap-m);margin:0 0 var(--sp-5)}
+.field label{display:block;margin:0 0 var(--sp-1);font:500 var(--fs-xs)/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.field input{width:100%;height:var(--field-h);padding:0 var(--sp-1);border:0;border-bottom:2px solid var(--ink);border-radius:0;background:transparent;font:600 var(--fs-m)/1 var(--body);color:var(--ink)}
+@media (max-width:640px){.fields{grid-template-columns:1fr}}
+.table-wrap{overflow-x:auto;border:2px solid var(--ink);border-radius:var(--radius);background:var(--paper)}
+table.log{width:100%;min-width:860px;border-collapse:collapse;font:500 var(--fs-s)/1.3 var(--mono)}
+.log .c-date{width:10%} .log .c-topics{width:20%} .log .c-trainer{width:19%} .log .c-name{width:14%} .log .c-title{width:14%} .log .c-init{width:8%} .log .c-next{width:15%}
+.log th{padding:var(--sp-3) var(--sp-2);text-align:left;vertical-align:bottom;font:600 var(--fs-xs)/1.25 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);background:var(--paper);border-bottom:2px solid var(--ink)}
+.log td{padding:0;border-bottom:1px solid var(--rule)}
+.log tbody tr:last-child td{border-bottom:0}
+.log td input{width:100%;height:var(--row-h);padding:0 var(--sp-2);border:0;background:transparent;font:500 var(--fs-s)/1 var(--body);color:var(--ink)}
+.log td input:hover{background:var(--sand)}
+.log-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--gap-s);margin:var(--sp-5) 0 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:52px;padding:0 var(--sp-4);border:2px solid var(--ink);border-radius:var(--radius);font:700 var(--fs-m)/1 var(--body);text-decoration:none;cursor:pointer}
+.btn-primary{background:var(--ink);color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.btn svg{width:18px;height:18px}
+.hint{margin:0;flex:1 1 260px;font:500 var(--fs-xs)/1.5 var(--mono);color:var(--ink-3)}
+
+/* how to use it */
+.steps{list-style:none;counter-reset:step;margin:0;padding:0;display:grid;gap:var(--sp-3);max-width:48em}
+.steps li{counter-increment:step;display:grid;grid-template-columns:34px 1fr;gap:var(--sp-3);align-items:baseline;line-height:1.5}
+.steps li::before{content:counter(step,decimal-leading-zero);font:600 var(--fs-xs)/1 var(--mono);color:var(--pass)}
+
+/* note */
+.note{margin:var(--sec) 0 0;padding:var(--sp-1) 0 var(--sp-1) var(--sp-4);border-left:4px solid var(--pass);max-width:44em;font-size:var(--fs-s);line-height:1.55;color:var(--ink-2)}
+
+/* call to action */
+.cta{margin-top:var(--sec);background:var(--ink);color:var(--sand)}
+.cta .wrap{padding:var(--sec) 0}
+.cta h2{color:var(--sand);margin-bottom:var(--sp-4)}
+.cta .btn-primary{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+
+/* footer */
+footer{background:var(--ink);color:var(--foot-ink);padding:var(--sp-6) 0;font-size:var(--fs-xs)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-s) var(--gap-m)}
+footer b{display:block;color:var(--sand);font:800 var(--fs-s)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
+footer p{margin:var(--sp-2) 0 0;line-height:1.55}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;margin:var(--sp-2) 0 0;padding-top:var(--sp-4);border-top:1px solid var(--foot-line);font:400 var(--fs-xs)/1.6 var(--mono)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* print: the log fills a US Letter page, site chrome hidden */
+@page{size:letter portrait;margin:0.5in}
+@media print{
+  .top,footer,.hero,#rules,#how,#pilot,.log-actions,.skip{display:none}
+  body{background:var(--paper)}
+  .sec{padding:0}
+  .log-card{border:0;box-shadow:none;padding:0}
+  .table-wrap{border:0;overflow:visible}
+  table.log{min-width:0}
+  thead{display:table-header-group}
+  tr{break-inside:avoid}
+  .log td input{height:var(--row-h-print)}
+  .fields{gap:var(--sp-3);margin-bottom:var(--sp-3)}
+  h2{font-size:var(--fs-h3);margin-bottom:var(--sp-3)}
+  .note{margin-top:var(--sp-3);font-size:var(--fs-xs)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5 M7 18H4v-7h16v7h-3 M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand home">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">OSHA training<br>record</span>
+    </a>
+    <a class="call" href="mailto:deya@boldsand.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span class="sr">Email Deya:</span><span class="n">deya@boldsand.com</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Free OSHA bloodborne pathogens training record for dental offices</h1>
+    <p class="lede">This printable log is free for dental offices in the United States to record OSHA bloodborne pathogens training: who was trained, on what, by whom, and when the next session is due.</p>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="wrap">
+    <h2>What the rules say</h2>
+    <ul class="rules">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Initial training is given when a worker is first assigned to tasks where occupational exposure may take place, and at least annually after that. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Annual training is given within one year of the previous training. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>The record lists the date of each session and its contents, or a summary of them. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>It lists the names and qualifications of the people who gave the training, and the names and job titles of everyone who attended. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Training records are kept for 3 years from the date the training took place. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>On request, the records are made available to OSHA and NIOSH for examination and copying. <span class="src">(OSHA bloodborne pathogens standard, 29 CFR 1910.1030)</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="log">
+  <div class="wrap">
+    <h2>The printable log</h2>
+    <div class="log-card">
+      <div class="fields">
+        <div class="field"><label for="office">Office name</label><input id="office" type="text" autocomplete="off"></div>
+        <div class="field"><label for="sterilizer">Sterilizer (label)</label><input id="sterilizer" type="text" autocomplete="off"></div>
+        <div class="field"><label for="month">Month/Year</label><input id="month" type="text" autocomplete="off"></div>
+      </div>
+      <div class="table-wrap">
+        <table class="log">
+          <caption class="sr">OSHA bloodborne pathogens training record: one line for each attendee at each training session.</caption>
+          <colgroup><col class="c-date"><col class="c-topics"><col class="c-trainer"><col class="c-name"><col class="c-title"><col class="c-init"><col class="c-next"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Training date</th>
+              <th scope="col">Topics covered (summary)</th>
+              <th scope="col">Trainer name and qualifications</th>
+              <th scope="col">Attendee name</th>
+              <th scope="col">Attendee job title</th>
+              <th scope="col">Attendee initials</th>
+              <th scope="col">Next training due (within one year)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><input type="text" aria-label="Training date, line 1" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 1" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 1" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 1" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 1" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 1" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 1" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 2" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 2" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 2" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 2" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 2" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 2" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 2" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 3" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 3" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 3" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 3" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 3" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 3" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 3" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 4" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 4" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 4" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 4" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 4" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 4" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 4" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 5" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 5" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 5" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 5" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 5" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 5" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 5" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 6" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 6" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 6" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 6" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 6" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 6" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 6" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 7" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 7" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 7" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 7" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 7" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 7" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 7" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 8" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 8" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 8" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 8" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 8" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 8" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 8" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 9" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 9" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 9" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 9" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 9" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 9" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 9" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 10" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 10" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 10" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 10" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 10" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 10" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 10" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 11" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 11" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 11" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 11" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 11" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 11" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 11" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 12" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 12" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 12" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 12" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 12" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 12" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 12" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 13" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 13" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 13" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 13" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 13" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 13" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 13" autocomplete="off"></td></tr>
+            <tr><td><input type="text" aria-label="Training date, line 14" autocomplete="off"></td><td><input type="text" aria-label="Topics covered (summary), line 14" autocomplete="off"></td><td><input type="text" aria-label="Trainer name and qualifications, line 14" autocomplete="off"></td><td><input type="text" aria-label="Attendee name, line 14" autocomplete="off"></td><td><input type="text" aria-label="Attendee job title, line 14" autocomplete="off"></td><td><input type="text" aria-label="Attendee initials, line 14" autocomplete="off"></td><td><input type="text" aria-label="Next training due (within one year), line 14" autocomplete="off"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="log-actions">
+        <button type="button" class="btn btn-primary" id="print-btn"><svg aria-hidden="true"><use href="#i-print"/></svg>Print this log</button>
+        <p class="hint">Type into the fields before printing, or print it blank and write on it. Nothing you type is saved or sent anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <h2>How to use it</h2>
+    <ol class="steps">
+      <li><span>Fill in the header fields at the top of the log, then print the page on US Letter paper.</span></li>
+      <li><span>For each session, write the training date, what was covered, and the trainer’s name and qualifications.</span></li>
+      <li><span>Each attendee writes their name, job title and initials on their own line.</span></li>
+      <li><span>Write the date the next training is due on the same line. It falls within one year of the session. Keep the finished record for 3 years from the date the training took place.</span></li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <p class="note">This template helps you keep records. It is not legal advice; check your state board’s current rules.</p>
+</div>
+
+<section class="sec cta" id="pilot">
+  <div class="wrap">
+    <h2>Want this done for you? Dental Logbook is in development.</h2>
+    <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot"><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the free pilot</a>
+    <p><a href="/tools/">All free tools</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p>Free tools and record-keeping software for small businesses.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">This page is a record-keeping template. It is not legal advice, and using it does not guarantee any inspection or enforcement outcome. We use your contact details only to reply to you. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('print-btn').addEventListener('click', function () { window.print(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plain-language guides for dental sterilizer records · Boldsand</title>
+<meta name="description" content="Plain-language guides for dental offices in the United States: what a spore test is and how often to run one, the Bowie-Dick test, chemical indicators, implant loads, log entries, how long to keep records, pack labels, CDC&rsquo;s checklist, OSHA training and what to do when a spore test fails.">
+<link rel="canonical" href="https://boldsand.com/guides/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Plain-language guides for dental sterilizer records">
+<meta property="og:description" content="Plain-language guides for dental offices in the United States: what to test, what to write down, how long to keep it, and what to do when a spore test fails.">
+<meta property="og:url" content="https://boldsand.com/guides/">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+/* Design tokens (DESIGN-SYSTEM v3 sections 2-4). Rules below use only these, never raw values. */
+:root{
+  /* colour */
+  --sand:#F1E9D8; --sand-2:#E6DAC1; --paper:#FCF8EF;
+  --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
+  --rule:#B4C8D5; --accent:#D2614A; --pass:#1D6A45; --pass-2:#E1EDE3;
+  --hair:rgba(23,21,15,.16); --hair-2:rgba(23,21,15,.32);
+  --on-dark:#E4DBC6; --on-dark-2:#BDB39C; --on-dark-label:#9AD3B1; --on-dark-line:#3A3528;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .08 0 0 0 0 .06 0 0 0 0 .07 0 0 0 0 .07 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* type */
+  --display:"Archivo","Arial Black",sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --fs-14:14px; --fs-16:16px; --fs-17:17px; --fs-19:19px; --fs-21:21px;
+  --fs-h1:clamp(38px,7.4vw,68px); --fs-h2:clamp(30px,4vw,44px); --fs-h3:22px;
+  /* space */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:44px; --sp-8:64px; --sp-9:96px;
+  /* layout */
+  --wrap:1120px; --gut:clamp(16px,4.5vw,40px); --radius:6px; --radius-pill:999px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sand) var(--grain);color:var(--ink);font-family:var(--body);font-size:var(--fs-17);line-height:1.6;
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pass);outline-offset:3px}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.label{margin:0;font-family:var(--mono);font-size:var(--fs-14);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:var(--sp-2);background:var(--ink);color:var(--sand);padding:var(--sp-2) var(--sp-3);text-decoration:none;z-index:99}
+.skip:focus{left:var(--sp-2)}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:20;background:var(--sand);border-bottom:1px solid var(--hair)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:60px;padding-block:var(--sp-2)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.brand svg{width:28px;height:28px;flex:none;color:var(--ink)}
+.brand b{font-family:var(--display);font-size:var(--fs-17);font-weight:800;letter-spacing:.04em;line-height:1}
+.brand span{font-family:var(--mono);font-size:var(--fs-14);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:1px solid var(--hair-2);padding-left:var(--sp-2)}
+.pill{display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-4);border:1.5px solid var(--ink);border-radius:var(--radius-pill);
+  font-family:var(--mono);font-size:var(--fs-14);font-weight:600;text-decoration:none;white-space:nowrap}
+.pill:hover{background:var(--ink);color:var(--sand)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:var(--sp-8)}
+.kicker{display:flex;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-5)}
+.kicker i{width:9px;height:9px;border-radius:50%;background:var(--pass);box-shadow:0 0 0 4px var(--pass-2)}
+h1{font-family:var(--display);font-size:var(--fs-h1);font-weight:800;font-stretch:112%;line-height:.95;letter-spacing:-.025em;margin:0;max-width:18ch}
+.lede{font-size:var(--fs-21);line-height:1.5;color:var(--ink-2);max-width:38em;margin:var(--sp-5) 0 0}
+
+/* ---------- guide groups ---------- */
+.sec{padding-block:var(--sp-8)}
+.sec h2{font-family:var(--display);font-size:var(--fs-h2);font-weight:800;font-stretch:110%;line-height:1.02;letter-spacing:-.015em;margin:var(--sp-3) 0 0}
+.cards{list-style:none;margin:var(--sp-6) 0 0;padding:0;display:grid;gap:var(--sp-4)}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:var(--sp-5);display:grid;gap:var(--sp-3);align-content:start}
+.card h3{margin:0;font-family:var(--display);font-size:var(--fs-h3);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+.card p{margin:0;color:var(--ink-2);font-size:var(--fs-16);line-height:1.55}
+.note{margin:var(--sp-5) 0 0;color:var(--ink-2);font-size:var(--fs-16);line-height:1.55;max-width:38em}
+
+/* ---------- call to action ---------- */
+.pilot{background:var(--ink) var(--grain);color:var(--sand)}
+.pilot .label{color:var(--on-dark-label)}
+.pilot h2{color:var(--sand);margin:var(--sp-3) 0 var(--sp-4)}
+.pilot p{margin:0 0 var(--sp-6);font-size:var(--fs-19);line-height:1.5;color:var(--on-dark);max-width:34em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:52px;padding:0 var(--sp-5);
+  border:2px solid var(--ink);border-radius:var(--radius);font-family:var(--body);font-size:var(--fs-16);font-weight:700;line-height:1;
+  text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+.pilot .btn-primary{background:var(--sand);color:var(--ink);border-color:var(--sand);box-shadow:4px 4px 0 var(--pass)}
+.pilot .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--pass)}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--on-dark-2);padding:var(--sp-7) 0;font-size:var(--fs-14)}
+footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5) var(--sp-7)}
+footer b{color:var(--sand);font-family:var(--display);font-size:var(--fs-14);font-weight:800;letter-spacing:.05em}
+footer p{margin:var(--sp-3) 0 0;line-height:1.6}
+footer p:first-child{margin:0}
+footer a{color:var(--sand)}
+footer .fine{grid-column:1/-1;border-top:1px solid var(--on-dark-line);padding-top:var(--sp-5);line-height:1.6}
+
+/* ---------- narrow screens ---------- */
+@media (min-width:700px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+  :root{--sp-9:var(--sp-8)}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .brand span{display:none}
+  .pill .wide{display:none}
+  .pill{padding:0 var(--sp-2)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand home">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span aria-hidden="true">Free tools<br>Dental records</span>
+    </a>
+    <a class="pill" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Join the<span class="wide"> free</span> pilot</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker label"><i aria-hidden="true"></i>Guides · Dental offices in the United States</p>
+    <h1>Plain-language guides for dental sterilizer records</h1>
+    <p class="lede">Guides on what to test, what to write down, how long to keep it, and what to do when a spore test fails. Each one starts with the answer, then shows where it comes from.</p>
+  </div>
+</section>
+
+<section class="sec" id="testing" aria-labelledby="h-testing">
+  <div class="wrap">
+    <h2 id="h-testing">Testing</h2>
+    <ul class="cards">
+      <li class="card">
+        <h3><a href="/guides/what-is-a-spore-test/">What is a spore test?</a></h3>
+        <p>A spore test, also called a biological indicator, is a preparation of bacterial spores that is put through a sterilizer cycle to check that the sterilizer works (CDC, 2008 disinfection and sterilization guideline).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/how-often-to-spore-test/">How often must a dental office spore test its sterilizer?</a></h3>
+        <p>At least weekly for every sterilizer, using a biological indicator and a control from the same lot (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/spore-test-results/">How to read and record a spore test result</a></h3>
+        <p>A spore test reads negative, positive or invalid, and the result counts only when the control grows.</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/bowie-dick-test-who-needs-it/">The Bowie-Dick test: which dental sterilizers need it, and how often</a></h3>
+        <p>The Bowie-Dick air-removal test is for pre-vacuum steam sterilizers &mdash; the dynamic-air-removal kind (CDC, 2008 disinfection and sterilization guideline).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/in-office-vs-mail-in-spore-testing/">In-office or mail-in spore testing: how each works and what to record</a></h3>
+        <p>Both routes do the same job: a spore test, also called a biological indicator, is how the correct functioning of each sterilizer&rsquo;s cycles should be verified, at least weekly and with a matching control from the same lot number (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/implant-loads-spore-test-and-quarantine/">Implant loads: the spore test, quarantine and what to do in an emergency</a></h3>
+        <p>Every sterilizer load that carries an implantable device gets a spore test, and the result is checked before the implant is used, whenever possible (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/chemical-indicators-inside-and-outside-the-pack/">Chemical indicators: inside the pack, outside the pack, and what a failed one means</a></h3>
+        <p>Put a chemical indicator inside every instrument package, and add an external indicator on the outside whenever the internal one cannot be seen from the outside (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/does-osha-require-spore-testing/">Does OSHA require spore testing in dental offices?</a></h3>
+        <p>No — OSHA&rsquo;s bloodborne pathogens standard, 29 CFR 1910.1030, does not address sterilizer monitoring and says nothing about spore tests (OSHA, 29 CFR 1910.1030).</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="records" aria-labelledby="h-records">
+  <div class="wrap">
+    <h2 id="h-records">Records</h2>
+    <ul class="cards">
+      <li class="card">
+        <h3><a href="/guides/what-a-sterilizer-log-entry-must-contain/">What must a dental sterilizer log entry contain?</a></h3>
+        <p>A sterilizer log entry records what went through the machine, in which cycle, when, by whom, and what the monitors showed.</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/how-long-to-keep-sterilization-records/">How long must a dental office keep sterilization records?</a></h3>
+        <p>There is no single federal number: the CDC tells dental offices to keep sterilization records &mdash; mechanical, chemical and biological &mdash; long enough to comply with state and local regulations (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/how-to-label-sterilized-instrument-packs/">How to label sterilized instrument packs in a dental office</a></h3>
+        <p>Write four things on every sterilized pack: the sterilizer used, the cycle or load number, the date of sterilization, and, if one applies, the expiration date (CDC, Summary of Infection Prevention Practices in Dental Settings, 2016).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/osha-bloodborne-pathogens-training-records-dental/">OSHA bloodborne pathogens training records for dental offices</a></h3>
+        <p>Train every employee with occupational exposure at the time of initial assignment to tasks where that exposure may take place, and at least annually thereafter (OSHA bloodborne pathogens standard, 29 CFR 1910.1030).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/cdc-checklist-sterilization/">CDC&rsquo;s sterilization checklist items and the records that prove them</a></h3>
+        <p>CDC&rsquo;s infection prevention checklist for dental settings lists five sterilization items in section II.6 — II.6.G, II.6.H, II.6.J, II.6.K and II.6.N — and this page quotes all five word for word (CDC, infection prevention checklist for dental settings).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/osha-bloodborne-pathogens-training-frequency/">How often dental staff need bloodborne pathogens training</a></h3>
+        <p>Train staff at the time of initial assignment to tasks where occupational exposure may take place, and at least annually thereafter, with the year&rsquo;s session inside one year of the previous training (OSHA bloodborne pathogens standard, 29 CFR 1910.1030).</p>
+      </li>
+      <li class="card">
+        <h3><a href="/guides/infection-control-training-by-state/">Infection control training and CE requirements by state</a></h3>
+        <p>Every dental office in the country trains each employee with occupational exposure at the time of initial assignment to tasks where that exposure may take place, and at least annually thereafter, with each year&rsquo;s training within one year of the previous one (OSHA bloodborne pathogens standard, 29 CFR 1910.1030).</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="failures" aria-labelledby="h-failures">
+  <div class="wrap">
+    <h2 id="h-failures">When something fails</h2>
+    <ul class="cards">
+      <li class="card">
+        <h3><a href="/guides/what-to-do-when-a-spore-test-fails/">What to do when a dental sterilizer fails a spore test</a></h3>
+        <p>When a spore test comes back positive, take the sterilizer out of service and repeat the test immediately, on the same cycle that produced the failure (CDC, 2003 dental infection-control guidelines).</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec pilot" id="pilot">
+  <div class="wrap">
+    <p class="label">Dental Logbook · in development</p>
+    <h2>Want this done for you?</h2>
+    <p>Dental Logbook is in development. Join the free pilot.</p>
+    <a class="btn btn-primary" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Join the free pilot</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b>BOLDSAND</b>
+      <p>Boldsand Software Inc.<br>Charlottetown, Prince Edward Island, Canada<br><a href="mailto:deya@boldsand.com">deya@boldsand.com</a></p>
+    </div>
+    <div>
+      <p>Free record-keeping tools for dental offices, and Dental Logbook in development.<br><a href="/">Company information</a></p>
+    </div>
+    <p class="fine">Boldsand provides record-keeping tools and software. These pages are record-keeping templates. They are not legal advice, and they do not guarantee any inspection or licensing result. We use your contact details only to reply to you. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
