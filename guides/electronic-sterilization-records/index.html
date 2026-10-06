@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Can you keep dental sterilization logs electronically? | Boldsand</title>
+<meta name="description" content="No rule we read requires paper sterilizer logs. What CDC, OSHA and five state boards require of any log: entries, initials, current records, retention and corrections.">
+<link rel="canonical" href="https://boldsand.com/guides/electronic-sterilization-records/">
+<meta name="theme-color" content="#17150F">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Paper or electronic sterilization logs: what the rules say · Boldsand">
+<meta property="og:description" content="No rule we read requires paper sterilizer logs. What CDC, OSHA and five state boards require of any log: entries, initials, current records, retention and corrections.">
+<meta property="og:url" content="https://boldsand.com/guides/electronic-sterilization-records/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://boldsand.com/assets/og-boldsand.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%2317150F'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23F1E9D8'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Paper or electronic sterilization logs: what the rules say",
+  "description": "No rule we read requires paper sterilizer logs. What CDC, OSHA and five state boards require of any log: entries, initials, current records, retention and corrections.",
+  "inLanguage": "en-US",
+  "author": {"@type": "Organization", "name": "Boldsand Software Inc.", "url": "https://boldsand.com/"},
+  "publisher": {"@type": "Organization", "name": "Boldsand Software Inc.", "url": "https://boldsand.com/"},
+  "datePublished": "2026-10-06T12:00:00-03:00",
+  "dateModified": "2026-10-06T12:00:00-03:00",
+  "mainEntityOfPage": "https://boldsand.com/guides/electronic-sterilization-records/",
+  "image": "https://boldsand.com/assets/og-boldsand.jpg"
+}
+</script>
+<style>
+@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
+@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  /* colour tokens (DESIGN-SYSTEM v3) */
+  --c-sand:#F1E9D8; --c-paper:#FCF8EF; --c-ink:#17150F; --c-ink-2:#4A4537; --c-ink-3:#5C564A;
+  --c-rule:#B4C8D5; --c-margin:#D2614A; --c-pass:#1D6A45; --c-pass-2:#E1EDE3;
+  /* fonts */
+  --f-display:"Archivo","Arial Black",sans-serif; --f-body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  /* type scale */
+  --fs-h1:clamp(31px,5.2vw,60px); --fs-h2:clamp(26px,3.4vw,40px); --fs-h3:21px; --fs-lede:clamp(18px,2vw,21px);
+  --fs-body:17px; --fs-field:16.5px; --fs-small:15px; --fs-btn:16px; --fs-mark:17px; --fs-label:14px;
+  /* line heights and tracking */
+  --lh-1:1.06; --lh-2:1.5; --lh-3:1.62; --ls-1:.04em; --ls-2:.1em;
+  /* spacing scale */
+  --sp-n1:-1px; --sp-1:6px; --sp-2:10px; --sp-3:14px; --sp-4:18px; --sp-5:24px; --sp-6:32px;
+  --sp-7:44px; --sp-8:60px; --sp-9:clamp(48px,8vw,96px);
+  --gap-2:12px; --gap-3:16px; --gap-4:22px;
+  /* structure */
+  --wrap:1120px; --wrap-text:780px; --gut:clamp(16px,4.5vw,40px); --tap:44px; --btn-h:52px;
+  --bw-1:1px; --bw-2:2px; --bw-3:3px; --r-1:6px; --r-2:4px; --r-pill:999px; --r-round:50%;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--c-sand);color:var(--c-ink);font-family:var(--f-body);font-size:var(--fs-body);line-height:var(--lh-3);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:var(--bw-3) solid var(--c-pass);outline-offset:var(--sp-1);border-radius:var(--r-2)}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:var(--sp-n1);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:var(--sp-n1);top:var(--sp-2);background:var(--c-ink);color:var(--c-sand);padding:var(--sp-2) var(--sp-3);z-index:99}
+
+/* ---------- top bar ---------- */
+.top{background:var(--c-sand);border-bottom:var(--bw-1) solid var(--c-rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:var(--sp-8);gap:var(--gap-2)}
+.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:var(--tap)}
+.brand:hover b{text-decoration:underline}
+.brand svg{width:var(--sp-6);height:var(--sp-6);flex:none}
+.brand b{font-family:var(--f-display);font-size:var(--fs-mark);font-weight:800;font-stretch:125%;letter-spacing:var(--ls-1)}
+.brand span{font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:var(--ls-2);text-transform:uppercase;color:var(--c-ink-3);border-left:var(--bw-1) solid var(--c-rule);padding-left:var(--sp-2)}
+@media (max-width:520px){.brand span{display:none}}
+
+/* ---------- guide head ---------- */
+.guide{padding:var(--sp-7) 0 var(--sp-9)}
+.kicker{display:flex;align-items:center;gap:var(--sp-2);margin:0 0 var(--sp-4);font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:var(--ls-2);text-transform:uppercase;color:var(--c-ink-3)}
+.kicker i{width:var(--sp-2);height:var(--sp-2);border-radius:var(--r-round);background:var(--c-pass);box-shadow:0 0 0 var(--sp-1) var(--c-pass-2);flex:none}
+h1{font-family:var(--f-display);font-size:var(--fs-h1);font-weight:800;font-stretch:112%;line-height:var(--lh-1);letter-spacing:var(--ls-1);margin:0 0 var(--sp-5);max-width:20ch}
+.answer{background:var(--c-paper);border:var(--bw-2) solid var(--c-ink);border-left:var(--bw-3) solid var(--c-margin);border-radius:var(--r-1);padding:var(--sp-5);max-width:var(--wrap-text);box-shadow:var(--sp-1) var(--sp-1) 0 var(--c-ink)}
+.answer p{margin:0;font-size:var(--fs-lede);line-height:var(--lh-2)}
+.answer p + p{margin-top:var(--sp-3)}
+
+/* ---------- sections ---------- */
+.sec{padding:var(--sp-8) 0 0}
+.sec-head{margin:0 0 var(--sp-5);max-width:var(--wrap-text)}
+.label{font-family:var(--f-mono);font-size:var(--fs-label);font-weight:500;letter-spacing:var(--ls-2);text-transform:uppercase;color:var(--c-ink-3);margin:0 0 var(--sp-2)}
+h2{font-family:var(--f-display);font-size:var(--fs-h2);font-weight:800;font-stretch:110%;line-height:var(--lh-1);letter-spacing:var(--ls-1);margin:0 0 var(--sp-3)}
+h3{font-family:var(--f-display);font-size:var(--fs-h3);font-weight:800;font-stretch:112%;line-height:var(--lh-1);margin:0 0 var(--sp-2)}
+.prose{max-width:var(--wrap-text)}
+.prose p{margin:0 0 var(--sp-4);color:var(--c-ink-2)}
+.prose p strong{color:var(--c-ink)}
+.prose ul{margin:0 0 var(--sp-4);padding:0 0 0 var(--sp-5);max-width:var(--wrap-text);color:var(--c-ink-2)}
+.prose li{margin-bottom:var(--sp-2)}
+.src{font-family:var(--f-mono);font-size:var(--fs-label);color:var(--c-ink-3)}
+
+/* ---------- field list ---------- */
+.fields{list-style:none;margin:0 0 var(--sp-5);padding:0;border-top:var(--bw-2) solid var(--c-ink);max-width:var(--wrap-text)}
+.fields li{display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:var(--gap-3);border-bottom:var(--bw-1) solid var(--c-rule);padding:var(--sp-3) 0}
+.fields b{font-family:var(--f-mono);font-size:var(--fs-field);font-weight:600;line-height:var(--lh-2)}
+.fields span{color:var(--c-ink-2)}
+@media (max-width:640px){.fields li{grid-template-columns:1fr;gap:var(--sp-1)}}
+
+/* ---------- comparison tables ---------- */
+.tbl{width:100%;border-collapse:collapse;margin:0 0 var(--sp-5);font-size:var(--fs-small)}
+.tbl caption{text-align:left;font-family:var(--f-mono);font-size:var(--fs-label);font-weight:500;letter-spacing:var(--ls-2);text-transform:uppercase;color:var(--c-ink-3);margin:0 0 var(--sp-3)}
+.tbl th{text-align:left;font-family:var(--f-body);font-size:var(--fs-small);font-weight:700;line-height:var(--lh-2);padding:var(--sp-3) var(--sp-4) var(--sp-3) 0;border-bottom:var(--bw-2) solid var(--c-ink);vertical-align:top}
+.tbl td{padding:var(--sp-4) var(--sp-4) var(--sp-4) 0;border-bottom:var(--bw-1) solid var(--c-rule);vertical-align:top;line-height:var(--lh-2);color:var(--c-ink-2)}
+.tbl tr:last-child td{border-bottom:var(--bw-2) solid var(--c-ink)}
+.tbl .id{font-family:var(--f-mono);font-size:var(--fs-label);color:var(--c-ink);white-space:nowrap}
+.tbl .w{color:var(--c-ink)}
+
+/* ---------- product ---------- */
+.product{background:var(--c-paper);border:var(--bw-2) solid var(--c-ink);border-radius:var(--r-1);padding:var(--sp-5);max-width:var(--wrap-text);box-shadow:var(--sp-1) var(--sp-1) 0 var(--c-ink)}
+.product p{margin:0 0 var(--sp-3);color:var(--c-ink-2)}
+.product p:last-child{margin-bottom:0}
+
+/* ---------- note and cta ---------- */
+.legal{border-top:var(--bw-1) solid var(--c-rule);margin:var(--sp-8) 0 0;padding:var(--sp-4) 0 0;font-family:var(--f-mono);font-size:var(--fs-label);line-height:var(--lh-2);color:var(--c-ink-3);max-width:var(--wrap-text)}
+.cta{background:var(--c-ink);color:var(--c-sand);border-radius:var(--r-1);padding:var(--sp-6);margin:var(--sp-5) 0 0}
+.cta .label{color:var(--c-pass-2)}
+.cta p{margin:0 0 var(--sp-4);color:var(--c-sand);max-width:var(--wrap-text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-h);padding:0 var(--sp-5);border-radius:var(--r-1);font-family:var(--f-body);font-size:var(--fs-btn);font-weight:700;line-height:var(--lh-1);text-decoration:none;background:var(--c-sand);color:var(--c-ink);border:var(--bw-2) solid var(--c-sand);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translate(calc(var(--bw-2) * -1),calc(var(--bw-2) * -1));box-shadow:var(--sp-1) var(--sp-1) 0 var(--c-pass-2)}
+
+/* ---------- footer ---------- */
+footer{background:var(--c-ink);color:var(--c-rule);margin:var(--sp-8) 0 0;padding:var(--sp-6) 0;font-family:var(--f-mono);font-size:var(--fs-label);line-height:var(--lh-2)}
+footer b{color:var(--c-sand);font-family:var(--f-display);font-weight:800;letter-spacing:var(--ls-1)}
+footer p{margin:var(--sp-2) 0 0}
+footer a{color:var(--c-sand)}
+footer a:hover{text-decoration:underline}
+
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+@media print{
+  .top,.cta,.skip{display:none}
+  body{background:var(--c-paper)}
+  .answer,.product,.tbl tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="9" fill="currentColor"/><path d="M18 33l9 9 19-21" fill="none" stroke="#F1E9D8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand, company information">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <b>BOLDSAND</b><span>Dental<br>logbook</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+<article class="guide">
+  <div class="wrap">
+
+    <p class="kicker"><i aria-hidden="true"></i>Guide for dental office managers · United States</p>
+    <h1>Paper or electronic sterilization logs: what the rules say</h1>
+
+    <!-- Short answer: SOURCES.md (c) K9, K5; (b) D08-6, CHK-5, C03-21 -->
+    <div class="answer">
+      <p>Yes: you can keep your sterilizer logs on a screen, because none of the sources behind this page — the CDC texts, OSHA&rsquo;s bloodborne pathogens standard, or the dental rules of New York, New Jersey, Pennsylvania, Florida and Georgia — requires paper or sets rules for electronic signatures <span class="src">(US sterilizer rule pack, item K9)</span>.</p>
+      <p>What the rules require is the same in either medium: the operator&rsquo;s name or initials and the monitoring results on every cycle&rsquo;s entry <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>, logs that are current <span class="src">(CDC, infection-prevention checklist for dental settings)</span>, and a retention period that follows your state <span class="src">(CDC, 2003 dental infection-control guidelines)</span>; a good correction leaves the original entry visible.</p>
+    </div>
+
+    <!-- SOURCES.md (c) K9 -->
+    <section class="sec" id="the-medium">
+      <div class="sec-head">
+        <p class="label">Paper or electronic</p>
+        <h2>The rules do not choose between paper and screens</h2>
+      </div>
+      <div class="prose">
+        <p>None of the sources behind this page picks a medium for sterilizer logs. They set no format for these records and no requirements for electronic signatures <span class="src">(US sterilizer rule pack, item K9)</span>. The sources are silent on the medium and specific about the contents.</p>
+      </div>
+      <table class="tbl">
+        <caption>Paper and electronic logs, side by side</caption>
+        <thead>
+          <tr><th scope="col">On paper</th><th scope="col">In software</th><th scope="col">What the sources turn on</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A printed sheet, filled in by hand</td>
+            <td>A form on a phone or computer</td>
+            <td>Nothing. No source in the pack sets a medium <span class="src">(US sterilizer rule pack, item K9)</span>.</td>
+          </tr>
+          <tr>
+            <td>The operator initials the line</td>
+            <td>The entry carries the signed-in user&rsquo;s name</td>
+            <td>The same either way: the operator&rsquo;s name or initials on each cycle&rsquo;s entry <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>.</td>
+          </tr>
+          <tr>
+            <td>Readings copied from the gauges</td>
+            <td>Readings typed in or captured</td>
+            <td>The same either way: the exposure parameters (e.g., time and temperature) recorded for the cycle <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>.</td>
+          </tr>
+          <tr>
+            <td>Pages dated and filed as you go</td>
+            <td>Entries saved as each cycle ends</td>
+            <td>The same either way: logs for each sterilizer cycle are current and include results from each load <span class="src">(CDC, infection-prevention checklist for dental settings)</span>.</td>
+          </tr>
+          <tr>
+            <td>Binders kept on a shelf</td>
+            <td>Stored records you can search and export</td>
+            <td>The same either way: records retained long enough to comply with state and local regulations <span class="src">(CDC, 2003 dental infection-control guidelines)</span>.</td>
+          </tr>
+          <tr>
+            <td>A crossed-out line, the fix written beside it and initialled</td>
+            <td>A correction record next to the entry</td>
+            <td>Nothing. No source in the pack sets a method for corrections <span class="src">(US sterilizer rule pack, item K9)</span>; a good correction keeps the original visible.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SOURCES.md (b) D08-6, CHK-5 -->
+    <section class="sec" id="what-to-record">
+      <div class="sec-head">
+        <p class="label">What to record</p>
+        <h2>What every entry still needs</h2>
+      </div>
+      <div class="prose">
+        <p>The medium is the one thing the sources leave open. The entry contents are the thing they spell out: for each sterilization cycle, record the type of sterilizer and cycle used; the load identification number; the load contents; the exposure parameters (e.g., time and temperature); the operator&rsquo;s name or initials; and the results of mechanical, chemical, and biological monitoring <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>.</p>
+      </div>
+      <ul class="fields">
+        <li><b>Sterilizer and cycle used</b><span>Which machine ran the load, and which of its cycles.</span></li>
+        <li><b>Load identification number</b><span>The number that ties the packs on the shelf to this run.</span></li>
+        <li><b>Load contents</b><span>What went into the load.</span></li>
+        <li><b>Exposure parameters (e.g., time and temperature)</b><span>What the machine showed during the cycle.</span></li>
+        <li><b>Operator&rsquo;s name or initials</b><span>Who ran the load.</span></li>
+        <li><b>Results of mechanical, chemical and biological monitoring</b><span>What each check showed.</span></li>
+      </ul>
+      <div class="prose">
+        <p>For the log as a whole, the CDC checklist states the standard in one line: logs for each sterilizer cycle are current and include results from each load and comply with state and local regulations <span class="src">(CDC, infection-prevention checklist for dental settings)</span>.</p>
+        <p>On the operator field, the guideline asks for the name or initials and stops there <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>. Nothing in the pack says an initial must be handwritten, witnessed or signed <span class="src">(US sterilizer rule pack, item K9)</span>.</p>
+        <p>The fields and what belongs in each one are covered in <a href="/guides/what-a-sterilizer-log-entry-must-contain/">what a sterilizer log entry must contain</a>.</p>
+      </div>
+    </section>
+
+    <!-- SOURCES.md (c) K5; (b) C03-21, GA-2 -->
+    <section class="sec" id="retention">
+      <div class="sec-head">
+        <p class="label">Retention</p>
+        <h2>How long to keep the records</h2>
+      </div>
+      <div class="prose">
+        <p>This is where the sources do not agree, and this page does not pick a side for you. The CDC&rsquo;s dental guidelines keep mechanical, chemical and biological monitoring records long enough to comply with state and local regulations <span class="src">(CDC, 2003 dental infection-control guidelines)</span>. The 2008 guideline gives a length only as an example: a period that complies with standards (e.g., 3 years), statutes of limitations, and state and federal regulations <span class="src">(CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>.</p>
+        <p>Georgia is the only state in this pack with its own number in its rules: all sterilization records must be maintained for a period of not less than three (3) years <span class="src">(Georgia board of dentistry rule 150-8-.01)</span>. New York&rsquo;s regulator states that there is no statute of limitations for charges of professional misconduct <span class="src">(New York State Education Department practice guidelines)</span>, and the pack summarises the whole position this way: only Georgia sets a minimum, one CDC text gives three years as an example, and one state points to an unlimited period for misconduct charges <span class="src">(US sterilizer rule pack, item K5)</span>.</p>
+        <p><strong>Three years is a floor in one state and an example in one CDC text, not a national number</strong> <span class="src">(Georgia board of dentistry rule 150-8-.01; CDC/HICPAC, 2008 guideline for disinfection and sterilization)</span>. The state-by-state detail is in <a href="/guides/how-long-to-keep-sterilization-records/">how long to keep sterilization records</a>.</p>
+      </div>
+    </section>
+
+    <!-- SOURCES.md (c) K9 -->
+    <section class="sec" id="corrections">
+      <div class="sec-head">
+        <p class="label">Corrections</p>
+        <h2>Fixing a mistake without erasing the original</h2>
+      </div>
+      <div class="prose">
+        <p>None of the sources says how a log entry must be corrected <span class="src">(US sterilizer rule pack, item K9)</span>. What a good log does anyway: the correction is added as a new line, the original stays visible, and the change shows when it was made and by whom. Nothing is erased or overwritten.</p>
+        <p>Dental Logbook will work that way: a correction supersedes the entry it fixes and keeps the original next to it, with the time of the change and who made it.</p>
+      </div>
+    </section>
+
+    <!-- Quoted rows: SOURCES.md (b) D08-6, CHK-5, C03-21, GA-2; (c) K9, K5 -->
+    <section class="sec" id="sources">
+      <div class="sec-head">
+        <p class="label">The exact words</p>
+        <h2>The quoted rows behind this page</h2>
+      </div>
+      <div class="prose">
+        <p>Every rule sentence on this page restates one of these rows and keeps its limits, including words like &ldquo;e.g.&rdquo; where the source uses them. The IDs are the row names in the source pack this site is built on.</p>
+      </div>
+      <table class="tbl">
+        <caption>What the sources say, word for word</caption>
+        <thead>
+          <tr><th scope="col">Source</th><th scope="col">Quoted text</th><th scope="col">ID</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="w">CDC/HICPAC, 2008 guideline for disinfection and sterilization</td>
+            <td>&ldquo;For each sterilization cycle, record the type of sterilizer and cycle used; the load identification number; the load contents; the exposure parameters (e.g., time and temperature); the operator&rsquo;s name or initials; and the results of mechanical, chemical, and biological monitoring.&rdquo;</td>
+            <td class="id">D08-6</td>
+          </tr>
+          <tr>
+            <td class="w">CDC, infection-prevention checklist for dental settings</td>
+            <td>&ldquo;Logs for each sterilizer cycle are current and include results from each load and comply with state and local regulations&rdquo;</td>
+            <td class="id">CHK-5</td>
+          </tr>
+          <tr>
+            <td class="w">CDC, 2003 dental infection-control guidelines</td>
+            <td>&ldquo;Results of biological monitoring should be recorded and sterilization monitoring records (i.e., mechanical, chemical, and biological) retained long enough to comply with state and local regulations.&rdquo;</td>
+            <td class="id">C03-21</td>
+          </tr>
+          <tr>
+            <td class="w">Georgia board of dentistry rule 150-8-.01</td>
+            <td>&ldquo;Sterilization Records. All sterilization records must be maintained for a period of not less than three (3) years.&rdquo;</td>
+            <td class="id">GA-2</td>
+          </tr>
+          <tr>
+            <td class="w">Research summary: paper or electronic; signatures</td>
+            <td>&ldquo;No text read specifies form or signatures. D08-6 asks for &lsquo;the operator&rsquo;s name or initials&rsquo;&rdquo;</td>
+            <td class="id">K9</td>
+          </tr>
+          <tr>
+            <td class="w">Research summary: retention period</td>
+            <td>&ldquo;Only GA-2 (&ge; 3 years). D08-8 gives &lsquo;e.g., 3 years&rsquo; plus statutes of limitations; C03-21 defers to states; NY-7 says misconduct charges have no limitation period&rdquo;</td>
+            <td class="id">K5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Silence statement per BRIEF "where the pack is silent, say so" -->
+    <section class="sec" id="silence">
+      <div class="sec-head">
+        <p class="label">Scope</p>
+        <h2>Where this page is silent</h2>
+      </div>
+      <div class="prose">
+        <p>This page covers the CDC texts, OSHA&rsquo;s bloodborne pathogens standard and the dental rules of five states: New York, New Jersey, Pennsylvania, Florida and Georgia <span class="src">(US sterilizer rule pack, item K9)</span>. For every other state it is silent; check your state board&rsquo;s current rules.</p>
+        <p>On the questions this pack does not answer — what makes an electronic signature valid, how a correction must be marked, what record-keeping software must do — the page stays silent instead of filling the gap with a guess.</p>
+      </div>
+    </section>
+
+    <!-- Product behaviour, no rule citation (SOURCES.md (d) field lists are product defaults) -->
+    <section class="sec" id="dental-logbook">
+      <div class="sec-head">
+        <p class="label">In the product</p>
+        <h2>What Dental Logbook will do</h2>
+      </div>
+      <div class="product">
+        <p>Dental Logbook will keep these records electronically: it prompts for every field above on each cycle, stamps the entry with the operator&rsquo;s name or initials, keeps the log current as cycles are logged, holds the records where the office can produce them, and keeps a correction and its original side by side. Read more about <a href="/dental-logbook/">Dental Logbook</a>.</p>
+        <p>Prefer paper for now? The printable sheets in <a href="/tools/">tools</a> carry the same fields.</p>
+      </div>
+    </section>
+
+    <p class="legal">This page is not legal advice; check your state board&rsquo;s current rules.</p>
+
+    <div class="cta">
+      <p class="label">In development</p>
+      <p>Dental Logbook is a sterilizer log for dental offices, built with the pilot offices that will use it.</p>
+      <a class="btn" href="mailto:deya@boldsand.com?subject=Dental%20Logbook%20pilot">Dental Logbook is in development: join the free pilot</a>
+    </div>
+
+  </div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>BOLDSAND</b> — Boldsand Software Inc. · <a href="/">Company information</a></p>
+    <p>This page is general information about record-keeping rules, not legal advice, and using our software does not make an office compliant with any rule. We use your contact details only to reply to you. &copy; 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
