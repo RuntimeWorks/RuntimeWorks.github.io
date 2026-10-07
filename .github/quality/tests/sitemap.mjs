@@ -3,7 +3,9 @@
 // noindex, which Google says not to submit. lastmod is the page file's last commit date; changefreq and
 // priority are left out because Google ignores them.
 //   node tests/sitemap.mjs --write   regenerate ../../sitemap.xml (run after adding, removing or editing a page)
-//   node tests/sitemap.mjs           check: fails if the sitemap or robots.txt no longer matches the pages
+//   node tests/sitemap.mjs           check: fails if the sitemap or robots.txt no longer matches the pages.
+// A lastmod older than the page's last commit is only a warning: a squash merge gives the page a new commit date
+// on main after the PR regenerated the sitemap. A lastmod newer than the last commit is impossible and fails.
 import fs from "node:fs"; import path from "node:path"; import { execFileSync } from "node:child_process";
 import { ROOT, ROUTES } from "./pages.mjs";
 const ORIGIN = "https://boldsand.com";
@@ -47,10 +49,17 @@ if (have.size !== entries.length) problems.push("sitemap.xml: duplicate URLs");
 for (const e of entries) if (!/^\d{4}-\d{2}-\d{2}$/.test(e.lastmod)) problems.push(`sitemap.xml: lastmod "${e.lastmod}" for ${e.loc} is not YYYY-MM-DD`);
 let shallow = false;
 try { shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], { cwd: ROOT, encoding: "utf8" }).trim() === "true"; } catch { shallow = true; }
-if (!shallow) for (const e of entries) { const route = e.loc.slice(ORIGIN.length); if (want.has(e.loc) && lastmod(route) !== e.lastmod) problems.push(`sitemap.xml: lastmod for ${route} is ${e.lastmod}, its last commit is ${lastmod(route)} (run --write)`); }
+const stale = [];
+if (!shallow) for (const e of entries) {
+  const route = e.loc.slice(ORIGIN.length); if (!want.has(e.loc)) continue;
+  const git = lastmod(route);
+  if (e.lastmod > git) problems.push(`sitemap.xml: lastmod for ${route} is ${e.lastmod}, after its last commit ${git}`);
+  else if (e.lastmod < git) stale.push(`${route} (${e.lastmod} < ${git})`);
+}
+if (stale.length) console.warn(`warning: ${stale.length} lastmod older than the page's last commit, run npm run sitemap: ${stale.join(", ")}`);
 const robots = fs.existsSync(ROBOTS) ? fs.readFileSync(ROBOTS, "utf8") : "";
 if (!/^User-agent: \*$/m.test(robots)) problems.push("robots.txt: missing 'User-agent: *'");
 if (/^Disallow: \/\s*$/m.test(robots)) problems.push("robots.txt: 'Disallow: /' blocks the whole site");
 if (!robots.split("\n").includes(`Sitemap: ${ORIGIN}/sitemap.xml`)) problems.push(`robots.txt: missing 'Sitemap: ${ORIGIN}/sitemap.xml'`);
 if (problems.length) { console.error(problems.join("\n")); process.exit(1); }
-console.log(`sitemap.xml and robots.txt OK: ${entries.length} URLs, ${pages.length - listed.length} noindex pages left out${shallow ? " (lastmod dates not checked: shallow clone)" : ", lastmod dates match git"}`);
+console.log(`sitemap.xml and robots.txt OK: ${entries.length} URLs, ${pages.length - listed.length} noindex pages left out${shallow ? " (lastmod dates not checked: shallow clone)" : stale.length ? "" : ", lastmod dates match git"}`);
