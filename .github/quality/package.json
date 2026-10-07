@@ -5,7 +5,9 @@
   "scripts": {
     "gates": "playwright test",
     "html": "node tests/html.mjs",
-    "rawvalues": "node tests/raw-values.mjs"
+    "rawvalues": "node tests/raw-values.mjs",
+    "sitemap": "node tests/sitemap.mjs --write",
+    "sitemap:check": "node tests/sitemap.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
