@@ -18,6 +18,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='9'%20fill='%230F2B47'/%3E%3Cpath%20d='M18%2033l9%209%2019-21'%20fill='none'%20stroke='%23EEE4D1'%20stroke-width='7'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preload" href="/assets/fonts/archivo-vf.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/schibsted-vf.woff2" as="font" type="font/woff2" crossorigin>
+<script>if("IntersectionObserver" in window){document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.bsReveal)document.documentElement.classList.remove("js")})}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Boldsand Software Inc.","legalName":"Boldsand Software Inc.","url":"https://boldsand.com/","email":"deya@boldsand.com","telephone":"+1-226-222-4274","foundingDate":"2026-08-19",
  "address":{"@type":"PostalAddress","addressLocality":"Charlottetown","addressRegion":"PE","addressCountry":"CA"},
@@ -69,7 +70,6 @@ img{display:block;max-width:100%;height:auto}
 .nav a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:46px;padding:0 var(--sp-4);border-radius:var(--r-s);font:700 var(--fs-s)/1 var(--body);text-decoration:none;border:1.5px solid var(--ink);transition:background .15s,color .15s,border-color .15s}
 .btn-dark{background:var(--harbour);color:var(--on-harbour);border-color:var(--harbour)}
-.btn-dark:hover{background:var(--harbour-2);border-color:var(--harbour-2)}
 .btn-light{background:var(--sand);color:var(--ink);border-color:var(--sand)}
 .btn-light:hover{background:var(--white);border-color:var(--white)}
 .btn-ghost-l{color:var(--on-harbour);border-color:var(--harbour-ghost)}
@@ -173,13 +173,14 @@ footer a:hover{text-decoration:underline}
 footer .base{margin-top:var(--sp-6);padding-top:var(--sp-4);border-top:1px solid var(--harbour-line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--sp-2) var(--sp-5);font:500 var(--fs-xs)/1.6 var(--mono);color:var(--on-harbour-2)}
 @media (max-width:820px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}}
 
-/* Scroll reveal. Sections are visible by default. The script hides (.pre) only sections that are still
-   below the screen once the visitor starts scrolling, then fades each one in as it enters. Without JS,
-   in print, in reduced motion and in full-page captures, nothing is ever hidden. */
-.rv{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
-.rv.pre{opacity:0;transform:translateY(16px);transition:none}
-@media print{.rv.pre{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv.pre{opacity:1;transform:none}}
+/* Scroll reveal, exactly as on the old page: each section starts hidden and fades and rises in (0.6 s) when
+   6% of it is above the bottom 8% of the screen. It is hidden only while the reveal script runs (html.js):
+   without JS, if the script fails, in print and in reduced motion nothing is hidden. Full-page screenshots
+   must scroll through the page first, or use reduced motion. */
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media print{.js .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -326,13 +327,11 @@ footer .base{margin-top:var(--sp-6);padding-top:var(--sp-4);border-top:1px solid
 </footer>
 
 <script>
-// Same reveal as before (fade and rise, 0.6 s, when 6% of a section is above the bottom 8% of the screen),
-// but a section is hidden only while it is off screen: on the first scroll, sections still fully below
-// the screen get .pre, and lose it as they enter. Nothing on screen is ever hidden.
-(function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
-function arm(){removeEventListener('scroll',arm);var h=innerHeight;document.querySelectorAll('.rv').forEach(function(el){if(el.getBoundingClientRect().top>=h){el.classList.add('pre');io.observe(el)}})}
-addEventListener('scroll',arm,{passive:true})})();
+// The old page's reveal, unchanged: a section gets .in (fade and rise) when 6% of it is above the bottom 8% of
+// the screen. bsReveal tells the head script that this ran; if it did not, the page shows everything at load.
+(function(){if(!document.documentElement.classList.contains('js'))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});window.bsReveal=true})();
 </script>
 </body>
 </html>
