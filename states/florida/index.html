@@ -31,140 +31,10 @@
   "inLanguage": "en-US"
 }
 </script>
-<style>
-@font-face{font-family:"Archivo";src:url(/assets/fonts/archivo-vf.woff2) format("woff2");font-weight:800 900;font-stretch:100% 125%;font-display:swap}
-@font-face{font-family:"Schibsted Grotesk";src:url(/assets/fonts/schibsted-vf.woff2) format("woff2");font-weight:400 800;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-500.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"IBM Plex Mono";src:url(/assets/fonts/plexmono-600.woff2) format("woff2");font-weight:600;font-display:swap}
-
-:root{
-  /* colour */
-  --sand:#F1E9D8; --paper:#FCF8EF; --ink:#17150F; --ink-2:#4A4537; --ink-3:#5C564A;
-  --rule:#B4C8D5; --pass:#1D6A45; --pass-2:#E1EDE3; --danger:#B3361C; --line:rgba(23,21,15,.14);
-  --sand-3:#BDB39C; --sand-4:#968D78; --line-dark:#3A3528;
-  /* type */
-  --display:"Archivo","Arial Black",sans-serif; --body:"Schibsted Grotesk","Helvetica Neue",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --fs-h1:clamp(34px,5.2vw,56px); --fs-h2:clamp(25px,3vw,36px); --fs-h3:19px;
-  --fs-lede:clamp(18px,2vw,21px); --fs-body:17px; --fs-table:15px; --fs-label:14px;
-  --fs-brand:17px; --fs-btn:16px; --fs-small:15px;
-  /* space */
-  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
-  --sp-7:32px; --sp-8:40px; --sp-9:56px; --sp-10:72px; --sp-11:96px;
-  --sr-margin:-1px;
-  /* line and shape */
-  --bw-1:1px; --bw-2:2px; --bw-4:4px;
-  --radius:6px; --radius-pill:999px; --radius-round:50%;
-  --focus-w:3px;
-  /* layout */
-  --wrap:1080px; --gut:clamp(16px,4.5vw,40px); --measure:46em;
-  --table-min:600px;
-  /* effect */
-  --shadow:6px 6px 0 var(--ink); --shadow-hi:8px 8px 0 var(--pass);
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-html,body{overflow-x:hidden}
-@supports (overflow:clip){html,body{overflow-x:clip}}
-body{margin:0;background:var(--sand);color:var(--ink);font:400 var(--fs-body)/1.6 var(--body);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:var(--focus-w) solid var(--pass);outline-offset:var(--sp-1);border-radius:var(--radius)}
-.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
-.mono{font-family:var(--mono)}
-.label{font:500 var(--fs-label)/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
-.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:var(--sr-margin);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-
-/* top bar */
-.top{background:var(--sand);border-bottom:var(--bw-1) solid var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:var(--sp-3)}
-.brand{display:flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px;padding:var(--sp-1) 0}
-.brand svg{width:28px;height:28px;flex:none}
-.brand b{font:800 var(--fs-brand)/1 var(--display);font-stretch:125%;letter-spacing:.04em}
-.brand span{font:500 var(--fs-label)/1.15 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-left:var(--bw-1) solid var(--ink-3);padding-left:var(--sp-3)}
-.top .call{font:600 var(--fs-label)/1 var(--mono);text-decoration:none;display:inline-flex;align-items:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-4);border:var(--bw-2) solid var(--ink);border-radius:var(--radius-pill);white-space:nowrap}
-.top .call:hover{background:var(--ink);color:var(--sand)}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:var(--sp-3) var(--sp-6);border-radius:var(--radius);font:700 var(--fs-btn)/1.25 var(--body);text-decoration:none;border:var(--bw-2) solid var(--ink);transition:transform .15s ease,box-shadow .15s ease,background .15s}
-.btn-primary{background:var(--ink);color:var(--sand);box-shadow:var(--shadow)}
-.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-hi)}
-
-/* hero */
-.hero{padding:var(--sp-9) 0 var(--sp-7)}
-.hero .kicker{margin:0 0 var(--sp-5)}
-h1{font:800 var(--fs-h1)/1.04 var(--display);font-stretch:112%;letter-spacing:-.02em;margin:0;max-width:20ch}
-.lede{font-size:var(--fs-lede);line-height:1.55;color:var(--ink-2);max-width:var(--measure);margin:var(--sp-6) 0 0}
-.lede b{color:var(--ink);font-weight:600}
-
-/* sections */
-.sec{padding:var(--sp-8) 0 0}
-.sec h2{font:800 var(--fs-h2)/1.1 var(--display);font-stretch:110%;letter-spacing:-.01em;margin:0}
-.sec .intro{margin:var(--sp-4) 0 0;color:var(--ink-2);max-width:var(--measure)}
-h3{font:700 var(--fs-h3)/1.3 var(--body);margin:var(--sp-7) 0 var(--sp-3)}
-
-/* rule lists */
-.rules{list-style:none;margin:var(--sp-5) 0 0;padding:0;display:grid;gap:var(--sp-4);max-width:var(--measure)}
-.rules li{display:grid;grid-template-columns:var(--sp-6) 1fr;gap:var(--sp-3);line-height:1.55}
-.rules li::before{content:"—";color:var(--pass);font-weight:600}
-.rules.tight{gap:var(--sp-3)}
-.steps{margin:var(--sp-5) 0 0;padding:0;list-style:none;counter-reset:step;display:grid;gap:var(--sp-5);max-width:var(--measure)}
-.steps li{counter-increment:step;display:grid;grid-template-columns:var(--sp-7) 1fr;gap:var(--sp-3);line-height:1.55}
-.steps li::before{content:counter(step,decimal-leading-zero);font:600 var(--fs-table)/1.7 var(--mono);color:var(--pass)}
-
-/* notes */
-.note{background:var(--paper);border:var(--bw-1) solid var(--rule);border-left:var(--bw-4) solid var(--pass);border-radius:var(--radius);padding:var(--sp-5) var(--sp-6);margin:var(--sp-6) 0 0;max-width:var(--measure)}
-.note p{margin:0}
-.note p + p{margin:var(--sp-3) 0 0}
-.note b{font-weight:600}
-.disagree{border-left-color:var(--danger)}
-.product{background:var(--pass-2);border:var(--bw-1) solid var(--pass);border-radius:var(--radius);padding:var(--sp-5) var(--sp-6);margin:var(--sp-6) 0 0;max-width:var(--measure)}
-.product p{margin:var(--sp-2) 0 0}
-.product .label{color:var(--pass)}
-
-/* table */
-.table-wrap{margin-top:var(--sp-6);overflow-x:auto;border:var(--bw-2) solid var(--ink);border-radius:var(--radius);background:var(--paper)}
-table{border-collapse:collapse;width:100%;min-width:var(--table-min);font-size:var(--fs-table);line-height:1.45}
-caption{text-align:left;padding:var(--sp-5);font:700 var(--fs-h3)/1.3 var(--body)}
-thead th{font:500 var(--fs-label)/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:var(--sp-3) var(--sp-5);border-bottom:var(--bw-2) solid var(--ink)}
-tbody th{text-align:left;font:600 var(--fs-table)/1.4 var(--body);padding:var(--sp-5);vertical-align:top;border-top:var(--bw-1) solid var(--rule)}
-tbody td{padding:var(--sp-5);vertical-align:top;border-top:var(--bw-1) solid var(--rule)}
-tbody th{width:24%}
-td.src{font:500 var(--fs-table)/1.5 var(--mono);color:var(--ink-3);width:22%}
-.scroll-hint{display:none;font:500 var(--fs-label)/1.4 var(--mono);color:var(--ink-3);margin:var(--sp-3) 0 0}
-@media (max-width:700px){.scroll-hint{display:block}}
-
-/* legal note + cta */
-.closing{padding:var(--sp-10) 0 var(--sp-11)}
-.legal{border:var(--bw-1) solid var(--ink);border-radius:var(--radius);background:var(--paper);padding:var(--sp-6);max-width:var(--measure)}
-.legal p{margin:0;font:500 var(--fs-body)/1.55 var(--body)}
-.cta{margin:var(--sp-7) 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-5)}
-.cta p{margin:0;color:var(--ink-2);max-width:32em}
-
-/* footer */
-footer{background:var(--ink);color:var(--sand-3);padding:var(--sp-8) 0 var(--sp-8);font-size:var(--fs-small)}
-footer .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6) var(--sp-8)}
-footer b{color:var(--sand);font:800 var(--fs-brand)/1 var(--display);font-stretch:125%;letter-spacing:.05em}
-footer p{margin:var(--sp-3) 0 0;line-height:1.55}
-footer a{color:var(--sand)}
-footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padding-top:var(--sp-5);font:400 var(--fs-table)/1.6 var(--mono);color:var(--sand-4)}
-
-@media (max-width:700px){
-  .brand span{display:none}
-  footer .wrap{grid-template-columns:1fr}
-  .cta{align-items:flex-start;flex-direction:column}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media print{
-  .top,.cta{display:none}
-  body{background:var(--paper)}
-  .table-wrap{overflow:visible}
-  table{min-width:0}
-}
-</style>
+<link rel="stylesheet" href="/assets/css/state.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to the rules</a>
 
 <header class="top">
   <div class="wrap">
@@ -176,18 +46,33 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
   </div>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="hero">
   <div class="wrap">
     <p class="kicker label">State rules · Florida · Dental sterilizer records</p>
     <h1>Florida dental sterilization rules: what to test, record and keep</h1>
     <p class="lede">Florida's own dental rules set one number: how often to spore test (Florida rule 64B5-25.003(9)). Steam under pressure (e.g. autoclave) and chemical vapor sterilizers must have their efficacy verified by biological monitoring <b>at least once every 40 hours (2,400 minutes) of use or at least once every thirty days, whichever comes first (Florida rule 64B5-25.003(9))</b>; on everything else on this page Florida's rules are silent, so each section below says so and gives what CDC guidance recommends instead (Florida rules 64B5-25.001 to 64B5-25.003).</p>
+    <nav class="toc" aria-labelledby="toc-title">
+      <p class="label" id="toc-title">On this page</p>
+      <ol role="list">
+        <li><a href="#how-cdc-guidance-fills-the-gaps-in-floridas-rules">How CDC guidance fills the gaps in Florida's rules</a></li>
+        <li><a href="#how-often-to-spore-test">How often to spore test</a></li>
+        <li><a href="#what-to-do-about-implant-loads">What to do about implant loads</a></li>
+        <li><a href="#what-to-check-on-every-cycle">What to check on every cycle</a></li>
+        <li><a href="#air-removal-tests-on-pre-vacuum-sterilizers">Air-removal tests on pre-vacuum sterilizers</a></li>
+        <li><a href="#what-to-do-after-a-failed-spore-test">What to do after a failed spore test</a></li>
+        <li><a href="#what-a-log-entry-holds">What a log entry holds</a></li>
+        <li><a href="#how-long-to-keep-records">How long to keep records</a></li>
+        <li><a href="#who-can-inspect-a-florida-dental-office">Who can inspect a Florida dental office</a></li>
+        <li><a href="#floridas-rules-at-a-glance">Florida's rules at a glance</a></li>
+      </ol>
+    </nav>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <h2>How CDC guidance fills the gaps in Florida's rules</h2>
+    <h2 id="how-cdc-guidance-fills-the-gaps-in-floridas-rules">How CDC guidance fills the gaps in Florida's rules</h2>
     <p class="intro">Florida's rules do reach CDC material, but only for part of the rulebook.</p>
     <ul class="rules">
       <li>Florida's rules adopt and incorporate by reference the CDC 2008 disinfection and sterilization guideline (Florida rule 64B5-25.002(4)).</li>
@@ -199,7 +84,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>How often to spore test</h2>
+    <h2 id="how-often-to-spore-test">How often to spore test</h2>
     <p class="intro">This is the one topic where Florida's rules give their own numbers, and the numbers depend on the sterilizer.</p>
     <ul class="rules">
       <li>Steam under pressure (e.g. autoclave) or chemical vapor sterilization must have its efficacy verified by appropriate biological monitoring at least once every 40 hours (2,400 minutes) of use or at least once every thirty days, whichever comes first (Florida rule 64B5-25.003(9)).</li>
@@ -215,7 +100,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>What to do about implant loads</h2>
+    <h2 id="what-to-do-about-implant-loads">What to do about implant loads</h2>
     <p class="intro">Florida's rules do not mention implantable devices or the loads that carry them (Florida rules 64B5-25.001 to 64B5-25.003).</p>
     <ul class="rules">
       <li>CDC's dental guidance says to use a biological indicator for every sterilizer load that contains an implantable device, and to verify results before using the implantable device, whenever possible (CDC, 2003 dental infection-control guidelines).</li>
@@ -231,7 +116,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>What to check on every cycle</h2>
+    <h2 id="what-to-check-on-every-cycle">What to check on every cycle</h2>
     <p class="intro">Florida's rules set no per-cycle checks (Florida rules 64B5-25.001 to 64B5-25.003).</p>
     <ul class="rules">
       <li>CDC's dental guidance says to monitor each load with mechanical (e.g., time, temperature, and pressure) and chemical indicators (CDC, 2003 dental infection-control guidelines).</li>
@@ -244,7 +129,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>Air-removal tests on pre-vacuum sterilizers</h2>
+    <h2 id="air-removal-tests-on-pre-vacuum-sterilizers">Air-removal tests on pre-vacuum sterilizers</h2>
     <p class="intro">Florida's rules set no air-removal test (Florida rules 64B5-25.001 to 64B5-25.003). The air-removal test is for pre-vacuum (dynamic-air-removal) steam sterilizers (CDC/HICPAC, 2008 disinfection and sterilization guideline).</p>
     <div class="note disagree">
       <p><b>Where the sources disagree.</b> The 2003 dental guideline says pre-vacuum sterilizers should be tested periodically for adequate air removal, as recommended by the manufacturer (CDC, 2003 dental infection-control guidelines). The 2008 guideline says an air-removal test (Bowie-Dick Test) must be performed daily in an empty dynamic-air-removal sterilizer (CDC/HICPAC, 2008 disinfection and sterilization guideline). Both are CDC documents, and they give different frequencies.</p>
@@ -258,7 +143,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>What to do after a failed spore test</h2>
+    <h2 id="what-to-do-after-a-failed-spore-test">What to do after a failed spore test</h2>
     <p class="intro">Florida's rules give no failure procedure (Florida rules 64B5-25.001 to 64B5-25.003), but they do say what failing the rules means: failure to follow proper sterilization and disinfection procedures as set forth in rule 64B5-25.003 constitutes failure to provide reasonable sanitary facilities and conditions in violation of section 466.028(1)(u), F.S., and constitutes negligence in the practice of dentistry (Florida rule 64B5-25.001).</p>
     <p class="intro">The steps below come from CDC guidance.</p>
     <ol class="steps">
@@ -284,7 +169,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>What a log entry holds</h2>
+    <h2 id="what-a-log-entry-holds">What a log entry holds</h2>
     <p class="intro">Florida's rules say nothing about what a sterilizer record contains (Florida rules 64B5-25.001 to 64B5-25.003).</p>
     <ul class="rules">
       <li>CDC's 2008 guideline says that for each sterilization cycle, record the type of sterilizer and cycle used; the load identification number; the load contents; the exposure parameters (e.g., time and temperature); the operator's name or initials; and the results of mechanical, chemical, and biological monitoring (CDC/HICPAC, 2008 disinfection and sterilization guideline).</li>
@@ -299,7 +184,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>How long to keep records</h2>
+    <h2 id="how-long-to-keep-records">How long to keep records</h2>
     <p class="intro">Florida's rules set no retention period for sterilizer records (Florida rules 64B5-25.001 to 64B5-25.003).</p>
     <ul class="rules">
       <li>CDC's dental guidance says sterilization monitoring records, mechanical, chemical and biological, should be retained long enough to comply with state and local regulations (CDC, 2003 dental infection-control guidelines).</li>
@@ -315,7 +200,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>Who can inspect a Florida dental office</h2>
+    <h2 id="who-can-inspect-a-florida-dental-office">Who can inspect a Florida dental office</h2>
     <ul class="rules">
       <li>Duly authorized agents and employees of the department have the power to inspect, at all reasonable hours, any establishment at which the services of a licensee authorized to prescribe controlled substances specified in chapter 893 are offered (Florida Statutes 456.069).</li>
       <li>Failure to follow proper sterilization and disinfection procedures as set forth in rule 64B5-25.003, F.A.C., constitutes failure to provide reasonable sanitary facilities and conditions in violation of section 466.028(1)(u), F.S., and constitutes negligence in the practice of dentistry (Florida rule 64B5-25.001).</li>
@@ -326,7 +211,7 @@ footer .fine{grid-column:1/-1;border-top:var(--bw-1) solid var(--line-dark);padd
 
 <section class="sec">
   <div class="wrap">
-    <h2>Florida's rules at a glance</h2>
+    <h2 id="floridas-rules-at-a-glance">Florida's rules at a glance</h2>
     <p class="intro">One row per topic. Where a row says the rules are silent, they do not address that topic.</p>
     <div class="table-wrap" role="region" aria-label="Table: what Florida's dental sterilization rules say by topic" tabindex="0">
       <table>
