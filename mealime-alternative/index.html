@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mealime alternative: a pantry-first meal planner · Boldsand</title>
+<meta name="description" content="Mealime shuts down on October 21, 2026. Boldsand is building a meal planner that suggests meals from the food you have, ranked by your vitamin and mineral gaps. Coming soon.">
+<link rel="canonical" href="https://boldsand.com/mealime-alternative/">
+<meta name="theme-color" content="#F6F6F4">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boldsand Software Inc.">
+<meta property="og:title" content="Looking for a Mealime alternative? Meals from what's already in your kitchen">
+<meta property="og:description" content="A new meal planner from Boldsand: meals from the food you have, ranked by the vitamins and minerals you're short on today. Coming soon; join the waitlist.">
+<meta property="og:url" content="https://boldsand.com/mealime-alternative/">
+<meta property="og:image" content="https://boldsand.com/assets/og-boldsand.jpg">
+<meta property="og:locale" content="en_US">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20x='4'%20y='4'%20width='56'%20height='56'%20rx='14'%20fill='%231F1F1F'/%3E%3Crect%20x='16'%20y='30'%20width='6'%20height='18'%20rx='2'%20fill='%2322A060'/%3E%3Crect%20x='26'%20y='22'%20width='6'%20height='26'%20rx='2'%20fill='%2322A060'/%3E%3Crect%20x='36'%20y='26'%20width='6'%20height='22'%20rx='2'%20fill='%236AA3FF'/%3E%3Crect%20x='46'%20y='34'%20width='6'%20height='14'%20rx='2'%20fill='%236AA3FF'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is this a Mealime alternative?", "acceptedAnswer": {"@type": "Answer", "text": "It is a different kind of meal planner. It starts from the food you already have and ranks meals by the vitamins and minerals you are short on today. Boldsand is not affiliated with Mealime and cannot move a Mealime account, recipes or lists."}},
+    {"@type": "Question", "name": "When can I use it?", "acceptedAnswer": {"@type": "Answer", "text": "It is coming soon and is being built for iPhone first. Join the waitlist and we will send one email when it launches."}},
+    {"@type": "Question", "name": "Where do the numbers come from?", "acceptedAnswer": {"@type": "Answer", "text": "Nutrient values come from USDA FoodData Central, and daily reference intakes from the Dietary Reference Intakes of the National Academies. Every number in the app is being built to show its source."}},
+    {"@type": "Question", "name": "What will it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing will be shown in the app before you subscribe."}},
+    {"@type": "Question", "name": "Is it medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. It shows your intake compared with reference values, as general wellness information. For a medical condition, pregnancy or breastfeeding, check with a doctor or a registered dietitian."}}
+  ]
+}
+</script>
+<style>
+/* Round-2 look of the Boldsand meal planner (sleek and minimal, data in colour). Rules below use only these tokens. */
+:root{
+  /* color */
+  --bg:#F6F6F4; --card:#FFFFFF; --ink:#1F1F1F; --ink-2:#555552; --ink-3:#6B6B67; --line:#E5E5E1; --sunken:#EEEEEA;
+  --green:#167A45; --green-cell:#1E8A50; --green-tint:#E7F5EC; --blue:#1F63E0; --blue-tint:#EAF1FE; --blue-preview:#A9C8FB;
+  --on-ink:#FFFFFF; --on-ink-2:#D4D4D0; --focus:#1F63E0;
+  /* type */
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fs-12:12px; --fs-13:13px; --fs-14:14px; --fs-15:15px; --fs-16:16px; --fs-17:17px; --fs-18:18px; --fs-20:20px; --fs-22:22px;
+  --fs-num:44px; --fs-lede:clamp(18px,2.2vw,21px); --fs-h1:clamp(38px,6.4vw,68px); --fs-h2:clamp(28px,4vw,42px);
+  /* space */
+  --sp-2:2px; --sp-3:3px; --sp-4:4px; --sp-6:6px; --sp-8:8px; --sp-10:10px; --sp-12:12px; --sp-14:14px; --sp-16:16px;
+  --sp-18:18px; --sp-20:20px; --sp-24:24px; --sp-28:28px; --sp-32:32px; --sp-40:40px; --sp-48:48px;
+  --sec:clamp(56px,8vw,104px); --pad-join:clamp(28px,5vw,56px); --pad-foot-b:calc(40px + env(safe-area-inset-bottom)); --gut:clamp(16px,4.5vw,40px); --wrap:1120px; --hero-gap:clamp(32px,5vw,72px);
+  /* radius and elevation */
+  --r-cell:3px; --r-ctl:12px; --r-card:20px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 8px 24px rgba(0,0,0,.06);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{overflow-x:hidden}@supports (overflow:clip){html,body{overflow-x:clip}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 var(--fs-17)/1.55 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:var(--r-cell)}
+.wrap{width:min(var(--wrap),100% - 2*var(--gut));margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--on-ink);padding:var(--sp-10) var(--sp-14);z-index:9}
+.skip:focus{left:8px}
+.eyebrow{font:600 var(--fs-13)/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-12);min-height:60px}
+.brand{display:flex;align-items:center;gap:var(--sp-10);text-decoration:none;min-height:44px;font:800 var(--fs-16)/1 var(--font);letter-spacing:.06em}
+.brand svg{width:28px;height:28px;flex:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-8);min-height:52px;padding:0 var(--sp-24);border-radius:var(--r-ctl);font:600 var(--fs-17)/1 var(--font);text-decoration:none;border:0}
+.btn-ink{background:var(--ink);color:var(--on-ink)}
+.btn-ink:hover{background:var(--ink-2)}
+.btn-small{min-height:44px;padding:0 var(--sp-16);font-size:var(--fs-15)}
+.btn-light{background:var(--card);color:var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* hero */
+.hero{padding:var(--sec) 0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--hero-gap);align-items:center}
+.pill{display:inline-flex;align-items:center;gap:var(--sp-8);background:var(--green-tint);color:var(--green);border-radius:var(--r-pill);padding:var(--sp-6) var(--sp-12);font:700 var(--fs-14)/1.2 var(--font);letter-spacing:.04em;text-transform:uppercase;margin:0 0 var(--sp-20)}
+h1{font:800 var(--fs-h1)/1.02 var(--font);letter-spacing:-.025em;margin:0 0 var(--sp-20)}
+.lede{font-size:var(--fs-lede);color:var(--ink-2);max-width:32em;margin:0 0 var(--sp-28)}
+.lede strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-12) var(--sp-20)}
+.note{font-size:var(--fs-15);color:var(--ink-3);margin:0}
+.fact{margin:var(--sp-28) 0 0;padding:var(--sp-14) var(--sp-16);border-radius:var(--r-ctl);background:var(--card);box-shadow:var(--shadow);font-size:var(--fs-15);color:var(--ink-2);max-width:34em}
+.fact b{color:var(--ink)}
+@media (max-width:880px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* app preview (built in HTML: no screenshots, no images of people) */
+.preview{background:var(--card);border-radius:var(--r-card);box-shadow:var(--shadow);padding:var(--sp-20);display:grid;gap:var(--sp-16);max-width:440px;width:100%;justify-self:center}
+.preview-in{display:contents}
+.preview-h{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-8);flex-wrap:wrap}
+.num{font:800 var(--fs-num)/1 var(--font);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.num small{font:600 var(--fs-17)/1 var(--font);color:var(--ink-3);letter-spacing:0;margin-left:var(--sp-6)}
+.adds{background:var(--green-tint);color:var(--green);border-radius:var(--r-pill);padding:var(--sp-6) var(--sp-10);font:700 var(--fs-13)/1.2 var(--font)}
+.cells{display:flex;gap:var(--sp-3)}
+.cells i{flex:1;height:28px;border-radius:var(--r-cell);background:var(--sunken)}
+.cells .c{background:var(--green-cell)}.cells .p{background:var(--blue)}.cells .t{background:var(--card);box-shadow:inset 0 0 0 1.5px var(--line)}
+.key{display:flex;flex-wrap:wrap;gap:var(--sp-6) var(--sp-16);margin:0;padding:0;list-style:none;font-size:var(--fs-13);color:var(--ink-3)}
+.key li{display:inline-flex;align-items:center;gap:var(--sp-6)}
+.key i{width:10px;height:10px;border-radius:var(--r-cell);background:var(--green-cell)}
+.key .p{background:var(--blue)}.key .t{background:var(--card);box-shadow:inset 0 0 0 1.5px var(--line)}
+.key b{color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-8)}
+.tile{background:var(--bg);border-radius:var(--r-ctl);padding:var(--sp-10) var(--sp-12);display:grid;gap:var(--sp-4)}
+.tile span{font-size:var(--fs-13);color:var(--ink-3)}
+.tile b{font:800 var(--fs-20)/1.1 var(--font);font-variant-numeric:tabular-nums}
+.ten{display:flex;gap:var(--sp-2)}
+.ten i{flex:1;height:12px;border-radius:var(--r-cell);background:var(--sunken)}
+.ten .p{background:var(--blue)}.ten .c{background:var(--green-cell)}
+.meal{border-top:1px solid var(--line);padding-top:var(--sp-14);display:grid;gap:var(--sp-10)}
+.tag{justify-self:start;background:var(--blue-tint);color:var(--blue);border-radius:var(--r-cell);padding:var(--sp-4) var(--sp-8);font:700 var(--fs-12)/1.2 var(--font);letter-spacing:.06em;text-transform:uppercase}
+.meal-title{font:700 var(--fs-18)/1.25 var(--font);margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:var(--sp-6);margin:0;padding:0;list-style:none}
+.chips li{background:var(--bg);border-radius:var(--r-pill);padding:var(--sp-6) var(--sp-12);font:600 var(--fs-14)/1.2 var(--font)}
+.gains{display:flex;flex-wrap:wrap;gap:var(--sp-6);margin:0;padding:0;list-style:none}
+.gains li{background:var(--blue-tint);color:var(--blue);border-radius:var(--r-pill);padding:var(--sp-6) var(--sp-10);font:700 var(--fs-13)/1.2 var(--font)}
+.caption{font-size:var(--fs-14);color:var(--ink-3);text-align:center;margin:var(--sp-10) 0 0}
+
+/* sections */
+.sec{padding:var(--sec) 0}
+.sec + .sec{padding-top:0}
+h2{font:800 var(--fs-h2)/1.08 var(--font);letter-spacing:-.02em;margin:var(--sp-10) 0 var(--sp-16)}
+.sec-lede{font-size:var(--fs-18);color:var(--ink-2);max-width:36em;margin:0 0 var(--sp-32)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp-16);counter-reset:step}
+.steps li{background:var(--card);border-radius:var(--r-card);box-shadow:var(--shadow);padding:var(--sp-24);counter-increment:step}
+.steps li::before{content:counter(step);display:inline-grid;place-items:center;width:32px;height:32px;border-radius:var(--r-pill);background:var(--ink);color:var(--on-ink);font:700 var(--fs-15)/1 var(--font);margin-bottom:var(--sp-14)}
+.steps h3{font:700 var(--fs-20)/1.25 var(--font);margin:0 0 var(--sp-8)}
+.steps p{margin:0;color:var(--ink-2);font-size:var(--fs-16)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-12);max-width:46em}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:var(--sp-12);align-items:start;font-size:var(--fs-17)}
+.checks svg{width:22px;height:22px;color:var(--green);margin-top:var(--sp-2)}
+.checks b{font-weight:600}
+
+/* FAQ */
+.faq{display:grid;gap:var(--sp-10);max-width:52em}
+.faq details{background:var(--card);border-radius:var(--r-ctl);box-shadow:var(--shadow)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--sp-16);min-height:56px;padding:var(--sp-14) var(--sp-20);font:600 var(--fs-17)/1.35 var(--font)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 var(--fs-22)/1 var(--font);color:var(--ink-3);flex:none}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0;padding:0 var(--sp-20) var(--sp-18);color:var(--ink-2);font-size:var(--fs-16)}
+
+/* waitlist */
+.join{background:var(--ink);color:var(--on-ink);border-radius:var(--r-card);padding:var(--pad-join);display:grid;gap:var(--sp-16)}
+.join h2{margin:0}
+.join p{margin:0;color:var(--on-ink-2);max-width:36em;font-size:var(--fs-18)}
+.join .fine{font-size:var(--fs-14)}
+.join a.mail{color:var(--on-ink)}
+
+/* footer */
+footer{padding:var(--sp-40) 0 var(--pad-foot-b);border-top:1px solid var(--line);font-size:var(--fs-14);color:var(--ink-3)}
+footer .wrap{display:grid;gap:var(--sp-12)}
+footer p{margin:0;max-width:60em}
+footer b{color:var(--ink);letter-spacing:.06em}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="14" fill="#1F1F1F"/><rect x="16" y="30" width="6" height="18" rx="2" fill="#22A060"/><rect x="26" y="22" width="6" height="26" rx="2" fill="#22A060"/><rect x="36" y="26" width="6" height="22" rx="2" fill="#6AA3FF"/><rect x="46" y="34" width="6" height="14" rx="2" fill="#6AA3FF"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3z M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Boldsand home"><svg aria-hidden="true"><use href="#i-mark"/></svg>BOLDSAND</a>
+    <a class="btn btn-ink btn-small" href="mailto:deya@boldsand.com?subject=Meal%20planner%20waitlist&amp;body=Please%20email%20me%20once%20when%20the%20Boldsand%20meal%20planner%20launches.">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="pill">Coming soon · a new meal planner from Boldsand</p>
+      <h1>A Mealime alternative that starts with what's in your kitchen</h1>
+      <p class="lede">Tell it what food you have. It suggests the meals you can cook now, <strong>ranked by the vitamins and minerals you're short on today</strong>, and shows where every number comes from.</p>
+      <div class="cta-row">
+        <a class="btn btn-ink" href="mailto:deya@boldsand.com?subject=Meal%20planner%20waitlist&amp;body=Please%20email%20me%20once%20when%20the%20Boldsand%20meal%20planner%20launches."><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the waitlist</a>
+        <p class="note">One email when it launches. Nothing else.</p>
+      </div>
+      <p class="fact"><b>Why now:</b> Mealime has announced that it shuts down on October 21, 2026 (<a href="https://www.mealime.com/">mealime.com</a> and its <a href="https://apps.apple.com/us/app/mealime-meal-plans-recipes/id1079999103">App Store page</a>, read October 7, 2026). If you need a new place to plan meals, this is what we're building.</p>
+    </div>
+    <figure style="margin:0">
+      <div class="preview" role="img" aria-label="A preview of the planned app: 14 of 22 nutrients covered today, protein 78 percent, fiber 90 percent, vitamin C covered, and a suggested lunch that adds iron, folate and fiber.">
+       <div class="preview-in" aria-hidden="true">
+        <div class="preview-h">
+          <span class="num">14<small>/ 22 nutrients</small></span>
+          <span class="adds">+3 with lunch</span>
+        </div>
+        <div class="cells"><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="t"></i><i class="t"></i><i class="t"></i></div>
+        <ul class="key"><li><i></i>Covered <b>14</b></li><li><i class="p"></i>On the way <b>5</b></li><li><i class="t"></i>To go <b>3</b></li></ul>
+        <div class="tiles">
+          <div class="tile"><span>Protein</span><b>78%</b><div class="ten"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i><i></i><i></i></div></div>
+          <div class="tile"><span>Fiber</span><b>90%</b><div class="ten"><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i></i></div></div>
+          <div class="tile"><span>Vitamin C</span><b>100%</b><div class="ten"><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i></div></div>
+        </div>
+        <div class="meal">
+          <span class="tag">Next · Lunch</span>
+          <p class="meal-title">Lentil and spinach stew</p>
+          <ul class="chips"><li>Lentils</li><li>Spinach</li><li>Tomato</li></ul>
+          <ul class="gains"><li>Iron +34%</li><li>Folate +41%</li><li>Fiber +28%</li></ul>
+        </div>
+       </div>
+      </div>
+      <figcaption class="caption">A design preview with example numbers, not a live app.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="how">
+  <div class="wrap">
+    <p class="eyebrow" data-overline>How it will work</p>
+    <h2 id="how">From your pantry to tonight's meal</h2>
+    <p class="sec-lede">No weekly plan to fill in first. It starts from what you already have.</p>
+    <ol class="steps">
+      <li><h3>Add what you have</h3><p>Type a food's name, scan a barcode, or take a photo of your fridge and confirm each item yourself.</p></li>
+      <li><h3>See today's gaps</h3><p>Each vitamin and mineral as a percentage of your daily reference intake, in plain words: covered, on the way, or to go.</p></li>
+      <li><h3>Cook what fills the most</h3><p>Meals you can make from your pantry, ranked by how much of today's gaps they cover, never above the official upper limits for food.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="numbers">
+  <div class="wrap">
+    <p class="eyebrow" data-overline>Numbers you can check</p>
+    <h2 id="numbers">Every number shows where it comes from</h2>
+    <ul class="checks">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Food values from USDA FoodData Central,</b> the US Department of Agriculture's public nutrient database.</span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Daily targets from the Dietary Reference Intakes</b> of the National Academies, for your age and sex.</span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Cooking counts:</b> nutrients lost in cooking, and how much iron and zinc the body absorbs from a meal.</span></li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Missing data stays missing:</b> when a food has no value for a nutrient, the app says "at least", never a made-up number.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq">
+  <div class="wrap">
+    <p class="eyebrow" data-overline>Questions</p>
+    <h2 id="faq">Mealime alternative: common questions</h2>
+    <div class="faq">
+      <details><summary>Is this a Mealime alternative?</summary><p>It is a different kind of meal planner. It starts from the food you already have and ranks meals by the vitamins and minerals you're short on today. Boldsand is not affiliated with Mealime and can't move a Mealime account, recipes or lists.</p></details>
+      <details><summary>When can I use it?</summary><p>It's coming soon and is being built for iPhone first. Join the waitlist and we'll send one email when it launches.</p></details>
+      <details><summary>Where do the numbers come from?</summary><p>Nutrient values come from USDA FoodData Central, and daily reference intakes from the Dietary Reference Intakes of the National Academies. Every number in the app is being built to show its source.</p></details>
+      <details><summary>What will it cost?</summary><p>Pricing will be shown in the app before you subscribe.</p></details>
+      <details><summary>Is it medical advice?</summary><p>No. It shows your intake compared with reference values, as general wellness information. For a medical condition, pregnancy or breastfeeding, check with a doctor or a registered dietitian.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="join">
+  <div class="wrap">
+    <div class="join">
+      <h2 id="join">Be first to try it</h2>
+      <p>Send us an email and we'll write back once, on launch day.</p>
+      <div><a class="btn btn-light" href="mailto:deya@boldsand.com?subject=Meal%20planner%20waitlist&amp;body=Please%20email%20me%20once%20when%20the%20Boldsand%20meal%20planner%20launches."><svg aria-hidden="true"><use href="#i-mail"/></svg>Join the waitlist</a></div>
+      <p class="fine">Or write to <a class="mail" href="mailto:deya@boldsand.com?subject=Meal%20planner%20waitlist">deya@boldsand.com</a>. By emailing us you ask to hear when the app launches. We use your address only for that, and you can reply "stop" at any time to be removed.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>BOLDSAND</b></p>
+    <p>Boldsand Software Inc., Charlottetown, Prince Edward Island, Canada · <a href="mailto:deya@boldsand.com?subject=Meal%20planner%20waitlist">deya@boldsand.com</a> · <a href="/">Company information</a></p>
+    <p>Mealime is a trademark of its owner. Boldsand is not affiliated with, endorsed by or sponsored by Mealime. The Boldsand meal planner is in development; the preview above uses example numbers. General wellness information, not medical advice. © 2026 Boldsand Software Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
