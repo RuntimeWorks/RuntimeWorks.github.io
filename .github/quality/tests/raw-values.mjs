@@ -12,5 +12,13 @@ for (let i = 0; i < pages.length; i++) {
   const n = r.results[0].warnings.length; total += n;
   console.log(`${pages[i]}: ${n}`);
 }
+// Shared stylesheets the pages link (/assets/css/*.css) count too, each once: moving a page's styles into a linked file
+// must not take them out of this gate.
+const linked = new Set(pages.flatMap((p) => [...fs.readFileSync(path.join(root, p), "utf8").matchAll(/<link[^>]+rel="stylesheet"[^>]+href="(\/assets\/css\/[^"]+\.css)"/g)].map((m) => m[1])));
+for (const href of [...linked].sort()) {
+  const r = await stylelint.lint({ code: fs.readFileSync(path.join(root, href), "utf8"), config });
+  const n = r.results[0].warnings.length; total += n;
+  console.log(`${href.slice(1)}: ${n}`);
+}
 console.log(`total ${total} (baseline ${BASELINE})`);
 if (total > BASELINE) { console.error("Raw design values increased."); process.exit(1); }
