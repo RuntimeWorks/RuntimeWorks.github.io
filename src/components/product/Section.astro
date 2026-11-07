@@ -1,0 +1,12 @@
+---
+// One section of a product page: a heading, an optional opening sentence, then its content.
+interface Props { id: string; title: string; intro?: string; tone?: "plain" | "tint" }
+const { id, title, intro, tone = "plain" } = Astro.props
+---
+<section id={id} aria-labelledby={`${id}-h`} class:list={[tone === "tint" && "bg-gray-2"]}>
+  <div class="mx-auto max-w-page px-gutter py-section">
+    <h2 id={`${id}-h`} class="max-w-[24ch] text-3xl font-semibold tracking-tight text-gray-12">{title}</h2>
+    {intro && <p class="mt-4 max-w-measure text-lg text-gray-11">{intro}</p>}
+    <div class="mt-10"><slot /></div>
+  </div>
+</section>

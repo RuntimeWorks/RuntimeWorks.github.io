@@ -1,0 +1,53 @@
+---
+// One layout for every guide, free tool and state page of the Dental Logbook library. The page's words come from its
+// Markdown file; sheets and the calculator are drawn by components where the old page had them (data-widget markers).
+import Base from "./Base.astro"
+import Breadcrumb from "../components/Breadcrumb.astro"
+import DentalPilot from "../components/DentalPilot.astro"
+import Sheet from "../components/Sheet.astro"
+import FloridaCalculator from "../components/FloridaCalculator.astro"
+import type { CollectionEntry } from "astro:content"
+
+type Entry = CollectionEntry<"guides"> | CollectionEntry<"tools"> | CollectionEntry<"states">
+interface Props { entry: Entry; section: { href: string; label: string } }
+const { entry, section } = Astro.props
+const d = entry.data
+// A wide table scrolls inside a labelled region keyboards can reach (axe scrollable-region-focusable), named by its caption.
+const strip = (s: string) => s.replace(/<[^>]+>/g, "").replace(/"/g, "&quot;").trim()
+const html = (entry.rendered?.html ?? "").replace(/<table>([\s\S]*?)<\/table>/g, (_m, inner: string) =>
+  `<section class="table-scroll" tabindex="0" aria-label="${strip(/<caption>([\s\S]*?)<\/caption>/.exec(inner)?.[1] ?? "Table")}"><table>${inner}</table></section>`)
+// Split the body at its markers: even items are HTML, odd items are a widget's name.
+const parts = html.split(/<div data-widget="([a-z0-9-]+)"><\/div>/)
+const sheetFor = (name: string) => d.sheets?.[Number(name.replace("sheet-", "")) - 1]
+const isTool = entry.collection === "tools"
+---
+<Base title={d.title} description={d.description} tool={isTool} jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Dental Logbook", item: "https://boldsand.com/dental-logbook/" }, { "@type": "ListItem", position: 2, name: section.label, item: `https://boldsand.com${section.href}` }, { "@type": "ListItem", position: 3, name: d.heading }] }}>
+  <article class="mx-auto max-w-page px-gutter pt-10">
+    <header data-page-head class="[&>p]:max-w-measure [&>div]:max-w-measure">
+      <Breadcrumb trail={[{ href: "/dental-logbook/", label: "Dental Logbook" }, { href: section.href, label: section.label }, { label: d.heading }]} />
+      {d.kicker && <p class="mt-8 text-sm font-medium text-accent-11">{d.kicker}</p>}
+      <h1 class:list={["mt-2 max-w-[38ch] font-semibold tracking-tight text-gray-12", d.heading.length > 60 ? "text-2xl" : "text-3xl"]}>{d.heading}</h1>
+      {d.byline && <p class="mt-3 text-sm text-gray-11">{d.byline}</p>}
+      {d.lead?.map((p) => <p class="mt-4 text-lg text-gray-11" set:html={p} />)}
+      {d.facts && <ul class="mt-6 flex flex-wrap gap-2">{d.facts.map((f) => <li class="rounded-full bg-gray-a3 px-3 py-1 text-sm text-gray-11">{f}</li>)}</ul>}
+      {d.answer && (
+        <div class="mt-8 rounded-xl border-l-4 border-accent-9 bg-accent-a3 p-5 text-gray-12" role="note" aria-label="The short answer">
+          {d.answer.map((p) => <p class="mt-2 first:mt-0" set:html={p} />)}
+        </div>
+      )}
+    </header>
+
+    <div class="prose prose-brand mt-10 max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-h2:text-2xl prose-a:underline-offset-4 [&_.table-scroll]:overflow-x-auto prose-th:align-bottom [&>:not([data-sheet])]:max-w-measure [&_cite]:mt-1 [&_cite]:block [&_cite]:text-sm [&_cite]:not-italic [&_cite]:text-gray-11">
+      {parts.map((p, i) => {
+        if (i % 2 === 0) return <Fragment set:html={p} />
+        if (p.startsWith("sheet-") && sheetFor(p)) return <Sheet sheet={sheetFor(p)!} id={p} />
+        if (p === "form-1" && entry.id === "florida-spore-test-calculator") return <FloridaCalculator />
+        throw new Error(`${entry.collection}/${entry.id}: no component for widget "${p}"`)
+      })}
+    </div>
+
+    {d.note && <p data-page-foot class="mt-10 max-w-measure border-t border-gray-a6 pt-6 text-sm text-gray-11">{d.note}</p>}
+    <DentalPilot heading={d.cta?.heading} text={d.cta?.text} link={d.cta?.link} />
+  </article>
+  {isTool && <script>import "../scripts/print"</script>}
+</Base>

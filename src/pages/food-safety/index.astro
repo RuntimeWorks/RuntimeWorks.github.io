@@ -1,0 +1,175 @@
+---
+// Food Safety Logbook. Every sentence is the live page's (2026-10-29); the layout is the shared product sections.
+import Base from "../../layouts/Base.astro"
+import Hero from "../../components/product/Hero.astro"
+import Section from "../../components/product/Section.astro"
+import Checklist from "../../components/product/Checklist.astro"
+import Compare from "../../components/product/Compare.astro"
+import Steps from "../../components/product/Steps.astro"
+import Faq from "../../components/product/Faq.astro"
+import Shot from "../../components/product/Shot.astro"
+import Button from "../../components/Button.astro"
+import { brand } from "../../data/brand"
+import dashboard from "../../assets/food-safety/app-dashboard.webp"
+import outOfRange from "../../assets/food-safety/app-out-of-range.webp"
+import report from "../../assets/food-safety/report-page-1.webp"
+
+const pilotHref = `mailto:${brand.email}?subject=${encodeURIComponent("Free records check")}&body=${encodeURIComponent("Business name:\nType (restaurant, bakery, processor...):\nTown:\nBest time to talk:\n")}`
+const smsHref = `sms:${brand.phone.tel}?&body=${encodeURIComponent("Hi Deya, I'd like to talk about a pilot. Business: ")}`
+const log = [
+  ["06:58", "Walk-in cooler", "3.1 °C", "MB"],
+  ["07:04", "Freezer no. 1", "−19.4 °C", "MB"],
+  ["09:40", "Delivery · dairy", "3.8 °C", "JL"],
+  ["11:30", "Hot hold · soup", "68 °C", "JL"],
+  ["14:10", "Prep fridge", "6.2 °C", "SA", "→ moved stock to walk-in, recheck"],
+  ["14:40", "Prep fridge", "3.6 °C", "SA"],
+]
+const checks = ["Cooler & freezer temperatures", "Hot & cold holding", "Cooling", "Cleaning & sanitizing", "Deliveries & supplier checks", "Pest checks", "Corrective actions"]
+const provinces = [
+  { name: "Prince Edward Island", text: "Records: sanitizer test records kept 12 months (s.18). If your licence requires a food safety management system, its monitoring records are kept at the premises for 12 months (s.30)." },
+  { name: "Nova Scotia", text: "Records: if an inspector directs it, keep records that show your food safety system works, and show them when asked (s.37). Practice: keep food at safe temperatures, with an accurate thermometer in every fridge and hot-holding unit (s.33)." },
+  { name: "New Brunswick", text: "Records: cold-holding temperatures taken and recorded at least twice a day (s.32(2)), hot-held food at least every 4 hours (s.32(3)). Class 5 premises keep process-control records at least one year, on the premises (s.20–21)." },
+  { name: "Newfoundland and Labrador", text: "Practice: processed hazardous food kept at 4 °C or colder or 60 °C or hotter (s.14), frozen food at −18 °C (s.15), accurate thermometers in cold rooms (s.10), utensils sanitized (s.26). The regulations set no general temperature-record rule." },
+  { name: "Federal licence holders", text: "Records: documents that show your preventive control plan's monitoring, corrective actions and verification were carried out, kept two years (s.89). Traceability documents for each lot, one step back and forward (s.90)." },
+]
+const faq = [
+  { q: "Do my staff need to install anything?", a: "No. The logbook opens on any phone, tablet or computer. Staff tap a link, do the check and initial it. We show everyone how on day one." },
+  { q: "What does it cost?", a: "The setup session is free. For founding businesses, we agree on a monthly price with you before you pay anything, and that price stays the same as long as you stay. No long contract during the pilot." },
+  { q: "Does this replace my food safety plan or my inspector?", a: "No. Your plan and your inspector decide what needs to be checked. The logbook is where your team records that the checks were done, what the readings were, and what was done when something was off." },
+  { q: "What happens to my records?", a: "They belong to you. You can export or print all of them at any time, and if you leave, you take them with you. We only use them to run your logbook." },
+  { q: "We already use paper and it works. Why change?", a: "If your binder is complete, on time and easy to find, keep it. If you’d like to see the difference, a free setup session puts your own checks in the app so you can compare." },
+  { q: "What if the Wi-Fi drops?", a: "Checks still save on the phone or tablet, and they are sent as soon as the connection comes back. The screen shows when something is waiting to send." },
+  { q: "Where are my records stored?", a: "We are setting up the logbook to store pilot records in Canada, before the first pilot starts. They belong to you, and you can export all of them at any time." },
+  { q: "Is it available in French?", a: "Not yet. French is planned. If your team needs it, tell us and we’ll let you know when it’s ready." },
+  { q: "Do you work outside PEI?", a: "Not yet. Pilots start in Prince Edward Island. Elsewhere in Atlantic Canada? Leave your name and we’ll tell you when we’re there." },
+]
+---
+<Base title="Food Safety Logbook for PEI Food Businesses · Boldsand" description="Swap the clipboard for a simple phone checklist. Temperatures, cleaning and deliveries logged on time, records ready when the inspector walks in. Set up for you by a local Charlottetown developer.">
+  <Hero kicker="Food businesses · Prince Edward Island" title="Records ready for your inspector, every shift." lead="Temperatures, cleaning and deliveries, logged on any phone on time, by the person who checked." status="Pilot open" facts={["Set up for you", "Any phone or tablet", "Local, in Charlottetown"]}>
+    <Fragment slot="actions">
+      <Button href="#pilot">Talk to us about a pilot</Button>
+      <Button href={pilotHref} variant="secondary">Book a free setup session</Button>
+    </Fragment>
+    <Shot slot="visual" src={dashboard} eager alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due." caption="The owner sees the whole day at once. What’s done, what’s late, what was out of range, and 30 days of history, from any phone or computer." />
+  </Hero>
+
+  <Section id="screens" title="This is what your team taps." intro="Screens from the working logbook, filled with demo data from a sample bakery. No mock-ups.">
+    <div class="grid items-start gap-10 md:grid-cols-[minmax(0,0.6fr)_minmax(0,1fr)] [&>*]:min-w-0">
+      <Shot src={outOfRange} sizes="(min-width: 768px) 320px, 80vw" class="mx-auto max-w-80" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver." caption="A reading out of range can’t be skipped. The check won’t save until someone records what was done about it." />
+      <div>
+        <h3 class="text-lg font-semibold text-gray-12">Daily log</h3>
+        <section class="mt-3 overflow-x-auto rounded-xl border border-gray-a6 bg-gray-1" aria-label="Daily log, sample data" tabindex="0">
+          <table class="w-full text-left text-sm tabular-nums">
+            <caption class="sr-only">Daily log, sample data from a sample bakery</caption>
+            <thead><tr class="border-b border-gray-a6 text-gray-11">{["Time", "Check", "Reading", "By"].map((h) => <th scope="col" class="px-4 py-3 font-medium">{h}</th>)}</tr></thead>
+            <tbody class="divide-y divide-gray-a6">
+              {log.map(([t, c, v, by, note]) => (
+                <tr>
+                  <td class="px-4 py-3 text-gray-11">{t}</td>
+                  <td class="px-4 py-3 text-gray-12">{c}{note && <span class="block text-sm text-gray-11">{note}</span>}</td>
+                  <td class="px-4 py-3 font-medium text-gray-12">{v}</td>
+                  <td class="px-4 py-3 text-gray-11">{by}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+        <p class="mt-3 text-sm text-gray-11">Danger zone 4–60 °C. Keep cold food at 4 °C or colder and hot food at 60 °C or hotter. Out of range? The log asks what you did about it.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="report" title="One report, ready when they walk in." tone="tint">
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <div>
+        <Checklist items={["Every check with its time, reading, limit, result and the initials of whoever did it.", "Out-of-range readings next to what was done about them, and the recheck.", "Late and missed checks shown, not hidden. Saved entries can’t be edited; corrections are added as new entries.", "Print it, or send it as a PDF. Every record can also be exported as a plain spreadsheet file."]} />
+        <div class="mt-8"><Button href="/food-safety/sample-inspector-report.pdf" variant="secondary">See a sample report (PDF, 10 pages)</Button></div>
+      </div>
+      <Shot src={report} alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials." />
+    </div>
+  </Section>
+
+  <Section id="paper" title="Paper logs fail in the same four places." intro="None of this is about caring less. A clipboard on a busy shift is easy to skip, easy to backfill and hard to find later. That’s what inspectors notice.">
+    <Compare
+      before={{ label: "Before", title: "The clipboard", items: ["Readings filled in at the end of the shift, in the same pen, by one person.", "Missing pages in the binder on inspection day.", "A bad reading is written down, but nothing says what was done about it.", "New staff don’t know which checks to do, or when."] }}
+      after={{ label: "After", title: "Boldsand logbook", items: ["Each check is timestamped and initialled by whoever did it, on their own phone.", "Every record lives in one place, searchable, and prints as a clean report.", "Out-of-range readings ask for the fix and a recheck before the check can close.", "Reminders tell the shift what’s due, so nobody has to remember."] }}
+    />
+  </Section>
+
+  <Section id="how" title="You run the kitchen. We build the system." intro="No software project for you to manage. We start from the logs you already keep and turn them into checklists your team can finish in seconds." tone="tint">
+    <Steps steps={[
+      { title: "We look at your current logs", text: "In person or by video, for kitchens in Prince Edward Island. Bring the binder, the clipboard, the whiteboard. We note every check you do now and set them up in the app." },
+      { title: "We build your checklists", text: "Your fridges, your freezers, your cleaning routine, your suppliers. Named the way your staff already talk about them." },
+      { title: "Your team taps, you get the records", text: "Staff log checks on any phone or tablet. You see what’s done and what’s late, and print a report whenever you need it." },
+    ]} />
+  </Section>
+
+  <Section id="checks" title="The checks you already do, done properly." intro="Pick what fits your business. We add or change checks as you go, at no extra cost during the pilot.">
+    <ul class="flex flex-wrap gap-3">
+      {checks.map((c) => <li class="rounded-full border border-gray-a6 bg-gray-1 px-4 py-2 text-gray-12">{c}</li>)}
+      <li class="rounded-full border border-gray-a6 bg-gray-1 px-4 py-2 text-gray-12">Lot codes & traceability <span class="ml-1 rounded-full bg-accent-a3 px-2 py-0.5 text-sm text-accent-11">Processors</span></li>
+    </ul>
+  </Section>
+
+  <Section id="who" title="Two kinds of food business. One logbook." intro="Whether a public health inspector visits once a year or you hold a federal food licence, the job is the same: do the checks, and be able to prove it." tone="tint">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        <h3 class="text-xl font-semibold text-gray-12">Restaurants, cafés, bakeries, caterers & grocers</h3>
+        <p class="mt-2 text-gray-11">Daily checks kept in order for your provincial food premises inspection.</p>
+        <Checklist class="mt-5" items={["Fridge, freezer and holding temperatures", "Cleaning schedules signed off by shift", "Deliveries checked on arrival"]} />
+      </div>
+      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        <h3 class="text-xl font-semibold text-gray-12">Processors, packers & seafood businesses</h3>
+        <p class="mt-2 text-gray-11">Monitoring records for your Preventive Control Plan and lot-code traceability under the Safe Food for Canadians Regulations.</p>
+        <Checklist class="mt-5" items={["Critical checks with corrective actions", "Lot codes, one step forward and back", "Records you can pull up quickly when asked"]} />
+      </div>
+    </div>
+  </Section>
+
+  <Section id="rules" title="Built around the rules in each Atlantic province." intro="What each regulation says about records and day-to-day practice. Your inspector and your food safety plan decide what you check. Pilots start in Prince Edward Island.">
+    <dl class="grid max-w-[60rem] divide-y divide-gray-a6 border-y border-gray-a6">
+      {provinces.map((p) => (
+        <div class="grid gap-2 py-5 md:grid-cols-[14rem_1fr] md:gap-8">
+          <dt class="font-semibold text-gray-12">{p.name}</dt>
+          <dd class="text-gray-11">{p.text}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="mt-6 max-w-measure text-gray-11" lang="fr"><strong class="font-semibold text-gray-12">En français.</strong> L’application sera offerte en français. Laissez-nous votre nom et nous vous avertirons quand elle le sera.</p>
+  </Section>
+
+  <Section id="pilot" title="We’re looking for ten founding businesses." intro="We’re looking for ten food businesses to shape the logbook around real kitchens, starting in Prince Edward Island. Founding businesses get the most attention we will ever be able to give." tone="tint">
+    <div class="grid items-start gap-8 lg:grid-cols-2">
+      <div>
+        <Checklist items={["Full setup included, in person in Prince Edward Island.", "Founding price: agreed with you before you pay anything, and kept for as long as you stay.", "Your records stay yours. Export everything, any time.", "A direct line to the person building it. Call or text, no ticket queue."]} />
+        <div class="mt-8"><Button href={pilotHref}>Talk to us about a pilot</Button></div>
+        <p class="mt-4 text-sm text-gray-11">Pilots start in Prince Edward Island. Elsewhere in Atlantic Canada? Leave your name and we’ll tell you when we’re there.</p>
+      </div>
+      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        <h3 class="text-xl font-semibold text-gray-12">A free setup session</h3>
+        <p class="mt-2 text-gray-11">We sit down with your current paper logs and set the same checks up in the app, so you can try it with your own fridges.</p>
+        <Checklist class="mt-5" items={["Your fridges, freezers and cleaning routine set up as checks", "Your staff added, each with initials and a PIN", "The kitchen tablet or phones ready to use"]} />
+        <blockquote class="mt-6 border-t border-gray-a6 pt-6 text-gray-12">
+          <p>Hi, I’m Deya Khalifa, a software developer in Charlottetown. I’m building this logbook for local food businesses, and I’m looking for the first kitchens to try it. When you call, you get me.</p>
+          <p class="mt-2 text-gray-11">— Deya</p>
+        </blockquote>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="faq" title="Straight answers.">
+    <Faq items={faq} />
+  </Section>
+
+  <section id="contact" aria-labelledby="contact-h" class="mx-auto max-w-page px-gutter">
+    <div class="rounded-2xl bg-accent-9 p-8 text-accent-contrast sm:p-12">
+      <h2 id="contact-h" class="text-3xl font-semibold tracking-tight">Call, text or email. You’ll reach Deya.</h2>
+      <p class="mt-3 max-w-measure">Tell me what kind of business you run and the best time to talk. I’ll reply the same day.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <Button href={smsHref} variant="on-accent">Text me</Button>
+        <Button href={`tel:${brand.phone.tel}`} variant="on-accent">Call{"\u00A0"}{brand.phone.display}</Button>
+        <Button href={`mailto:${brand.email}`} variant="on-accent">{brand.email}</Button>
+      </div>
+    </div>
+  </section>
+</Base>

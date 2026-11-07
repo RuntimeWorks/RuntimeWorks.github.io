@@ -1,0 +1,135 @@
+---
+// Dental Logbook. Every sentence is the live page's (2026-10-29); the layout is the shared product sections.
+import Base from "../../layouts/Base.astro"
+import Hero from "../../components/product/Hero.astro"
+import Section from "../../components/product/Section.astro"
+import Checklist from "../../components/product/Checklist.astro"
+import Compare from "../../components/product/Compare.astro"
+import Faq from "../../components/product/Faq.astro"
+import Shot from "../../components/product/Shot.astro"
+import Button from "../../components/Button.astro"
+import { brand } from "../../data/brand"
+import today from "../../assets/dental/dental-today.webp"
+
+const pilot = `mailto:${brand.email}?subject=${encodeURIComponent("Dental Logbook pilot")}`
+const summary = [["Product", "Dental Logbook"], ["Stage", "In development"], ["Pilot", "Free, for dental offices"], ["Regions", "United States first, then Canada (Ontario)"], ["Patient data", "Designed to store none"], ["Company", brand.legalName]]
+const keeps = ["Sterilizer loads", "Spore tests", "Bowie-Dick tests", "Implant loads", "Waterline tests", "Ultrasonic & washer checks", "Amalgam separator inspections", "OSHA records", "Today list"]
+const groups = [
+  { title: "Sterilization", items: [
+    { title: "A register of every sterilizer", text: "Its type and the cycle types it runs, so every record points to the right machine." },
+    { title: "Per-load records", text: "Each load with its mechanical and chemical indicators, recorded as the load is done." },
+    { title: "Spore tests on schedule", text: "Weekly in the United States. In Ontario, each day the sterilizer is used and each cycle type." },
+    { title: "A guided response to a failed test", text: "A failed biological indicator starts a retest, quarantine and recall checklist, step by step." },
+    { title: "Daily Bowie-Dick tests", text: "For pre-vacuum sterilizers, as Ontario requires." },
+    { title: "Implant loads held", text: "An implant load is held until its biological indicator passes." },
+  ] },
+  { title: "Safety, water and equipment", items: [
+    { title: "Waterline test results", text: "Recorded against 500 CFU/mL for each dental unit." },
+    { title: "Ultrasonic cleaner and washer checks", text: "On a schedule you set, with the result and who checked." },
+    { title: "Amalgam separator inspections", text: "Inspections on a schedule, kept with the rest of your records." },
+    { title: "OSHA records", text: "Bloodborne pathogens and hazard communication: training, exposure control plan review and a safety data sheet index." },
+  ] },
+  { title: "How the records behave", items: [
+    { title: "A Today list", text: "What is due today, with overdue items clearly marked." },
+    { title: "Kept at least 10 years", text: "Corrections are added as new entries. Nothing is overwritten." },
+    { title: "No patient information", text: "Designed to store no patient information at all." },
+    { title: "Every requirement cites its source", text: "Built around CDC, OSHA and EPA guidance and Ontario’s RCDSO standards, with each requirement linking to where it comes from." },
+  ] },
+]
+const faq = [
+  { q: "Is the Dental Logbook available now?", a: "No. It is in development. We are inviting dental offices to a free pilot, and pilot offices will be the first to use it." },
+  { q: "Does it store patient information?", a: "It is designed to store no patient information. It records sterilization and safety checks: machines, loads, tests and equipment. Nothing about patients." },
+  { q: "Will it guarantee we pass an inspection?", a: "No. No software can guarantee an inspection result. The Dental Logbook is being built around CDC, OSHA and EPA guidance and Ontario’s RCDSO standards, and every requirement will cite its source. Your regulator, your auditor and your infection-control program decide what your office must do." },
+  { q: "What happens when a spore test fails?", a: "Planned: the logbook starts a guided retest, quarantine and recall checklist. Each step is recorded as it happens, so the record is complete when someone asks for it." },
+  { q: "How long are records kept?", a: "Planned: records are kept at least 10 years. Corrections are added as new entries, so nothing is overwritten and the history stays honest." },
+  { q: "Will this change how we work?", a: "It starts from the records your office keeps now and the requirements you already follow. The point is to record them properly and find them quickly, not to add new work." },
+  { q: "Which offices is it for?", a: "Dental office managers and the staff who run the sterilizers, in the United States first, then Canada starting with Ontario. Elsewhere? Write to us and we will tell you when we are there." },
+]
+---
+<Base title="Dental Logbook for Dental Offices · Boldsand" description="Sterilization and safety records for dental offices: per-load records, spore tests and safety checks, with any record found in seconds when an inspector or auditor asks. In development. Dental offices are invited to a free pilot.">
+  <Hero kicker="Dental offices · United States and Ontario" title="Sterilization records done properly, found in seconds." lead="Per-load records, spore tests, waterline tests and safety checks for dental office managers and the staff who run the sterilizers. One place for every record, ready when an inspector or auditor asks." status="In development" facts={["United States first, then Ontario", "Designed to store no patient information", "Built in Charlottetown, Canada"]}>
+    <Fragment slot="actions">
+      <Button href={pilot}>Join the free pilot</Button>
+      <Button href="#planned" variant="secondary">See what’s planned</Button>
+    </Fragment>
+    <div slot="visual" class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+      <p class="font-medium text-gray-12">In development. We’re inviting dental offices to a free pilot.</p>
+      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-6 border-t border-gray-a6 text-base">
+        {summary.map(([k, v]) => <><dt class="border-b border-gray-a6 py-3 text-gray-11">{k}</dt><dd class="border-b border-gray-a6 py-3 font-medium text-gray-12">{v}</dd></>)}
+      </dl>
+      <p class="mt-5 text-sm"><a href="/tools/" class="font-medium text-accent-11 underline underline-offset-4">Free printable logs for dental offices</a></p>
+    </div>
+  </Hero>
+
+  <Section id="paper" title="Paper records fail in the same places." intro="None of this is about caring less. Binders in a busy dental office are easy to skip, easy to backfill and slow to search when someone asks for one record.">
+    <Compare
+      before={{ label: "Today", title: "The binder", items: ["Load records filled in at the end of the day, in the same pen.", "A failed spore test is written down, but nothing shows the retest or what was pulled.", "Sterilizer logs, waterline results and OSHA training records in three different places.", "When an auditor asks for one record, someone digs through a shelf."] }}
+      after={{ label: "Planned", title: "Dental Logbook", items: ["Each load recorded when it happens, with its mechanical and chemical indicators.", "A failed biological indicator starts a guided retest, quarantine and recall checklist.", "Sterilization, waterline and OSHA records in one place.", "Any record found in seconds, then printed or exported for the person asking."] }}
+    />
+  </Section>
+
+  <Section id="keeps" title="What the logbook will keep." intro="Everything below is planned, not built yet. The pilot decides what we finish first." tone="tint">
+    <div class="grid items-start gap-10 lg:grid-cols-2">
+      <ul class="flex flex-wrap content-start gap-3">
+        {keeps.map((c) => <li class="rounded-full border border-gray-a6 bg-gray-1 px-4 py-2 text-gray-12">{c}</li>)}
+      </ul>
+      <Shot src={today} alt="The Dental Logbook prototype’s Today screen for a sample office: the items due on three sterilizers, with overdue and due items marked." caption="The prototype’s Today screen, with sample data." />
+    </div>
+  </Section>
+
+  <Section id="planned" title="The checks you already do, in one record." intro="Written as plans, because they are plans. Nothing here is available yet, and every requirement will link to the guidance it comes from.">
+    <div class="grid gap-10 lg:grid-cols-3">
+      {groups.map((g) => (
+        <div>
+          <h3 class="border-t border-gray-a6 pt-4 text-lg font-semibold text-gray-12">{g.title}</h3>
+          <Checklist class="mt-5" items={g.items} />
+        </div>
+      ))}
+    </div>
+    <p class="mt-10 max-w-measure text-gray-11"><strong class="font-semibold text-gray-12">Why “planned”.</strong> The product is in development. We describe what it will do, not what it does today, so nobody sets up a compliance program around software that is not finished.</p>
+  </Section>
+
+  <Section id="regions" title="United States first, then Canada." intro="The rules differ between the two, so the schedules and the records differ too. Your regulator and your infection-control program decide what your office must do." tone="tint">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        <h3 class="text-xl font-semibold text-gray-12">Dental offices in the United States</h3>
+        <p class="mt-2 text-gray-11">The first offices we are building for, with the checks and records that come up in US audits.</p>
+        <Checklist class="mt-5" items={["Spore (biological indicator) tests every week", "OSHA bloodborne pathogens and hazard communication records", "Any record found in seconds when it is asked for"]} />
+      </div>
+      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        <h3 class="text-xl font-semibold text-gray-12">Dental offices in Ontario</h3>
+        <p class="mt-2 text-gray-11">Ontario’s RCDSO standards shape these checks, on top of the same record-keeping.</p>
+        <Checklist class="mt-5" items={["Spore tests each day used and each cycle type", "Daily Bowie-Dick test for pre-vacuum sterilizers", "Implant loads held until the biological indicator passes"]} />
+      </div>
+    </div>
+  </Section>
+
+  <Section id="pilot" title="We’re inviting dental offices to a free pilot." intro="The Dental Logbook is being built now. We want dental offices to try it with their own sterilizers and tell us what is missing, so the product is shaped around a real sterilization room before it goes on sale.">
+    <div class="grid items-start gap-8 lg:grid-cols-2">
+      <div>
+        <Checklist items={["Your sterilizers, cycle types and test schedules set up with you.", "The record formats reviewed with you before we finalize them.", "Your records stay yours. Export everything, any time.", "A direct line to the person building it. No ticket queue."]} />
+        <div class="mt-8"><Button href={pilot}>Join the free pilot</Button></div>
+      </div>
+      <ol class="grid gap-3 rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+        {["Run it beside your real loads and tests for a few weeks.", "Tell us where it slows the team down.", "Tell us which records an auditor asks for that we do not cover yet."].map((t, i) => (
+          <li class="flex gap-3"><span class="grid size-7 shrink-0 place-items-center rounded-full bg-accent-a3 text-sm font-semibold text-accent-11" aria-hidden="true">{i + 1}</span><span>{t}</span></li>
+        ))}
+      </ol>
+    </div>
+  </Section>
+
+  <Section id="faq" title="Straight answers." tone="tint">
+    <Faq items={faq} />
+  </Section>
+
+  <section id="contact" aria-labelledby="contact-h" class="mx-auto mt-section max-w-page px-gutter">
+    <div class="rounded-2xl bg-accent-9 p-8 text-accent-contrast sm:p-12">
+      <h2 id="contact-h" class="text-3xl font-semibold tracking-tight">Tell us about your office.</h2>
+      <p class="mt-3 max-w-measure">How many sterilizers you run, which tests you do today, and whether you are in the United States or Canada. We usually reply the same business day.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Button href={pilot} variant="on-accent">Join the free pilot</Button>
+        <a href={`mailto:${brand.email}`} class="font-semibold underline underline-offset-4">{brand.email}</a>
+      </div>
+    </div>
+  </section>
+</Base>

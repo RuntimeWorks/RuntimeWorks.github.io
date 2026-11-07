@@ -1,0 +1,18 @@
+---
+// Before and after, side by side: the paper way and the product's way.
+import { X, Check } from "@lucide/astro"
+interface Props { before: { label: string; title: string; items: string[] }; after: { label: string; title: string; items: string[] } }
+const { before, after } = Astro.props
+---
+<div class="grid gap-6 md:grid-cols-2">
+  {[before, after].map((col, i) => (
+    <div class:list={["rounded-xl border p-6 sm:p-8", i === 0 ? "border-gray-a6 bg-gray-1" : "border-accent-6 bg-accent-2"]}>
+      <h3 class="text-xl font-semibold text-gray-12"><span class="block text-sm font-medium text-gray-11">{col.label}</span>{col.title}</h3>
+      <ul class="mt-5 grid gap-3">
+        {col.items.map((t) => (
+          <li class="flex gap-3">{i === 0 ? <X class="mt-1 size-5 shrink-0 text-gray-10" aria-hidden="true" /> : <Check class="mt-1 size-5 shrink-0 text-accent-11" aria-hidden="true" />}<span>{t}</span></li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>

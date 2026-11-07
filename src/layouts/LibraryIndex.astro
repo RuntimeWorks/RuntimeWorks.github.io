@@ -1,0 +1,37 @@
+---
+// The index of guides, tools or state pages: the old page's own words and groups, each item a card.
+import Base from "./Base.astro"
+import Breadcrumb from "../components/Breadcrumb.astro"
+import DentalPilot from "../components/DentalPilot.astro"
+import library from "../data/library.json"
+
+interface Props { kind: "guides" | "tools" | "states"; label: string }
+const { kind, label } = Astro.props
+const page = library[kind]
+---
+<Base title={page.title} description={page.description}>
+  <div class="mx-auto max-w-page px-gutter pt-10">
+    <header class="max-w-measure">
+      <Breadcrumb trail={[{ href: "/dental-logbook/", label: "Dental Logbook" }, { label }]} />
+      <p class="mt-8 text-sm font-medium text-accent-11">{page.kicker}</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight text-gray-12">{page.heading}</h1>
+      {page.lead.map((p) => <p class="mt-4 text-lg text-gray-11">{p}</p>)}
+    </header>
+    {page.groups.map((g, gi) => (
+      <section aria-labelledby={`g-${gi}`} class="mt-14">
+        <h2 id={`g-${gi}`} class="border-t border-gray-a6 pt-6 text-xl font-semibold text-gray-12">{g.title}</h2>
+        <ul class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {g.items.map((it) => (
+            <li class="group relative flex flex-col gap-2 rounded-xl border border-gray-a6 bg-gray-1 p-5 transition-shadow duration-moderate ease-productive hover:shadow-md focus-within:shadow-md">
+              <h3 class="text-base font-semibold text-gray-12"><a href={it.href} class="no-underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none group-focus-within:after:rounded-xl group-focus-within:after:outline-2 group-focus-within:after:outline-accent-9">{it.title}</a></h3>
+              <p class="line-clamp-4 text-sm text-gray-11">{it.blurb}</p>
+              {"tag" in it && it.tag && <p class="mt-auto pt-2 text-sm font-medium text-accent-11">{it.tag}</p>}
+            </li>
+          ))}
+        </ul>
+        {g.after.map((h) => <div class="mt-6 max-w-measure text-gray-11 [&_a]:text-accent-11 [&_a]:underline [&_a]:underline-offset-4" set:html={h} />)}
+      </section>
+    ))}
+    <DentalPilot />
+  </div>
+</Base>

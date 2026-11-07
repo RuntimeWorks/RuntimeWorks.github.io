@@ -1,0 +1,46 @@
+---
+// PurchaseRow on boldsand.com until it has its own domain. Every sentence comes from PurchaseRow's own site
+// (projects/supplier-order-sync/site, home page, 2026-10-23); nothing is claimed that the product does not do.
+import Base from "../../layouts/Base.astro"
+import Hero from "../../components/product/Hero.astro"
+import Section from "../../components/product/Section.astro"
+import Checklist from "../../components/product/Checklist.astro"
+import Steps from "../../components/product/Steps.astro"
+import Shot from "../../components/product/Shot.astro"
+import Button from "../../components/Button.astro"
+import { brand } from "../../data/brand"
+import shot from "../../assets/products/purchaserow.png"
+
+const ask = `mailto:${brand.email}?subject=${encodeURIComponent("PurchaseRow")}&body=${encodeURIComponent("Company:\nRetailers you sell to:\n")}`
+---
+<Base title="PurchaseRow: EDI for small suppliers who sell to big retailers · Boldsand" description="Read every retailer purchase order in plain words, confirm it, ship it with GS1 carton labels and invoice it, from a browser. Flat price per retailer. In development.">
+  <Hero kicker="Suppliers to big retailers" title="EDI for small suppliers who sell to big retailers." lead="Big retailers order by EDI: coded files their systems send and expect answered within hours. PurchaseRow reads every order, confirms it, ships it with labels that scan and invoices it, all from a browser." status="In development" facts={["Any browser, office or dock", "One flat price per retailer", "Made by Boldsand Software Inc."]}>
+    <Fragment slot="actions">
+      <Button href={ask}>Ask about the pilot</Button>
+    </Fragment>
+    <Shot slot="visual" src={shot} eager alt="The PurchaseRow site: “EDI for small suppliers who sell to big retailers”, with one line of a retailer’s order read in plain words." caption="PurchaseRow’s own site, with a line of a sample order read in plain words." />
+  </Hero>
+
+  <Section id="what" title="What it does for you.">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <Checklist items={[
+        { title: "Orders in plain words", text: "Every line shows the item, quantity, price, ship window and where it goes. No code to decode." },
+        { title: "Checks before you send", text: "Errors that become rejections or deductions are caught first: wrong counts, bad product codes, missed ship windows." },
+        { title: "Carton labels that scan", text: "GS1-128 labels with a unique SSCC for every carton, matched to the ship notice. Print on any 4 × 6 label printer." },
+      ]} />
+      <Checklist items={[
+        { title: "Short-ship without surprises", text: "Change one quantity. The acknowledgment, ship notice and invoice all follow, so the retailer sees one consistent story." },
+        { title: "Ship windows you can see", text: "Ship-not-before and cancel dates sit on a calendar, with a warning before a window closes." },
+        { title: "A dock check before the truck leaves", text: "Scan each carton with the scanner you already have, or a phone camera. A carton that isn’t on the ship notice is caught while it can still be fixed." },
+      ]} />
+    </div>
+  </Section>
+
+  <Section id="who" title="Who it is for." intro="Food, home and personal-care makers with 1 to 50 people who sell to grocery chains, pharmacies, warehouse clubs and big-box stores. No IT department needed: if you can work in email, you can work in PurchaseRow." tone="tint">
+    <Steps steps={[
+      { title: "Tell us your retailers", text: "We set up each connection and run the retailer’s tests with you." },
+      { title: "Read one sample order", text: "Most of the setup is our work; yours is reading one sample order and printing one test label." },
+      { title: "Answer, ship, invoice", text: "Confirm the order line by line, send the ship notice before the truck leaves, and invoice exactly what shipped." },
+    ]} />
+  </Section>
+</Base>

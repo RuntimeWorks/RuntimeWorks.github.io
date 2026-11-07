@@ -1,0 +1,16 @@
+---
+// WAI-ARIA APG breadcrumb: a labelled nav with an ordered list; the current page is the last item, marked
+// aria-current="page" and not a link.
+interface Props { trail: { href?: string; label: string }[] }
+const { trail } = Astro.props
+---
+<nav aria-label="Breadcrumb" class="text-sm text-gray-11">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {trail.map((c, i) => (
+      <li class="flex items-center gap-2">
+        {i > 0 && <span aria-hidden="true" class="text-gray-8">/</span>}
+        {c.href ? <a href={c.href} class="inline-flex min-h-6 items-center text-gray-11 underline-offset-4 hover:text-gray-12 hover:underline">{c.label}</a> : <span aria-current="page" class="text-gray-12">{c.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>

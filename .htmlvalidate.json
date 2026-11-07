@@ -1,0 +1,8 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-raw-characters": ["error", { "relaxed": true }],
+    "doctype-style": "off",
+    "long-title": "off"
+  }
+}

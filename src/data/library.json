@@ -1,0 +1,312 @@
+{
+  "guides": {
+    "title": "Plain-language guides for dental sterilizer records · Boldsand",
+    "description": "Plain-language guides for dental offices in the United States: what a spore test is and how often to run one, the Bowie-Dick test, chemical indicators, implant loads, log entries, how long to keep records, pack labels, CDC’s checklist, OSHA training and what to do when a spore test fails.",
+    "kicker": "Guides · Dental offices in the United States",
+    "heading": "Plain-language guides for dental sterilizer records",
+    "lead": [
+      "Guides on what to test, what to write down, how long to keep it, and what to do when a spore test fails. Each one starts with the answer, then shows where it comes from."
+    ],
+    "groups": [
+      {
+        "title": "Testing",
+        "items": [
+          {
+            "href": "/guides/what-is-a-spore-test/",
+            "title": "What is a spore test?",
+            "blurb": "A spore test, also called a biological indicator, is a preparation of bacterial spores that is put through a sterilizer cycle to check that the sterilizer works (CDC, 2008 disinfection and sterilization guideline)."
+          },
+          {
+            "href": "/guides/glossary/",
+            "title": "Sterilization monitoring terms",
+            "blurb": "Plain definitions of the words on a sterilizer log: biological indicator, control, chemical indicator, air-removal test, load number, implant load and more, each with its source."
+          },
+          {
+            "href": "/guides/how-often-to-spore-test/",
+            "title": "How often must a dental office spore test its sterilizer?",
+            "blurb": "At least weekly for every sterilizer, using a biological indicator and a control from the same lot (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/spore-test-results/",
+            "title": "How to read and record a spore test result",
+            "blurb": "A spore test reads negative, positive or invalid, and the result counts only when the control grows."
+          },
+          {
+            "href": "/guides/dry-heat-chemical-vapor-spore-testing/",
+            "title": "Spore tests for dry heat and chemical vapor sterilizers",
+            "blurb": "Every sterilizer, dry heat and chemical vapor included, gets a spore test at least weekly with a biological indicator and a control from the same lot number (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/backup-sterilizer-spore-testing/",
+            "title": "Do backup sterilizers need weekly spore tests?",
+            "blurb": "The weekly test is set per sterilizer, not per workload: correct functioning of sterilization cycles should be verified for each sterilizer by the periodic use, at least weekly, of biological indicators (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/bowie-dick-test-who-needs-it/",
+            "title": "The Bowie-Dick test: which dental sterilizers need it, and how often",
+            "blurb": "The Bowie-Dick air-removal test is for pre-vacuum steam sterilizers — the dynamic-air-removal kind (CDC, 2008 disinfection and sterilization guideline)."
+          },
+          {
+            "href": "/guides/in-office-vs-mail-in-spore-testing/",
+            "title": "In-office or mail-in spore testing: how each works and what to record",
+            "blurb": "Both routes do the same job: a spore test, also called a biological indicator, is how the correct functioning of each sterilizer’s cycles should be verified, at least weekly and with a matching control from the same lot number (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/implant-loads-spore-test-and-quarantine/",
+            "title": "Implant loads: the spore test, quarantine and what to do in an emergency",
+            "blurb": "Every sterilizer load that carries an implantable device gets a spore test, and the result is checked before the implant is used, whenever possible (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/chemical-indicators-inside-and-outside-the-pack/",
+            "title": "Chemical indicators: inside the pack, outside the pack, and what a failed one means",
+            "blurb": "Put a chemical indicator inside every instrument package, and add an external indicator on the outside whenever the internal one cannot be seen from the outside (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/unwrapped-sterilization/",
+            "title": "Unwrapped instruments: what to monitor and record",
+            "blurb": "Use mechanical and chemical indicators for each unwrapped sterilization cycle, and do not sterilize implantable devices unwrapped (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/does-osha-require-spore-testing/",
+            "title": "Does OSHA require spore testing in dental offices?",
+            "blurb": "No — OSHA’s bloodborne pathogens standard, 29 CFR 1910.1030, does not address sterilizer monitoring and says nothing about spore tests (OSHA, 29 CFR 1910.1030)."
+          }
+        ],
+        "after": []
+      },
+      {
+        "title": "Records",
+        "items": [
+          {
+            "href": "/guides/what-a-sterilizer-log-entry-must-contain/",
+            "title": "What must a dental sterilizer log entry contain?",
+            "blurb": "A sterilizer log entry records what went through the machine, in which cycle, when, by whom, and what the monitors showed."
+          },
+          {
+            "href": "/guides/sterilizer-printout/",
+            "title": "Checking time, temperature and pressure on every load",
+            "blurb": "For every load, check the mechanical readings (e.g., time, temperature and pressure) and the chemical indicators, and note what you saw in your sterilization records (CDC, 2003 dental infection-control guidelines; CDC, Summary of Infection Prevention Practices in Dental Settings, 2016)."
+          },
+          {
+            "href": "/guides/how-long-to-keep-sterilization-records/",
+            "title": "How long must a dental office keep sterilization records?",
+            "blurb": "There is no single federal number: the CDC tells dental offices to keep sterilization records — mechanical, chemical and biological — long enough to comply with state and local regulations (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/electronic-sterilization-records/",
+            "title": "Paper or electronic sterilization logs: what the rules say",
+            "blurb": "Yes: you can keep your sterilizer logs on a screen, because none of the sources behind this page — the CDC texts, OSHA’s bloodborne pathogens standard, or the dental rules of New York, New Jersey, Pennsylvania, Florida and Georgia — requires paper or sets rules for electronic signatures (US sterilizer rule pack, item K9)."
+          },
+          {
+            "href": "/guides/who-inspects-sterilization-records/",
+            "title": "Who can ask to see your sterilization records",
+            "blurb": "Several bodies can ask for records. OSHA can require the office's bloodborne-pathogen records on request (OSHA bloodborne pathogens standard), and each state writes its own way in: New York's rule is a written request you must answer within 30 days (New York rule 29.1(b)(13)), and Georgia's board opens investigations on its own motion or on a written complaint (Georgia board of dentistry rule 150-4-.01)."
+          },
+          {
+            "href": "/guides/how-to-label-sterilized-instrument-packs/",
+            "title": "How to label sterilized instrument packs in a dental office",
+            "blurb": "Write four things on every sterilized pack: the sterilizer used, the cycle or load number, the date of sterilization, and, if one applies, the expiration date (CDC, Summary of Infection Prevention Practices in Dental Settings, 2016)."
+          },
+          {
+            "href": "/guides/osha-bloodborne-pathogens-training-records-dental/",
+            "title": "OSHA bloodborne pathogens training records for dental offices",
+            "blurb": "Train every employee with occupational exposure at the time of initial assignment to tasks where that exposure may take place, and at least annually thereafter (OSHA bloodborne pathogens standard, 29 CFR 1910.1030)."
+          },
+          {
+            "href": "/guides/cdc-checklist-sterilization/",
+            "title": "CDC’s sterilization checklist items and the records that prove them",
+            "blurb": "CDC’s infection prevention checklist for dental settings lists five sterilization items in section II.6 — II.6.G, II.6.H, II.6.J, II.6.K and II.6.N — and this page quotes all five word for word (CDC, infection prevention checklist for dental settings)."
+          },
+          {
+            "href": "/guides/cdc-2003-vs-2008-guidelines/",
+            "title": "Which CDC sterilization guidance applies to a dental office?",
+            "blurb": "The daily sterilization work in a dental office follows CDC’s dental texts — the 2003 dental infection-control guidelines and their 2016 summary — and CDC’s current dental page also points to the 2008 disinfection and sterilization guideline (CDC, sterilization monitoring page for dental settings, 2024)."
+          },
+          {
+            "href": "/guides/osha-bloodborne-pathogens-training-frequency/",
+            "title": "How often dental staff need bloodborne pathogens training",
+            "blurb": "Train staff at the time of initial assignment to tasks where occupational exposure may take place, and at least annually thereafter, with the year’s session inside one year of the previous training (OSHA bloodborne pathogens standard, 29 CFR 1910.1030)."
+          },
+          {
+            "href": "/guides/infection-control-training-by-state/",
+            "title": "Infection control training and CE requirements by state",
+            "blurb": "Every dental office in the country trains each employee with occupational exposure at the time of initial assignment to tasks where that exposure may take place, and at least annually thereafter, with each year’s training within one year of the previous one (OSHA bloodborne pathogens standard, 29 CFR 1910.1030)."
+          },
+          {
+            "href": "/guides/new-york-infection-control-course/",
+            "title": "New York's mandated infection control training for dentists",
+            "blurb": "Every dentist must complete course work or training regarding infection control and barrier precautions — appropriate to their practice and approved by the department — on or before July 1, 1994, and every four years after that (NYSED infection control training page; New York Education Law §6505-b)."
+          },
+          {
+            "href": "/guides/sharps-injury-log/",
+            "title": "Sharps injury logs in dental offices",
+            "blurb": "A dental office needs a sharps injury log only when the government has asked it to keep OSHA injury and illness records, because the log applies to employers required to maintain a log of occupational injuries and illnesses under 29 CFR part 1904 (OSHA bloodborne pathogens standard, 29 CFR 1910.1030)."
+          }
+        ],
+        "after": []
+      },
+      {
+        "title": "When something fails",
+        "items": [
+          {
+            "href": "/guides/what-to-do-when-a-spore-test-fails/",
+            "title": "What to do when a dental sterilizer fails a spore test",
+            "blurb": "When a spore test comes back positive, take the sterilizer out of service and repeat the test immediately, on the same cycle that produced the failure (CDC, 2003 dental infection-control guidelines)."
+          },
+          {
+            "href": "/guides/failed-chemical-indicator/",
+            "title": "When a chemical indicator or sterilizer reading fails",
+            "blurb": "When a mechanical reading or a chemical indicator indicates inadequate processing, the instrument packs from that load are not used until they are reprocessed (CDC, 2003 dental infection-control guidelines; CDC, Infection Prevention Checklist for Dental Settings)."
+          },
+          {
+            "href": "/guides/sterilizer-requalification/",
+            "title": "Requalifying a sterilizer after a failure, repair, move or install",
+            "blurb": "Requalifying a sterilizer means running a fresh test series before it goes back to work: three consecutive spore tests (biological indicators) for each cycle type you use, plus three Bowie-Dick tests on a pre-vacuum steam sterilizer (CDC, 2008 guideline for disinfection and sterilization, sterilizing practices)."
+          }
+        ],
+        "after": []
+      }
+    ]
+  },
+  "tools": {
+    "title": "Free record-keeping tools for dental offices · Boldsand",
+    "description": "Free printable records for dental offices in the United States: sterilizer register, load log, spore test log, Bowie-Dick test log, spore test calendar, implant load log, failed spore test, chemical indicator failure and requalification records, maintenance log and OSHA training record.",
+    "kicker": "Free tools · Dental offices in the United States",
+    "heading": "Free record-keeping tools for dental offices",
+    "lead": [
+      "Printable records for dental offices in the United States: free to print, free to type into, and nothing you enter is stored or sent."
+    ],
+    "groups": [
+      {
+        "title": "Every load and every week",
+        "items": [
+          {
+            "href": "/tools/sterilizer-register/",
+            "title": "Free dental sterilizer register (every unit, one sheet)",
+            "blurb": "One printable sheet for a US dental office to list every sterilizer in the office: its label, type, manufacturer, model, serial number, cycle types, and when it was installed or qualified.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/sterilizer-load-log/",
+            "title": "Free dental sterilizer load log (every cycle)",
+            "blurb": "For dental offices in the United States: one printable sheet that takes a line for every sterilizer cycle, free to print and free to use.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/spore-test-log/",
+            "title": "Free dental sterilizer spore test (BI) log",
+            "blurb": "This printable record sheet is for dental offices in the United States to keep their spore test results, and it is free to use and print.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/florida-spore-test-calculator/",
+            "title": "When is your next spore test due in Florida?",
+            "blurb": "Your next spore test is due at the earliest of three dates: 7 days after the last one (CDC, 2003 dental infection-control guidelines), 2,400 minutes of use for steam and chemical vapor sterilizers — 7,200 for dry heat and ethylene oxide (Florida rule 64B5-25.003) — and 30 days since the last one (Florida rule 64B5-25.003).",
+            "tag": "Calculator · Florida"
+          },
+          {
+            "href": "/tools/spore-test-calendar/",
+            "title": "Weekly spore test calendar for 2027",
+            "blurb": "Print one sheet per sterilizer and keep it by the sterilizer all year.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/bowie-dick-test-log/",
+            "title": "Free daily Bowie-Dick (air-removal) test log for pre-vacuum sterilizers",
+            "blurb": "Each entry on this sheet records the date, the time, the test type, the lot number, the pass or fail result and the operator.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/implant-load-log/",
+            "title": "Free implant load log (spore test and release record)",
+            "blurb": "This printable log is for dental offices in the United States that place implantable items in their sterilizer loads, and it is free to use and print.",
+            "tag": "Printable · US Letter"
+          }
+        ],
+        "after": []
+      },
+      {
+        "title": "When something happens",
+        "items": [
+          {
+            "href": "/tools/failed-spore-test/",
+            "title": "What to do when a dental spore test fails, with a printable record",
+            "blurb": "For dental offices in the United States: a free record of what happens after a positive spore test, ready to print and fill in.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/requalification-record/",
+            "title": "Free sterilizer requalification record (after a failure or a repair)",
+            "blurb": "A requalification record lists the test cycles run on a sterilizer after a failure, a repair, an installation or a relocation, up to its return to service.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/chemical-indicator-failure-log/",
+            "title": "Free chemical indicator failure and reprocessing log",
+            "blurb": "This free printable log is for dental offices in the United States to record each failed chemical or mechanical indicator and the reprocessing that followed.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/sterilizer-maintenance-log/",
+            "title": "Free dental sterilizer maintenance log",
+            "blurb": "This log keeps one sheet per sterilizer: each visit gets its date, whether it was preventive work, a service call or a repair, and who did it, plus the next due date from the manufacturer’s maintenance interval.",
+            "tag": "Printable · US Letter"
+          },
+          {
+            "href": "/tools/osha-training-record/",
+            "title": "Free OSHA bloodborne pathogens training record for dental offices",
+            "blurb": "This printable log is free for dental offices in the United States to record OSHA bloodborne pathogens training: who was trained, on what, by whom, and when the next session is due.",
+            "tag": "Printable · US Letter"
+          }
+        ],
+        "after": [
+          "<p>Need the rules behind these sheets? Read the <a href=\"/guides/\">plain-language guides for dental sterilizer records</a> and the <a href=\"/states/\">dental sterilization rules by state</a>.</p>"
+        ]
+      }
+    ]
+  },
+  "states": {
+    "title": "Dental sterilization rules by state · Boldsand",
+    "description": "What each state's own dental rules say about sterilizer testing and records, and where the state is silent and CDC guidance applies instead. Florida, Georgia, New Jersey and Pennsylvania today. More states are coming.",
+    "kicker": "State rules · Dental offices in the United States",
+    "heading": "Dental sterilization rules by state",
+    "lead": [
+      "One page per state: what its own dental rules set for sterilizer testing and records, and where the rules are silent and CDC guidance applies instead."
+    ],
+    "groups": [
+      {
+        "title": "The states we have covered",
+        "items": [
+          {
+            "href": "/states/florida/",
+            "title": "Florida dental sterilization rules: what to test, record and keep",
+            "blurb": "Florida’s own dental rules set one number: how often to spore test (Florida rule 64B5-25.003(9))."
+          },
+          {
+            "href": "/states/georgia/",
+            "title": "Georgia dental sterilization rules: what to test, record and keep",
+            "blurb": "Georgia’s own rules give one number for sterilizer records: keep them at least three years (Georgia Board of Dentistry rule 150-8-.01(h)5)."
+          },
+          {
+            "href": "/states/new-jersey/",
+            "title": "New Jersey dental sterilization rules: what to test, record and keep",
+            "blurb": "New Jersey’s dental board sets no sterilizer-testing schedule of its own."
+          },
+          {
+            "href": "/states/new-york/",
+            "title": "New York dental sterilization rules: what to test, record and keep",
+            "blurb": "New York sets no spore-testing frequency, no air-removal test rule and no records rule for sterilizer logs (New York rule 8 NYCRR 29.2(a)(13))."
+          },
+          {
+            "href": "/states/pennsylvania/",
+            "title": "Pennsylvania dental sterilization rules: what to test, record and keep",
+            "blurb": "Pennsylvania’s dental rules set no spore-test schedule, no per-cycle checks and no record-keeping period for sterilizers; they make failing to follow the CDC’s current infection-control recommendations unprofessional conduct (Pennsylvania rule 33.211(a)(7))."
+          }
+        ],
+        "after": [
+          "<p>More states are coming. Each new state page will appear on this page as it is published.</p>"
+        ]
+      }
+    ]
+  }
+}

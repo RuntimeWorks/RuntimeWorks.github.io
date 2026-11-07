@@ -1,0 +1,64 @@
+---
+// A printable record sheet: fields to fill on screen, then printed on US Letter. One component draws every sheet from
+// its data (src/content/tools/*.md, moved from the old pages), so the twelve tools share one tested structure.
+// Wide sheets print landscape. A wide table scrolls inside a labelled region that keyboards can reach (axe
+// scrollable-region-focusable). Inputs are named by column and row for screen readers ("Date placed, row 3").
+import { Printer } from "@lucide/astro"
+import type { z } from "astro/zod"
+import type { sheet as sheetSchema } from "../content.config"
+
+interface Props { sheet: z.infer<typeof sheetSchema>; id: string }
+const { sheet, id } = Astro.props
+const wide = Math.max(...sheet.tables.map((t) => t.columns.length)) > 7
+---
+<div data-sheet={id} class:list={["not-prose my-10", wide ? "sheet-landscape" : "sheet-portrait"]}>
+  <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 print:hidden">
+    <button type="button" data-print={id} class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-9 px-5 font-semibold text-accent-contrast transition duration-fast ease-productive hover:bg-accent-10 active:scale-[0.97]">
+      <Printer class="size-4" aria-hidden="true" />Print this sheet
+    </button>
+  </div>
+  <div class="rounded-xl border border-gray-a6 bg-gray-1 p-4 sm:p-6 print:rounded-none print:border-0 print:p-0">
+    {sheet.title && <h3 id={`${id}-title`} class="text-lg font-semibold text-gray-12">{sheet.title}</h3>}
+    {sheet.fields.length > 0 && (
+      <div class="mt-3 grid gap-3 sm:grid-cols-3">
+        {sheet.fields.map((f, i) => (
+          <label class="grid gap-1 text-sm font-medium text-gray-12">
+            {f.label}
+            <input id={`${id}-f${i}`} type="text" value={f.value} autocomplete="off" class="min-h-11 rounded-md border border-gray-9 bg-background px-3 text-base text-gray-12" />
+          </label>
+        ))}
+      </div>
+    )}
+    {sheet.notes.map((n) => <p class="mt-3 text-sm text-gray-11">{n}</p>)}
+    {sheet.tables.map((t, ti) => {
+      const rows = typeof t.rows === "number" ? Array.from({ length: t.rows }, () => t.columns.map(() => null)) : t.rows
+      // Rows are numbered across the sheet, so the calendar's second table goes on from week 26.
+      const offset = sheet.tables.slice(0, ti).reduce((n, x) => n + (typeof x.rows === "number" ? x.rows : x.rows.length), 0)
+      return (
+        <section class="mt-4 overflow-x-auto print:overflow-visible" aria-label={t.caption || sheet.title || "Record sheet"} tabindex="0">
+          <table class="w-full border-collapse text-sm print:text-[9pt]">
+            {t.caption && <caption class="sr-only">{t.caption}</caption>}
+            <thead>
+              <tr>{t.columns.map((c) => <th scope="col" class="border border-gray-9 bg-gray-3 px-2 py-2 text-left align-bottom font-semibold text-gray-12 print:bg-transparent">{c.header}</th>)}</tr>
+            </thead>
+            <tbody>
+              {rows.map((row, r) => (
+                <tr>
+                  {t.columns.map((c, ci) => {
+                    const printed = row[ci]
+                    return printed !== null && printed !== undefined ? (
+                      <td class="border border-gray-9 px-2 py-1 text-gray-12 tabular-nums">{printed}</td>
+                    ) : (
+                      <td class="border border-gray-9 p-0"><input type="text" autocomplete="off" aria-label={`${c.label}, row ${offset + r + 1}`} class="sheet-cell block min-h-9 w-full min-w-24 bg-transparent px-2 text-sm text-gray-12 focus:bg-accent-a3 print:min-h-0 print:h-[0.32in]" /></td>
+                    )
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )
+    })}
+    {sheet.footer?.map((n) => <p class="mt-3 text-sm text-gray-11">{n}</p>)}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content"
+import LibraryPage from "../../layouts/LibraryPage.astro"
+
+export async function getStaticPaths() {
+  const entries = await getCollection("tools")
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }))
+}
+const { entry } = Astro.props
+---
+<LibraryPage entry={entry} section={{ href: "/tools/", label: "Free tools" }} />

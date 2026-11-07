@@ -1,0 +1,21 @@
+---
+// A product page's opening: who it is for, the promise, what to do, a few facts, then the real product, full width
+// below the words (the same stacked shape as the home page, so a long promise never runs past two lines).
+import Status from "../Status.astro"
+import type { Status as S } from "../../data/brand"
+interface Props { kicker: string; title: string; lead: string; status?: S; facts?: string[] }
+const { kicker, title, lead, status, facts = [] } = Astro.props
+---
+<section aria-labelledby="h1" class="border-b border-gray-a6">
+  <div class="mx-auto grid max-w-page gap-12 px-gutter py-section">
+    <div class="max-w-[52rem]">
+      <p class="text-sm font-medium text-accent-11">{kicker}</p>
+      <h1 id="h1" class="mt-3 text-4xl font-semibold tracking-tight text-gray-12">{title}</h1>
+      <p class="mt-6 max-w-measure text-lg text-gray-11">{lead}</p>
+      {status && <div class="mt-6"><Status status={status} /></div>}
+      <div class="mt-8 flex flex-wrap gap-3"><slot name="actions" /></div>
+      {facts.length > 0 && <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t border-gray-a6 pt-6 text-sm text-gray-11">{facts.map((f) => <li>{f}</li>)}</ul>}
+    </div>
+    <div><slot name="visual" /></div>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+---
+// The Florida next-spore-test calculator. Words from the live tool (2026-10); the rule is src/lib/florida.ts, tested in
+// tests/florida.test.ts. Native form controls only (radio group in a fieldset, date and number inputs); the result
+// is announced politely as it changes (role="status").
+import { Printer } from "@lucide/astro"
+const types = [
+  { value: "steam", label: "Steam under pressure (e.g., autoclave)" },
+  { value: "vapor", label: "Chemical vapor" },
+  { value: "dry", label: "Dry heat" },
+  { value: "eto", label: "Ethylene oxide" },
+]
+const field = "min-h-11 w-full rounded-md border border-gray-9 bg-background px-3 text-base text-gray-12"
+---
+<section id="calc" data-sheet="calc" class="not-prose my-12 sheet-portrait" aria-labelledby="calc-h2">
+  <h2 id="calc-h2" class="text-2xl font-semibold tracking-tight text-gray-12 print:hidden">Your next due date</h2>
+  <p class="mt-2 max-w-measure text-gray-11 print:hidden">Fill in the four inputs and the sheet updates as you type. Nothing you enter here is stored or sent anywhere.</p>
+  <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 print:hidden">
+    <button type="button" data-print="calc" class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-9 px-5 font-semibold text-accent-contrast transition duration-fast ease-productive hover:bg-accent-10 active:scale-[0.97]">
+      <Printer class="size-4" aria-hidden="true" />Print this sheet
+    </button>
+    <p class="text-sm text-gray-11">Prints on one US Letter page.</p>
+  </div>
+
+  <div role="group" aria-labelledby="calc-h" class="mt-6 rounded-xl border border-gray-a6 bg-gray-1 p-4 sm:p-6 print:border-0 print:p-0" data-florida>
+    <h3 id="calc-h" class="text-lg font-semibold text-gray-12">Next spore test due — Florida</h3>
+    <p class="text-sm text-gray-11">One sheet per sterilizer</p>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <label class="grid gap-1 text-sm font-medium">Office name<input id="office" type="text" autocomplete="off" class={field} /></label>
+      <label class="grid gap-1 text-sm font-medium">Sterilizer (label)<input id="ster" type="text" autocomplete="off" class={field} /></label>
+      <div class="grid gap-1 text-sm">
+        <label for="last" class="font-medium">Date of the last spore test</label>
+        <input id="last" name="last" type="date" autocomplete="off" aria-describedby="last-hint" class={field} />
+        <p id="last-hint" class="text-gray-11">For example, Oct 6, 2026.</p>
+      </div>
+      <fieldset class="grid gap-1 text-sm sm:row-span-2">
+        <legend class="mb-1 font-medium">Sterilizer type</legend>
+        {types.map((t, i) => (
+          <label class="flex min-h-11 items-center gap-3"><input type="radio" name="type" value={t.value} checked={i === 0} class="size-5 accent-accent-9" />{t.label}</label>
+        ))}
+      </fieldset>
+      <div class="grid gap-1 text-sm">
+        <label for="cyc" class="font-medium">Cycles a day</label>
+        <input id="cyc" name="cyc" type="number" inputmode="numeric" min="1" step="1" value="8" autocomplete="off" aria-describedby="cyc-hint" class={field} />
+        <p id="cyc-hint" class="text-gray-11">Counted for every calendar day, including days the office is closed, so the use-limit date errs early.</p>
+      </div>
+      <div class="grid gap-1 text-sm">
+        <label for="mins" class="font-medium">Minutes a cycle</label>
+        <input id="mins" name="mins" type="number" inputmode="numeric" min="1" step="1" value="60" autocomplete="off" aria-describedby="mins-hint" class={field} />
+        <p id="mins-hint" class="text-gray-11">The full cycle, start to end.</p>
+      </div>
+    </div>
+
+    <div class="mt-6 border-t border-gray-a6 pt-6" role="status" aria-live="polite">
+      <p class="text-xl font-semibold text-gray-12" data-o="due-line" hidden>Next spore test due by <span data-o="due">—</span>.</p>
+      <p class="mt-1 text-gray-11" data-o="bind" hidden></p>
+      <p class="mt-1 font-medium text-gray-12" data-o="late" hidden></p>
+      <p class="mt-1 font-medium text-gray-12" data-o="err">Enter the date of the last spore test.</p>
+      <ul class="mt-4 grid divide-y divide-gray-a6 border-y border-gray-a6 text-sm">
+        <li class="flex flex-wrap justify-between gap-x-6 gap-y-1 py-3" data-row="use"><span>Use limit: <span data-o="limit">2,400</span> minutes (Florida rule 64B5-25.003)</span><span class="font-semibold tabular-nums" data-o="use">—</span></li>
+        <li class="flex flex-wrap justify-between gap-x-6 gap-y-1 py-3" data-row="week"><span>7 days after the last test (CDC, 2003 dental infection-control guidelines)</span><span class="font-semibold tabular-nums" data-o="week">—</span></li>
+        <li class="flex flex-wrap justify-between gap-x-6 gap-y-1 py-3" data-row="thirty"><span>30 days after the last test (Florida rule 64B5-25.003)</span><span class="font-semibold tabular-nums" data-o="thirty">—</span></li>
+      </ul>
+      <div class="mt-4 grid gap-2 text-sm text-gray-11" data-o="formula"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { nextDue, showDate, useLimit, type SterilizerType } from "../lib/florida"
+
+  const form = document.querySelector<HTMLElement>("[data-florida]")
+  if (form) {
+    const $ = (k: string) => form.querySelector<HTMLElement>(`[data-o="${k}"]`)!
+    const last = form.querySelector<HTMLInputElement>("#last")!
+    const num = (n: number) => n.toLocaleString("en-US")
+    const trim = (x: number) => (Math.round(x * 100) / 100).toLocaleString("en-US")
+    const show = (el: HTMLElement, text: string) => { el.textContent = text; el.hidden = !text }
+    // As on the live tool: an empty date starts at today.
+    if (!last.value) {
+      const t = new Date()
+      last.value = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`
+    }
+    const update = () => {
+      const value = (sel: string) => form.querySelector<HTMLInputElement>(sel)?.value ?? ""
+      const type = value('input[name="type"]:checked') as SterilizerType
+      const cyc = parseFloat(value("#cyc")), mins = parseFloat(value("#mins"))
+      $("limit").textContent = num(useLimit(type))
+      const r = nextDue({ last: last.value, cyclesPerDay: cyc, minutesPerCycle: mins, type })
+      if (typeof r === "string") {
+        show($("err"), r === "date" ? "Enter the date of the last spore test." : "Enter a number greater than zero for cycles a day and minutes a cycle.")
+        $("due-line").hidden = true; $("bind").hidden = true; $("late").hidden = true
+        return
+      }
+      show($("err"), "")
+      $("due-line").hidden = false
+      $("due").textContent = showDate(r.due)
+      for (const k of ["use", "week", "thirty"] as const) {
+        $(k).textContent = showDate(r.dates[k])
+        form.querySelector(`[data-row="${k}"]`)?.classList.toggle("font-semibold", k === r.binding)
+      }
+      show($("bind"), r.binding === "use" ? `Set by the use limit: ${num(r.useLimit)} minutes (Florida rule 64B5-25.003).` : r.binding === "week" ? "Set by the 7-day schedule (CDC, 2003 dental infection-control guidelines)." : "Set by the 30-day limit (Florida rule 64B5-25.003).")
+      const t = new Date(), today = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`
+      show($("late"), r.due < today ? `That date has passed: overdue since ${showDate(r.due)}.` : "")
+      const lines = [
+        `Use-minutes a day = ${trim(cyc)} cycles × ${trim(mins)} minutes = ${num(r.perDay)} minutes (Florida rule 64B5-25.003: use time is determined by multiplying the number of cycles by the individual cycle time).`,
+        `Days to the use limit = ${num(r.useLimit)} ÷ ${num(r.perDay)} = ${trim(r.rawDays)} days, rounded up to ${r.days} whole ${r.days === 1 ? "day" : "days"}.${r.perDay >= r.useLimit ? ` At this rate the ${num(r.useLimit)}-minute limit is reached inside a single day (Florida rule 64B5-25.003).` : ""}`,
+        `Due date = the earliest of ${showDate(r.dates.use)} (use limit), ${showDate(r.dates.week)} (7 days) and ${showDate(r.dates.thirty)} (30 days) = ${showDate(r.due)}.`,
+      ]
+      $("formula").replaceChildren(...lines.map((l) => Object.assign(document.createElement("p"), { textContent: l })))
+    }
+    form.addEventListener("input", update)
+    form.addEventListener("change", update)
+    update()
+  }
+</script>

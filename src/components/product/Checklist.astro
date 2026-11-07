@@ -1,0 +1,14 @@
+---
+// A list with a check mark before each line (Lucide "check"). Optional bold lead word per line.
+import { Check } from "@lucide/astro"
+interface Props { items: (string | { title: string; text: string })[]; class?: string }
+const { items, class: cls } = Astro.props
+---
+<ul class:list={["grid gap-3", cls]}>
+  {items.map((it) => (
+    <li class="flex gap-3">
+      <Check class="mt-1 size-5 shrink-0 text-accent-11" aria-hidden="true" />
+      {typeof it === "string" ? <span>{it}</span> : <span><strong class="font-semibold text-gray-12">{it.title}</strong><span class="block text-gray-11">{it.text}</span></span>}
+    </li>
+  ))}
+</ul>

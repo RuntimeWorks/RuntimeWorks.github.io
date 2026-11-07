@@ -1,0 +1,14 @@
+---
+// Numbered steps in order (an ordered list, so the numbers are real).
+interface Props { steps: { title: string; text: string }[] }
+const { steps } = Astro.props
+---
+<ol class="grid gap-6 md:grid-cols-3">
+  {steps.map((s, i) => (
+    <li class="rounded-xl border border-gray-a6 bg-gray-1 p-6">
+      <span class="grid size-9 place-items-center rounded-full bg-accent-a3 font-semibold text-accent-11" aria-hidden="true">{i + 1}</span>
+      <h3 class="mt-4 text-lg font-semibold text-gray-12">{s.title}</h3>
+      <p class="mt-2 text-gray-11">{s.text}</p>
+    </li>
+  ))}
+</ol>

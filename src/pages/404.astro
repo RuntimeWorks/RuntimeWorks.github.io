@@ -1,0 +1,12 @@
+---
+import Base from "../layouts/Base.astro"
+import Button from "../components/Button.astro"
+---
+<Base title="Page not found · Boldsand" description="This page does not exist." noindex>
+  <section aria-labelledby="nf" class="mx-auto max-w-page px-gutter py-section">
+    <p class="text-sm font-medium text-accent-11">404</p>
+    <h1 id="nf" class="mt-2 text-4xl font-semibold tracking-tight text-gray-12">This page doesn’t exist.</h1>
+    <p class="mt-4 max-w-measure text-lg text-gray-11">The address may be mistyped, or the page has moved.</p>
+    <div class="mt-8 flex flex-wrap gap-3"><Button href="/">Go to the home page</Button><Button href="/#products" variant="secondary">See the products</Button></div>
+  </section>
+</Base>

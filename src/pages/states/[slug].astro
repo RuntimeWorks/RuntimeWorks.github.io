@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content"
+import LibraryPage from "../../layouts/LibraryPage.astro"
+
+export async function getStaticPaths() {
+  const entries = await getCollection("states")
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }))
+}
+const { entry } = Astro.props
+---
+<LibraryPage entry={entry} section={{ href: "/states/", label: "Rules by state" }} />

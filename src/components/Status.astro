@@ -1,0 +1,10 @@
+---
+// A product's stage as a small label. Live and pilot in the accent; in development in gray.
+import type { Status } from "../data/brand"
+interface Props { status: Status }
+const { status } = Astro.props
+const live = status !== "In development"
+---
+<p class:list={["inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-sm font-medium", live ? "bg-accent-a3 text-accent-11" : "bg-gray-a3 text-gray-11"]}>
+  <span class:list={["size-2 rounded-full", live ? "bg-accent-9" : "bg-gray-8"]} aria-hidden="true"></span>{status}
+</p>
