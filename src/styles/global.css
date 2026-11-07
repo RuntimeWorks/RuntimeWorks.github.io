@@ -1,20 +1,31 @@
 /* One stylesheet for every page. Utilities come from Tailwind CSS 4, long text from @tailwindcss/typography, and every
-   value from tokens.css (Radix colour scales, Utopia type and space, Carbon motion). Tailwind's own colour palette is
-   switched off so nothing outside the tokens can be used. */
+   value from tokens.css (Radix colour scales, Utopia type and space, Carbon motion, and the brand theme the founder
+   chose: the old site's navy, sand, white cards and fonts). Tailwind's own colour palette is switched off so nothing
+   outside the tokens can be used. */
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @import "./tokens.css";
 
+/* The old site's three faces, self-hosted from its own files (SIL Open Font License, public/fonts/OFL.txt):
+   Archivo for headings (wide, heavy), Schibsted Grotesk for text, IBM Plex Mono for small labels and figures. */
+@font-face { font-family: "Archivo"; src: url("/fonts/archivo-vf.woff2") format("woff2"); font-weight: 800 900; font-stretch: 100% 125%; font-display: swap; }
+@font-face { font-family: "Schibsted Grotesk"; src: url("/fonts/schibsted-vf.woff2") format("woff2"); font-weight: 400 800; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("/fonts/plexmono-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
 @theme {
   --color-*: initial;
   --font-*: initial;
-  /* GitHub Primer's system stack (primer/primitives font-stack.json5, 2026-01-30) after its own brand face:
-     SF Pro on Apple devices, Segoe UI on Windows, Noto Sans or Roboto elsewhere. The founder's rule: the system font. */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  /* Reading measure. 1ch is the width of "0", wider than an average letter: measured on this site in the system font,
-     a line holds about 1.44 characters per ch, so 66ch ran to ~95 characters (impeccable "line-length"). 52ch is
-     ~75, the top of the 45–75 range (Bringhurst; WCAG 1.4.8 says under 80), and PurchaseRow's FAQ measure. */
-  --container-measure: 52ch;
+  /* The old site's stacks (git 5b0fcac --body, --display, --mono), with GitHub Primer's system stack behind the text
+     face while it loads. */
+  --font-sans: "Schibsted Grotesk", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --font-display: "Archivo", "Arial Black", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  /* Reading measure. 1ch is the width of "0", wider than an average letter, so a measure in ch must be measured in
+     the face in use. In the system font 66ch ran to ~95 characters (impeccable "line-length") and 52ch to ~75; Schibsted
+     Grotesk holds 1.07 times as many characters per ch (canvas measure over this site's own paragraphs, 2026-11-07),
+     so 48ch is ~74: the top of the 45–75 range (Bringhurst; WCAG 1.4.8 says under 80). */
+  --container-measure: 48ch;
   --container-page: 76rem;
 }
 
@@ -49,6 +60,27 @@
   --color-gray-12: var(--gray-12);
   --color-gray-a3: var(--gray-a3);
   --color-gray-a6: var(--gray-a6);
+  --color-harbour: var(--harbour);
+  --color-harbour-2: var(--harbour-2);
+  --color-on-harbour: var(--on-harbour);
+  --color-on-harbour-2: var(--on-harbour-2);
+  --color-harbour-line: var(--harbour-line);
+  --color-harbour-ghost: var(--harbour-ghost);
+  --color-ink: var(--ink);
+  --color-white: var(--white);
+  --color-surface: var(--surface);
+  --color-sand: var(--sand);
+  --color-sand-2: var(--sand-2);
+  --color-line: var(--line);
+  --color-pass-3: var(--pass-3);
+  --color-pass-7: var(--pass-7);
+  --color-pass-11: var(--pass-11);
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+  --shadow-shot: var(--shadow-shot);
+  --shadow-frame: var(--shadow-frame);
+  --radius-card: var(--radius-card);
+  --radius-control: var(--radius-control);
   --spacing-section: var(--space-2xl-3xl);
   --spacing-gutter: var(--space-s-l);
 }
@@ -71,11 +103,19 @@
   a { text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
   /* Apple, "The Details of UI Typography" (WWDC 2020): tighten large type; vercel-labs web guidelines: balance headings. */
   h1, h2, h3 { text-wrap: balance; letter-spacing: -0.01em; }
-  p, li, dd { text-wrap: pretty; }
+  p, li, dd, figcaption { text-wrap: pretty; }
   [id] { scroll-margin-top: 5rem; }
 }
 
 /* Long-text pages: the typography plugin's tested prose, in the token colours. */
+/* The old site's heading and card styles (git 5b0fcac: .hero h1, .sec-head h2, .card), used everywhere. */
+@utility heading { font-family: var(--font-display); font-weight: 800; font-stretch: 106%; letter-spacing: -0.02em; }
+@utility wordmark { font-family: var(--font-display); font-weight: 800; font-stretch: 125%; letter-spacing: 0.05em; text-transform: uppercase; }
+@utility card { background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+/* Small labels (stages, field names, footer headings) at the old site's 14 px --fs-xs, in the text face and sentence
+   case: the old mono capitals read as a template (taste-skill "mono", "micro-label"). */
+@utility label { font-weight: 600; font-size: 0.875rem; line-height: 1.4; }
+
 @utility prose-brand {
   --tw-prose-body: var(--gray-12);
   --tw-prose-headings: var(--gray-12);
@@ -95,8 +135,10 @@
   font-size: var(--text-base);
   line-height: 1.7;
   max-width: var(--container-measure);
+  /* Headings in the theme's Archivo, as the old library pages set them. */
+  & :where(h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) { font-family: var(--font-display); font-weight: 800; font-stretch: 106%; letter-spacing: -0.02em; }
   /* A page that sets max-w-none to give its tables and sheets the full width still keeps its words to the measure. */
-  & :where(p, ul, ol, dl, blockquote, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) { max-width: var(--container-measure); }
+  & :where(p, ul, ol, dl, blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) { max-width: var(--container-measure); }
   /* The plugin prints a backtick before and after inline code; the old pages showed the code alone. */
   & :where(code)::before, & :where(code)::after { content: none; }
 }

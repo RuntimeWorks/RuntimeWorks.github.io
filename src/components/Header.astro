@@ -1,37 +1,39 @@
 ---
-// Site header. Three links; under 640 px they move into a native <details> disclosure (WAI-ARIA APG disclosure
-// pattern, no script needed). The current page's link carries aria-current (GOV.UK service navigation).
+// Site header in the old site's shape (git 5b0fcac .top): the mark and the wordmark in wide Archivo, two links and a
+// navy Contact button, over a hairline. Under 640 px the links move into a native <details> disclosure (WAI-ARIA APG
+// disclosure pattern, no script needed). Solid, not frosted (Hallmark gate 29).
 import Mark from "./Mark.astro"
+import Button from "./Button.astro"
 import { brand } from "../data/brand"
 
 const links = [
   { href: "/#products", label: "Products" },
   { href: "/#company", label: "Company" },
-  { href: "/#contact", label: "Contact" },
 ]
 ---
 <header data-site class="sticky top-0 z-30 bg-background">
-  <div class="mx-auto flex h-16 max-w-page items-center gap-6 px-gutter">
+  <div class="mx-auto flex h-[68px] max-w-page items-center gap-6 px-gutter">
     <a href="/" class="mr-auto flex min-h-11 items-center gap-2.5 text-gray-12 no-underline" aria-label={`${brand.name}, home`}>
-      <Mark class="size-8" />
-      <span class="text-lg font-semibold tracking-tight">{brand.name}</span>
+      <Mark class="size-[30px]" />
+      <span class="wordmark text-base">{brand.name}</span>
     </a>
-    <nav aria-label="Main">
-      <ul class="hidden items-center gap-1 text-sm font-medium sm:flex">
+    <nav aria-label="Main" class="flex items-center gap-6">
+      <ul class="hidden items-center gap-6 text-sm font-semibold sm:flex">
         {links.map((l) => (
-          <li><a href={l.href} class="inline-flex min-h-11 items-center rounded-md px-3 text-gray-11 no-underline transition-colors duration-fast ease-productive hover:bg-gray-a3 hover:text-gray-12">{l.label}</a></li>
+          <li><a href={l.href} class="inline-flex min-h-11 items-center text-gray-11 no-underline transition-colors duration-fast ease-productive hover:text-gray-12">{l.label}</a></li>
         ))}
       </ul>
-    <details class="group relative sm:hidden" data-menu>
-      <summary class="inline-flex min-h-11 cursor-pointer list-none items-center rounded-md border border-gray-a6 px-4 text-sm font-medium text-gray-12 [&::-webkit-details-marker]:hidden">Menu</summary>
-      <div class="absolute right-0 top-full mt-2 w-56 rounded-lg border border-gray-a6 bg-gray-1 p-2 group-open:shadow-lg">{/* taste-skill-ignore: the open menu is a real overlay; it gets its shadow only while open */}
-        <ul class="grid text-base">
-          {links.map((l) => (
-            <li><a href={l.href} class="flex min-h-11 items-center rounded-md px-3 text-gray-12 no-underline hover:bg-gray-a3">{l.label}</a></li>
-          ))}
-        </ul>
-      </div>
-    </details>
+      <div class="hidden sm:block"><Button href="/#contact" class="min-h-11">Contact us</Button></div>
+      <details class="group relative sm:hidden" data-menu>
+        <summary class="inline-flex min-h-11 cursor-pointer list-none items-center rounded-control border-[1.5px] border-gray-12 px-4 text-sm font-bold text-gray-12 [&::-webkit-details-marker]:hidden">Menu</summary>
+        <div class="card absolute right-0 top-full mt-2 w-56 p-2">
+          <ul class="grid text-base">
+            {[...links, { href: "/#contact", label: "Contact us" }].map((l) => (
+              <li><a href={l.href} class="flex min-h-11 items-center rounded-md px-3 text-gray-12 no-underline hover:bg-gray-a3">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </details>
     </nav>
   </div>
 </header>

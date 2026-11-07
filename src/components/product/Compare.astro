@@ -1,16 +1,17 @@
 ---
-// Before and after, side by side: the paper way and the product's way.
+// Before and after, side by side: the paper way on a white card, the product's way on navy (git 5b0fcac: the
+// dental page's binder and logbook columns).
 import { X, Check } from "@lucide/astro"
 interface Props { before: { label: string; title: string; items: string[] }; after: { label: string; title: string; items: string[] } }
 const { before, after } = Astro.props
 ---
 <div class="grid gap-6 md:grid-cols-2">
   {[before, after].map((col, i) => (
-    <div class:list={["rise rounded-xl p-6 sm:p-8", i === 0 ? "bg-gray-a3" : "bg-accent-a3"]}>
-      <h3 class="text-xl font-semibold text-gray-12"><span class="block text-sm font-medium text-gray-11">{col.label}</span>{col.title}</h3>
+    <div class:list={["rise p-6 sm:p-8", i === 0 ? "card" : "rounded-card bg-harbour text-on-harbour"]}>
+      <h3 class:list={["heading text-xl", i === 0 ? "text-gray-12" : "text-on-harbour"]}><span class:list={["label mb-2 block", i === 0 ? "text-gray-11" : "text-on-harbour-2"]}>{col.label}</span>{col.title}</h3>
       <ul class="mt-5 grid gap-3">
         {col.items.map((t) => (
-          <li class="flex gap-3">{i === 0 ? <X class="mt-1 size-5 shrink-0 text-gray-10" aria-hidden="true" /> : <Check class="mt-1 size-5 shrink-0 text-accent-11" aria-hidden="true" />}<span>{t}</span></li>
+          <li class="flex gap-3">{i === 0 ? <X class="mt-1 size-5 shrink-0 text-gray-10" aria-hidden="true" /> : <Check class="mt-1 size-5 shrink-0 text-on-harbour-2" aria-hidden="true" />}<span>{t}</span></li>
         ))}
       </ul>
     </div>

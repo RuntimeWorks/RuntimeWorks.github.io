@@ -6,7 +6,7 @@ const ld = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: i
 ---
 <div class="grid max-w-measure gap-2">
   {items.map((i) => (
-    <details class="rise group rounded-lg bg-gray-a3 px-5">
+    <details class="rise group card px-5">
       <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 py-3 text-lg font-medium text-gray-12 [&::-webkit-details-marker]:hidden">
         {i.q}<span class="text-2xl leading-none text-gray-10 transition-transform duration-moderate ease-productive group-open:rotate-45" aria-hidden="true">+</span>
       </summary>

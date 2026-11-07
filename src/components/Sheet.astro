@@ -18,7 +18,7 @@ const { sheet, id } = Astro.props
       <Printer class="size-4" aria-hidden="true" />Print this sheet
     </button>
   </div>
-  <div class="rounded-xl bg-gray-a3 p-4 sm:p-6 print:rounded-none print:border-0 print:bg-transparent print:p-0">
+  <div class="card p-4 sm:p-6 print:rounded-none print:border-0 print:bg-transparent print:p-0">
     {sheet.title && <h3 id={`${id}-title`} class="text-lg font-semibold text-gray-12">{sheet.title}</h3>}
     {sheet.fields.length > 0 && (
       <div class="mt-3 grid gap-3 sm:grid-cols-3">
@@ -40,7 +40,7 @@ const { sheet, id } = Astro.props
           <table class="w-full border-collapse text-sm print:table-fixed print:text-[9pt]">
             {t.caption && <caption class="sr-only">{t.caption}</caption>}
             <thead>
-              <tr>{t.columns.map((c) => <th scope="col" class="border border-gray-9 bg-gray-3 px-2 py-2 text-left align-bottom font-semibold text-gray-12 print:bg-transparent print:px-1 print:text-[8pt] print:hyphens-auto print:wrap-break-word">{c.header.split("/").flatMap((part, i) => (i ? ["/", <wbr />, part] : [part]))}</th>)}</tr>
+              <tr>{t.columns.map((c) => <th scope="col" class="border border-gray-9 bg-sand px-2 py-2 text-left align-bottom font-semibold text-gray-12 print:bg-transparent print:px-1 print:text-[8pt] print:hyphens-auto print:wrap-break-word">{c.header.split("/").flatMap((part, i) => (i ? ["/", <wbr />, part] : [part]))}</th>)}</tr>
             </thead>
             <tbody>
               {rows.map((row, r) => (

@@ -16,7 +16,8 @@ const REWRITTEN = {
 const DROPPED = {
   "/tools/osha-training-record/": ["Sterilizer (label)"], // a field copied from another sheet by mistake; a training record has no sterilizer
   "/tools/florida-spore-test-calculator/": ["@out", "Next spore test due — Florida"], // the result is computed in the browser now; the heading reads "in Florida", no dash (Hallmark gate 19)
-  "/food-safety/": ["→ moved stock to walk-in, recheck", "— Deya"], // the first kept, shown under its check (spacing differs); the sign-off keeps the name without its dash (Hallmark gate 19)
+  "/food-safety/": ["→ moved stock to walk-in, recheck", "— Deya", "Food businesses · Prince Edward Island"], // the first kept, shown under its check (spacing differs); the sign-off keeps the name without its dash (Hallmark gate 19); the eyebrow repeated the facts beside it (Hallmark gate 63)
+  "/dental-logbook/": ["Dental offices · United States and Ontario"], // an eyebrow that repeated the facts beside it (Hallmark gate 63)
 }
 
 const norm = (s) => s.normalize("NFKC").replace(/[‘’′]/g, "'").replace(/[“”″]/g, '"').replace(/[–—−]/g, "-")

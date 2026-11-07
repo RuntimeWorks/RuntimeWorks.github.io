@@ -1,16 +1,18 @@
 ---
-// The Boldsand mark, unchanged from the live site: a sand check on a navy rounded square. On dark backgrounds it
-// turns inverse (sand square, navy check), as the live site's dark footer already showed it.
-interface Props { class?: string; title?: string }
-const { class: cls = "size-8", title } = Astro.props
+// The Boldsand mark, unchanged from the live site: a sand check on a navy rounded square. On dark grounds (dark mode,
+// or the always-dark footer with "inverse") it turns inverse: sand square, navy check, as the old footer showed it.
+interface Props { class?: string; title?: string; inverse?: boolean }
+const { class: cls = "size-8", title, inverse = false } = Astro.props
 ---
-<svg viewBox="0 0 64 64" class:list={["bs-mark", cls]} role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : "true"}>
+<svg viewBox="0 0 64 64" class:list={["bs-mark", inverse && "bs-mark-inverse", cls]} role={title ? "img" : undefined} aria-label={title} aria-hidden={title ? undefined : "true"}>
   <rect x="4" y="4" width="56" height="56" rx="9" />
   <path d="M18 33l9 9 19-21" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
 <style>
   .bs-mark rect { fill: var(--brand-navy); }
   .bs-mark path { stroke: var(--brand-sand); }
+  .bs-mark-inverse rect { fill: var(--brand-sand); }
+  .bs-mark-inverse path { stroke: var(--brand-navy); }
   @media (prefers-color-scheme: dark) {
     .bs-mark rect { fill: var(--brand-sand); }
     .bs-mark path { stroke: var(--brand-navy); }

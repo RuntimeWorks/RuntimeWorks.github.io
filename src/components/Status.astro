@@ -1,10 +1,14 @@
 ---
-// A product's stage as a small label. Live and pilot in the accent; in development in gray.
+// A product's stage as a filled chip: live and pilot in the green "pass" colour with a dot, in development on sand, and
+// on the navy band on the band's lighter navy. No outline and no mono capitals (taste-skill "outlined-box", "mono").
 import type { Status } from "../data/brand"
-interface Props { status: Status }
-const { status } = Astro.props
+interface Props { status: Status; onBand?: boolean }
+const { status, onBand = false } = Astro.props
 const live = status !== "In development"
+const look = onBand
+  ? "bg-harbour-2 text-on-harbour"
+  : live ? "bg-pass-3 text-pass-11" : "bg-sand text-gray-11"
 ---
-<p class:list={["inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-sm font-medium", live ? "bg-accent-a3 text-accent-11" : "bg-gray-a3 text-gray-11"]}>
-  <span class:list={["size-2 rounded-full", live ? "bg-accent-9" : "bg-gray-8"]} aria-hidden="true"></span>{status}
+<p class:list={["label inline-flex w-fit items-center gap-2 rounded-full px-3 py-1", look]}>
+  {live && <span class:list={["size-2 rounded-full", onBand ? "bg-on-harbour" : "bg-pass-11"]} aria-hidden="true"></span>}{status}
 </p>

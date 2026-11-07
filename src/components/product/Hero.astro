@@ -1,29 +1,34 @@
 ---
-// A page's opening, in PurchaseRow's shape: the name leads at display size (taste-skill inspect "focal-point"), the
-// promise and what it does follow as paragraphs (a statement belongs in a <p>), then what to do, then the facts that
-// used to sit above the heading as an eyebrow (impeccable and taste-skill: no eyebrows). The product's real screen
-// goes full width below.
+// A page's opening as the old site's navy band (git 5b0fcac .hero): the heading in Archivo, the promise and
+// what it does, the actions, then the stage and the facts; the product's real screen sits in a framed panel beside
+// it on wide screens and below it on phones. The heading is the product's name, or the page's own words in a "title"
+// slot (the home page). Words never sit above the heading (impeccable and taste-skill: no eyebrows).
 import Status from "../Status.astro"
 import type { Status as S } from "../../data/brand"
-interface Props { name: string; nameSuffix?: string; promise: string; lead?: string; status?: S; facts?: string[] }
-const { name, nameSuffix, promise, lead, status, facts = [] } = Astro.props
+// "wide" sets a long heading across the whole band above the two columns, so it stays within two lines (SPEC.md §8).
+interface Props { name: string; nameSuffix?: string; promise: string; lead?: string; status?: S; facts?: string[]; wide?: boolean }
+const { name, nameSuffix, promise, lead, status, facts = [], wide = false } = Astro.props
+const visual = Astro.slots.has("visual")
 ---
-<section aria-labelledby="h1">
-  <div class="mx-auto max-w-page px-gutter pt-section pb-12">
-    <h1 id="h1" class="rise text-display font-semibold text-gray-12">{name}{nameSuffix && <span class="sr-only">{nameSuffix}</span>}</h1>
-    <div class="rise mt-10 grid items-end gap-x-12 gap-y-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-      <div>
-        <p class="max-w-measure text-lg font-medium text-gray-12">{promise}</p>
-        {lead && <p class="mt-3 max-w-measure text-gray-11">{lead}</p>}
+<section aria-labelledby="h1" class="bg-harbour text-on-harbour">
+  <div class="mx-auto max-w-page px-gutter pt-section pb-section">
+    {wide && (
+      <h1 id="h1" class="rise heading mb-10 text-hero text-on-harbour">{Astro.slots.has("title") ? <slot name="title" /> : name}{nameSuffix && <span class="sr-only">{nameSuffix}</span>}</h1>
+    )}
+    <div class:list={["grid items-center gap-x-16 gap-y-12", visual && "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"]}>
+      <div class="rise">
+        {!wide && <h1 id="h1" class="heading text-hero text-on-harbour">{Astro.slots.has("title") ? <slot name="title" /> : name}{nameSuffix && <span class="sr-only">{nameSuffix}</span>}</h1>}
+        <p class:list={["max-w-measure text-lg text-on-harbour", !wide && "mt-6"]}>{promise}</p>
+        {lead && <p class="mt-3 max-w-measure text-on-harbour-2">{lead}</p>}
         <div class="mt-8 flex flex-wrap gap-3"><slot name="actions" /></div>
+        {(status || facts.length > 0) && (
+          <ul class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-on-harbour-2">
+            {status && <li><Status status={status} onBand /></li>}
+            {facts.map((f) => <li>{f}</li>)}
+          </ul>
+        )}
       </div>
-      {(status || facts.length > 0) && (
-        <div class="grid content-end gap-3 lg:justify-self-end">
-          {status && <Status status={status} />}
-          {facts.length > 0 && <ul class="grid gap-1.5 text-sm text-gray-11">{facts.map((f) => <li>{f}</li>)}</ul>}
-        </div>
-      )}
+      {visual && <div class="rise"><slot name="visual" /></div>}
     </div>
-    {Astro.slots.has("visual") && <div class="mt-14"><slot name="visual" /></div>}
   </div>
 </section>

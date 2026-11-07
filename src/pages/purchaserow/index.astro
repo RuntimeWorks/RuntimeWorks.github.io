@@ -19,9 +19,9 @@ const ask = `mailto:${brand.email}?subject=${encodeURIComponent("PurchaseRow")}&
 <Base title="PurchaseRow: EDI for small suppliers who sell to big retailers · Boldsand" description="Read every retailer purchase order in plain words, confirm it, ship it with GS1 carton labels and invoice it, from a browser. Flat price per retailer. In development.">
   <Hero name="PurchaseRow" promise="EDI for small suppliers who sell to big retailers." lead="Big retailers order by EDI: coded files their systems send and expect answered within hours. PurchaseRow reads every order, confirms it, ships it with labels that scan and invoices it, all from a browser." status="In development" facts={["Any browser, office or dock", "One flat price per retailer", "Made by Boldsand Software Inc."]}>
     <Fragment slot="actions">
-      <Button href={ask}>Ask about the pilot</Button>
+      <Button href={ask} variant="light">Ask about the pilot</Button>
     </Fragment>
-    <Shot slot="visual" src={shot} eager alt="The PurchaseRow site: “EDI for small suppliers who sell to big retailers”, with one line of a retailer’s order read in plain words." caption="PurchaseRow’s own site, with a line of a sample order read in plain words." />
+    <Shot slot="visual" band src={shot} eager alt="The PurchaseRow site: “EDI for small suppliers who sell to big retailers”, with one line of a retailer’s order read in plain words." caption="PurchaseRow’s own site, with a line of a sample order read in plain words." />
   </Hero>
 
   <Section id="product" title="Read an order now" intro="The product, running on a sample purchase order from a fictional grocery chain. Change what ships and watch every document follow." tone="tint">

@@ -57,11 +57,35 @@ for (const s of type) if (s.wcagViolation) throw new Error(`Utopia type step ${s
 // Line heights: Tailwind CSS 4's defaults for the same names (leading falls as size grows).
 const leading: Record<string, string> = { xs: "calc(1 / 0.75)", sm: "calc(1.25 / 0.875)", base: "calc(1.5 / 1)", lg: "calc(1.75 / 1.125)", xl: "calc(1.75 / 1.25)", "2xl": "calc(2 / 1.5)", "3xl": "calc(2.25 / 1.875)", "4xl": "calc(2.5 / 2.25)", "5xl": "1" }
 const typeCss = type.map((s) => `  --text-${s.label}: ${s.clamp};\n  --text-${s.label}--line-height: ${leading[s.label] ?? "1.1"};`).join("\n")
-// Display: one name or word that leads a first screen (taste-skill inspect "focal-point": on the strongest sites it
-// studied, the largest type has a median of 8.4vw). Utopia's own clamp calculator, 52 px at 320 wide to 128 px at
-// 1440 (8.9vw), so a product name of up to about 20 letters stays within two lines at every width.
-const display = calculateClamp({ minSize: 52, maxSize: 128, minWidth: 320, maxWidth: 1440 })
-const displayCss = `  --text-display: ${display};\n  --text-display--line-height: 0.95;\n  --text-display--letter-spacing: -0.035em;`
+// Headings: the old site's own sizes for its Archivo headings (git 5b0fcac: --fs-h1, --fs-h2, --fs-h4), the theme the
+// founder chose. They set the hero title, section titles and card titles; Utopia sets everything else. The hero title
+// grows from the old 4.9vw / 62 px to 5vw / 72 px so it leads the first screen (taste-skill inspect "focal-point":
+// at least 4.5vw at 1440 px). Section titles start at 28 px instead of 32 so they keep to two lines on phones.
+const displayCss = [
+  "  --text-hero: clamp(2.375rem, 5vw, 4.5rem);\n  --text-hero--line-height: 1.02;",
+  "  --text-h2: clamp(1.75rem, 4.4vw, 3.375rem);\n  --text-h2--line-height: 1.02;",
+  "  --text-h4: clamp(1.625rem, 2.8vw, 2.125rem);\n  --text-h4--line-height: 1.05;",
+].join("\n")
+
+// The brand theme (src/data/brand.ts, from the old site). Light: the theme's own values. Dark (the old site had
+// none): bands stay harbour, cards and sand bands take Radix's own dark grey steps, shadows go.
+const t = brand.theme
+const passLight = generateRadixColors({ appearance: "light", accent: t.pass, gray: brand.colors.gray, background: brand.colors.backgroundLight })
+const passDark = generateRadixColors({ appearance: "dark", accent: t.pass, gray: brand.colors.gray, background: brand.colors.backgroundDark })
+const themeVars = (mode: "light" | "dark") => {
+  const g = mode === "light" ? light.grayScale : dark.grayScale
+  const pass = mode === "light" ? passLight.accentScale : passDark.accentScale
+  const v: Record<string, string> = {
+    harbour: t.harbour, "harbour-2": t.harbour2, "on-harbour": t.onHarbour, "on-harbour-2": t.onHarbour2,
+    "harbour-line": "rgba(237, 229, 212, 0.2)", "harbour-ghost": "rgba(237, 229, 212, 0.45)", ink: t.ink, white: t.white,
+    surface: mode === "light" ? t.white : g[1]!, sand: mode === "light" ? t.sand : g[2]!, "sand-2": mode === "light" ? t.sand2 : g[3]!,
+    line: mode === "light" ? "rgba(12, 23, 35, 0.16)" : g[5]!,
+    "pass-3": pass[2]!, "pass-7": pass[6]!, "pass-11": pass[10]!,
+    "shadow-card": mode === "light" ? t.shadowCard : "none", "shadow-card-hover": mode === "light" ? t.shadowCardHover : "none",
+    "shadow-shot": mode === "light" ? t.shadowShot : "none", "shadow-frame": mode === "light" ? t.shadowFrame : "none",
+  }
+  return Object.entries(v).map(([k, x]) => `  --${k}: ${x};`).join("\n")
+}
 
 // Space: Utopia's default space calculator (utopia.fyi/space/calculator), same viewports and base sizes.
 const space = calculateSpaceScale({ minWidth: 320, maxWidth: 1240, minSize: 18, maxSize: 20, negativeSteps: [0.75, 0.5, 0.25], positiveSteps: [1.5, 2, 3, 4, 6], customSizes: ["s-l", "m-2xl", "l-3xl"] })
@@ -77,6 +101,18 @@ ${darkCss}
 :root {
   --brand-navy: ${brand.colors.accent};
   --brand-sand: ${brand.colors.markSand};
+}
+
+/* The brand theme, from the old site (src/data/brand.ts theme). */
+:root {
+${themeVars("light")}
+  --radius-card: ${t.radius};
+  --radius-control: ${t.radiusSmall};
+}
+@media (prefers-color-scheme: dark) {
+:root {
+${themeVars("dark")}
+}
 }
 
 /* Utopia fluid type (Tailwind names) and space. */

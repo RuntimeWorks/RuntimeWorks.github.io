@@ -10,9 +10,21 @@ export const brand = {
   // Registered office, as published in Sheets Converter's terms and the Google Play trader details.
   address: { street: "C 505 University Ave", city: "Charlottetown", region: "PE", regionName: "Prince Edward Island", postal: "C1A 9S3", country: "CA" },
   incorporated: { iso: "2026-08-19", display: "19 August 2026", jurisdiction: "Prince Edward Island, Canada" },
-  // Colour inputs for Radix's palette generator (scripts/gen-tokens.ts). accent = the logo's navy; gray = Radix
-  // sand step 9; light background = the brand's paper; dark background = Radix's default for custom palettes.
-  colors: { accent: "#0F2B47", gray: "#8D8D86", backgroundLight: "#FBF8F2", backgroundDark: "#111111", markSand: "#EEE4D1" },
+  // Colour inputs for Radix's palette generator (scripts/gen-tokens.ts), all from the brand theme below: accent = the
+  // harbour navy; gray = the theme's third ink (a blue grey); light background = paper; dark background = ink.
+  colors: { accent: "#0F2B47", gray: "#56616D", backgroundLight: "#FBF8F2", backgroundDark: "#0C1723", markSand: "#EEE4D1" },
+  // The brand theme the founder approved, read from the old site's own :root (git 5b0fcac, index.html): navy
+  // "harbour" bands with sand text, white cards with soft shadows on paper, sand bands, ink for the footer.
+  // Founder, 2026-11-07: "the previous theme of boldsand website looked better, the blue and white stuff". Cards keep
+  // the old shadow under a 1 px ambient layer instead of the old 1 px outline (Material elevation: key and ambient
+  // shadows; taste-skill "outlined-box").
+  theme: {
+    harbour: "#0F2B47", harbour2: "#173A5E", onHarbour: "#EDE5D4", onHarbour2: "#B4C1CF",
+    sand: "#EEE4D1", sand2: "#E2D4B8", paper: "#FBF8F2", white: "#FFFFFF", ink: "#0C1723", pass: "#17663F",
+    shadowCard: "0 1px 2px rgba(12,23,35,.08), 0 18px 40px -28px rgba(12,23,35,.35)", shadowCardHover: "0 1px 2px rgba(12,23,35,.08), 0 28px 50px -28px rgba(12,23,35,.45)",
+    shadowShot: "0 18px 30px -18px rgba(12,23,35,.5)", shadowFrame: "0 40px 70px -30px rgba(4,14,26,.7)",
+    radius: "14px", radiusSmall: "10px",
+  },
 } as const
 
 export type Status = "Live" | "Pilot open" | "In development"

@@ -1,12 +1,18 @@
 ---
-// One section of a product page: a heading, an optional opening sentence, then its content.
+// One section of a page in the old site's shape (git 5b0fcac .sec, .sec-head): the heading in Archivo on the left and
+// the opening sentence beside it on wide screens, then the content. "tint" sections sit on the theme's sand.
 interface Props { id: string; title: string; intro?: string; tone?: "plain" | "tint" }
 const { id, title, intro, tone = "plain" } = Astro.props
+// The intro sits beside the title only when the title stays within two lines in that column (about 36 characters of
+// Archivo at the widest page, SPEC.md §8 headings ≤ 2 lines); a longer title spans the page with the intro under it.
+const beside = Boolean(intro) && title.length <= 36
 ---
-<section id={id} aria-labelledby={`${id}-h`} class:list={[tone === "tint" && "bg-gray-2"]}>
+<section id={id} aria-labelledby={`${id}-h`} class:list={[tone === "tint" && "bg-sand"]}>
   <div class="mx-auto max-w-page px-gutter py-section">
-    <h2 id={`${id}-h`} class="rise text-2xl font-semibold tracking-tight text-gray-12 sm:text-3xl">{title}</h2>
-    {intro && <p class="rise mt-4 max-w-measure text-lg text-gray-11">{intro}</p>}
-    <div class="mt-10"><slot /></div>
+    <div class:list={["grid gap-x-16 gap-y-4", beside && "lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-end"]}>
+      <h2 id={`${id}-h`} class="rise heading text-h2 text-gray-12">{title}</h2>
+      {intro && <p class="rise max-w-measure text-lg text-gray-11">{intro}</p>}
+    </div>
+    <div class="mt-12"><slot /></div>
   </div>
 </section>

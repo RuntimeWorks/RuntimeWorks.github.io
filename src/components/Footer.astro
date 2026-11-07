@@ -1,4 +1,6 @@
 ---
+// Footer in the old site's shape (git 5b0fcac footer): ink ground, the inverse mark and wordmark, mono column
+// headings, links in sand, the company line under a hairline.
 import Mark from "./Mark.astro"
 import { brand, products, groups } from "../data/brand"
 
@@ -25,28 +27,28 @@ const columns = [
   },
 ]
 ---
-<footer data-site class="mt-section bg-gray-2">
-  <div class="mx-auto max-w-page px-gutter py-12">
+<footer data-site class="mt-section bg-ink text-on-harbour-2">
+  <div class="mx-auto max-w-page px-gutter pt-14 pb-[calc(2.25rem+env(safe-area-inset-bottom))]">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(4,minmax(0,1fr))]">
       <div>
-        <a href="/" class="inline-flex min-h-11 items-center gap-2.5 text-gray-12 no-underline">
-          <Mark class="size-7" />
-          <span class="font-semibold">{brand.legalName}</span>
+        <a href="/" class="inline-flex min-h-11 items-center gap-2.5 text-on-harbour no-underline">
+          <Mark class="size-[26px]" inverse />
+          <span class="wordmark text-base">{brand.name}</span>
         </a>
-        <p class="mt-3 max-w-xs text-sm text-gray-11">Software for businesses and for everyday life, made in Charlottetown, Prince Edward Island.</p>
+        <p class="mt-3 max-w-xs text-sm">Software for businesses and for everyday life, made in Charlottetown, Prince Edward Island.</p>
       </div>
       {columns.map((c) => (
         <nav aria-label={c.title}>
-          <h2 class="text-sm font-semibold text-gray-12">{c.title}</h2>
+          <h2 class="label text-on-harbour-2">{c.title}</h2>
           <ul class="mt-3 grid gap-1 text-sm">
             {c.links.map((l) => (
-              <li><a href={l.href} class="inline-flex min-h-8 items-center text-gray-11 no-underline hover:text-gray-12 hover:underline">{l.label}</a></li>
+              <li><a href={l.href} class="inline-flex min-h-8 items-center text-on-harbour no-underline hover:underline">{l.label}</a></li>
             ))}
           </ul>
         </nav>
       ))}
     </div>
-    <div class="mt-12 flex flex-wrap justify-between gap-x-8 gap-y-2 text-sm text-gray-11">
+    <div class="mt-12 flex flex-wrap justify-between gap-x-8 gap-y-2 text-sm">
       <p>© {year} {brand.legalName}</p>
       <p>{brand.address.street}, {brand.address.city}, {brand.address.region} {brand.address.postal}, Canada</p>
     </div>

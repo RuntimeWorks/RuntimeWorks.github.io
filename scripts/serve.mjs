@@ -11,7 +11,8 @@ http.createServer((req, res) => {
   if (p.endsWith("/")) p += "index.html"
   let f = path.join(dist, p)
   if (fs.existsSync(f) && fs.statSync(f).isDirectory()) f = path.join(f, "index.html")
-  if (!f.startsWith(dist) || !fs.existsSync(f)) { res.writeHead(404, { "content-type": types[".html"] }); return res.end(fs.readFileSync(path.join(dist, "404.html"))) }
+  // During a rebuild dist/ is briefly empty: answer a plain 404 rather than stop the server.
+  if (!f.startsWith(dist) || !fs.existsSync(f)) { const nf = path.join(dist, "404.html"); res.writeHead(404, { "content-type": types[".html"] }); return res.end(fs.existsSync(nf) ? fs.readFileSync(nf) : "Not found") }
   res.writeHead(200, { "content-type": types[path.extname(f)] ?? "application/octet-stream" })
   fs.createReadStream(f).pipe(res)
 }).listen(port, "127.0.0.1", () => console.log(`serving dist on http://127.0.0.1:${port}/`))
