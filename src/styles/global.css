@@ -141,6 +141,10 @@
   & :where(p, ul, ol, dl, blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) { max-width: var(--container-measure); }
   /* The plugin prints a backtick before and after inline code; the old pages showed the code alone. */
   & :where(code)::before, & :where(code)::after { content: none; }
+  /* The plugin also wraps a quote's first and last paragraph in curly quotes. Our quotes carry their own marks and end
+     with a <cite> paragraph, so the page showed two opening marks and a closing mark after the source (found in the
+     research-gates look round, 2026-11-07). */
+  & :where(blockquote p:first-of-type)::before, & :where(blockquote p:last-of-type)::after { content: none; }
 }
 
 /* Print: the free logs and records print without the site around them. A tool page prints only its sheets; the

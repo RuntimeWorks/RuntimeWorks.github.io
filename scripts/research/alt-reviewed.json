@@ -1,0 +1,87 @@
+{
+ "The PurchaseRow app’s Today screen with sample data: 3 orders to answer, $812.00 owed, $45.00 in open deductions, the next steps, ship windows for three retailers, and an order’s document trail from the 850 order to the 820 payment.": {
+  "image": "purchaserow-app-today",
+  "reviewed": "2026-11-07",
+  "note": "Counts (3 to answer, $812.00 owed, $45.00 open deductions), next steps, three ship windows and the 850-to-820 document trail are all on screen."
+ },
+ "The Sheets Converter home page: “Bank statements to Excel”, an upload box and the line “checked against the printed balances”.": {
+  "image": "sheets-converter",
+  "reviewed": "2026-11-07",
+  "note": "Headline, upload box and the printed-balances line match the capture."
+ },
+ "The PurchaseRow site: “EDI for small suppliers who sell to big retailers”, with one line of a retailer’s order read in plain words.": {
+  "image": "purchaserow",
+  "reviewed": "2026-11-07",
+  "note": "Tagline and the one decoded order line are on screen; the warehouse photos are decoration around them."
+ },
+ "The Food Safety Logbook page: “Records ready for your inspector, every shift”, beside the owner’s dashboard with sample data.": {
+  "image": "cover-food-safety",
+  "reviewed": "2026-11-07",
+  "note": "Heading, promise and the dashboard match the cover (remade 2026-11-07 after the hero button was renamed)."
+ },
+ "The Dental Logbook page: “Sterilization records done properly, found in seconds”, beside a summary of the product: in development, a free pilot for dental offices.": {
+  "image": "cover-dental-logbook",
+  "reviewed": "2026-11-07",
+  "note": "Heading, promise and the summary card (in development, free pilot) match."
+ },
+ "The meal planner page: “A week of meals, planned to your budget”, beside the app’s icon.": {
+  "image": "cover-meal-planner",
+  "reviewed": "2026-11-07",
+  "note": "Heading, promise and the app icon match."
+ },
+ "The Dental Logbook prototype’s Today screen for a sample office: 9 items on 3 sterilizers, 2 overdue, 2 due and 5 done, starting with Autoclave 1’s air-removal test and a load entry, both done.": {
+  "image": "dental-today",
+  "reviewed": "2026-11-07",
+  "note": "Rewritten 2026-11-07: now gives the screen's own summary (9 items, 2 overdue, 2 due, 5 done) and the two done rows that show."
+ },
+ "The spore test (BI) log as it prints on US Letter, landscape: office, sterilizer and month at the top, then rows for the date placed, sterilizer, cycle type, load, BI product and lot, control, date read, result, who read it and the action if it failed.": {
+  "image": "tool-spore-test-log",
+  "reviewed": "2026-11-07",
+  "note": "Every column named in the alt is on the sheet, in order."
+ },
+ "The sterilizer load log as it prints on US Letter, landscape: one row per cycle with the date, start time, load number, cycle type, contents, temperature, pressure, exposure time, indicator results, operator and outcome.": {
+  "image": "tool-sterilizer-load-log",
+  "reviewed": "2026-11-07",
+  "note": "The columns named are on the sheet; wrapped, implant and cycle-minute columns are left out for length, nothing named is absent."
+ },
+ "The failed spore test record as it prints on US Letter, portrait: from the date of the positive result through the repeat test, records reviewed, loads recalled, repair and requalification to the return to service.": {
+  "image": "tool-failed-spore-test",
+  "reviewed": "2026-11-07",
+  "note": "The record runs from the positive result to return to service, as the alt says."
+ },
+ "The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due.": {
+  "image": "app-dashboard",
+  "reviewed": "2026-11-07",
+  "note": "The five counts, the schedule and the 30-day calendar are on screen."
+ },
+ "The logbook on a phone for a sample bakery: the check to do now, a closing clean marked late, then buttons to log cooling and a delivery, and the checks coming up, each with the time it opens.": {
+  "image": "app-due-list",
+  "reviewed": "2026-11-07",
+  "note": "Rewritten 2026-11-07: adds that the check to do now (closing clean) is marked late."
+ },
+ "The logbook on a phone, logging a delivery: a reading is out of range, and the screen asks what was done about it, with four choices: rejected the item and returned it with the driver, told the supplier, discarded the item, or something else.": {
+  "image": "app-out-of-range",
+  "reviewed": "2026-11-07",
+  "note": "Rewritten 2026-11-07: the old alt named a 9 °C reading that is not in the picture; now names the four choices that are."
+ },
+ "Page 1 of a sample inspector report for a bakery, 19 September to 2 October 2026: 178 entries, 3 out of range, 4 done late, 1 missed check and 1 correction, then each day’s checks with time, reading, limit, result and initials.": {
+  "image": "report-page-1",
+  "reviewed": "2026-11-07",
+  "note": "Rewritten 2026-11-07: adds the date range and the five totals printed on the page."
+ },
+ "The meal planner’s app icon: a white bowl with two leaves on green.": {
+  "image": "meal-planner-icon",
+  "reviewed": "2026-11-07",
+  "note": "White bowl, two pale leaves, green field."
+ },
+ "PurchaseRow reading sample purchase order 4500018723 from Northgate: four lines with item, UPC, quantity, unit price and amount, an order total of $2,784.00, marked ready to answer, beside controls for the ship date, carrier and how many of each line ship.": {
+  "image": "purchaserow-order",
+  "reviewed": "2026-11-07",
+  "note": "PO number, four lines, $2,784.00 total, Ready to answer and the ship controls match."
+ },
+ "The first of 47 GS1-128 carton labels PurchaseRow made for the sample order: ship-from and ship-to addresses, the ship-to postal code and carrier, the PO number, the item, carton 1 of 47 and its SSCC barcode.": {
+  "image": "purchaserow-labels",
+  "reviewed": "2026-11-07",
+  "note": "Ship-from, ship-to, postal-code barcode, carrier, PO, item, carton 1 of 47 and the SSCC barcode match."
+ }
+}

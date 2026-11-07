@@ -48,7 +48,7 @@ const faq = [
 <Base image="/assets/og-boldsand.jpg" title="Food Safety Logbook for PEI Food Businesses · Boldsand" description="Swap the clipboard for a simple phone checklist. Temperatures, cleaning and deliveries logged on time, records ready when the inspector walks in. Set up for you by a local Charlottetown developer.">
   <Hero name="Food Safety Logbook" promise="Records ready for your inspector, every shift." lead="Temperatures, cleaning and deliveries, logged on any phone on time, by the person who checked." status="Pilot open" facts={["Set up for you", "Any phone or tablet", "Local, in Charlottetown"]}>
     <Fragment slot="actions">
-      <Button href="#pilot" variant="light">Talk to us about a pilot</Button>
+      <Button href="#pilot" variant="light">See the founding pilot</Button>
       <Button href={pilotHref} variant="ghost">Book a free setup session</Button>
     </Fragment>
     <Shot slot="visual" band src={dashboard} eager alt="The owner’s dashboard on a tablet: today’s counts for on time, late, out of range, still to do and open rechecks, today’s schedule, and a 30-day calendar of checks done out of checks due." caption="The owner sees the whole day at once. What’s done, what’s late, what was out of range, and 30 days of history, from any phone or computer." />
@@ -56,8 +56,8 @@ const faq = [
 
   <Section id="screens" title="The logbook in use" intro="Screens from the working logbook, filled with demo data from a sample bakery. No mock-ups.">
     <div class="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,0.7fr)_minmax(0,1.2fr)] [&>*]:min-w-0">
-      <Shot src={dueList} sizes="(min-width: 768px) 320px, 80vw" class="mx-auto max-w-80" alt="The logbook on a phone for a sample bakery: the check to do now, buttons to log cooling and a delivery, and the checks coming up, each with the time it opens." caption="The kitchen’s list: what to do now, what to log, and what is coming up." />
-      <Shot src={outOfRange} sizes="(min-width: 768px) 320px, 80vw" class="mx-auto max-w-80" alt="The logbook on a phone: a delivery reading of 9 °C is out of range, and the screen asks what was done about it, with choices such as rejecting the item and returning it with the driver." caption="A reading out of range can’t be skipped. The check won’t save until someone records what was done about it." />
+      <Shot src={dueList} sizes="(min-width: 768px) 320px, 80vw" class="mx-auto max-w-80" alt="The logbook on a phone for a sample bakery: the check to do now, a closing clean marked late, then buttons to log cooling and a delivery, and the checks coming up, each with the time it opens." caption="The kitchen’s list: what to do now, what to log, and what is coming up." />
+      <Shot src={outOfRange} sizes="(min-width: 768px) 320px, 80vw" class="mx-auto max-w-80" alt="The logbook on a phone, logging a delivery: a reading is out of range, and the screen asks what was done about it, with four choices: rejected the item and returned it with the driver, told the supplier, discarded the item, or something else." caption="A reading out of range can’t be skipped. The check won’t save until someone records what was done about it." />
       <div class="md:col-span-2 lg:col-span-1">
         <h3 class="heading text-lg text-gray-12">Daily log</h3>
         <section class="mt-3 overflow-x-auto card" aria-label="Daily log, sample data" tabindex="0">
@@ -87,7 +87,7 @@ const faq = [
         <Checklist items={["Every check with its time, reading, limit, result and the initials of whoever did it.", "Out-of-range readings next to what was done about them, and the recheck.", "Late and missed checks shown, not hidden. Saved entries can’t be edited; corrections are added as new entries.", "Print it, or send it as a PDF. Every record can also be exported as a plain spreadsheet file."]} />
         <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"><Button href="/food-safety/sample-inspector-report.pdf" variant="secondary">See a sample report</Button><span class="text-sm text-gray-11">PDF, 10 pages</span></div>
       </div>
-      <Shot src={report} alt="Page 1 of a sample inspector report for a bakery: totals for entries, out-of-range readings, late and missed checks and corrections, then each day’s checks with time, reading, limit, result and initials." />
+      <Shot src={report} alt="Page 1 of a sample inspector report for a bakery, 19 September to 2 October 2026: 178 entries, 3 out of range, 4 done late, 1 missed check and 1 correction, then each day’s checks with time, reading, limit, result and initials." />
     </div>
   </Section>
 

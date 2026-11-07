@@ -17,8 +17,9 @@
     "parity": "node scripts/parity.mjs",
     "validate": "html-validate \"dist/**/*.html\"",
     "keyboard": "node scripts/keyboard.mjs",
-    "check": "npm run typecheck && npm run test && npm run build && npm run validate && npm run parity && npm run keyboard && npm run gates",
-    "covers": "tsx scripts/covers.mjs"
+    "check": "npm run typecheck && npm run test && npm run build && npm run validate && npm run parity && npm run keyboard && npm run gates && npm run research",
+    "covers": "tsx scripts/covers.mjs",
+    "research": "node scripts/research-gates.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
