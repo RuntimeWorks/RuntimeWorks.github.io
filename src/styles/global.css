@@ -93,6 +93,8 @@
   font-size: var(--text-base);
   line-height: 1.7;
   max-width: var(--container-measure);
+  /* The plugin prints a backtick before and after inline code; the old pages showed the code alone. */
+  & :where(code)::before, & :where(code)::after { content: none; }
 }
 
 /* Print: the free logs and records print without the site around them. A tool page prints only its sheets; the
