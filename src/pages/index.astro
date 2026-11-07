@@ -1,7 +1,7 @@
 ---
 // Home, in the old site's shape and theme (git 5b0fcac, the founder's choice on 2026-11-07): a navy band with the
-// headline and a real product screen, "Choose a product." with one lane per audience (1Password's business /
-// personal split, read on Mobbin 2026-11-07), the commitments on sand, then the company beside the contact card.
+// headline and a real product screen, "Choose a product." with a B2B and a B2C section of small cards (1Password's
+// business / personal split, read on Mobbin 2026-11-07; the old site's B2B and B2C lanes), the commitments on sand, then the company beside the contact card.
 import Base from "../layouts/Base.astro"
 import ProductCard from "../components/ProductCard.astro"
 import Hero from "../components/product/Hero.astro"
@@ -13,12 +13,9 @@ import appToday from "../assets/products/purchaserow-app-today.png"
 
 const business = products.filter((p) => p.group === "business")
 const consumer = products.filter((p) => p.group === "consumer")
-const words = ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-const count = (n: number, one: string, many: string) => `${words[n] ?? n} ${n === 1 ? one : many}`
-const Count = (n: number, one: string, many: string) => count(n, one, many).replace(/^./, (c) => c.toUpperCase())
 const lanes = [
-  { group: "business" as const, note: "Software for small businesses.", items: business },
-  { group: "consumer" as const, note: "Apps for iPhone and Android.", items: consumer },
+  { group: "business" as const, tag: "B2B", note: "For small businesses and professional offices.", items: business },
+  { group: "consumer" as const, tag: "B2C", note: "For households, on iPhone and Android.", items: consumer },
 ]
 
 const jsonLd = {
@@ -40,9 +37,9 @@ const jsonLd = {
 }
 
 const commitments = [
-  { title: "One product, one job", text: "Each product solves one problem for one kind of user." },
-  { title: "You reach the people who build it", text: "Every message and call is answered by the team that makes the product." },
-  { title: "Your data stays yours", text: "We collect only what a product needs, and every product has its own privacy policy." },
+  { title: "One product, one purpose", text: "Each product solves one problem for one kind of customer." },
+  { title: "Support from the people who build it", text: "Every message and call is answered by the team that makes the product." },
+  { title: "Your data remains yours", text: "We collect only what a product needs, and every product has its own privacy policy." },
 ]
 ---
 <Base
@@ -50,7 +47,7 @@ const commitments = [
   description={`${brand.legalName} makes software for small businesses and apps for people: Sheets Converter, PurchaseRow, the Food Safety and Dental Logbooks, and a meal planner. Charlottetown, Prince Edward Island.`}
   jsonLd={jsonLd}
 >
-  <Hero wide name={brand.name} promise={`${brand.legalName} makes ${count(business.length, "product", "products")} for businesses and ${count(consumer.length, "app", "apps")} for people, from Charlottetown, Prince Edward Island.`} facts={["Built and supported in Charlottetown", `Incorporated ${brand.incorporated.display}`]}>
+  <Hero wide name={brand.name} promise={`${brand.legalName} builds software for businesses and apps for consumers, from Charlottetown, Prince Edward Island.`} facts={["Built and supported in Charlottetown", `Incorporated ${brand.incorporated.display}`]}>
     <Fragment slot="title"><span class="text-on-harbour-2">Focused</span> software for businesses and everyday life.</Fragment>
     <Fragment slot="actions">
       <Button href="#products" variant="light">See the products</Button>
@@ -60,18 +57,16 @@ const commitments = [
   </Hero>
 
   <section id="products" aria-labelledby="h-products" class="mx-auto max-w-page px-gutter py-section">
-    <div class="grid gap-x-16 gap-y-4 lg:grid-cols-2 lg:items-end">
-      <h2 id="h-products" class="rise heading text-h2 text-gray-12">Choose a product.</h2>
-      <p class="rise max-w-measure text-lg text-gray-11">{Count(business.length, "product", "products")} for businesses and {count(consumer.length, "app", "apps")} for people.</p>
-    </div>
-    <div class="mt-12 grid gap-16">
+    <h2 id="h-products" class="rise heading text-h2 text-gray-12">Products</h2>
+    <div class="mt-12 grid gap-14">
       {lanes.map((lane) => (
-        <section aria-labelledby={`h-${lane.group}`} class="grid gap-6 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-10">
-          <div>
-            <h3 id={`h-${lane.group}`} class="heading text-xl text-gray-12">{groups[lane.group].title}</h3>
-            <p class="mt-1 text-sm text-gray-11">{lane.note}</p>
+        <section aria-labelledby={`h-${lane.group}`}>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 id={`h-${lane.group}`} class="heading text-2xl text-gray-12">{groups[lane.group].title}</h3>
+            <span class="label rounded-full bg-sand px-2.5 py-0.5 text-gray-11">{lane.tag}</span>
           </div>
-          <div class="grid gap-6">
+          <p class="mt-1 text-gray-11">{lane.note}</p>
+          <div class="mt-6 grid gap-6 md:grid-cols-2">
             {lane.items.map((p) => <ProductCard product={p} />)}
           </div>
         </section>
@@ -79,7 +74,7 @@ const commitments = [
     </div>
   </section>
 
-  <Section id="how" title="Small company. Clear commitments." intro="Three rules apply to every product we make, for a business or for a person." tone="tint">
+  <Section id="how" title="Our commitments" intro="Three commitments apply to every product we make, for businesses and for consumers." tone="tint">
     <ul class="grid gap-6 lg:grid-cols-3">
       {commitments.map((c) => (
         <li class="rise card p-6 sm:p-8">
@@ -92,7 +87,7 @@ const commitments = [
 
   <div class="mx-auto grid max-w-page items-start gap-12 px-gutter pt-section lg:grid-cols-2 lg:gap-16">
     <section id="company" aria-labelledby="h-company">
-      <h2 id="h-company" class="rise heading text-h2 text-gray-12">About {brand.name}</h2>
+      <h2 id="h-company" class="rise heading text-h2 text-gray-12">About {brand.legalName}</h2>
       <p class="mt-4 max-w-measure text-gray-11">{brand.legalName} is an independent software company. We build and run our own products and support every customer directly.</p>
       <dl class="mt-8 grid gap-4">
         {[
@@ -108,8 +103,8 @@ const commitments = [
       </dl>
     </section>
     <section id="contact" aria-labelledby="h-contact" class="rise rounded-card bg-harbour p-8 text-on-harbour sm:p-10">
-      <h2 id="h-contact" class="heading text-h2">Let’s talk.</h2>
-      <p class="mt-4 max-w-measure">Questions about a product, a partnership or a pilot for your business? Write or call. We usually reply the same business day.</p>
+      <h2 id="h-contact" class="heading text-h2">Contact us</h2>
+      <p class="mt-4 max-w-measure">For product enquiries, partnerships and pilot programs, write or call. We usually reply on the same business day.</p>
       <dl class="mt-6 grid gap-4">
         {[
           ["Email", <a href={`mailto:${brand.email}`} class="text-on-harbour no-underline hover:underline">{brand.email}</a>],
@@ -124,7 +119,7 @@ const commitments = [
       </dl>
       <div class="mt-8 flex flex-wrap gap-3">
         <Button href={`mailto:${brand.email}`} variant="light">Email us</Button>
-        <Button href={`tel:${brand.phone.tel}`} variant="ghost">Call</Button>
+        <Button href={`tel:${brand.phone.tel}`} variant="ghost">Call{"\u00a0"}us</Button>
       </div>
     </section>
   </div>

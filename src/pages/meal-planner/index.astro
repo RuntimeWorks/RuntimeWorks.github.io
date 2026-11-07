@@ -30,7 +30,7 @@ const faq = [
     </div>
   </Hero>
 
-  <Section id="what" title="What it does.">
+  <Section id="what" title="Features">
     <div class="grid gap-10 lg:grid-cols-2">
       <Checklist items={[
         { title: "Your week, planned", text: "Meals that fit your budget, your diet and every allergy you choose." },
@@ -43,13 +43,13 @@ const faq = [
     </div>
   </Section>
 
-  <Section id="faq" title="Questions" tone="tint">
+  <Section id="faq" title="Frequently asked questions" tone="tint">
     <Faq items={faq} />
   </Section>
 
   <section id="join" aria-labelledby="join-h" class="mx-auto mt-section max-w-page px-gutter">
     <div class="rounded-card bg-harbour p-8 text-on-harbour sm:p-12">
-      <h2 id="join-h" class="heading text-h2">Be first to try it</h2>
+      <h2 id="join-h" class="heading text-h2">Join the waitlist</h2>
       <p class="mt-3 max-w-measure">Send us an email and we’ll write back once, on launch day.</p>
       <div class="mt-8"><Button href={join} variant="light">Join the waitlist</Button></div>
       <p class="mt-6 max-w-measure text-sm">Or write to {brand.email}. By emailing us you ask to hear when the app launches. We use your address only for that, and you can reply “stop” at any time to be removed.</p>

@@ -37,6 +37,8 @@ export interface Product {
   status: Status
   /** What it does, in one sentence. */
   summary: string
+  /** What kind of product it is, in formal terms (shown under the name on the home page's cards). */
+  category: string
   /** Who it is for. */
   audience: string
   /** Where the card leads. External links open the product's own site. */
@@ -51,7 +53,8 @@ export const products: Product[] = [
     name: "Sheets Converter",
     group: "business",
     status: "Live",
-    summary: "Turns PDF bank and card statements into Excel, CSV, QuickBooks and Xero files, and checks every row against the statement’s printed balances.",
+    category: "Bank statement conversion and verification",
+    summary: "Converts PDF bank and card statements into Excel, CSV, QuickBooks and Xero files, and checks every row against the balances printed on the statement.",
     audience: "Bookkeepers, accountants and small businesses",
     href: "https://sheetsconverter.com/",
     cta: "Visit sheetsconverter.com",
@@ -62,44 +65,48 @@ export const products: Product[] = [
     name: "PurchaseRow",
     group: "business",
     status: "In development",
-    summary: "Reads each retailer’s EDI purchase order in plain words, then confirms, ships with GS1 carton labels and invoices it from a browser.",
+    category: "Electronic data interchange (EDI) for suppliers",
+    summary: "Receives retailers’ EDI purchase orders and sends the order acknowledgment, the ship notice with GS1-128 carton labels, and the invoice, from a web browser.",
     audience: "Small suppliers selling to big retailers",
     href: "/purchaserow/",
-    cta: "About PurchaseRow",
+    cta: "Product overview",
   },
   {
     id: "food-safety",
     name: "Food Safety Logbook",
     group: "business",
     status: "Pilot open",
-    summary: "Temperatures, cleaning and deliveries logged on any phone, with the records ready when the inspector walks in.",
+    category: "Food safety records and inspection reports",
+    summary: "Temperature, cleaning and receiving records for food businesses, logged on any phone or tablet and ready when a public health inspector asks.",
     audience: "Restaurants, bakeries, caterers, grocers and food processors in Atlantic Canada",
     href: "/food-safety/",
-    cta: "About the Food Safety Logbook",
+    cta: "Product overview",
   },
   {
     id: "dental-logbook",
     name: "Dental Logbook",
     group: "business",
     status: "In development",
-    summary: "Sterilization and safety records for dental offices, with any record found in seconds when an inspector asks.",
+    category: "Sterilization and infection-control records",
+    summary: "Sterilizer load records, spore tests and safety checks for dental offices, designed around CDC, OSHA and EPA guidance and Ontario’s RCDSO standards.",
     audience: "Dental offices in the United States, then Ontario",
     href: "/dental-logbook/",
-    cta: "About the Dental Logbook",
+    cta: "Product overview",
   },
   {
     id: "meal-planner",
     name: "Meal planner",
     group: "consumer",
     status: "In development",
-    summary: "Plans a week of meals around your budget, diet and allergies, with one grocery list for the week.",
+    category: "Meal planning and grocery lists",
+    summary: "Plans a household’s week of meals within its budget, diet and allergies, with nutrient values from USDA FoodData Central and one grocery list.",
     audience: "Households on iPhone and Android",
     href: "/meal-planner/",
-    cta: "About the meal planner",
+    cta: "Product overview",
   },
 ]
 
 export const groups: Record<Group, { title: string; label: string }> = {
-  business: { title: "For businesses", label: "Business software" },
-  consumer: { title: "For people", label: "Apps" },
+  business: { title: "Business software", label: "Business software" },
+  consumer: { title: "Consumer apps", label: "Apps" },
 }

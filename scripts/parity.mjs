@@ -20,6 +20,14 @@ const DROPPED = {
   "/dental-logbook/": ["Dental offices · United States and Ontario"], // an eyebrow that repeated the facts beside it (Hallmark gate 63)
 }
 
+// Section titles replaced by formal ones (founder, 2026-11-07: "everything should have more official titles and
+// descriptions"). The sections and their words stay; only the title line changed.
+const RETITLED = {
+  "/food-safety/": ["This is what your team taps.", "One report, ready when they walk in.", "Paper logs fail in the same four places.", "You run the kitchen. We build the system.", "The checks you already do, done properly.", "Two kinds of food business. One logbook.", "Built around the rules in each Atlantic province.", "Straight answers.", "Call, text or email. You’ll reach Deya."],
+  "/dental-logbook/": ["Paper records fail in the same places.", "What the logbook will keep.", "The checks you already do, in one record.", "United States first, then Canada.", "Straight answers.", "Tell us about your office."],
+}
+for (const [u, titles] of Object.entries(RETITLED)) DROPPED[u] = [...(DROPPED[u] ?? []), ...titles]
+
 const norm = (s) => s.normalize("NFKC").replace(/[‘’′]/g, "'").replace(/[“”″]/g, '"').replace(/[–—−]/g, "-")
   .replace(/…/g, "...").replace(/ | /g, " ").replace(/&/g, "&").replace(/\s+/g, " ").replace(/\s+([.,;:!?)])/g, "$1").replace(/\(\s+/g, "(").trim().toLowerCase()
 

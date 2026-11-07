@@ -1,9 +1,9 @@
 ---
-// One product as the old site's card (git 5b0fcac .card): a white card with a soft shadow, the words on the left and
-// the product's real screen on a sand panel on the right (above the words on phones; first in the source, so the
-// picture, not the arrow, is what a card leads with). The whole card is clickable
-// through its heading link stretched over it (Heydon Pickering, Inclusive Components, "Cards"), so a screen reader
-// hears one link with the product's name, not a wall of text.
+// One product as a card in a two-column grid (founder, 2026-11-07: smaller than the old full-width rows, with the
+// product's picture large and formal wording): the real screen across the top on sand, then the name, what kind of
+// product it is, one formal sentence, and a footer with the stage and where the card leads. The whole card is
+// clickable through its heading link stretched over it (Heydon Pickering, Inclusive Components, "Cards"), so a screen
+// reader hears one link with the product's name, not a wall of text.
 import { Image } from "astro:assets"
 import { ArrowRight, ArrowUpRight } from "@lucide/astro"
 import type { Product } from "../data/brand"
@@ -15,27 +15,27 @@ const { product: p } = Astro.props
 const img = productImages[p.id]
 const Arrow = p.external ? ArrowUpRight : ArrowRight
 ---
-<article class="card rise group relative grid overflow-hidden transition-shadow duration-moderate ease-productive hover:shadow-card-hover lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+<article class="card rise group relative flex flex-col overflow-hidden transition-shadow duration-moderate ease-productive hover:shadow-card-hover">
   {img && (
-    <div class="grid place-items-center bg-sand p-6 sm:p-8 lg:order-last">
+    <div class:list={["aspect-[16/9] overflow-hidden bg-sand", img.kind === "screen" ? "px-6 pt-6 sm:px-8 sm:pt-8" : "grid place-items-center"]}>
       {img.kind === "screen" ? (
-        <Image src={img.src} alt={img.alt} widths={[480, 720, 960, 1280]} sizes="(min-width: 1024px) 600px, 100vw" class="w-full rounded-[6px] shadow-shot" loading="lazy" />
+        <Image src={img.src} alt={img.alt} widths={[480, 640, 960, 1280]} sizes="(min-width: 1024px) 560px, 100vw" class="h-full w-full rounded-t-[6px] object-cover object-left-top shadow-shot" loading="lazy" />
       ) : (
         <Image src={img.src} alt={img.alt} widths={[160, 320]} sizes="160px" class="size-36 rounded-[22%] shadow-shot" loading="lazy" />
       )}
-  <div class="flex flex-col gap-4 p-6 sm:p-10">
+    </div>
+  )}
+  <div class="flex flex-1 flex-col p-6 sm:p-8">
     <h4 class="heading text-h4 text-gray-12">
       <a href={p.href} class="no-underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none group-focus-within:after:rounded-card group-focus-within:after:outline-2 group-focus-within:after:outline-accent-9">{p.name}{p.external && <span class="sr-only">, on {new URL(p.href).host}</span>}</a>
     </h4>
-    <p class="max-w-measure text-gray-11">{p.summary}</p>
-    <p class="text-sm text-gray-11">For {p.audience.charAt(0).toLowerCase() + p.audience.slice(1)}.</p>
-    <div class="mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pt-2">
-      <p class="flex items-center gap-1.5 text-sm font-bold text-gray-12" aria-hidden="true">
-        {p.cta}<Arrow class="size-4 transition-transform duration-moderate ease-productive motion-safe:group-hover:translate-x-1" />
-      </p>
+    <p class="label mt-1 text-gray-11">{p.category}</p>
+    <p class="mt-4 text-gray-11">{p.summary}</p>
+    <div class="mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pt-6">
       <Status status={p.status} />
+      <p class="flex items-center gap-1.5 text-sm font-bold text-gray-12" aria-hidden="true">
+        {p.cta}<Arrow class="size-4 transition-transform duration-moderate ease-productive motion-safe:group-hover:translate-x-0.5" />
+      </p>
     </div>
   </div>
-    </div>
-  )}
 </article>
