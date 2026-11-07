@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# boldsand.com
 
-```sh
-npm create astro@latest -- --template minimal
+The website of Boldsand Software Inc. (Charlottetown, Prince Edward Island): the company, its products, and the
+Dental Logbook's free guides, printable logs and state pages. A static Astro site published by GitHub Pages.
+
+## Run and check
+
+```bash
+npm ci
+npm run dev        # http://localhost:4321 (tokens are generated first)
+npm run check      # types, unit tests, build, HTML validity, text parity, keyboard, page gates
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`npm run check` must pass before anything is published. The page gates open every page at 320, 390, 768, 1280 and
+1440 px in light and dark and fail on any WCAG 2.2 AA violation (axe-core), sideways scroll, small targets, heading
+problems, text under 13 px, weak field edges or layout shift. Screenshots go to `dist-check/`.
 
-## 🚀 Project Structure
+## Where things live
 
-Inside of your Astro project, you'll see the following folders and files:
+| Path | What |
+|---|---|
+| `src/data/brand.ts` | Company facts and the product list. The home page, footer and structured data read it. |
+| `src/content/{guides,tools,states}/*.md` | The Dental Logbook library, one Markdown file per page. |
+| `src/data/library.json` | The library's three index pages: their words and groups. |
+| `src/pages/` | The home page, the product pages, the library routes, the 404 and the game's privacy policy. |
+| `src/components/` | Header, footer, product cards, the shared product-page sections, the printable sheet, the calculator. |
+| `src/lib/florida.ts` | The Florida spore test due-date rule (tested in `tests/florida.test.ts`). |
+| `scripts/gen-tokens.ts` | Writes `src/styles/tokens.css` from Radix's palette generator and Utopia's scales. |
+| `scripts/vendor/radix/` | Radix's custom palette generator, unchanged (MIT). |
+| `scripts/migrate-legacy.mjs` | The one-time move of the old pages into `src/content` (reads them from git). |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Publishing
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`.github/workflows/deploy.yml` builds and publishes on every push to `main`. Before the first push of this version,
+switch the repository's Pages source to GitHub Actions; until then Pages serves the branch's files as they are.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Addresses that must not change
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `/torque-trails/privacy/`: linked from the Torque Trails (AnyCarClimbs) Android app.
+- Every guide, tool and state page address: `npm run check` fails if an old address stops answering.

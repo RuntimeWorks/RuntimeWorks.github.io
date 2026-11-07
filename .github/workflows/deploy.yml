@@ -1,0 +1,59 @@
+# Build and publish boldsand.com with GitHub Pages. From Astro's official guide (docs.astro.build, "Deploy your Astro
+# site to GitHub Pages", read 2026-11-07): withastro/action builds, actions/deploy-pages publishes.
+# Before the first run, the repository's Pages source must be "GitHub Actions" (Settings → Pages), or
+#   gh api -X PUT repos/RuntimeWorks/RuntimeWorks.github.io/pages -f build_type=workflow
+# Until then Pages serves the branch as files, which would show this source instead of the site.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    # The checks that need no browser: types, unit tests, the build, HTML validity and text parity with the old site
+    # (parity reads the old pages from git, so the full history is fetched). The browser gates (axe at five widths in
+    # both themes, keyboard) run locally with `npm run check`, on the same system fonts the founder's Mac uses.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build
+      - run: npm run validate
+      - run: npm run parity
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
