@@ -1,6 +1,8 @@
 ---
 // One product as a card in a two-column grid (founder, 2026-11-07: smaller than the old full-width rows, with the
-// product's picture large and formal wording): the real screen across the top on sand, then the name, what kind of
+// product's picture large and formal wording): the product's cover across the top, edge to edge (its own front page,
+// src/data/product-images.ts) over a 1 px line, the edge where a white page meets the white card (defended against
+// taste-skill "hairline": without it Sheets Converter's page runs into the text), then the name, what kind of
 // product it is, one formal sentence, and a footer with the stage and where the card leads. The whole card is
 // clickable through its heading link stretched over it (Heydon Pickering, Inclusive Components, "Cards"), so a screen
 // reader hears one link with the product's name, not a wall of text.
@@ -17,12 +19,8 @@ const Arrow = p.external ? ArrowUpRight : ArrowRight
 ---
 <article class="card rise group relative flex flex-col overflow-hidden transition-shadow duration-moderate ease-productive hover:shadow-card-hover">
   {img && (
-    <div class:list={["aspect-[16/9] overflow-hidden bg-sand", img.kind === "screen" ? "px-6 pt-6 sm:px-8 sm:pt-8" : "grid place-items-center"]}>
-      {img.kind === "screen" ? (
-        <Image src={img.src} alt={img.alt} widths={[480, 640, 960, 1280]} sizes="(min-width: 1024px) 560px, 100vw" class="h-full w-full rounded-t-[6px] object-cover object-left-top shadow-shot" loading="lazy" />
-      ) : (
-        <Image src={img.src} alt={img.alt} widths={[160, 320]} sizes="160px" class="size-36 rounded-[22%] shadow-shot" loading="lazy" />
-      )}
+    <div class="aspect-[16/10] overflow-hidden border-b border-line bg-sand">
+      <Image src={img.src} alt={img.alt} widths={[480, 640, 960, 1280]} sizes="(min-width: 1024px) 560px, 100vw" class="h-full w-full object-cover object-top" loading="lazy" />
     </div>
   )}
   <div class="flex flex-1 flex-col p-6 sm:p-8">
