@@ -11,7 +11,8 @@ npm run dev        # http://localhost:4321 (tokens are generated first)
 npm run check      # types, unit tests, build, HTML validity, text parity, keyboard, page gates
 ```
 
-`npm run check` must pass before anything is published. The page gates open every page at 320, 390, 768, 1280 and
+`npm run check` must pass before anything is published. Every page carries a Content Security Policy (Astro's
+built-in `security.csp`: hashed scripts and styles, nothing from other sites); the gates run with it in force. The page gates open every page at 320, 390, 768, 1280 and
 1440 px in light and dark and fail on any WCAG 2.2 AA violation (axe-core), sideways scroll, small targets, heading
 problems, text under 13 px, weak field edges or layout shift. Screenshots go to `dist-check/`.
 

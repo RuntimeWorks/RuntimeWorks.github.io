@@ -88,7 +88,9 @@ async function gate(u, scheme, width) {
   await page.goto(base + u, { waitUntil: "networkidle" })
   const tag = `${u} ${scheme} ${width}px`
   for (const e of errors) fail(`${tag}: script error ${e.slice(0, 160)}`)
-  await page.addScriptTag({ content: axeSource })
+  // Loaded through the DevTools protocol (page.evaluate), which the page's own Content Security Policy does not
+  // govern, so every page is checked with its real policy in force (a script tag would be refused by it).
+  await page.evaluate(axeSource)
   const axe = await page.evaluate(() => window.axe.run(document, { runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa", "best-practice"] } }))
   for (const v of axe.violations) fail(`${tag}: axe ${v.id} (${v.impact}) on ${v.nodes.slice(0, 3).map((n) => n.target.join(" ")).join(" | ")}`)
   const m = await page.evaluate(() => {

@@ -11,6 +11,13 @@ export default defineConfig({
   build: { format: "directory" },
   vite: { plugins: [tailwindcss()] },
   devToolbar: { enabled: false },
+  // Content Security Policy as a meta tag (GitHub Pages cannot send headers). Astro hashes every script and style it
+  // emits; everything else must come from this site. frame-ancestors cannot be set from a meta tag.
+  security: {
+    csp: {
+      directives: ["default-src 'self'", "img-src 'self' data:", "font-src 'self'", "base-uri 'self'", "form-action 'self'", "object-src 'none'"],
+    },
+  },
   // The old waitlist page named a closed rival in its title; its address now leads to the meal planner's own page
   // (Astro writes a redirect page with a canonical link, which GitHub Pages can serve).
   redirects: {
