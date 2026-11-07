@@ -16,7 +16,7 @@ interface Props {
   /** A free tool page: printing shows only its sheets. */
   tool?: boolean
 }
-const { title, description, canonical, image = "/assets/og-boldsand.jpg", noindex = false, jsonLd, tool = false } = Astro.props
+const { title, description, canonical, image = "/assets/og-company.png", noindex = false, jsonLd, tool = false } = Astro.props
 const url = new URL(canonical ?? Astro.url.pathname, brand.url).href
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []
 ---
