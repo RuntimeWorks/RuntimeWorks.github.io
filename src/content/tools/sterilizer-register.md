@@ -6,7 +6,7 @@ cta: {"heading":"Want this done for you?","text":"","link":"Dental Logbook is in
 heading: "Free dental sterilizer register (every unit, one sheet)"
 kicker: "Free tool · Dental offices · United States"
 note: "This template helps you keep records. It is not legal advice; check your state board's current rules. This page is not legal advice; check your state board's current rules."
-sheets: [{"title":"Sterilizer register","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet for every unit"],"tables":[{"caption":"Sterilizer register: one row per sterilizer, one sheet for every unit in the office.","columns":[{"header":"Label (as printed on packs)","label":"label as printed on packs"},{"header":"Type (steam pre-vacuum, steam gravity, dry heat, chemical vapor)","label":"type"},{"header":"Manufacturer","label":"manufacturer"},{"header":"Model","label":"model"},{"header":"Serial no.","label":"serial number"},{"header":"Cycle types (target temperature and time)","label":"cycle types, target temperature and time"},{"header":"Installed / qualified on","label":"installed or qualified on"},{"header":"Air-removal test applies (pre-vacuum only)","label":"air-removal test applies"},{"header":"Notes","label":"notes"}],"rows":12}],"footer":["Scroll the table sideways to reach every column."]}]
+sheets: [{"title":"Sterilizer register","orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet for every unit"],"tables":[{"caption":"Sterilizer register: one row per sterilizer, one sheet for every unit in the office.","columns":[{"header":"Label (as printed on packs)","label":"label as printed on packs"},{"header":"Type (steam pre-vacuum, steam gravity, dry heat, chemical vapor)","label":"type"},{"header":"Manufacturer","label":"manufacturer"},{"header":"Model","label":"model"},{"header":"Serial no.","label":"serial number"},{"header":"Cycle types (target temperature and time)","label":"cycle types, target temperature and time"},{"header":"Installed / qualified on","label":"installed or qualified on"},{"header":"Air-removal test applies (pre-vacuum only)","label":"air-removal test applies"},{"header":"Notes","label":"notes"}],"rows":12}],"hints":["Scroll the table sideways to reach every column."]}]
 ---
 
 One printable sheet for a US dental office to list every sterilizer in the office: its label, type, manufacturer, model, serial number, cycle types, and when it was installed or qualified. The sheet is free to use and print, and nothing you type on this page is stored or sent anywhere.
@@ -44,26 +44,18 @@ Prints on one US Letter page, landscape.
 
 Four steps, from a blank page to a register of every unit.
 
-1.  01
-    
-    ### Fill in the header
+1.  ### Fill in the header
     
     Office name, the sterilizer label and the month at the top of the sheet.
     
-2.  02
-    
-    ### One row per unit
+2.  ### One row per unit
     
     Each sterilizer gets its own row: the label as it is printed on packs, then the type, the manufacturer, the model and the serial number.
     
-3.  03
-    
-    ### Cycles and dates
+3.  ### Cycles and dates
     
     List each cycle type with its target temperature and time, and write the date the unit was installed or qualified on.
     
-4.  04
-    
-    ### Air-removal and notes
+4.  ### Air-removal and notes
     
     Mark the air-removal column for pre-vacuum units and leave it blank for the others. Use notes for anything else worth keeping with the unit.

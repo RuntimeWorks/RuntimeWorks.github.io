@@ -13,10 +13,14 @@ const table = z.object({
 })
 export const sheet = z.object({
   title: z.string().optional(),
+  // The paper the old page asked for in its @page rule.
+  orientation: z.enum(["portrait", "landscape"]),
   fields: z.array(z.object({ label: z.string(), value: z.string().optional() })),
   notes: z.array(z.string()),
   tables: z.array(table).min(1),
   footer: z.array(z.string()).optional(),
+  // Screen-only lines (the old page hid them in print), such as "Scroll the table sideways".
+  hints: z.array(z.string()).optional(),
 })
 
 const page = z.object({

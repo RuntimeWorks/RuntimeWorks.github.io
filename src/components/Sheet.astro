@@ -1,30 +1,31 @@
 ---
 // A printable record sheet: fields to fill on screen, then printed on US Letter. One component draws every sheet from
 // its data (src/content/tools/*.md, moved from the old pages), so the twelve tools share one tested structure.
-// Wide sheets print landscape. A wide table scrolls inside a labelled region that keyboards can reach (axe
-// scrollable-region-focusable). Inputs are named by column and row for screen readers ("Date placed, row 3").
+// Each sheet prints on the paper its old page asked for (portrait or landscape, from its @page rule), the table
+// fitted to the page width. A wide table scrolls inside a labelled region that keyboards can reach (axe
+// scrollable-region-focusable). On paper the header fields are underlines and the column headings wrap inside
+// their columns at 8 pt (the old pages' print rules, --p-head), free to break after a slash (<wbr>). Inputs are named by column and row for screen readers ("Date placed, row 3").
 import { Printer } from "@lucide/astro"
 import type { z } from "astro/zod"
 import type { sheet as sheetSchema } from "../content.config"
 
 interface Props { sheet: z.infer<typeof sheetSchema>; id: string }
 const { sheet, id } = Astro.props
-const wide = Math.max(...sheet.tables.map((t) => t.columns.length)) > 7
 ---
-<div data-sheet={id} class:list={["not-prose my-10", wide ? "sheet-landscape" : "sheet-portrait"]}>
+<div data-sheet={id} class:list={["not-prose my-10", sheet.orientation === "landscape" ? "sheet-landscape" : "sheet-portrait"]}>
   <div class="mb-4 flex flex-wrap items-center gap-x-4 gap-y-2 print:hidden">
-    <button type="button" data-print={id} class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-9 px-5 font-semibold text-accent-contrast transition duration-fast ease-productive hover:bg-accent-10 active:scale-[0.97]">
+    <button type="button" data-print={id} class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-9 px-5 font-semibold text-accent-contrast transition duration-fast ease-productive hover:bg-accent-10 motion-safe:active:scale-[0.97]">
       <Printer class="size-4" aria-hidden="true" />Print this sheet
     </button>
   </div>
-  <div class="rounded-xl border border-gray-a6 bg-gray-1 p-4 sm:p-6 print:rounded-none print:border-0 print:p-0">
+  <div class="rounded-xl bg-gray-a3 p-4 sm:p-6 print:rounded-none print:border-0 print:bg-transparent print:p-0">
     {sheet.title && <h3 id={`${id}-title`} class="text-lg font-semibold text-gray-12">{sheet.title}</h3>}
     {sheet.fields.length > 0 && (
       <div class="mt-3 grid gap-3 sm:grid-cols-3">
         {sheet.fields.map((f, i) => (
           <label class="grid gap-1 text-sm font-medium text-gray-12">
             {f.label}
-            <input id={`${id}-f${i}`} type="text" value={f.value} autocomplete="off" class="min-h-11 rounded-md border border-gray-9 bg-background px-3 text-base text-gray-12" />
+            <input id={`${id}-f${i}`} type="text" value={f.value} autocomplete="off" class="min-h-11 w-full min-w-0 rounded-md border border-gray-9 bg-background px-3 text-base text-gray-12 print:min-h-0 print:rounded-none print:border-0 print:border-b print:bg-transparent print:px-0 print:py-1 print:text-[9pt]" />
           </label>
         ))}
       </div>
@@ -36,10 +37,10 @@ const wide = Math.max(...sheet.tables.map((t) => t.columns.length)) > 7
       const offset = sheet.tables.slice(0, ti).reduce((n, x) => n + (typeof x.rows === "number" ? x.rows : x.rows.length), 0)
       return (
         <section class="mt-4 overflow-x-auto print:overflow-visible" aria-label={t.caption || sheet.title || "Record sheet"} tabindex="0">
-          <table class="w-full border-collapse text-sm print:text-[9pt]">
+          <table class="w-full border-collapse text-sm print:table-fixed print:text-[9pt]">
             {t.caption && <caption class="sr-only">{t.caption}</caption>}
             <thead>
-              <tr>{t.columns.map((c) => <th scope="col" class="border border-gray-9 bg-gray-3 px-2 py-2 text-left align-bottom font-semibold text-gray-12 print:bg-transparent">{c.header}</th>)}</tr>
+              <tr>{t.columns.map((c) => <th scope="col" class="border border-gray-9 bg-gray-3 px-2 py-2 text-left align-bottom font-semibold text-gray-12 print:bg-transparent print:px-1 print:text-[8pt] print:hyphens-auto print:wrap-break-word">{c.header.split("/").flatMap((part, i) => (i ? ["/", <wbr />, part] : [part]))}</th>)}</tr>
             </thead>
             <tbody>
               {rows.map((row, r) => (
@@ -49,7 +50,7 @@ const wide = Math.max(...sheet.tables.map((t) => t.columns.length)) > 7
                     return printed !== null && printed !== undefined ? (
                       <td class="border border-gray-9 px-2 py-1 text-gray-12 tabular-nums">{printed}</td>
                     ) : (
-                      <td class="border border-gray-9 p-0"><input type="text" autocomplete="off" aria-label={`${c.label}, row ${offset + r + 1}`} class="sheet-cell block min-h-9 w-full min-w-24 bg-transparent px-2 text-sm text-gray-12 focus:bg-accent-a3 print:min-h-0 print:h-[0.32in]" /></td>
+                      <td class="border border-gray-9 p-0"><input type="text" autocomplete="off" aria-label={`${c.label}, row ${offset + r + 1}`} class="sheet-cell block min-h-9 w-full min-w-24 bg-transparent px-2 text-sm text-gray-12 focus:bg-accent-a3 print:h-[0.32in] print:min-h-0 print:min-w-0" /></td>
                     )
                   })}
                 </tr>
@@ -59,6 +60,7 @@ const wide = Math.max(...sheet.tables.map((t) => t.columns.length)) > 7
         </section>
       )
     })}
+    {sheet.hints?.map((n) => <p data-hint class="mt-3 text-sm text-gray-11 print:hidden">{n}</p>)}
     {sheet.footer?.map((n) => <p class="mt-3 text-sm text-gray-11">{n}</p>)}
   </div>
 </div>

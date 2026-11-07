@@ -5,8 +5,8 @@ const { id, title, intro, tone = "plain" } = Astro.props
 ---
 <section id={id} aria-labelledby={`${id}-h`} class:list={[tone === "tint" && "bg-gray-2"]}>
   <div class="mx-auto max-w-page px-gutter py-section">
-    <h2 id={`${id}-h`} class="max-w-[24ch] text-3xl font-semibold tracking-tight text-gray-12">{title}</h2>
-    {intro && <p class="mt-4 max-w-measure text-lg text-gray-11">{intro}</p>}
+    <h2 id={`${id}-h`} class="rise text-2xl font-semibold tracking-tight text-gray-12 sm:text-3xl">{title}</h2>
+    {intro && <p class="rise mt-4 max-w-measure text-lg text-gray-11">{intro}</p>}
     <div class="mt-10"><slot /></div>
   </div>
 </section>

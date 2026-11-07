@@ -11,8 +11,10 @@
   /* GitHub Primer's system stack (primer/primitives font-stack.json5, 2026-01-30) after its own brand face:
      SF Pro on Apple devices, Segoe UI on Windows, Noto Sans or Roboto elsewhere. The founder's rule: the system font. */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  --container-measure: 66ch;
+  /* Reading measure. 1ch is the width of "0", wider than an average letter: measured on this site in the system font,
+     a line holds about 1.44 characters per ch, so 66ch ran to ~95 characters (impeccable "line-length"). 52ch is
+     ~75, the top of the 45–75 range (Bringhurst; WCAG 1.4.8 says under 80), and PurchaseRow's FAQ measure. */
+  --container-measure: 52ch;
   --container-page: 76rem;
 }
 
@@ -93,6 +95,8 @@
   font-size: var(--text-base);
   line-height: 1.7;
   max-width: var(--container-measure);
+  /* A page that sets max-w-none to give its tables and sheets the full width still keeps its words to the measure. */
+  & :where(p, ul, ol, dl, blockquote, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) { max-width: var(--container-measure); }
   /* The plugin prints a backtick before and after inline code; the old pages showed the code alone. */
   & :where(code)::before, & :where(code)::after { content: none; }
 }
@@ -112,6 +116,24 @@
   [data-sheet] { break-inside: auto; }
   [data-sheet] tr { break-inside: avoid; }
 }
+
+/* Motion (SPEC.md §7 station 10): only transform, only where it helps, and nothing under reduced motion.
+   - Section parts rise 24 px as they enter the screen, driven by the scroll itself (CSS scroll-driven animations,
+     Interop 2026; no script). Pictures don't rise (PurchaseRow's rule). Browsers without view() show them still.
+   - Pages change with a cross-document View Transition (Interop 2026), a short cross-fade.
+   - Controls answer the press (Button, active:scale 0.97) and linked cards lift 2 px on hover (taste-skill 2.5), both
+     only under motion-safe (Hallmark gate 27). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-productive); }
+  @supports (animation-timeline: view()) {
+    /* Longhands on purpose: Lightning CSS 1.33 folds `animation` + `animation-timeline` into one shorthand,
+       `animation: linear both rise view()`, which Chrome 152 rejects, so no part ever moved (caught by taste-skill
+       inspect "still-page"; scripts/check.mjs now checks the rule survives the build). */
+    .rise { animation-name: rise; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+  }
+}
+@keyframes rise { from { transform: translateY(24px); } to { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

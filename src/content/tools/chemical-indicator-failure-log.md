@@ -6,7 +6,7 @@ cta: {"heading":"Want this done for you?","text":"","link":"Dental Logbook is in
 heading: "Free chemical indicator failure and reprocessing log"
 kicker: "Free tool · Dental offices · United States"
 note: "This page is not legal advice; check your state board's current rules."
-sheets: [{"title":"Chemical indicator failure and reprocessing log","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Chemical indicator failure and reprocessing log: one row for each failed indicator, one sheet per sterilizer.","columns":[{"header":"Date","label":"date"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Load no.","label":"load number"},{"header":"Which indicator failed (internal / external / mechanical reading)","label":"which indicator failed, internal, external or mechanical reading"},{"header":"Packs affected","label":"packs affected"},{"header":"Packs held (yes)","label":"packs held"},{"header":"Reprocessed as load no.","label":"reprocessed as load number"},{"header":"Cause found","label":"cause found"},{"header":"Initials","label":"initials"}],"rows":15}],"footer":["Scroll the table sideways to reach every column.","This template helps you keep records. It is not legal advice; check your state board's current rules."]}]
+sheets: [{"title":"Chemical indicator failure and reprocessing log","orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Chemical indicator failure and reprocessing log: one row for each failed indicator, one sheet per sterilizer.","columns":[{"header":"Date","label":"date"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Load no.","label":"load number"},{"header":"Which indicator failed (internal / external / mechanical reading)","label":"which indicator failed, internal, external or mechanical reading"},{"header":"Packs affected","label":"packs affected"},{"header":"Packs held (yes)","label":"packs held"},{"header":"Reprocessed as load no.","label":"reprocessed as load number"},{"header":"Cause found","label":"cause found"},{"header":"Initials","label":"initials"}],"rows":15}],"footer":["This template helps you keep records. It is not legal advice; check your state board's current rules."],"hints":["Scroll the table sideways to reach every column."]}]
 ---
 
 This free printable log is for dental offices in the United States to record each failed chemical or mechanical indicator and the reprocessing that followed. When a mechanical reading or a chemical indicator shows inadequate processing, the instrument packs in that load should not be used until they have been reprocessed <cite>(CDC, 2003 dental infection-control guidelines)</cite>.
@@ -38,26 +38,18 @@ Prints on US Letter paper, landscape.
 
 Four steps, from a blank page to a signed row for every failure.
 
-1.  01
-    
-    ### Fill in the header
+1.  ### Fill in the header
     
     Office name, the sterilizer's label and the month or year the sheet covers.
     
-2.  02
-    
-    ### One row for each failure
+2.  ### One row for each failure
     
     Write the date, the sterilizer and the load number, then mark which indicator failed: the internal one, the external one, or the mechanical reading.
     
-3.  03
-    
-    ### Record the packs
+3.  ### Record the packs
     
     How many packs were affected, that they were held, and the load number they were reprocessed as.
     
-4.  04
-    
-    ### Cause and initials
+4.  ### Cause and initials
     
     Write the cause found, then close the row with your initials.

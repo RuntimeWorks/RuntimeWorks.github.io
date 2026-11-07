@@ -15,8 +15,8 @@ const REWRITTEN = {
 // Words dropped on purpose, by page.
 const DROPPED = {
   "/tools/osha-training-record/": ["Sterilizer (label)"], // a field copied from another sheet by mistake; a training record has no sterilizer
-  "/tools/florida-spore-test-calculator/": ["@out"], // the calculator's result, which is computed in the browser now
-  "/food-safety/": ["→ moved stock to walk-in, recheck"], // kept, but shown under its check (spacing differs)
+  "/tools/florida-spore-test-calculator/": ["@out", "Next spore test due — Florida"], // the result is computed in the browser now; the heading reads "in Florida", no dash (Hallmark gate 19)
+  "/food-safety/": ["→ moved stock to walk-in, recheck", "— Deya"], // the first kept, shown under its check (spacing differs); the sign-off keeps the name without its dash (Hallmark gate 19)
 }
 
 const norm = (s) => s.normalize("NFKC").replace(/[‘’′]/g, "'").replace(/[“”″]/g, '"').replace(/[–—−]/g, "-")
@@ -36,6 +36,7 @@ for (const file of pages()) {
   if (!fs.existsSync(target)) { console.log(`  FAIL ${url}: no new page`); missing++; continue }
   const $n = cheerio.load(fs.readFileSync(target, "utf8"))
   $n("script, style").remove()
+  $n("br").replaceWith(" ") // a line break reads as a space on both sides
   const now = norm($n("main").text() + " " + $n("main input").map((_, i) => $n(i).attr("value") ?? "").get().join(" "))
   const blocks = main.find("h1, h2, h3, h4, p, li, td, th, dt, dd, caption, figcaption, summary, label, legend, blockquote").filter((_, e) => !$(e).find("p, li, h2, h3, h4, table, ul, ol").length)
   for (const b of blocks.toArray()) {
@@ -43,6 +44,12 @@ for (const file of pages()) {
     if (text.length < 3 || (DROPPED[url] ?? []).some((d) => norm(d) === text)) continue
     checked++
     if (!now.replace(/\s/g, "").includes(text.replace(/\s/g, ""))) { missing++; console.log(`  FAIL ${url}: missing "${$(b).text().replace(/\s+/g, " ").trim().slice(0, 110)}"`) }
+    // The check above ignores spaces, so a line break lost in the move ("Date of<br>positive result" printed as
+    // "Date ofpositive result") would pass it. Where the old block broke a line, the words must still be apart.
+    else if ($(b).find("br").length) {
+      const spaced = norm($(b).clone().find("br").replaceWith(" ").end().text())
+      if (!now.includes(spaced)) { missing++; console.log(`  FAIL ${url}: words joined where the old page broke the line: "${spaced.slice(0, 80)}"`) }
+    }
   }
 }
 // Markdown that failed to render (an unclosed ** or __) shows its marks as text: none may reach a built page.

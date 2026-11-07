@@ -6,7 +6,7 @@ cta: {"heading":"Want this done for you?","text":"Dental Logbook · in developme
 heading: "Free dental sterilizer load log (every cycle)"
 kicker: "Free tool · Dental offices in the United States"
 lead: ["For dental offices in the United States: one printable sheet that takes a line for every sterilizer cycle, free to print and free to use."]
-sheets: [{"fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["Sterilizer load log","Prints on US Letter, landscape. This page keeps nothing: no account, no cookies, and nothing you type is saved or sent anywhere."],"tables":[{"caption":"","columns":[{"header":"Date","label":"Date"},{"header":"Start time","label":"Start time"},{"header":"Load no.","label":"Load no."},{"header":"Cycle type","label":"Cycle type"},{"header":"Contents (packs/cassettes)","label":"Contents (packs/cassettes)"},{"header":"Wrapped Y/N","label":"Wrapped Y/N"},{"header":"Implant Y/N","label":"Implant Y/N"},{"header":"Temp","label":"Temp"},{"header":"Pressure","label":"Pressure"},{"header":"Exposure time","label":"Exposure time"},{"header":"Cycle minutes","label":"Cycle minutes"},{"header":"Within mfr. parameters Y/N","label":"Within mfr. parameters Y/N"},{"header":"Chemical indicators passed Y/N","label":"Chemical indicators passed Y/N"},{"header":"Operator","label":"Operator"},{"header":"Outcome (released / held for BI / failed)","label":"Outcome (released / held for BI / failed)"}],"rows":15}],"footer":["Scroll the table sideways to see every column."]}]
+sheets: [{"orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["Sterilizer load log","Prints on US Letter, landscape. This page keeps nothing: no account, no cookies, and nothing you type is saved or sent anywhere."],"tables":[{"caption":"","columns":[{"header":"Date","label":"Date"},{"header":"Start time","label":"Start time"},{"header":"Load no.","label":"Load no."},{"header":"Cycle type","label":"Cycle type"},{"header":"Contents (packs/cassettes)","label":"Contents (packs/cassettes)"},{"header":"Wrapped Y/N","label":"Wrapped Y/N"},{"header":"Implant Y/N","label":"Implant Y/N"},{"header":"Temp","label":"Temp"},{"header":"Pressure","label":"Pressure"},{"header":"Exposure time","label":"Exposure time"},{"header":"Cycle minutes","label":"Cycle minutes"},{"header":"Within mfr. parameters Y/N","label":"Within mfr. parameters Y/N"},{"header":"Chemical indicators passed Y/N","label":"Chemical indicators passed Y/N"},{"header":"Operator","label":"Operator"},{"header":"Outcome (released / held for BI / failed)","label":"Outcome (released / held for BI / failed)"}],"rows":15}],"hints":["Scroll the table sideways to see every column."]}]
 ---
 
 ## What the rules say
@@ -30,21 +30,13 @@ sheets: [{"fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"lab
 
 ## How to use it
 
-1.  01
+1.  Fill in the office name, the sterilizer label exactly as it appears on your packs, and the month at the top of the sheet.
     
-    Fill in the office name, the sterilizer label exactly as it appears on your packs, and the month at the top of the sheet.
+2.  Write one line per cycle, at the end of the cycle, by the operator who ran it: start time, cycle type, contents, and the readings from the gauges or the display.
     
-2.  02
+3.  Mark wrapped or unwrapped, and mark Implant Y when the load contains an implantable device — that load is held for its biological indicator.
     
-    Write one line per cycle, at the end of the cycle, by the operator who ran it: start time, cycle type, contents, and the readings from the gauges or the display.
-    
-3.  03
-    
-    Mark wrapped or unwrapped, and mark Implant Y when the load contains an implantable device — that load is held for its biological indicator.
-    
-4.  04
-    
-    Close the line with the outcome: released, held for BI, or failed. Then label each pack with the sterilizer, the load number and the date, so a pack can be traced back to its line.
+4.  Close the line with the outcome: released, held for BI, or failed. Then label each pack with the sterilizer, the load number and the date, so a pack can be traced back to its line.
     
 
 This template helps you keep records. It is not legal advice; check your state board’s current rules.

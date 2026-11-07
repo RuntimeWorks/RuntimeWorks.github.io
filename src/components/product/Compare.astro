@@ -6,7 +6,7 @@ const { before, after } = Astro.props
 ---
 <div class="grid gap-6 md:grid-cols-2">
   {[before, after].map((col, i) => (
-    <div class:list={["rounded-xl border p-6 sm:p-8", i === 0 ? "border-gray-a6 bg-gray-1" : "border-accent-6 bg-accent-2"]}>
+    <div class:list={["rise rounded-xl p-6 sm:p-8", i === 0 ? "bg-gray-a3" : "bg-accent-a3"]}>
       <h3 class="text-xl font-semibold text-gray-12"><span class="block text-sm font-medium text-gray-11">{col.label}</span>{col.title}</h3>
       <ul class="mt-5 grid gap-3">
         {col.items.map((t) => (

@@ -10,16 +10,27 @@ import Shot from "../../components/product/Shot.astro"
 import Button from "../../components/Button.astro"
 import { brand } from "../../data/brand"
 import shot from "../../assets/products/purchaserow.png"
+import order from "../../assets/products/purchaserow-order.png"
+import labels from "../../assets/products/purchaserow-labels.png"
+import today from "../../assets/products/purchaserow-app-today.png"
 
 const ask = `mailto:${brand.email}?subject=${encodeURIComponent("PurchaseRow")}&body=${encodeURIComponent("Company:\nRetailers you sell to:\n")}`
 ---
 <Base title="PurchaseRow: EDI for small suppliers who sell to big retailers · Boldsand" description="Read every retailer purchase order in plain words, confirm it, ship it with GS1 carton labels and invoice it, from a browser. Flat price per retailer. In development.">
-  <Hero kicker="Suppliers to big retailers" title="EDI for small suppliers who sell to big retailers." lead="Big retailers order by EDI: coded files their systems send and expect answered within hours. PurchaseRow reads every order, confirms it, ships it with labels that scan and invoices it, all from a browser." status="In development" facts={["Any browser, office or dock", "One flat price per retailer", "Made by Boldsand Software Inc."]}>
+  <Hero name="PurchaseRow" promise="EDI for small suppliers who sell to big retailers." lead="Big retailers order by EDI: coded files their systems send and expect answered within hours. PurchaseRow reads every order, confirms it, ships it with labels that scan and invoices it, all from a browser." status="In development" facts={["Any browser, office or dock", "One flat price per retailer", "Made by Boldsand Software Inc."]}>
     <Fragment slot="actions">
       <Button href={ask}>Ask about the pilot</Button>
     </Fragment>
     <Shot slot="visual" src={shot} eager alt="The PurchaseRow site: “EDI for small suppliers who sell to big retailers”, with one line of a retailer’s order read in plain words." caption="PurchaseRow’s own site, with a line of a sample order read in plain words." />
   </Hero>
+
+  <Section id="product" title="Read an order now" intro="The product, running on a sample purchase order from a fictional grocery chain. Change what ships and watch every document follow." tone="tint">
+    <div class="grid gap-10 lg:grid-cols-2">
+      <Shot src={order} alt="PurchaseRow reading sample purchase order 4500018723 from Northgate: four lines with item, UPC, quantity, unit price and amount, an order total of $2,784.00, marked ready to answer, beside controls for the ship date, carrier and how many of each line ship." caption="A retailer’s purchase order, read line by line." />
+      <Shot src={labels} alt="The first of 47 GS1-128 carton labels PurchaseRow made for the sample order: ship-from and ship-to addresses, the ship-to postal code and carrier, the PO number, the item, carton 1 of 47 and its SSCC barcode." caption="Carton labels that scan: GS1-128, a unique SSCC for every carton." />
+      <Shot src={today} class="lg:col-span-2" sizes="(min-width: 1024px) 1200px, 100vw" alt="The PurchaseRow app’s Today screen with sample data: 3 orders to answer, $812.00 owed, $45.00 in open deductions, the next steps, ship windows for three retailers, and an order’s document trail from the 850 order to the 820 payment." caption="The app’s Today screen, with sample data for fictional retailers." />
+    </div>
+  </Section>
 
   <Section id="what" title="What it does for you.">
     <div class="grid gap-10 lg:grid-cols-2">

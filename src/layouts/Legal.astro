@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props
 ---
 <Base title={frontmatter.title} description={frontmatter.description} noindex={frontmatter.noindex === true}>
   <article class="mx-auto max-w-page px-gutter pt-12">
-    <h1 class="max-w-measure text-3xl font-semibold tracking-tight text-gray-12">{frontmatter.heading}</h1>
+    <h1 class="max-w-measure min-w-0 text-3xl font-semibold tracking-tight text-gray-12 wrap-break-word">{frontmatter.heading}</h1>
     <div class="prose prose-brand mt-8 prose-headings:font-semibold prose-h2:text-xl prose-a:underline-offset-4"><slot /></div>
   </article>
 </Base>

@@ -13,14 +13,14 @@ const { product: p, wide = false } = Astro.props
 const img = productImages[p.id]
 const Arrow = p.external ? ArrowUpRight : ArrowRight
 ---
-<article class:list={["group relative flex flex-col overflow-hidden rounded-xl border border-gray-a6 bg-gray-1 transition-shadow duration-moderate ease-productive hover:shadow-lg focus-within:shadow-lg", wide && "md:grid md:grid-cols-[minmax(0,1fr)_16rem]"]}>
+<article class:list={["rise group relative flex flex-col overflow-hidden rounded-xl bg-gray-a3 transition-transform duration-moderate ease-productive motion-safe:hover:-translate-y-0.5", wide && "md:grid md:grid-cols-[minmax(0,1fr)_16rem]"]}>
   {img && (
-    <div class:list={["border-b border-gray-a6 bg-gray-3", wide && "md:order-2 md:border-b-0 md:border-l"]}>
+    <div class:list={["bg-gray-3", wide && "md:order-2"]}>
       {img.kind === "screen" ? (
         <Image src={img.src} alt={img.alt} widths={[480, 720, 960, 1280]} sizes="(min-width: 1024px) 560px, 100vw" class="aspect-[16/10] w-full object-cover object-top" loading="lazy" />
       ) : (
         <div class:list={["grid h-full place-items-center", wide ? "aspect-[16/10] md:aspect-auto md:min-h-56" : "aspect-[16/10]"]}>
-          <Image src={img.src} alt={img.alt} widths={[128, 256]} sizes="128px" class="size-28 rounded-[22%] shadow-md" loading="lazy" />
+          <Image src={img.src} alt={img.alt} widths={[128, 256]} sizes="128px" class="size-28 rounded-[22%]" loading="lazy" />
         </div>
       )}
     </div>

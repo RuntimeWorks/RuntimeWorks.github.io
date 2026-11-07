@@ -7,7 +7,7 @@ heading: "Free implant load log (spore test and release record)"
 kicker: "Free tool · Dental offices · United States"
 answer: ["An implant load log records every sterilizer load that contains implantable items on one row: what the load held, its spore test and result, and the date the items were released.","This one is a free sheet for US dental offices: type into it before you print, or print it blank and write it in by hand; nothing you type is stored or sent."]
 note: "This template helps you keep records. It is not legal advice; check your state board’s current rules. This page is not legal advice; check your state board’s current rules."
-sheets: [{"title":"Implant load log","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer, per month"],"tables":[{"caption":"Implant load log: one row for every sterilizer load that contains implantable items, with its spore test, result and release.","columns":[{"header":"Date","label":"date"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Load no.","label":"load number"},{"header":"Implant items","label":"implant items"},{"header":"BI lot","label":"BI lot"},{"header":"BI placed (time)","label":"BI placed, time"},{"header":"Result (negative / positive)","label":"result, negative or positive"},{"header":"Read on","label":"read on"},{"header":"Released on","label":"released on"},{"header":"Released before result? (yes/no + reason)","label":"released before result, yes or no with reason"},{"header":"Initials","label":"initials"}],"rows":14}],"footer":["Scroll the table sideways to reach every column.","One row for every load with implantable items. In the “Released before result?” column, write yes or no, and when it is yes, write the reason beside it. This sheet holds no patient names."]}]
+sheets: [{"title":"Implant load log","orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer, per month"],"tables":[{"caption":"Implant load log: one row for every sterilizer load that contains implantable items, with its spore test, result and release.","columns":[{"header":"Date","label":"date"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Load no.","label":"load number"},{"header":"Implant items","label":"implant items"},{"header":"BI lot","label":"BI lot"},{"header":"BI placed (time)","label":"BI placed, time"},{"header":"Result (negative / positive)","label":"result, negative or positive"},{"header":"Read on","label":"read on"},{"header":"Released on","label":"released on"},{"header":"Released before result? (yes/no + reason)","label":"released before result, yes or no with reason"},{"header":"Initials","label":"initials"}],"rows":14}],"footer":["One row for every load with implantable items. In the “Released before result?” column, write yes or no, and when it is yes, write the reason beside it. This sheet holds no patient names."],"hints":["Scroll the table sideways to reach every column."]}]
 ---
 
 This printable log is for dental offices in the United States that place implantable items in their sterilizer loads, and it is free to use and print.
@@ -45,26 +45,18 @@ Prints on one US Letter page, landscape.
 
 Four steps, from a blank page to a signed record of each implant load.
 
-1.  01
-    
-    ### Fill in the header
+1.  ### Fill in the header
     
     Office name, the sterilizer’s label, and the month. One sheet per sterilizer, per month.
     
-2.  02
-    
-    ### One row per implant load
+2.  ### One row per implant load
     
     Write the date, the sterilizer, the load number, and the implant items the load held.
     
-3.  03
-    
-    ### Add the spore test
+3.  ### Add the spore test
     
     Write the BI lot and the time it was placed. When you read it, write the result (negative or positive) and the date.
     
-4.  04
-    
-    ### Release and sign
+4.  ### Release and sign
     
     Write the date the items were released and your initials. If they went out before the result, mark yes in that column and write the reason.

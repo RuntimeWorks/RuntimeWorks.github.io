@@ -9,10 +9,10 @@ const { class: cls = "size-8", title } = Astro.props
   <path d="M18 33l9 9 19-21" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
 <style>
-  .bs-mark rect { fill: #0f2b47; }
-  .bs-mark path { stroke: #eee4d1; }
+  .bs-mark rect { fill: var(--brand-navy); }
+  .bs-mark path { stroke: var(--brand-sand); }
   @media (prefers-color-scheme: dark) {
-    .bs-mark rect { fill: #eee4d1; }
-    .bs-mark path { stroke: #0f2b47; }
+    .bs-mark rect { fill: var(--brand-sand); }
+    .bs-mark path { stroke: var(--brand-navy); }
   }
 </style>

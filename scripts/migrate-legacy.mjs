@@ -50,8 +50,23 @@ const md = (html) => td.turndown(sanitize(html)).replace(/\n{3,}/g, "\n\n").trim
 // A printable sheet: its title, header fields, notes and tables. A column's label comes from the first row's input
 // labels ("Row 1: date placed", "Date, row 1", "Training date, line 1"); a cell with printed text (a week's date on the
 // calendar) is kept as that text, so the sheet is data and one component draws every sheet the same way.
+// The old page's own print rules: the paper it asked for (@page size) and the classes it hid on paper (a "scroll
+// sideways" hint, for example). Braces are matched, so nested rules inside @media print are read whole.
+function printRules(css) {
+  const orientation = /@page\s*\{[^}]*size:\s*letter\s+(landscape|portrait)/.exec(css)?.[1] ?? "portrait"
+  const hidden = new Set()
+  for (let i = css.indexOf("@media print"); i !== -1; i = css.indexOf("@media print", i + 1)) {
+    let depth = 0, j = css.indexOf("{", i), k = j
+    for (; k < css.length; k++) { if (css[k] === "{") depth++; else if (css[k] === "}" && --depth === 0) break }
+    for (const [, sel, body] of css.slice(j + 1, k).matchAll(/([^{}]+)\{([^{}]*)\}/g))
+      if (/display\s*:\s*none/.test(body)) for (const c of sel.matchAll(/\.([\w-]+)/g)) hidden.add(c[1])
+  }
+  return { orientation, hidden }
+}
 const stripRow = (s) => clean(s).replace(/^Row \d+:\s*/i, "").replace(/,\s*(row|line)\s*\d+$/i, "")
-function readSheet($, sheet) {
+function readSheet($, sheet, print) {
+  // A line break inside a heading ("Date of<br>positive result") is a space in the words.
+  sheet.find("br").replaceWith(" ")
   const title = clean(sheet.find(".sheet-head h3, h3").first().text())
   const fields = sheet.find(".field").map((_, f) => {
     const input = $(f).find("input").first()
@@ -63,8 +78,12 @@ function readSheet($, sheet) {
   const lines = sheet.find("p, small, h4, h5, legend, .sheet-foot, .foot").filter((_, e) => !$(e).closest(".field, table").length && !$(e).find("p, small, h4, h5").length && !$(e).is(sheet.find(".sheet-head h3, h3").first()))
   // A line is above the table when the table follows it (as a later sibling of the line or of one of its parents).
   const isBefore = (e) => Boolean(firstTable) && $(e).nextAll().add($(e).parents().nextAll()).filter((_, n) => n === firstTable || $(n).find(firstTable).length > 0).length > 0
-  const notes = lines.filter((_, e) => isBefore(e)).map((_, e) => clean($(e).text())).get().filter(Boolean)
-  const footer = lines.filter((_, e) => !isBefore(e)).map((_, e) => clean($(e).text())).get().filter(Boolean)
+  // Lines the old page hid on paper are screen hints; they stay on screen and are never printed.
+  const screenOnly = (e) => ($(e).attr("class") ?? "").split(/\s+/).some((c) => print.hidden.has(c))
+  const text = (set) => set.map((_, e) => clean($(e).text())).get().filter(Boolean)
+  const notes = text(lines.filter((_, e) => isBefore(e) && !screenOnly(e)))
+  const footer = text(lines.filter((_, e) => !isBefore(e) && !screenOnly(e)))
+  const hints = text(lines.filter((_, e) => screenOnly(e)))
   const tables = sheet.find("table").map((_, t) => {
     const table = $(t)
     const headers = table.find("thead tr").last().find("th").map((_, th) => clean($(th).text())).get()
@@ -80,7 +99,7 @@ function readSheet($, sheet) {
     const prefilled = rows.some((r) => r.some((c) => c !== null && c !== ""))
     return { caption: clean(table.find("caption").text()), columns, ...(prefilled ? { rows } : { rows: rows.length }) }
   }).get()
-  return { ...(title ? { title } : {}), fields, notes, tables, ...(footer.length ? { footer } : {}) }
+  return { ...(title ? { title } : {}), orientation: print.orientation, fields, notes, tables, ...(footer.length ? { footer } : {}), ...(hints.length ? { hints } : {}) }
 }
 
 const kinds = { guides: "guides", tools: "tools", states: "states" }
@@ -134,6 +153,8 @@ for (const file of pages()) {
 
   main.find(".label, .eyebrow, .kicker").each((_, el) => { if (isEyebrow($, el)) $(el).remove() })
   main.find(".src, .cite").each((_, el) => { el.tagName = "cite" })
+  // Decorative step labels ("01", "02") inside ordered lists repeat the list's own numbers (taste-skill: numbering).
+  main.find("ol .num, ol .n, ol .step-num").filter((_, e) => /^\d{1,2}$/.test(clean($(e).text()))).remove()
 
   // A sheet is a block with a table and fields to fill. Other blocks with inputs (the Florida calculator) become a marked spot
   // for a component ported by hand; a "sheet" with no inputs is an ordinary table and stays in the text.
@@ -141,7 +162,8 @@ for (const file of pages()) {
     .each((i, el) => { $(el).replaceWith(`<x-widget name="form-${i + 1}"></x-widget>`) })
   const sheets = main.find(".sheet, .log-card").filter((_, el) => $(el).find("table").length > 0 && $(el).find("input").length > 0)
   if (sheets.length) {
-    fm.sheets = sheets.map((_, el) => readSheet($, $(el))).get()
+    const print = printRules($("style").map((_, st) => $(st).text()).get().join("\n"))
+    fm.sheets = sheets.map((_, el) => readSheet($, $(el), print)).get()
     // Correction: the training record carried a "Sterilizer (label)" field copied from the sterilizer sheets; a
     // bloodborne pathogens training record has no sterilizer.
     if (slug === "osha-training-record") for (const sh of fm.sheets) sh.fields = sh.fields.filter((f) => f.label !== "Sterilizer (label)")

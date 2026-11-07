@@ -6,7 +6,7 @@
 import fs from "node:fs"
 import path from "node:path"
 import Color from "colorjs.io"
-import { calculateSpaceScale, calculateTypeScale } from "utopia-core"
+import { calculateClamp, calculateSpaceScale, calculateTypeScale } from "utopia-core"
 import { generateRadixColors } from "./vendor/radix/generate-radix-colors.ts"
 import { getColorScaleCss } from "./vendor/radix/utils.ts"
 import { brand } from "../src/data/brand.ts"
@@ -57,6 +57,11 @@ for (const s of type) if (s.wcagViolation) throw new Error(`Utopia type step ${s
 // Line heights: Tailwind CSS 4's defaults for the same names (leading falls as size grows).
 const leading: Record<string, string> = { xs: "calc(1 / 0.75)", sm: "calc(1.25 / 0.875)", base: "calc(1.5 / 1)", lg: "calc(1.75 / 1.125)", xl: "calc(1.75 / 1.25)", "2xl": "calc(2 / 1.5)", "3xl": "calc(2.25 / 1.875)", "4xl": "calc(2.5 / 2.25)", "5xl": "1" }
 const typeCss = type.map((s) => `  --text-${s.label}: ${s.clamp};\n  --text-${s.label}--line-height: ${leading[s.label] ?? "1.1"};`).join("\n")
+// Display: one name or word that leads a first screen (taste-skill inspect "focal-point": on the strongest sites it
+// studied, the largest type has a median of 8.4vw). Utopia's own clamp calculator, 52 px at 320 wide to 128 px at
+// 1440 (8.9vw), so a product name of up to about 20 letters stays within two lines at every width.
+const display = calculateClamp({ minSize: 52, maxSize: 128, minWidth: 320, maxWidth: 1440 })
+const displayCss = `  --text-display: ${display};\n  --text-display--line-height: 0.95;\n  --text-display--letter-spacing: -0.035em;`
 
 // Space: Utopia's default space calculator (utopia.fyi/space/calculator), same viewports and base sizes.
 const space = calculateSpaceScale({ minWidth: 320, maxWidth: 1240, minSize: 18, maxSize: 20, negativeSteps: [0.75, 0.5, 0.25], positiveSteps: [1.5, 2, 3, 4, 6], customSizes: ["s-l", "m-2xl", "l-3xl"] })
@@ -68,6 +73,12 @@ ${lightCss}
 
 ${darkCss}
 
+/* The logo's two fixed colours (src/data/brand.ts), the same in both themes; the mark swaps them on dark. */
+:root {
+  --brand-navy: ${brand.colors.accent};
+  --brand-sand: ${brand.colors.markSand};
+}
+
 /* Utopia fluid type (Tailwind names) and space. */
 :root {
 ${spaceCss}
@@ -75,6 +86,7 @@ ${spaceCss}
 
 @theme {
 ${typeCss}
+${displayCss}
   /* IBM Carbon motion: fast-01, fast-02, moderate-02 and the productive-standard curve. */
   --duration-fast: 110ms;
   --duration-moderate: 150ms;

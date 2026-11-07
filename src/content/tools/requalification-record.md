@@ -6,7 +6,7 @@ cta: {"heading":"Dental Logbook is in development: join the free pilot","text":"
 heading: "Free sterilizer requalification record (after a failure or a repair)"
 kicker: "Free tool · Dental offices · United States"
 note: "This template helps you keep records. It is not legal advice; check your state board's current rules. This page is not legal advice; check your state board's current rules."
-sheets: [{"title":"Sterilizer requalification record","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Sterilizer requalification record: one row per test cycle, with its reason, chamber state and results, up to the return to service.","columns":[{"header":"Reason (positive BI, repair, installation, relocation)","label":"reason"},{"header":"Date","label":"date"},{"header":"Cycle type","label":"cycle type"},{"header":"Cycle no. (1-3)","label":"cycle number, 1 to 3"},{"header":"Chamber state (empty / fully loaded)","label":"chamber state, empty or fully loaded"},{"header":"BI lot and result","label":"BI lot and result"},{"header":"CI result","label":"CI result"},{"header":"Bowie-Dick (pre-vacuum only)","label":"Bowie-Dick result, pre-vacuum only"},{"header":"Operator","label":"operator"},{"header":"Returned to service (date, by)","label":"returned to service, date and by"}],"rows":15}],"footer":["Scroll the table sideways to reach every column.","The chamber state column records how each cycle actually ran; the sources differ on empty versus fully loaded, as set out above. The Bowie-Dick column is for pre-vacuum steam sterilizers only (CDC disinfection and sterilization guideline, 2008)."]}]
+sheets: [{"title":"Sterilizer requalification record","orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Sterilizer requalification record: one row per test cycle, with its reason, chamber state and results, up to the return to service.","columns":[{"header":"Reason (positive BI, repair, installation, relocation)","label":"reason"},{"header":"Date","label":"date"},{"header":"Cycle type","label":"cycle type"},{"header":"Cycle no. (1-3)","label":"cycle number, 1 to 3"},{"header":"Chamber state (empty / fully loaded)","label":"chamber state, empty or fully loaded"},{"header":"BI lot and result","label":"BI lot and result"},{"header":"CI result","label":"CI result"},{"header":"Bowie-Dick (pre-vacuum only)","label":"Bowie-Dick result, pre-vacuum only"},{"header":"Operator","label":"operator"},{"header":"Returned to service (date, by)","label":"returned to service, date and by"}],"rows":15}],"footer":["The chamber state column records how each cycle actually ran; the sources differ on empty versus fully loaded, as set out above. The Bowie-Dick column is for pre-vacuum steam sterilizers only (CDC disinfection and sterilization guideline, 2008)."],"hints":["Scroll the table sideways to reach every column."]}]
 ---
 
 A requalification record lists the test cycles run on a sterilizer after a failure, a repair, an installation or a relocation, up to its return to service. This printable sheet is free for dental offices in the United States.
@@ -40,26 +40,18 @@ Prints on one US Letter page, landscape.
 
 Four steps, from a blank page to a signed record of the requalification.
 
-1.  01
-    
-    ### Fill in the header
+1.  ### Fill in the header
     
     Office name, the sterilizer's label, and the month or year the sheet covers. One sheet per requalification run.
     
-2.  02
-    
-    ### One row per test cycle
+2.  ### One row per test cycle
     
     Start with the reason for the requalification, then the date, the cycle type and the cycle number (1, 2 or 3).
     
-3.  03
-    
-    ### Record the chamber state and the indicators
+3.  ### Record the chamber state and the indicators
     
     Write whether the chamber ran empty or fully loaded, the BI lot and its result, and the CI result. On a pre-vacuum steam sterilizer, fill in the Bowie-Dick column too.
     
-4.  04
-    
-    ### Close the run
+4.  ### Close the run
     
     After the third cycle, record the return to service with the date and the person who signed off, then file the sheet with your sterilization records.

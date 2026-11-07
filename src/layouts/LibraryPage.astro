@@ -25,13 +25,13 @@ const isTool = entry.collection === "tools"
   <article class="mx-auto max-w-page px-gutter pt-10">
     <header data-page-head class="[&>p]:max-w-measure [&>div]:max-w-measure">
       <Breadcrumb trail={[{ href: "/dental-logbook/", label: "Dental Logbook" }, { href: section.href, label: section.label }, { label: d.heading }]} />
-      {d.kicker && <p class="mt-8 text-sm font-medium text-accent-11">{d.kicker}</p>}
-      <h1 class:list={["mt-2 max-w-[38ch] font-semibold tracking-tight text-gray-12", d.heading.length > 60 ? "text-2xl" : "text-3xl"]}>{d.heading}</h1>
-      {d.byline && <p class="mt-3 text-sm text-gray-11">{d.byline}</p>}
+      <h1 class:list={["mt-8 max-w-[38ch] font-semibold tracking-tight text-gray-12", d.heading.length > 60 ? "text-2xl" : "text-3xl"]}>{d.heading}</h1>
+      {d.kicker && <p class="mt-3 text-sm font-medium text-accent-11">{d.kicker}</p>}
+      {d.byline && <p class="mt-1 text-sm text-gray-11">{d.byline}</p>}
       {d.lead?.map((p) => <p class="mt-4 text-lg text-gray-11" set:html={p} />)}
       {d.facts && <ul class="mt-6 flex flex-wrap gap-2">{d.facts.map((f) => <li class="rounded-full bg-gray-a3 px-3 py-1 text-sm text-gray-11">{f}</li>)}</ul>}
       {d.answer && (
-        <div class="mt-8 rounded-xl border-l-4 border-accent-9 bg-accent-a3 p-5 text-gray-12" role="note" aria-label="The short answer">
+        <div class="mt-8 rounded-xl bg-accent-a3 p-5 text-gray-12" role="note" aria-label="The short answer">
           {d.answer.map((p) => <p class="mt-2 first:mt-0" set:html={p} />)}
         </div>
       )}
@@ -46,7 +46,7 @@ const isTool = entry.collection === "tools"
       })}
     </div>
 
-    {d.note && <p data-page-foot class="mt-10 max-w-measure border-t border-gray-a6 pt-6 text-sm text-gray-11">{d.note}</p>}
+    {d.note && <p data-page-foot class="mt-10 max-w-measure text-sm text-gray-11">{d.note}</p>}
     <DentalPilot heading={d.cta?.heading} text={d.cta?.text} link={d.cta?.link} />
   </article>
   {isTool && <script>import "../scripts/print"</script>}

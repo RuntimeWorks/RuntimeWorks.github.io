@@ -9,4 +9,4 @@ const look = {
   "on-accent": "bg-accent-contrast text-accent-9 hover:opacity-90",
 }[variant]
 ---
-<a href={href} class:list={["inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 text-base font-semibold no-underline transition duration-fast ease-productive active:scale-[0.97]", look, cls]}><slot /></a>
+<a href={href} class:list={["inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 text-base font-semibold no-underline transition duration-fast ease-productive motion-safe:active:scale-[0.97]", look, cls]}><slot /></a>

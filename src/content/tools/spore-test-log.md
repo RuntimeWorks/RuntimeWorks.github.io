@@ -6,7 +6,7 @@ cta: {"heading":"Want this done for you?","text":"Dental Logbook is in developme
 heading: "Free dental sterilizer spore test (BI) log"
 kicker: "Free tool · Dental offices · United States"
 note: "This template helps you keep records. It is not legal advice; check your state board's current rules."
-sheets: [{"title":"Spore test (BI) log","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Spore test (BI) log: one row per biological indicator test, one sheet per sterilizer.","columns":[{"header":"Date placed","label":"date placed"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Cycle type","label":"cycle type"},{"header":"Load number (or 'routine')","label":"load number, or routine"},{"header":"BI product and lot","label":"BI product and lot"},{"header":"Control BI (same lot) result","label":"control BI, same lot, result"},{"header":"Date read","label":"date read"},{"header":"Result (pass/fail)","label":"result, pass or fail"},{"header":"Read by (initials)","label":"read by, initials"},{"header":"Action if failed","label":"action if failed"}],"rows":15}],"footer":["Scroll the table sideways to reach every column."]}]
+sheets: [{"title":"Spore test (BI) log","orientation":"landscape","fields":[{"label":"Office name"},{"label":"Sterilizer (label)"},{"label":"Month / year"}],"notes":["One sheet per sterilizer"],"tables":[{"caption":"Spore test (BI) log: one row per biological indicator test, one sheet per sterilizer.","columns":[{"header":"Date placed","label":"date placed"},{"header":"Sterilizer","label":"sterilizer"},{"header":"Cycle type","label":"cycle type"},{"header":"Load number (or 'routine')","label":"load number, or routine"},{"header":"BI product and lot","label":"BI product and lot"},{"header":"Control BI (same lot) result","label":"control BI, same lot, result"},{"header":"Date read","label":"date read"},{"header":"Result (pass/fail)","label":"result, pass or fail"},{"header":"Read by (initials)","label":"read by, initials"},{"header":"Action if failed","label":"action if failed"}],"rows":15}],"hints":["Scroll the table sideways to reach every column."]}]
 ---
 
 This printable record sheet is for dental offices in the United States to keep their spore test results, and it is free to use and print.
@@ -38,26 +38,18 @@ Prints on one US Letter page, landscape.
 
 Four steps, from a blank page to a signed record of each test.
 
-1.  01
-    
-    ### Fill in the header
+1.  ### Fill in the header
     
     Office name, the sterilizer's label and the month at the top of the sheet. One sheet per sterilizer.
     
-2.  02
-    
-    ### One row per spore test
+2.  ### One row per spore test
     
     Record the date placed, the sterilizer, the cycle type, and the load number — or 'routine' for a routine test.
     
-3.  03
-    
-    ### Product, lot and control
+3.  ### Product, lot and control
     
     Write the BI product and its lot, and the control from the same lot with its result.
     
-4.  04
-    
-    ### Read it and sign it
+4.  ### Read it and sign it
     
     Fill in the date read, the result (pass or fail) and your initials. If a test fails, write what was done in the last column.

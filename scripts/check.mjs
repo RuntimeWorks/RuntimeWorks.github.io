@@ -134,7 +134,7 @@ async function gate(u, scheme, width) {
       if (cell) { const cs = getComputedStyle(cell); if (parseFloat(cs.borderTopWidth) > 0) edge = Math.max(edge, ratio(rgb(cs.borderTopColor), outside)) }
       if (edge < 3) r.faint.push(`${el.getAttribute("aria-label") || el.id || el.name} ${edge.toFixed(2)}:1`)
     }
-    r.twoLine = [...document.querySelectorAll("header a, header summary, footer a, nav a")].filter((el) => el.checkVisibility() && !el.closest("p") && linesOf(el) > 1).map((el) => el.textContent.trim().slice(0, 40))
+    r.twoLine = [...document.querySelectorAll("header a, header summary, footer a, nav a, button, a.min-h-11")].filter((el) => el.checkVisibility() && !el.closest("p") && linesOf(el) > 1).map((el) => el.textContent.trim().slice(0, 40))
     r.tiny = [...document.querySelectorAll("body *")].filter((e) => e.checkVisibility() && [...e.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) && parseFloat(getComputedStyle(e).fontSize) < 12.5 && !e.closest(".sr-only")).map((e) => `${e.textContent.trim().slice(0, 30)} (${getComputedStyle(e).fontSize})`)
     return r
   })
@@ -157,6 +157,37 @@ const jobs = pages.flatMap((u) => ["light", "dark"].flatMap((scheme) => [320, 39
 let next = 0
 await Promise.all(Array.from({ length: 6 }, async () => { while (next < jobs.length) { const j = jobs[next++]; await gate(...j) } }))
 console.log(`  ok   ${pages.length} pages × 2 themes × 5 widths gated`)
+// The motion layer must survive the build: a minifier once folded the scroll-driven rule into a shorthand Chrome
+// rejects, and nothing moved. With motion allowed, the home page's parts must carry a running animation.
+{
+  const page = await browser.newPage({ reducedMotion: "no-preference", viewport: { width: 1440, height: 900 } })
+  await page.goto(base + "/", { waitUntil: "networkidle" })
+  const moving = await page.evaluate(() => ({ rise: document.querySelectorAll(".rise").length, running: document.getAnimations().length, name: getComputedStyle(document.querySelector(".rise")).animationName }))
+  if (moving.name !== "rise" || moving.running < moving.rise) fail(`/ motion: ${moving.running} of ${moving.rise} rising parts animate (animation-name ${moving.name})`)
+  await page.close()
+}
+// Print: every free log is laid out under its print styles at the width its paper leaves inside the margins
+// (US Letter, @page margins in global.css: landscape 11 - 2 x 0.4 in, portrait 8.5 - 2 x 0.5 in, at 96 px an inch).
+// No table may run past the page, and no screen-only hint may print. The old pages printed every column on paper.
+for (const f of fs.readdirSync(path.join(dist, "tools"), { recursive: true }).filter((f) => f.endsWith("index.html"))) {
+  const u = `/tools/${f.replace(/index\.html$/, "")}`
+  if (!fs.readFileSync(path.join(dist, "tools", f), "utf8").includes("data-sheet=")) continue
+  for (const orientation of ["landscape", "portrait"]) {
+    const page = await browser.newPage({ viewport: { width: orientation === "landscape" ? Math.round(10.2 * 96) : Math.round(7.5 * 96), height: 900 } })
+    await page.emulateMedia({ media: "print" })
+    await page.goto(base + u, { waitUntil: "networkidle" })
+    const r = await page.evaluate((o) => [...document.querySelectorAll(`[data-sheet].sheet-${o}`)].map((sh) => ({
+      id: sh.dataset.sheet,
+      over: Math.max(0, ...[...sh.querySelectorAll("table")].map((t) => Math.ceil(t.getBoundingClientRect().right - sh.getBoundingClientRect().right))),
+      hints: [...sh.querySelectorAll("[data-hint]")].filter((p) => p.checkVisibility()).length,
+    })), orientation)
+    for (const x of r) {
+      if (x.over > 0) fail(`${u} print (${orientation}): sheet ${x.id} runs ${x.over}px past the page`)
+      if (x.hints) fail(`${u} print (${orientation}): sheet ${x.id} prints a screen-only hint`)
+    }
+    await page.close()
+  }
+}
 await browser.close()
 server.close()
 console.log(`\n${failures.length} failures, ${warnings.length} warnings`)

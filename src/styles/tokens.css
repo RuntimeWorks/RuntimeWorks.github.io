@@ -291,6 +291,12 @@
 }
 }
 
+/* The logo's two fixed colours (src/data/brand.ts), the same in both themes; the mark swaps them on dark. */
+:root {
+  --brand-navy: #0F2B47;
+  --brand-sand: #EEE4D1;
+}
+
 /* Utopia fluid type (Tailwind names) and space. */
 :root {
   --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
@@ -332,6 +338,9 @@
   --text-sm--line-height: calc(1.25 / 0.875);
   --text-xs: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --text-xs--line-height: calc(1 / 0.75);
+  --text-display: clamp(3.25rem, 1.8929rem + 6.7857vw, 8rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
   /* IBM Carbon motion: fast-01, fast-02, moderate-02 and the productive-standard curve. */
   --duration-fast: 110ms;
   --duration-moderate: 150ms;

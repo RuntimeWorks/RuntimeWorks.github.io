@@ -10,6 +10,9 @@ import Shot from "../../components/product/Shot.astro"
 import Button from "../../components/Button.astro"
 import { brand } from "../../data/brand"
 import today from "../../assets/dental/dental-today.webp"
+import sporeLog from "../../assets/dental/tool-spore-test-log.png"
+import loadLog from "../../assets/dental/tool-sterilizer-load-log.png"
+import failedLog from "../../assets/dental/tool-failed-spore-test.png"
 
 const pilot = `mailto:${brand.email}?subject=${encodeURIComponent("Dental Logbook pilot")}`
 const summary = [["Product", "Dental Logbook"], ["Stage", "In development"], ["Pilot", "Free, for dental offices"], ["Regions", "United States first, then Canada (Ontario)"], ["Patient data", "Designed to store none"], ["Company", brand.legalName]]
@@ -47,15 +50,15 @@ const faq = [
 ]
 ---
 <Base title="Dental Logbook for Dental Offices · Boldsand" description="Sterilization and safety records for dental offices: per-load records, spore tests and safety checks, with any record found in seconds when an inspector or auditor asks. In development. Dental offices are invited to a free pilot.">
-  <Hero kicker="Dental offices · United States and Ontario" title="Sterilization records done properly, found in seconds." lead="Per-load records, spore tests, waterline tests and safety checks for dental office managers and the staff who run the sterilizers. One place for every record, ready when an inspector or auditor asks." status="In development" facts={["United States first, then Ontario", "Designed to store no patient information", "Built in Charlottetown, Canada"]}>
+  <Hero name="Dental Logbook" promise="Sterilization records done properly, found in seconds." lead="Per-load records, spore tests, waterline tests and safety checks for dental office managers and the staff who run the sterilizers. One place for every record, ready when an inspector or auditor asks." status="In development" facts={["Dental offices · United States and Ontario", "United States first, then Ontario", "Designed to store no patient information", "Built in Charlottetown, Canada"]}>
     <Fragment slot="actions">
       <Button href={pilot}>Join the free pilot</Button>
       <Button href="#planned" variant="secondary">See what’s planned</Button>
     </Fragment>
-    <div slot="visual" class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+    <div slot="visual" class="rounded-xl bg-gray-a3 p-6 sm:p-8">
       <p class="font-medium text-gray-12">In development. We’re inviting dental offices to a free pilot.</p>
-      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-6 border-t border-gray-a6 text-base">
-        {summary.map(([k, v]) => <><dt class="border-b border-gray-a6 py-3 text-gray-11">{k}</dt><dd class="border-b border-gray-a6 py-3 font-medium text-gray-12">{v}</dd></>)}
+      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-6 gap-y-3 text-base">
+        {summary.map(([k, v]) => <><dt class="text-gray-11">{k}</dt><dd class="font-medium text-gray-12">{v}</dd></>)}
       </dl>
       <p class="mt-5 text-sm"><a href="/tools/" class="font-medium text-accent-11 underline underline-offset-4">Free printable logs for dental offices</a></p>
     </div>
@@ -71,7 +74,7 @@ const faq = [
   <Section id="keeps" title="What the logbook will keep." intro="Everything below is planned, not built yet. The pilot decides what we finish first." tone="tint">
     <div class="grid items-start gap-10 lg:grid-cols-2">
       <ul class="flex flex-wrap content-start gap-3">
-        {keeps.map((c) => <li class="rounded-full border border-gray-a6 bg-gray-1 px-4 py-2 text-gray-12">{c}</li>)}
+        {keeps.map((c) => <li class="rounded-full bg-gray-a3 px-4 py-2 text-gray-12">{c}</li>)}
       </ul>
       <Shot src={today} alt="The Dental Logbook prototype’s Today screen for a sample office: the items due on three sterilizers, with overdue and due items marked." caption="The prototype’s Today screen, with sample data." />
     </div>
@@ -81,7 +84,7 @@ const faq = [
     <div class="grid gap-10 lg:grid-cols-3">
       {groups.map((g) => (
         <div>
-          <h3 class="border-t border-gray-a6 pt-4 text-lg font-semibold text-gray-12">{g.title}</h3>
+          <h3 class="text-lg font-semibold text-gray-12">{g.title}</h3>
           <Checklist class="mt-5" items={g.items} />
         </div>
       ))}
@@ -90,13 +93,13 @@ const faq = [
   </Section>
 
   <Section id="regions" title="United States first, then Canada." intro="The rules differ between the two, so the schedules and the records differ too. Your regulator and your infection-control program decide what your office must do." tone="tint">
-    <div class="grid gap-6 md:grid-cols-2">
-      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div class="rounded-xl bg-gray-a3 p-6 sm:p-8">
         <h3 class="text-xl font-semibold text-gray-12">Dental offices in the United States</h3>
         <p class="mt-2 text-gray-11">The first offices we are building for, with the checks and records that come up in US audits.</p>
         <Checklist class="mt-5" items={["Spore (biological indicator) tests every week", "OSHA bloodborne pathogens and hazard communication records", "Any record found in seconds when it is asked for"]} />
       </div>
-      <div class="rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+      <div class="rounded-xl bg-gray-a3 p-6 sm:p-8">
         <h3 class="text-xl font-semibold text-gray-12">Dental offices in Ontario</h3>
         <p class="mt-2 text-gray-11">Ontario’s RCDSO standards shape these checks, on top of the same record-keeping.</p>
         <Checklist class="mt-5" items={["Spore tests each day used and each cycle type", "Daily Bowie-Dick test for pre-vacuum sterilizers", "Implant loads held until the biological indicator passes"]} />
@@ -110,7 +113,7 @@ const faq = [
         <Checklist items={["Your sterilizers, cycle types and test schedules set up with you.", "The record formats reviewed with you before we finalize them.", "Your records stay yours. Export everything, any time.", "A direct line to the person building it. No ticket queue."]} />
         <div class="mt-8"><Button href={pilot}>Join the free pilot</Button></div>
       </div>
-      <ol class="grid gap-3 rounded-xl border border-gray-a6 bg-gray-1 p-6 sm:p-8">
+      <ol class="grid gap-3 rounded-xl bg-gray-a3 p-6 sm:p-8">
         {["Run it beside your real loads and tests for a few weeks.", "Tell us where it slows the team down.", "Tell us which records an auditor asks for that we do not cover yet."].map((t, i) => (
           <li class="flex gap-3"><span class="grid size-7 shrink-0 place-items-center rounded-full bg-accent-a3 text-sm font-semibold text-accent-11" aria-hidden="true">{i + 1}</span><span>{t}</span></li>
         ))}
@@ -118,7 +121,16 @@ const faq = [
     </div>
   </Section>
 
-  <Section id="faq" title="Straight answers." tone="tint">
+  <Section id="free-logs" title="Free logs you can print today." intro="While the logbook is built, the sheets in our library are free. Fill them in on screen or by hand. Nothing you type is saved or sent." tone="tint">
+    <div class="grid items-start gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <Shot src={sporeLog} href="/tools/spore-test-log/" sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" alt="The spore test (BI) log as it prints on US Letter, landscape: office, sterilizer and month at the top, then rows for the date placed, sterilizer, cycle type, load, BI product and lot, control, date read, result, who read it and the action if it failed." caption="Spore test (BI) log" />
+      <Shot src={loadLog} href="/tools/sterilizer-load-log/" sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" alt="The sterilizer load log as it prints on US Letter, landscape: one row per cycle with the date, start time, load number, cycle type, contents, temperature, pressure, exposure time, indicator results, operator and outcome." caption="Sterilizer load log" />
+      <Shot src={failedLog} href="/tools/failed-spore-test/" sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" alt="The failed spore test record as it prints on US Letter, portrait: from the date of the positive result through the repeat test, records reviewed, loads recalled, repair and requalification to the return to service." caption="Failed spore test record" />
+    </div>
+    <p class="mt-10"><a href="/tools/" class="font-medium text-accent-11 underline underline-offset-4">All free logs and records</a></p>
+  </Section>
+
+  <Section id="faq" title="Straight answers.">
     <Faq items={faq} />
   </Section>
 

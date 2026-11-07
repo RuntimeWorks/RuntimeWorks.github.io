@@ -12,7 +12,7 @@ export const brand = {
   incorporated: { iso: "2026-08-19", display: "19 August 2026", jurisdiction: "Prince Edward Island, Canada" },
   // Colour inputs for Radix's palette generator (scripts/gen-tokens.ts). accent = the logo's navy; gray = Radix
   // sand step 9; light background = the brand's paper; dark background = Radix's default for custom palettes.
-  colors: { accent: "#0F2B47", gray: "#8D8D86", backgroundLight: "#FBF8F2", backgroundDark: "#111111" },
+  colors: { accent: "#0F2B47", gray: "#8D8D86", backgroundLight: "#FBF8F2", backgroundDark: "#111111", markSand: "#EEE4D1" },
 } as const
 
 export type Status = "Live" | "Pilot open" | "In development"
